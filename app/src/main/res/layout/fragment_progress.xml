@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="12dp"
+    tools:context=".ui.main.ProgressFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/first_con"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/task_progress"
+        app:layout_constraintEnd_toStartOf="@id/second_const"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/data_view"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_date_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_data"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/events"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/data_view" />
+
+        <TextView
+            android:id="@+id/events_amount"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="65"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_data" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/second_const"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="@id/first_con"
+        app:layout_constraintEnd_toStartOf="@id/third_const"
+        app:layout_constraintStart_toEndOf="@id/first_con"
+        app:layout_constraintTop_toTopOf="@id/first_con">
+
+
+        <View
+            android:id="@+id/todo_view"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_todo"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/tasks"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/todo_view" />
+
+        <TextView
+            android:id="@+id/todo_amount"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="112"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_todo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/third_const"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="@id/second_const"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/second_const"
+        app:layout_constraintTop_toTopOf="@id/second_const"
+        tools:ignore="NotSibling,UnknownId">
+
+        <View
+            android:id="@+id/notes_view"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_idea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_notes"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/ideas"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notes_view" />
+
+        <TextView
+            android:id="@+id/plans_amount"
+            style="@style/dashboardTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 68 "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_notes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/task_progress"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/done_t"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/first_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_con" />
+
+    <View
+        android:id="@+id/first_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@id/medium_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task_progress" />
+
+    <View
+        android:id="@+id/medium_line"
+        android:layout_width="0.5dp"
+        android:layout_height="76dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_line" />
+
+    <TextView
+        android:id="@+id/total_amount"
+        style="@style/textDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="265"
+        app:layout_constraintBottom_toTopOf="@id/allTask_amount_t"
+        app:layout_constraintEnd_toStartOf="@id/medium_line"
+        app:layout_constraintStart_toEndOf="@id/medium_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_line" />
+
+    <TextView
+        android:id="@+id/allTask_amount_t"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:textSize="10sp"
+        android:text="@string/all_tasks"
+        app:layout_constraintBottom_toTopOf="@id/second_line"
+        app:layout_constraintEnd_toStartOf="@id/medium_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/total_amount" />
+
+    <TextView
+        android:id="@+id/complete_task_amount"
+        style="@style/textDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="210"
+        app:layout_constraintBottom_toTopOf="@id/complete_task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/medium_line"
+        app:layout_constraintTop_toBottomOf="@id/first_line" />
+
+    <TextView
+        android:id="@+id/complete_task"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/complete_tasks"
+        app:layout_constraintBottom_toTopOf="@id/second_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/medium_line"
+        app:layout_constraintTop_toBottomOf="@id/complete_task_amount" />
+
+    <View
+        android:id="@+id/second_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="6dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@id/timing_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complete_task" />
+
+    <TextView
+        android:id="@+id/timing_tv"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/timing"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_line" />
+
+    <View
+        android:id="@+id/sub_timing_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timing_tv" />
+
+    <View
+        android:id="@+id/second_medium_line"
+        android:layout_width="0.5dp"
+        android:layout_height="77dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sub_timing_view" />
+
+    <TextView
+        android:id="@+id/timing_task_amount"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="15"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/timing_allTask_amount"
+        app:layout_constraintEnd_toStartOf="@id/second_medium_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sub_timing_view" />
+
+    <TextView
+        android:id="@+id/timing_allTask_amount"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:textSize="10sp"
+        android:text="@string/all_records"
+        app:layout_constraintEnd_toStartOf="@id/second_medium_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timing_task_amount" />
+
+    <TextView
+        android:id="@+id/timing_minute_amount"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="21"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/timing_amount_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/second_medium_line"
+        app:layout_constraintTop_toBottomOf="@id/sub_timing_view" />
+
+    <TextView
+        android:id="@+id/timing_amount_tv"
+        style="@style/dashboardTextColor"
+        android:layout_width="wrap_content"
+        android:textSize="10sp"
+        android:layout_height="wrap_content"
+        android:text="@string/all_minutes"
+        app:layout_constraintBottom_toTopOf="@id/timing_second_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/second_medium_line"
+        app:layout_constraintTop_toBottomOf="@id/timing_minute_amount" />
+
+
+    <View
+        android:id="@+id/timing_second_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@id/scroll_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timing_allTask_amount" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timing_second_line">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/allTask_pr_title"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/tasks"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/allTask_progress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ProgressBar
+                android:id="@+id/allTask_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toStartOf="@id/allTask_percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/allTask_pr_title" />
+
+            <TextView
+                android:id="@+id/allTask_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/allTask_progress"
+                app:layout_constraintStart_toEndOf="@id/allTask_progress"
+                app:layout_constraintTop_toTopOf="@id/allTask_progress" />
+
+            <TextView
+                android:id="@+id/personal_pr_title"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="150dp"
+                android:text="@string/personal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/allTask_progress" />
+
+            <ProgressBar
+                android:id="@+id/personal_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toStartOf="@id/personal_percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personal_pr_title" />
+
+            <TextView
+                android:id="@+id/personal_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/personal_progress"
+                app:layout_constraintStart_toEndOf="@id/personal_progress"
+                app:layout_constraintTop_toTopOf="@id/personal_progress" />
+
+            <TextView
+                android:id="@+id/work_pr_title"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/work"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personal_progress" />
+
+            <ProgressBar
+                android:id="@+id/work_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toStartOf="@id/work_percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_pr_title" />
+
+
+            <TextView
+                android:id="@+id/work_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/work_progress"
+                app:layout_constraintStart_toEndOf="@id/work_progress"
+                app:layout_constraintTop_toTopOf="@+id/work_progress" />
+
+
+            <TextView
+                android:id="@+id/meetTask_pr_title"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/meets"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/allTask_pr_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/meetTask_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/allTask_progress"
+                app:layout_constraintEnd_toStartOf="@id/meetTask_percent"
+                app:layout_constraintStart_toEndOf="@id/allTask_percent"
+                app:layout_constraintTop_toBottomOf="@id/meetTask_pr_title" />
+
+            <TextView
+                android:id="@+id/meetTask_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/meetTask_progress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/meetTask_progress"
+                app:layout_constraintTop_toTopOf="@id/meetTask_progress" />
+
+            <TextView
+                android:id="@+id/homeTask_pr_title"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/home"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/personal_pr_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meetTask_progress" />
+
+            <ProgressBar
+                android:id="@+id/homeTask_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/personal_progress"
+                app:layout_constraintEnd_toStartOf="@+id/homeTask_percent"
+                app:layout_constraintStart_toEndOf="@+id/personal_percent"
+                app:layout_constraintTop_toBottomOf="@+id/homeTask_pr_title" />
+
+            <TextView
+                android:id="@+id/homeTask_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/homeTask_progress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/homeTask_progress"
+                app:layout_constraintTop_toTopOf="@id/homeTask_progress" />
+
+            <TextView
+                android:id="@+id/private_pr_title"
+                style="@style/textDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/privates"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/work_pr_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeTask_progress" />
+
+            <ProgressBar
+                android:id="@+id/private_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/work_progress"
+                app:layout_constraintEnd_toStartOf="@+id/privateTask_percent"
+                app:layout_constraintStart_toEndOf="@+id/work_percent"
+                app:layout_constraintTop_toBottomOf="@+id/private_pr_title" />
+
+            <TextView
+                android:id="@+id/privateTask_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/private_progress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/meetTask_progress"
+                app:layout_constraintTop_toTopOf="@+id/private_progress" />
+
+            <TextView
+                android:id="@+id/add_pr_title"
+                style="@style/textDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Свое"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_progress"/>
+
+            <ProgressBar
+                android:id="@+id/add_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toStartOf="@id/add_percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_pr_title" />
+
+            <TextView
+                android:id="@+id/add_percent"
+                style="@style/dashboardTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="0%"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/add_progress"
+                app:layout_constraintStart_toEndOf="@id/add_progress"
+                app:layout_constraintTop_toTopOf="@+id/add_progress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

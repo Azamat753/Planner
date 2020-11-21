@@ -1,0 +1,73 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/royalEnd</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/statusBarC</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+
+
+
+    <style name="ViewStyles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+
+    <style name="ImageForTodo">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <style name="TextTitleQuick">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/myWhite</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="todoAmountTextColor">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textColor">@color/myWhite</item>
+    </style>
+
+    <style name="textDashboard">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textColor">@color/myWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="todoTextColor">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textColor">@color/myWhite</item>
+    </style>
+
+    <style name="ideaTextColor">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textColor">@color/icon_color</item>
+    </style>
+    <style name="dashboardTextColor">
+        <item name="android:fontFamily">@font/m_light</item>
+        <item name="android:textColor">@color/myWhite</item>
+    </style>
+
+    <style name="backgroundApp">
+        <item name="background">@color/royalStart</item>
+    </style>
+</resources>

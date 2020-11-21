@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/splash_fragment">
+
+    <fragment
+        android:id="@+id/splash_fragment"
+
+        android:name="com.lawlett.planner.ui.splash.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splash_fragment_to_board_fragment"
+            app:destination="@id/board_fragment" />
+        <action
+            android:id="@+id/action_splash_fragment_to_progress_fragment"
+            app:destination="@id/progress_fragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/splash_fragment_to_board_fragment"
+        app:destination="@id/board_fragment" />
+
+    <fragment
+        android:id="@+id/board_fragment"
+        android:name="com.lawlett.planner.ui.onboard.OnBoardFragment"
+        tools:layout="@layout/fragment_onboard">
+        <action
+            android:id="@+id/action_board_fragment_to_progress_fragment"
+            app:destination="@id/progress_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/progress_fragment"
+        android:name="com.lawlett.planner.ui.main.ProgressFragment"
+        tools:layout="@layout/fragment_progress">
+        <action
+            android:id="@+id/action_progress_fragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/category_fragment"
+        android:name="com.lawlett.planner.ui.main.CategoryFragment"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_category_fragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/idea_fragment"
+        android:name="com.lawlett.planner.ui.main.IdeaFragment"
+        tools:layout="@layout/fragment_idea">
+        <action
+            android:id="@+id/action_idea_fragment_to_recordIdeaFragment"
+            app:destination="@id/recordIdeaFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_idea_fragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/timing_fragment"
+        android:name="com.lawlett.planner.ui.main.TimingFragment"
+        tools:layout="@layout/fragment_timing">
+        <action
+            android:id="@+id/action_timing_fragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/events_fragment"
+        android:name="com.lawlett.planner.ui.main.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_events_fragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordIdeaFragment"
+        android:name="com.lawlett.planner.ui.main.CreateIdeaFragment"
+        android:label="fragment_record_idea"
+        tools:layout="@layout/fragment_create_idea">
+        <action
+            android:id="@+id/action_recordIdeaFragment_to_idea_fragment"
+            app:destination="@id/idea_fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/slide_out_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.lawlett.planner.ui.main.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

@@ -18,9 +18,9 @@
             app:destination="@id/progress_fragment" />
     </fragment>
 
-    <action
+   <!-- <action
         android:id="@+id/splash_fragment_to_board_fragment"
-        app:destination="@id/board_fragment" />
+        app:destination="@id/board_fragment" />-->
 
     <fragment
         android:id="@+id/board_fragment"
@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_category_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_category_fragment_to_createTasksFragment"
+            app:destination="@id/createTasksFragment" />
     </fragment>
 
 
@@ -100,5 +103,19 @@
         android:name="com.lawlett.planner.ui.main.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/createTasksFragment"
+        android:name="com.lawlett.planner.ui.main.CreateTasksFragment"
+        android:label="fragment_create_tasks"
+        tools:layout="@layout/fragment_create_tasks" >
+        <action
+            android:id="@+id/action_createTasksFragment_to_category_fragment"
+            app:destination="@id/category_fragment" />
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue="default" />
+
+    </fragment>
 
 </navigation>

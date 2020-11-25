@@ -8,8 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.utils.gone
-import com.lawlett.planner.utils.visible
+import com.lawlett.planner.extensions.checkedTheme
+import com.lawlett.planner.extensions.gone
+import com.lawlett.planner.extensions.loadLocale
+import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        this.checkedTheme()
+        loadLocale(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupNavigation()
@@ -29,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeTitleToolbar() {
         navController = findNavController(R.id.nav_host_fragment)
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.progress_fragment -> {
                     toolbar_title.text = getString(R.string.progress)
@@ -83,7 +87,8 @@ class MainActivity : AppCompatActivity() {
                     R.id.splash_fragment,
                     R.id.board_fragment,
                     R.id.recordIdeaFragment,
-                    R.id.settingsFragment
+                    R.id.settingsFragment,
+                    R.id.createTasksFragment
                 )
             ) {
                 toolbar_main.gone()

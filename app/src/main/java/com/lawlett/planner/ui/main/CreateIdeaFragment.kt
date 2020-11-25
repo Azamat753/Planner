@@ -15,10 +15,10 @@ import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
-import com.lawlett.planner.utils.invisible
-import com.lawlett.planner.utils.loadImage
-import com.lawlett.planner.utils.toastShow
-import com.lawlett.planner.utils.visible
+import com.lawlett.planner.extensions.invisible
+import com.lawlett.planner.extensions.loadImage
+import com.lawlett.planner.extensions.toastShow
+import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.fragment_create_idea.*
 
 class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
@@ -163,22 +163,18 @@ requireContext().toastShow("Permission denied")
         if (!isClicked) {
             fab2_container_create.visible();
             fab3_container_create.visible()
-            fab4_container_create.visible()
         }
         fab2_container_create.invisible();
         fab3_container_create.invisible()
-        fab4_container_create.invisible()
     }
     private fun setVisibility(isClicked: Boolean) {
         if (!isClicked) {
             fab2_container_create.startAnimation(fromBottom)
             fab3_container_create.startAnimation(fromBottom)
-            fab4_container_create.startAnimation(fromBottom)
             fab_create.startAnimation(rotateOpen)
         } else {
             fab2_container_create.startAnimation(toBottom)
             fab3_container_create.startAnimation(toBottom)
-            fab4_container_create.startAnimation(toBottom)
             fab_create.startAnimation(rotateClose)
         }
     }

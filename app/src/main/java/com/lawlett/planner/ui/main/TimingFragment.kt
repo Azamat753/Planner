@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
-import com.lawlett.planner.utils.invisible
-import com.lawlett.planner.utils.visible
+import com.lawlett.planner.extensions.invisible
+import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.fragment_timing.*
-import kotlinx.android.synthetic.main.tool_bar.*
 
 class TimingFragment : BaseFragment(R.layout.fragment_timing) {
     private val rotateOpen: Animation by lazy {

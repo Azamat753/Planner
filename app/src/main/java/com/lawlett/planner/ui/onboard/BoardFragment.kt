@@ -6,12 +6,17 @@ import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.utils.BoardPreference
+import com.lawlett.planner.extensions.changeLanguage
 import kotlinx.android.synthetic.main.fragment_board.*
 
 class BoardFragment : BaseFragment(R.layout.fragment_board) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        change_lang.setOnClickListener {
+            requireActivity().changeLanguage()
+        }
 
         when (arguments?.getInt("pos")) {
             0 -> {

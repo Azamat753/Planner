@@ -13,10 +13,6 @@ class BoardPreference(context: Context) {
         preferences.edit().putBoolean("isShown", true).apply()
     }
 
-    fun clearSettings() {
-        preferences.edit().clear().apply()
-    }
-
     companion object {
         @Volatile
         var instance: BoardPreference? = null

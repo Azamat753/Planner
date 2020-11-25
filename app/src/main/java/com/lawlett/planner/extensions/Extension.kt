@@ -1,4 +1,4 @@
-package com.lawlett.planner.utils
+package com.lawlett.planner.extensions
 
 import android.content.Context
 import android.net.Uri

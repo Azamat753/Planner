@@ -4,11 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.lawlett.planner.data.room.dao.TasksDao
+import com.lawlett.planner.data.room.dao.TimingDao
+import com.lawlett.planner.data.room.models.Tasks
 
 @Database(entities = [Tasks::class],version = 1,exportSchema = false)
 abstract class TasksDatabase:RoomDatabase() {
 
-    abstract fun taskDao():TasksDao
+    abstract fun taskDao(): TasksDao
+    abstract fun timingDao(): TimingDao
 
     companion object{
         @Volatile

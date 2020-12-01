@@ -8,6 +8,7 @@ import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.utils.ThemePreference
 import com.lawlett.planner.extensions.changeLanguage
+import com.lawlett.planner.extensions.loadLocale
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -17,7 +18,6 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         backClick()
         changeTheme()
         changeLanguage()
-
     }
 
     private fun changeLanguage() {

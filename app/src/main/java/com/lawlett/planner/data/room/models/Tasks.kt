@@ -1,4 +1,4 @@
-package com.lawlett.planner.data.room
+package com.lawlett.planner.data.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

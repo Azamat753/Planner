@@ -108,4 +108,5 @@
     <string name="change_image_title">Поменять картинку и название категории</string>
     <string name="remove_category">Удалить категорию</string>
     <string name="what_to_do">Что бы вы хотели сделать?</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

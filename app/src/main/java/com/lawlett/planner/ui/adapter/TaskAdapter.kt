@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
-import com.lawlett.planner.data.room.Tasks
+import com.lawlett.planner.data.room.models.Tasks
 import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
@@ -27,10 +27,11 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val currentItem = taskList[position]
-        holder.itemView.task_ch.text=currentItem.task
+        holder.itemView.task_ch.text = currentItem.task
     }
-    fun setData (task :List<Tasks>){
-        this.taskList=task
+
+    fun setData(task: List<Tasks>) {
+        this.taskList = task
         notifyDataSetChanged()
     }
 }

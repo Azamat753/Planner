@@ -88,7 +88,9 @@ class MainActivity : AppCompatActivity() {
                     R.id.board_fragment,
                     R.id.recordIdeaFragment,
                     R.id.settingsFragment,
-                    R.id.createTasksFragment
+                    R.id.createTasksFragment,
+                    R.id.timerFragment,
+                    R.id.stopwatchFragment
                 )
             ) {
                 toolbar_main.gone()

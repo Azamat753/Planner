@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab2"
+            android:id="@+id/stopwatch_fab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="24dp"
@@ -61,7 +61,7 @@
             android:textColor="@color/myWhite"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/fab2"
+            app:layout_constraintEnd_toStartOf="@id/stopwatch_fab"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab3"
+            android:id="@+id/timer_fab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="24dp"
@@ -98,7 +98,7 @@
             android:textColor="@color/myWhite"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/fab3"
+            app:layout_constraintEnd_toStartOf="@id/timer_fab"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

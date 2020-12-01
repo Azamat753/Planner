@@ -20,48 +20,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal">
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/m_light"
+                android:text="@string/ideas"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/back_view"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_left_arrow" />
-
-                <TextView
-                    android:id="@+id/toolbar_title_quick"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="25dp"
-                    android:text="@string/write_idea"
-                    android:textColor="@android:color/white"
-                    android:textSize="23dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/done_view"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_done" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/done_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                app:srcCompat="@drawable/ic_done" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -69,14 +46,14 @@
         android:id="@+id/ed_title_create_idea"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:inputType="textCapSentences"
-        android:textColor="@color/myWhite"
         android:layout_marginTop="30dp"
-        android:paddingStart="20dp"
         android:background="@drawable/rectangle_bg"
         android:hint="@string/record_description"
-        android:textSize="20sp"
+        android:inputType="textCapSentences"
+        android:paddingStart="20dp"
+        android:textColor="@color/myWhite"
         android:textColorHint="@color/hint_color"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/create_idea_toolbar" />
@@ -84,30 +61,30 @@
     <EditText
         android:id="@+id/ed_desc_create_idea"
         android:layout_width="300dp"
-        android:paddingStart="20dp"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/hint_color"
-        android:textColor="@color/myWhite"
         android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle_bg"
         android:hint="@string/record_description"
         android:inputType="textMultiLine|textCapSentences"
         android:maxLines="20"
-        android:background="@drawable/rectangle_bg"
+        android:paddingStart="20dp"
+        android:textColor="@color/myWhite"
+        android:textColorHint="@color/hint_color"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ed_title_create_idea" />
-    
+
     <ImageView
         android:id="@+id/image_create_idea"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_camera"
-        app:layout_constraintTop_toBottomOf="@id/ed_desc_create_idea"
+        android:layout_marginTop="30dp"
         android:background="@color/royalStart"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ed_desc_create_idea" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_create"
@@ -140,11 +117,11 @@
             android:backgroundTint="@color/colorPrimary"
             android:clickable="true"
             android:focusable="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_choose_image"
             app:backgroundTint="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -178,10 +155,10 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_camera"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:backgroundTint="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"

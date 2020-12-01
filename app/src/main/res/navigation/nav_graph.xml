@@ -76,6 +76,12 @@
         <action
             android:id="@+id/action_timing_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_timing_fragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+        <action
+            android:id="@+id/action_timing_fragment_to_stopwatchFragment"
+            app:destination="@id/stopwatchFragment" />
     </fragment>
 
     <fragment
@@ -86,6 +92,9 @@
         <action
             android:id="@+id/action_events_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_events_fragment_to_createEventFragment"
+            app:destination="@id/createEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/recordIdeaFragment"
@@ -117,5 +126,20 @@
             android:defaultValue="default" />
 
     </fragment>
+    <fragment
+        android:id="@+id/stopwatchFragment"
+        android:name="com.lawlett.planner.ui.main.timing.StopwatchFragment"
+        android:label="fragment_stopwatch"
+        tools:layout="@layout/fragment_stopwatch" />
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.lawlett.planner.ui.main.timing.TimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" />
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.lawlett.planner.ui.main.CreateEventFragment"
+        android:label="fragment_create_event"
+        tools:layout="@layout/fragment_create_event" />
 
 </navigation>

@@ -16,9 +16,11 @@ import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.adapter.TimingAdapter
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
+import org.koin.android.ext.android.inject
 
 class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
     var elapsedMillis: Long = 0
@@ -29,35 +31,22 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
     var btgTwo: Animation? = null
     var stopwatchTime: String? = null
     private var notificationManager: NotificationManagerCompat? = null
-
-    private lateinit var mTimingViewModel: TimingViewModel
+    private val viewModel by inject<TimingViewModel>()
+    private val timingAdaper = TimingAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         notificationManager = NotificationManagerCompat.from(requireContext())
         initAnimation()
         initListeners()
-        initRecycler()
-        initViewModel()
-
+//        insertToDataBase()
     }
-
-    private fun initViewModel() {
-        mTimingViewModel = ViewModelProvider(requireActivity()).get(TimingViewModel::class.java)
-        insertToDataBase()
-    }
-
-    private fun insertToDataBase() {
-        toolbar_title.text = getString(R.string.stopwatch)
-        mTimingViewModel.getData().observe(viewLifecycleOwner, { timings ->
-
-        })
-    }
-
-    private fun initRecycler() {
-
-
-    }
+//    private fun insertToDataBase() {
+//        toolbar_title.text = getString(R.string.stopwatch)
+//        viewModel.getData().observe(viewLifecycleOwner, { timings ->
+//            timingAdaper.setData(timings)
+//        })
+//    }
 
     private fun initListeners() {
         stopwatch_task_apply.setOnClickListener {
@@ -109,7 +98,6 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
         notificationManager!!.notify(1, notification)
 
     }
-
     private fun initAnimation() {
         atg = AnimationUtils.loadAnimation(requireContext(), R.anim.atg)
         btgOne = AnimationUtils.loadAnimation(requireContext(), R.anim.btgone)

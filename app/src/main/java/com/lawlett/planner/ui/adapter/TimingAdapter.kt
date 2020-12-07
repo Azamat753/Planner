@@ -29,9 +29,11 @@ class TimingAdapter :RecyclerView.Adapter<TimingAdapter.TimingViewHolder>() {
         holder.itemView.task_day.text=currentItem.timerDay
 
     }
-
     override fun getItemCount(): Int {
         return timingList.size
-
+    }
+    fun setData(timing:List<Timing>){
+        this.timingList=timing
+        notifyDataSetChanged()
     }
 }

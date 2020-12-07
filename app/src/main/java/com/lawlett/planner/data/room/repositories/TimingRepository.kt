@@ -5,10 +5,10 @@ import com.lawlett.planner.data.room.models.Timing
 import com.lawlett.planner.data.room.dao.TimingDao
 
 class TimingRepository(private val timingDao: TimingDao) {
-    fun loadData():LiveData<List<Timing>>{
-        return timingDao.readAllData()
-    }
+//    fun loadData():LiveData<List<Timing>>{
+//        return timingDao.readAllData()
+//    }
     suspend fun addTask(timing: Timing){
-        timingDao.addTask(timing)
+//        timingDao.addTask(timing)
     }
 }

@@ -21,5 +21,5 @@ class TimingViewModel(application: Application):AndroidViewModel(application) {
             repository.addTask(timing)
         }
     }
-    fun getData():LiveData<List<Timing>> =repository.loadData()
+//    fun getData():LiveData<List<Timing>> =repository.loadData()
 }

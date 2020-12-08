@@ -6,13 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.EventsFragment">
 
-    <com.oscarvera.calendarhorizontal.HorizontalCalendarView
-        android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
+    <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/royalStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_quick_btn"

@@ -16,6 +16,7 @@ import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.adapter.TimingAdapter
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
@@ -29,7 +30,6 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
     var btgTwo: Animation? = null
     var stopwatchTime: String? = null
     private var notificationManager: NotificationManagerCompat? = null
-
     private lateinit var mTimingViewModel: TimingViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

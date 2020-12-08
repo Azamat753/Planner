@@ -9,6 +9,7 @@ import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.adapter.TimingAdapter
 import kotlinx.android.synthetic.main.fragment_timing.*
 
 class TimingFragment : BaseFragment(R.layout.fragment_timing) {
@@ -37,17 +38,24 @@ class TimingFragment : BaseFragment(R.layout.fragment_timing) {
         )
     }
     private var isClicked = false
+    var adapter = TimingAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         checkRecordsOnEmpty()
+        initViewModel()
+
+    }
+
+    private fun initViewModel() {
+
     }
 
     private fun checkRecordsOnEmpty() {
         
     }
-
     private fun initClickers() {
         fab.setOnClickListener { onAddButtonClicked() }
         stopwatch_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_stopwatchFragment)}

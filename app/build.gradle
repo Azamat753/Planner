@@ -16,7 +16,6 @@ android {
         versionName "1.0"
         multiDexEnabled true
 
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -78,6 +77,4 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     //horizontal calendarview
     implementation 'com.oscarvera:scrollhorizontalcalendar:0.4.0.4'
-
-
 }

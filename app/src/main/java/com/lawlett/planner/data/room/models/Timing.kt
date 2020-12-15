@@ -7,11 +7,10 @@ import androidx.room.PrimaryKey
 data class Timing(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val timerTitle: String,
-    val timerMinutes: Int,
-    val timerDay:String,
+    val timerTitle: String?=null,
+    val timerMinutes: Int?=null,
+    val timerDay:String?=null,
 
-    val stopwatch: String,
-    val stopwatchMinutes: Int,
-    val stopwatchDay: String
+    val stopwatch: String?=null,
+    val stopwatchDay: String?=null
 )

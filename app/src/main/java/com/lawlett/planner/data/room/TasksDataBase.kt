@@ -7,8 +7,9 @@ import androidx.room.RoomDatabase
 import com.lawlett.planner.data.room.dao.TasksDao
 import com.lawlett.planner.data.room.dao.TimingDao
 import com.lawlett.planner.data.room.models.Tasks
+import com.lawlett.planner.data.room.models.Timing
 
-@Database(entities = [Tasks::class],version = 1,exportSchema = false)
+@Database(entities = [Tasks::class, Timing::class],version = 1,exportSchema = false)
 abstract class TasksDatabase:RoomDatabase() {
 
     abstract fun taskDao(): TasksDao
@@ -28,7 +29,7 @@ abstract class TasksDatabase:RoomDatabase() {
                     context.applicationContext,
                     TasksDatabase::class.java,
                     "task_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE=instance
                  return instance
             }

@@ -14,5 +14,5 @@ interface TasksDao {
     suspend fun addTask(tasks: Tasks)
 
     @Query("SELECT * FROM tasks_table WHERE category=:category ")
-     fun loadCategory(category: String): LiveData<List<Tasks>>
+    fun loadCategory(category: String): LiveData<List<Tasks>>
 }

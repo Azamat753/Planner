@@ -12,6 +12,7 @@ import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.TimingAdapter
 import kotlinx.android.synthetic.main.fragment_timing.*
+import org.koin.android.ext.android.inject
 
 class TimingFragment : BaseFragment(R.layout.fragment_timing) {
 
@@ -40,41 +41,45 @@ class TimingFragment : BaseFragment(R.layout.fragment_timing) {
         )
     }
     private var isClicked = false
-    private val timingAdapter=TimingAdapter()
-    private lateinit var mTimingViewModel: TimingViewModel
+    private val adapter = TimingAdapter()
+    private val viewModel by inject<TimingViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
         initClickers()
         checkRecordsOnEmpty()
-        initViewModel()
+        getData()
 
     }
 
-    private fun initViewModel() {
-
+    private fun getData() {
+        viewModel.getData().observe(viewLifecycleOwner, { timings ->
+            adapter.setData(timings)
+        })
 
     }
 
     private fun initRecycler() {
-        timing_recycler.adapter=timingAdapter
+        timing_recycler.adapter = adapter
     }
 
     private fun checkRecordsOnEmpty() {
-        
+
     }
 
     private fun initClickers() {
         fab.setOnClickListener { onAddButtonClicked() }
-        stopwatch_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_stopwatchFragment)}
+        stopwatch_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_stopwatchFragment) }
         timer_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_timerFragment) }
     }
+
     private fun onAddButtonClicked() {
         setVisibility(isClicked)
         setAnimation(isClicked)
         isClicked = !isClicked
     }
+
     private fun setAnimation(isClicked: Boolean) {
         if (!isClicked) {
             fab2_container.visible();
@@ -83,6 +88,7 @@ class TimingFragment : BaseFragment(R.layout.fragment_timing) {
         fab2_container.invisible();
         fab3_container.invisible()
     }
+
     private fun setVisibility(isClicked: Boolean) {
         if (!isClicked) {
             fab2_container.startAnimation(fromBottom)

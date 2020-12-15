@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 
 
 class ThemePreference(context: Context) {
+
     private val preferences: SharedPreferences
 
     val getLightTheme: Boolean

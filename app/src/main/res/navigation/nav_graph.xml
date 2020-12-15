@@ -130,12 +130,20 @@
         android:id="@+id/stopwatchFragment"
         android:name="com.lawlett.planner.ui.main.timing.StopwatchFragment"
         android:label="fragment_stopwatch"
-        tools:layout="@layout/fragment_stopwatch" />
+        tools:layout="@layout/fragment_stopwatch" >
+        <action
+            android:id="@+id/action_stopwatchFragment_to_timing_fragment"
+            app:destination="@id/timing_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.lawlett.planner.ui.main.timing.TimerFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" />
+        tools:layout="@layout/fragment_timer" >
+        <action
+            android:id="@+id/action_timerFragment_to_timing_fragment"
+            app:destination="@id/timing_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/createEventFragment"
         android:name="com.lawlett.planner.ui.main.CreateEventFragment"

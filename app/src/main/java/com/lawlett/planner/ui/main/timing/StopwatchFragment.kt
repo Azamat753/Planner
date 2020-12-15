@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.lifecycle.ViewModelProvider
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.data.room.models.Timing
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
@@ -21,6 +22,8 @@ import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
 import org.koin.android.ext.android.inject
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
     var elapsedMillis: Long = 0
@@ -32,21 +35,39 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
     var stopwatchTime: String? = null
     private var notificationManager: NotificationManagerCompat? = null
     private val viewModel by inject<TimingViewModel>()
-    private val timingAdaper = TimingAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         notificationManager = NotificationManagerCompat.from(requireContext())
         initAnimation()
         initListeners()
-//        insertToDataBase()
+        insertToDataBase()
     }
-//    private fun insertToDataBase() {
-//        toolbar_title.text = getString(R.string.stopwatch)
-//        viewModel.getData().observe(viewLifecycleOwner, { timings ->
-//            timingAdaper.setData(timings)
-//        })
-//    }
+    private fun insertToDataBase() {
+        val c = Calendar.getInstance()
+        val year = c[Calendar.YEAR]
+        val monthName = arrayOf(
+            getString(R.string.january),
+            getString(R.string.february),
+            getString(R.string.march),
+            getString(R.string.april),
+            getString(R.string.may),
+            getString(R.string.june),
+            getString(R.string.july),
+            getString(R.string.august),
+            getString(R.string.september),
+            getString(R.string.october),
+            getString(R.string.november),
+            getString(R.string.december)
+        )
+        val month = monthName[c[Calendar.MONTH]]
+        val currentDate = SimpleDateFormat("dd ", Locale.getDefault()).format(Date())
+
+        toolbar_title.text = getString(R.string.stopwatch)
+        var stopwatch=Timing(stopwatch = stopwatch_task_edit.text.toString() ,stopwatchDay ="$currentDate $month $year" )
+        viewModel.addTask(stopwatch)
+        }
+
 
     private fun initListeners() {
         stopwatch_task_apply.setOnClickListener {
@@ -67,6 +88,7 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
         btnstop.setOnClickListener {
             showElapsedTime()
             notificationManager?.cancel(1)
+
         }
     }
 

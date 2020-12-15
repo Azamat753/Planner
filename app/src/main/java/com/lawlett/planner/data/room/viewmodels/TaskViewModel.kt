@@ -21,7 +21,6 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addTask(task)
         }
-
     }
 
     fun getCategory(category: String): LiveData<List<Tasks>> = repository.loadCategory(category)

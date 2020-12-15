@@ -14,12 +14,17 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.data.room.models.Timing
+import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.toastShow
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import com.lawlett.planner.utils.SimpleCountDownTimer
 import kotlinx.android.synthetic.main.fragment_timer.*
+import org.koin.android.ext.android.inject
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TimerFragment : BaseFragment(R.layout.fragment_timer) {
     lateinit var mp: MediaPlayer
@@ -32,6 +37,7 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
     var atg: Animation? = null
     var btgOne: Animation? = null
     var btgTwo: Animation? = null
+    private val viewModel by inject<TimingViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +45,34 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
         initNotification()
         initClickers()
 
+    }
 
+    private fun recordDataInRoom() {
+        val c = Calendar.getInstance()
+        val year = c[Calendar.YEAR]
+        val monthName = arrayOf(
+            getString(R.string.january),
+            getString(R.string.february),
+            getString(R.string.march),
+            getString(R.string.april),
+            getString(R.string.may),
+            getString(R.string.june),
+            getString(R.string.july),
+            getString(R.string.august),
+            getString(R.string.september),
+            getString(R.string.october),
+            getString(R.string.november),
+            getString(R.string.december)
+        )
+        val month = monthName[c[Calendar.MONTH]]
+        val currentDate = SimpleDateFormat("dd ", Locale.getDefault()).format(Date())
+
+        val timings = Timing(
+            timerTitle = timer_task_edit.text.toString(),
+            timerMinutes = editText.text.toString().toInt(),
+            timerDay = "$currentDate $month $year"
+        )
+        viewModel.addTask(timings)
     }
 
     private fun initAnimation() {
@@ -67,7 +100,7 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
             }
         }
         apply_button.setOnClickListener {
-            if (editText.text.toString().equals("") || editText.text.toString().toInt() < 1) {
+            if (editText.text.toString() == "" || editText.text.toString().toInt() < 1) {
                 requireContext().toastShow(getString(R.string.zero_minutes_pass))
 
             } else {
@@ -83,6 +116,20 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
         countdown_button.setOnClickListener {
             startTimer()
             showNotification()
+        }
+
+        exit_button.setOnClickListener {
+            var myTime = countdown_text.text.toString()
+            if (myTime.equals("0:00") || myTime.equals("0:01") || myTime.equals("0:02")) {
+                recordDataInRoom()
+                if (mp != null)
+                    mp.stop()
+                countDownTimer.cancel()
+                findNavController().navigate(R.id.action_timerFragment_to_timing_fragment)
+            } else {
+                requireContext().toastShow(getString(R.string.timer_dont_end))
+            }
+            notificationManager.cancel(1)
         }
     }
 
@@ -161,6 +208,7 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
     fun lockBack() {
 
     }
+
     private fun initNotification() {
         val notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
         mp = MediaPlayer.create(requireContext(), notification)

@@ -12,7 +12,6 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     private var taskList = emptyList<Tasks>()
 
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {

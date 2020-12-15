@@ -17,9 +17,9 @@ class TimingViewModel(application: Application):AndroidViewModel(application) {
         repository= TimingRepository(timingDao)
     }
     fun addTask(timing: Timing){
-        viewModelScope.launch ( Dispatchers.IO ){
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addTask(timing)
         }
     }
-//    fun getData():LiveData<List<Timing>> =repository.loadData()
+    fun getData():LiveData<List<Timing>> =repository.loadData()
 }

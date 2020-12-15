@@ -12,7 +12,6 @@ import com.squareup.picasso.Picasso
 fun Context.toastShow(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
-
 fun ImageView.loadImage(uri: Uri?) {
     Picasso.get().load(uri).centerCrop().resize(this.measuredWidth,this.measuredHeight)
         .error(R.drawable.ic_camera)

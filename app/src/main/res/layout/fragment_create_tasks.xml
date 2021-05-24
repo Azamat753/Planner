@@ -45,7 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cr_category_toolbar" />
 
-
     <EditText
         android:id="@+id/cr_editText"
         android:layout_width="270dp"
@@ -54,6 +53,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:padding="16dp"
+        android:textColorHint="@color/myWhite"
+        android:hint="@string/task"
         app:borderWidth="2dp"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

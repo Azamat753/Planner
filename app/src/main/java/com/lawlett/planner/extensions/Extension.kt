@@ -3,6 +3,7 @@ package com.lawlett.planner.extensions
 import android.content.Context
 import android.net.Uri
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.airbnb.lottie.utils.Logger.error
@@ -28,4 +29,7 @@ fun View.gone() {
 
 fun View.invisible() {
     this.visibility = View.INVISIBLE
+}
+fun EditText.clearField(){
+    this.text.clear()
 }

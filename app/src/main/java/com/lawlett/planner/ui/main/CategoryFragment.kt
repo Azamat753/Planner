@@ -1,7 +1,6 @@
 package com.lawlett.planner.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
@@ -20,40 +19,40 @@ class CategoryFragment : BaseFragment(R.layout.fragment_category) {
         openCategories()
         showAmountTasks()
     }
-
     private fun showAmountTasks() {
         viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, { tasks ->
-            if (tasks.isNotEmpty()) {
+            if (tasks.isEmpty()) {
+                personal_amount.text = "0"
+            } else {
                 personal_amount.text = tasks.size.toString()
             }
         })
         viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, { tasks ->
-            if (tasks.isNotEmpty()) {
-                if (tasks.isEmpty()){
-                    work_amount.text ="0"
-                }else{
-                 work_amount.text=tasks.size.toString()
-                }
+            if (tasks.isEmpty()) {
+                work_amount.text = "0"
+            } else {
+                work_amount.text = tasks.size.toString()
             }
         })
         viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, { tasks ->
-            if (tasks.isNotEmpty()) {
+            if (tasks.isEmpty()) {
+                meet_task_amount.text = "0"
+            } else {
                 meet_task_amount.text = tasks.size.toString()
             }
         })
         viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner, { tasks ->
-            if (tasks.isNotEmpty()) {
+            if (tasks.isEmpty()) {
+                home_task_amount.text = "0"
+            } else {
                 home_task_amount.text = tasks.size.toString()
             }
         })
         viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, { tasks ->
-            Log.e("ololo", "showAmountTasks: "+tasks.size )
-            if (tasks.isNotEmpty()) {
-                if (tasks.isEmpty()) {
-                    private_task_amount.text = "0"
-                } else {
-                    private_task_amount.text = tasks.size.toString()
-                }
+            if (tasks.isEmpty()) {
+                private_task_amount.text = "0"
+            } else {
+                private_task_amount.text = tasks.size.toString()
             }
         })
     }

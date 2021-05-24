@@ -15,4 +15,10 @@ interface TasksDao {
 
     @Update
     suspend fun update(tasks: Tasks)
+
+    @Delete
+    suspend fun delete(tasks: Tasks)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+   suspend fun updateWord(tasks: List<Tasks?>)
 }

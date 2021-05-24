@@ -31,6 +31,7 @@ class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
             R.anim.rotate_open_anim
         )
     }
+
     private val rotateClose: Animation by lazy {
         AnimationUtils.loadAnimation(
             requireContext(),
@@ -57,108 +58,126 @@ class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
         getImageFromGallery()
         getImageFromCamera()
     }
+
     private fun getImageFromCamera() {
         fab_camera.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if (checkSelfPermission(requireContext(),Manifest.permission.CAMERA)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
                     == PackageManager.PERMISSION_DENIED ||
-                    checkSelfPermission(requireContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_DENIED){
+                    checkSelfPermission(requireContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_DENIED
+                ) {
                     //permission was not enabled
-                    val permission = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    val permission = arrayOf(Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     //show popup to request permission
                     requestPermissions(permission, PERMISSION_CODE)
-                }
-                else{
+                } else {
                     //permission already granted
                     openCamera()
                 }
-            }
-            else{
+            } else {
                 //system os is < marshmallow
                 openCamera()
             }
         }
     }
+
     private fun openCamera() {
         val values = ContentValues()
         values.put(MediaStore.Images.Media.TITLE, "New Picture")
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
-        image_uri = requireContext().contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+        image_uri =
+            requireContext().contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                values)
         //camera intent
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
     }
+
     private fun pickImageFromGallery() {
         //Intent to pick image
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
+
     companion object {
         //image pick code
         private val IMAGE_PICK_CODE = 1000;
+
         //Permission code
         private val PERMISSION_CODE = 1001;
+
         //Camera code
         private val PERMISSION_CAMERA = 1002;
     }
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray,
+    ) {
         //called when user presses ALLOW or DENY from Permission Request Popup
-        when(requestCode){
+        when (requestCode) {
             PERMISSION_CODE -> {
                 if (grantResults.size > 0 && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED){
+                    PackageManager.PERMISSION_GRANTED
+                ) {
                     //permission from popup was granted
                     openCamera()
-                }
-                else{
+                } else {
                     //permission from popup was denied
-requireContext().toastShow("Permission denied")
+                    requireContext().toastShow("Permission denied")
                 }
             }
         }
     }
+
     private fun getImageFromGallery() {
         fab_image.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if (checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) ==
-                    PackageManager.PERMISSION_DENIED){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(requireContext(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED
+                ) {
                     //permission denied
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
                     //show popup to request runtime permission
                     requestPermissions(permissions, PERMISSION_CODE);
-                }
-                else{
+                } else {
                     //permission already granted
                     pickImageFromGallery();
                 }
-            }
-            else{
+            } else {
                 //system OS is < Marshmallow
                 pickImageFromGallery();
             }
         }
-        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             image_create_idea.setImageURI(data?.data)
-        }
-        else if(resultCode == Activity.RESULT_OK){
+        } else if (resultCode == Activity.RESULT_OK) {
             image_create_idea.loadImage(image_uri)
         }
     }
+
     private fun fabClickers() {
         fab_create.setOnClickListener {
             onAddButtonClicked();
         }
     }
+
     private fun onAddButtonClicked() {
         setVisibility(isClicked)
         setAnimation(isClicked)
         isClicked = !isClicked
     }
+
     private fun setAnimation(isClicked: Boolean) {
         if (!isClicked) {
             fab2_container_create.visible();
@@ -167,6 +186,7 @@ requireContext().toastShow("Permission denied")
         fab2_container_create.invisible();
         fab3_container_create.invisible()
     }
+
     private fun setVisibility(isClicked: Boolean) {
         if (!isClicked) {
             fab2_container_create.startAnimation(fromBottom)

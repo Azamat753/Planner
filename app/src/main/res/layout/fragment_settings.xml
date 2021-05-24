@@ -180,26 +180,4 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/btn_magick"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:drawablePadding="15dp"
-        android:text="Magick"
-        android:textColor="@color/settings_text_color"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/ic_light" />
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

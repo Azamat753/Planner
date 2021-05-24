@@ -9,8 +9,6 @@ import com.lawlett.planner.R
 
 abstract class BaseFragment(private val layout: Int ): Fragment() {
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

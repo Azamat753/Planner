@@ -1,17 +1,19 @@
 package com.lawlett.planner.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.models.Tasks
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
-import com.lawlett.planner.extensions.toastShow
+import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.ui.adapter.TaskAdapter
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import org.koin.android.ext.android.inject
+import java.util.*
 
 class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAdapter.Listener {
 
@@ -20,13 +22,68 @@ class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAd
     private val args: CreateTasksFragmentArgs by navArgs()
     lateinit var taskModel: Tasks
     var currentDone: Int = 0
-    var previousDone: Int = 0
-    var updateDone: Int = 0
-    lateinit var listTasks: List<Tasks>
+    var listTasks: List<Tasks>? = null
+    lateinit var touchHelper: ItemTouchHelper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
         initViewModel()
+        swipe()
+        drag()
+    }
+    private fun refreshList() {
+
+    }
+
+    private fun drag() {
+        touchHelper = ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
+                val sourcePosition = viewHolder.adapterPosition
+                val targetPosition = target.adapterPosition
+                Collections.swap(listTasks, sourcePosition, targetPosition)
+                adapter.notifyItemMoved(sourcePosition, targetPosition)
+                refreshList()
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+            }
+
+            override fun clearView(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+            ) {
+                super.clearView(recyclerView, viewHolder)
+                listTasks?.let { viewModel.updatePosition(it) }
+            }
+        })
+        touchHelper.attachToRecyclerView(cr_recycler)
+    }
+
+    private fun swipe() {
+        val itemTouchHelperCallback =
+            object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder,
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    listTasks?.get(viewHolder.adapterPosition)?.let { viewModel.delete(it) }
+                }
+            }
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(cr_recycler)
     }
 
     private fun initViewModel() {
@@ -37,7 +94,7 @@ class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAd
                 adapter.setData(tasks)
                 listTasks = tasks
                 currentDone = 0
-                tasks.forEach { if (it.isDone) currentDone ++ }
+                tasks.forEach { if (it.isDone) currentDone++ }
             }
         })
     }
@@ -54,12 +111,13 @@ class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAd
                     task = taskValues,
                     isDone = false)
                 viewModel.addTask(tasks)
+                cr_editText.clearField()
             }
         }
     }
 
     override fun onItemClick(pos: Int) {
-        taskModel = listTasks[pos]
+        taskModel = listTasks!![pos]
         if (!taskModel.isDone) {
             taskModel.isDone = true
             incrementDone()
@@ -68,20 +126,17 @@ class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAd
             decrementDone()
         }
         viewModel.update(taskModel)
-        requireContext().toastShow(taskModel.doneAmount.toString())
     }
 
     private fun decrementDone() {
-        currentDone --
+        currentDone--
         taskModel.doneAmount = currentDone
         viewModel.update(taskModel)
-        Log.e("ololo", "onItemClick: " + taskModel.doneAmount)
     }
 
     private fun incrementDone() {
-        currentDone ++
+        currentDone++
         taskModel.doneAmount = currentDone
-        Log.e("ololo", "onItemClick: " + taskModel.doneAmount)
         viewModel.update(taskModel)
     }
 }

@@ -9,10 +9,11 @@ import com.lawlett.planner.data.room.models.Timing
 
 @Dao
 interface TimingDao {
-//    @Insert(onConflict = OnConflictStrategy.IGNORE)
-//    suspend fun addTask(timing: Timing)
-//
-//    @Query("SELECT * FROM tasks_table ORDER BY id ASC")
-//    fun readAllData(): LiveData<List<Timing>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addTask(timing: Timing)
+
+    @Query("SELECT * FROM tasks_table ORDER BY id ASC")
+    fun readAllData(): LiveData<List<Timing>>
 
 }

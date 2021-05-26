@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.CategoryFragment">
 
-    <View
-        android:id="@+id/view_0"
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
+    <ProgressBar
+        android:id="@+id/tasks_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,311 +19,308 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/personconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@id/meetconst"
-        app:layout_constraintEnd_toStartOf="@id/workconst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute"
+        app:layout_constraintBottom_toTopOf="@+id/meetconst"
+        app:layout_constraintEnd_toStartOf="@+id/workconst"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-        <ImageView
-            android:id="@+id/person_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_person" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/person_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/personal"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/personal_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/person_image" />
+            <ImageView
+                android:id="@+id/person_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_person" />
 
-        <TextView
-            android:id="@+id/personal_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/person_task_title" />
+            <TextView
+                android:id="@+id/person_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/personal" />
+
+            <TextView
+                android:id="@+id/personal_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="14" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/workconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@id/homeconst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/homeconst"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/personconst"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toEndOf="@+id/personconst"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute">
 
-        <ImageView
-            android:id="@+id/work_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_work" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/work_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/work"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/work_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/work_image" />
+            <ImageView
+                android:id="@+id/work_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_work" />
 
-        <TextView
-            android:id="@+id/work_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="212"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/work_task_title" />
+            <TextView
+                android:id="@+id/work_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/work" />
+
+            <TextView
+                android:id="@+id/work_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="14" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <View
-        android:id="@+id/view_2"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@id/meetconst"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/personconst" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/meetconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        app:layout_constraintBottom_toTopOf="@id/privateconst"
-        app:layout_constraintEnd_toStartOf="@id/homeconst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        tools:ignore="UnusedAttribute"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/privateconst"
+        app:layout_constraintEnd_toStartOf="@+id/homeconst"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/view_2">
+        app:layout_constraintTop_toBottomOf="@+id/personconst"
+        >
 
-        <ImageView
-            android:id="@+id/meet_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_meet" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/meet_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/meets"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/meet_task_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meet_image" />
+            <ImageView
+                android:id="@+id/meet_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_meet" />
 
-        <TextView
-            android:id="@+id/meet_task_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meet_task_title" />
+            <TextView
+                android:id="@+id/meet_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/meets" />
 
+            <TextView
+                android:id="@+id/meet_task_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="14" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homeconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        app:layout_constraintBottom_toTopOf="@id/privateconst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/newconst"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/meetconst"
-        app:layout_constraintTop_toTopOf="@id/view_2">
+        app:layout_constraintStart_toEndOf="@+id/meetconst"
+        app:layout_constraintTop_toBottomOf="@+id/workconst"
+        tools:ignore="UnusedAttribute">
 
-        <ImageView
-            android:id="@+id/home_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_home" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/home_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/home_task_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_image" />
+            <ImageView
+                android:id="@+id/home_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_home" />
 
-        <TextView
-            android:id="@+id/home_task_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_task_title" />
+            <TextView
+                android:id="@+id/home_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/home" />
+
+            <TextView
+                android:id="@+id/home_task_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="14" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <View
-        android:id="@+id/view_3"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@id/privateconst"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/meetconst" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/privateconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/homeconst"
+        app:layout_constraintEnd_toStartOf="@+id/newconst"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/meetconst">
+        app:layout_constraintTop_toBottomOf="@+id/meetconst"
+        tools:ignore="UnusedAttribute">
 
-        <ImageView
-            android:id="@+id/private_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_lock" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/private_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/privates"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/private_task_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/private_image" />
+            <ImageView
+                android:id="@+id/private_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_lock" />
 
-        <TextView
-            android:id="@+id/private_task_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/private_task_title" />
+            <TextView
+                android:id="@+id/private_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/privates" />
+
+            <TextView
+                android:id="@+id/private_task_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="14" />
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/addconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
+        android:id="@+id/newconst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_background"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/privateconst"
-        app:layout_constraintTop_toBottomOf="@id/homeconst">
+        app:layout_constraintStart_toEndOf="@+id/privateconst"
+        app:layout_constraintTop_toBottomOf="@+id/homeconst"
+        tools:ignore="UnusedAttribute">
 
-        <ImageView
-            android:id="@+id/add_tasks_image"
-            style="@style/ImageForTodo"
+        <LinearLayout
+            android:id="@+id/addconst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/add_tasks_image"
+                style="@style/ImageForTodo"
+                app:srcCompat="@drawable/ic_add_task" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/doneconst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_add_task"
-            tools:ignore="MissingConstraints" />
+            >
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/done_tasks_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/doneconst"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/privateconst"
-        app:layout_constraintTop_toBottomOf="@id/homeconst">
+            <TextView
+                android:id="@+id/done_task_title"
+                style="@style/TextTitleQuick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
 
-        <ImageView
-            android:id="@+id/done_tasks_image"
-            style="@style/ImageForTodo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/done_amount"
+                style="@style/todoAmountTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/done_task_title"
-            style="@style/TextTitleQuick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/done_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/done_tasks_image" />
-
-        <TextView
-            android:id="@+id/done_amount"
-            style="@style/todoAmountTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/done_task_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

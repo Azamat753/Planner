@@ -3,6 +3,7 @@ package com.lawlett.planner.extensions
 import android.content.Context
 import android.net.Uri
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.airbnb.lottie.utils.Logger.error
@@ -12,7 +13,6 @@ import com.squareup.picasso.Picasso
 fun Context.toastShow(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
-
 fun ImageView.loadImage(uri: Uri?) {
     Picasso.get().load(uri).centerCrop().resize(this.measuredWidth,this.measuredHeight)
         .error(R.drawable.ic_camera)
@@ -29,4 +29,7 @@ fun View.gone() {
 
 fun View.invisible() {
     this.visibility = View.INVISIBLE
+}
+fun EditText.clearField(){
+    this.text.clear()
 }

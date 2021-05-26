@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
         setupNavBarColor()
         setupToolbar()
         changeTitleToolbar()
+        checkEventFragment()
+    }
+    private fun checkEventFragment() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            bottomNavigation.menu.getItem(3).isEnabled = destination.id !in arrayOf(
+                R.id.events_fragment,
+            )
+        }
         getWidgetIntent()
 
     }
@@ -95,6 +103,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         navController = findNavController(R.id.nav_host_fragment)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in arrayOf(
                     R.id.splash_fragment,

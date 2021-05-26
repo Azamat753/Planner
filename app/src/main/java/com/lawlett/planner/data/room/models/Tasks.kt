@@ -9,5 +9,6 @@ data class Tasks(
     val id: Int? = null,
     val category:String,
     val task: String,
-    val isDone: Boolean
+    var isDone: Boolean,
+    var doneAmount:Int?=null
 )

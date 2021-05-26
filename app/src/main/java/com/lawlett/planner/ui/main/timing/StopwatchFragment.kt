@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
+import com.lawlett.planner.databinding.FragmentStopwatchBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.TimingAdapter
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
 import org.koin.android.ext.android.inject
 
-class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
+class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
     var elapsedMillis: Long = 0
     var myTask: String? = null
     var roundingAlone: Animation? = null

@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentTimerBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.toastShow
 import com.lawlett.planner.extensions.visible
@@ -21,7 +22,7 @@ import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import com.lawlett.planner.utils.SimpleCountDownTimer
 import kotlinx.android.synthetic.main.fragment_timer.*
 
-class TimerFragment : BaseFragment(R.layout.fragment_timer) {
+class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::inflate) {
     lateinit var mp: MediaPlayer
     private var timeLeftInMilliseconds: Long = 0
     lateinit var countDownTimer: CountDownTimer

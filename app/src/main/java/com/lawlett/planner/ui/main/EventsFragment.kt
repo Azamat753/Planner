@@ -5,6 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentEventsBinding
 import com.lawlett.planner.extensions.toastShow
 import com.oscarvera.calendarhorizontal.HorizontalCalendar
 import com.oscarvera.calendarhorizontal.data.BasicStyle
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_events.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class EventsFragment : OnClickDateCalendar, BaseFragment(R.layout.fragment_events) {
+class EventsFragment : OnClickDateCalendar, BaseFragment<FragmentEventsBinding>(FragmentEventsBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

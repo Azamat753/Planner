@@ -15,13 +15,14 @@ import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentCreateIdeaBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.loadImage
 import com.lawlett.planner.extensions.toastShow
 import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.fragment_create_idea.*
 
-class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
+class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreateIdeaBinding::inflate) {
     private val IMAGE_CAPTURE_CODE = 1001
     var image_uri: Uri? = null
 

@@ -8,12 +8,14 @@ import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
+import com.lawlett.planner.databinding.FragmentTimerBinding
+import com.lawlett.planner.databinding.FragmentTimingBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.TimingAdapter
 import kotlinx.android.synthetic.main.fragment_timing.*
 
-class TimingFragment : BaseFragment(R.layout.fragment_timing) {
+class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding::inflate) {
 
     private val rotateOpen: Animation by lazy {
         AnimationUtils.loadAnimation(
@@ -48,11 +50,9 @@ class TimingFragment : BaseFragment(R.layout.fragment_timing) {
         initRecycler()
         initClickers()
         checkRecordsOnEmpty()
-
     }
-
     private fun initRecycler() {
-        timing_recycler.adapter=timingAdapter
+        binding.timingRecycler.adapter=timingAdapter
     }
 
     private fun checkRecordsOnEmpty() {

@@ -9,10 +9,11 @@ import androidx.viewpager.widget.ViewPager
 import com.afollestad.viewpagerdots.DotsIndicator
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentOnboardBinding
 import kotlinx.android.synthetic.main.fragment_onboard.*
 
 
-class OnBoardFragment : BaseFragment(R.layout.fragment_onboard) {
+class OnBoardFragment : BaseFragment<FragmentOnboardBinding>(FragmentOnboardBinding::inflate) {
     private val viewPager: ViewPager? = null
     private val dots: DotsIndicator? = null
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,7 +4,7 @@
     android:shape="rectangle"   >
 
 
-    <stroke android:color="@color/royalStart" android:width="2dp" />
+    <stroke android:color="?attr/toolbarColor" android:width="2dp" />
     <solid android:color="@android:color/white"/>
     <corners
         android:radius="18dp"   >

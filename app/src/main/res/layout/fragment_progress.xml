@@ -146,7 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_marginTop="4dp"
-            android:background="@color/myWhite"
+            android:background="?attr/textColor"
             app:layout_constraintEnd_toEndOf="@+id/task_progress"
             app:layout_constraintStart_toStartOf="@id/task_progress"
             app:layout_constraintTop_toBottomOf="@id/task_progress" />
@@ -223,7 +223,7 @@
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_marginTop="4dp"
-            android:background="@color/myWhite"
+            android:background="?attr/textColor"
             app:layout_constraintEnd_toEndOf="@+id/timing_tv"
             app:layout_constraintStart_toStartOf="@id/task_progress"
             app:layout_constraintTop_toBottomOf="@id/timing_tv" />

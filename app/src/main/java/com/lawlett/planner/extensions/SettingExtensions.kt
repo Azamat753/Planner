@@ -50,7 +50,6 @@ private fun setLocale(s: String, context:Context) {
     if (language != null) {
         setLocale(language,context)
     }
-
 }
 fun Context.checkedTheme() {
     when (ThemePreference.getInstance(this)?.getLightTheme) {

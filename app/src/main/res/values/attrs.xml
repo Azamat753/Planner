@@ -3,4 +3,12 @@
         <attr name="appWidgetBackgroundColor" format="color" />
         <attr name="appWidgetTextColor" format="color" />
     </declare-styleable>
+    <attr format="color" name="toolbarColor"/>
+    <attr format="color" name="textColor"/>
+    <attr format="color" name="bottomNavigationColor"/>
+    <attr format="color" name="editTextStrokeColor"/>
+    <attr format="color" name="iconColor"/>
+    <attr format="color" name="plusBackground"/>
+    <attr format="color" name="settings_text_color"/>
+    <attr format="color" name="windowColor"/>
 </resources>

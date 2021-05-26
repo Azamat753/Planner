@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.events_fragment,
             )
         }
-        getWidgetIntent()
-
+//        getWidgetIntent()
     }
     private fun getWidgetIntent(){
         val id = intent.getIntExtra(AppWidget.BUTTON_KEY,0)
@@ -48,9 +47,7 @@ class MainActivity : AppCompatActivity() {
         when(id){
             100 -> navController.navigate(R.id.category_fragment)
         }
-
     }
-
 
     private fun changeTitleToolbar() {
         navController = findNavController(R.id.nav_host_fragment)
@@ -94,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavBarColor() {
-        window.navigationBarColor = resources.getColor(R.color.statusBarC)
+        window.navigationBarColor = resources.getColor(R.color.toolbarBackground)
     }
 
     private fun setupBottomNavigation() {

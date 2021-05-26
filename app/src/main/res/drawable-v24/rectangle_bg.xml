@@ -4,7 +4,7 @@
     android:shape="rectangle"   >
 
     <solid
-        android:color="@color/royalStart" >
+        android:color="?attr/toolbarColor" >
     </solid>
 
     <corners

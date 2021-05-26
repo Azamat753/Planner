@@ -157,7 +157,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setCustomBigContentView(expandedView)
                     .setContentTitle(getString(R.string.timer))
-                    .setColor(getColor(requireContext(), R.color.myWhite))
+                    .setColor(getColor(requireContext(), R.color.textColor))
                     .setContentText(getString(R.string.go_count))
                     .setOnlyAlertOnce(true)
                     .build()

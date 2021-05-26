@@ -3,15 +3,13 @@ package com.lawlett.planner.ui.main
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
 import com.lawlett.planner.data.room.models.Tasks
-import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
+import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.ui.adapter.TaskAdapter
 import kotlinx.android.synthetic.main.fragment_create_tasks.*

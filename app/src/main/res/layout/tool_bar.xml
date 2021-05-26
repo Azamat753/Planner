@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:id="@+id/toolbar"
-    android:background="@color/royalStart"
+    android:background="?attr/toolbarColor"
     android:orientation="vertical">
 
     <RelativeLayout

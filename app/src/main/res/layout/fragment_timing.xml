@@ -22,11 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/fabColor"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add_task"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/fabColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -44,13 +44,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="24dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/fabColor"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/fab_stopwatch"
-            app:backgroundTint="@color/colorPrimary"
+            app:backgroundTint="@color/fabColor"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:text="@string/stopwatch"
-            android:textColor="@color/myWhite"
+            android:textColor="?attr/textColor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/stopwatch_fab"
@@ -81,13 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="24dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/fabColor"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/fab_timer"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:backgroundTint="@color/colorPrimary"
+            app:backgroundTint="@color/fabColor"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:text="@string/timer"
-            android:textColor="@color/myWhite"
+            android:textColor="?attr/textColor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/timer_fab"

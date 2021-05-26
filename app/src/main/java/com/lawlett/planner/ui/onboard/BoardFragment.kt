@@ -61,5 +61,4 @@ class BoardFragment : BaseFragment<FragmentBoardBinding>(FragmentBoardBinding::i
             findNavController().navigate(R.id.action_board_fragment_to_progress_fragment)
         }
     }
-
 }

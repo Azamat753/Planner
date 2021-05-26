@@ -19,7 +19,7 @@ import org.koin.android.ext.android.inject
 import java.util.*
 
 class CreateTasksFragment :
-    BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate) {
+    BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate),TaskAdapter.Listener {
 
     private val viewModel by inject<TaskViewModel>()
     private val adapter = TaskAdapter(this)
@@ -93,7 +93,7 @@ class CreateTasksFragment :
     private fun initViewModel() {
         insertDataToDataBase(args.category)
         toolbar_title.text = args.category
-        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isNotEmpty()) {
                 adapter.setData(tasks)
                 listTasks = tasks

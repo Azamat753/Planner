@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.base.BaseFragment
@@ -56,14 +57,14 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
     }
 
     private fun getData() {
-        viewModel.getData().observe(viewLifecycleOwner, { timings ->
+        viewModel.getData().observe(viewLifecycleOwner, Observer { timings ->
             adapter.setData(timings)
         })
 
     }
 
     private fun initRecycler() {
-        binding.timingRecycler.adapter=timingAdapter
+        binding.timingRecycler.adapter=adapter
     }
 
     private fun checkRecordsOnEmpty() {

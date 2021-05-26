@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/idea_contain"
-    tools:context=".ui.main.IdeaFragment">
+    tools:context=".ui.idea.IdeaFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/quick_recycler"

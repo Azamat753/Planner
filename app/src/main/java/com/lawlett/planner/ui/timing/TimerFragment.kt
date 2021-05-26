@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main.timing
+package com.lawlett.planner.ui.timing
 
 import android.media.MediaPlayer
 import android.media.RingtoneManager
@@ -13,7 +13,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.Timing
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.databinding.FragmentTimerBinding

@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.Tasks
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding

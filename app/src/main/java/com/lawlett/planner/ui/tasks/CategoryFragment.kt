@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
 import kotlinx.android.synthetic.main.fragment_category.*

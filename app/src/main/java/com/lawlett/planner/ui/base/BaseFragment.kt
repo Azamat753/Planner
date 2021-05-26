@@ -1,4 +1,4 @@
-package com.lawlett.planner.base
+package com.lawlett.planner.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.lawlett.planner.R
 
 abstract class BaseFragment<T : ViewBinding>(
     private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> T

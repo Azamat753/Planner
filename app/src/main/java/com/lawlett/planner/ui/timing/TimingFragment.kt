@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.timing
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,8 @@ import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
-import com.lawlett.planner.databinding.FragmentTimerBinding
 import com.lawlett.planner.databinding.FragmentTimingBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible

@@ -5,7 +5,7 @@
     android:id="@+id/createIdea_contain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.CreateIdeaFragment">
+    tools:context=".ui.idea.CreateIdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/create_idea_toolbar"

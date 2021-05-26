@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.idea
 
 import android.Manifest
 import android.app.Activity
@@ -14,7 +14,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.databinding.FragmentCreateIdeaBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.loadImage
@@ -73,7 +73,9 @@ class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreat
                     val permission = arrayOf(Manifest.permission.CAMERA,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     //show popup to request permission
-                    requestPermissions(permission, PERMISSION_CODE)
+                    requestPermissions(permission,
+                        PERMISSION_CODE
+                    )
                 } else {
                     //permission already granted
                     openCamera()
@@ -102,7 +104,9 @@ class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreat
         //Intent to pick image
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
+        startActivityForResult(intent,
+            IMAGE_PICK_CODE
+        )
     }
 
     companion object {
@@ -147,7 +151,9 @@ class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreat
                     //permission denied
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
                     //show popup to request runtime permission
-                    requestPermissions(permissions, PERMISSION_CODE);
+                    requestPermissions(permissions,
+                        PERMISSION_CODE
+                    );
                 } else {
                     //permission already granted
                     pickImageFromGallery();

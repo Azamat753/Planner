@@ -1,11 +1,10 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.progress
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.addCallback
 import androidx.lifecycle.Observer
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import kotlinx.android.synthetic.main.fragment_progress.*
 import org.koin.android.ext.android.inject

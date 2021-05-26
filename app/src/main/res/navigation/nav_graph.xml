@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/progress_fragment"
-        android:name="com.lawlett.planner.ui.main.ProgressFragment"
+        android:name="com.lawlett.planner.ui.progress.ProgressFragment"
         tools:layout="@layout/fragment_progress">
         <action
             android:id="@+id/action_progress_fragment_to_settingsFragment"
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/category_fragment"
-        android:name="com.lawlett.planner.ui.main.CategoryFragment"
+        android:name="com.lawlett.planner.ui.tasks.CategoryFragment"
         tools:layout="@layout/fragment_category">
         <action
             android:id="@+id/action_category_fragment_to_settingsFragment"
@@ -56,7 +56,7 @@
 
     <fragment
         android:id="@+id/idea_fragment"
-        android:name="com.lawlett.planner.ui.main.IdeaFragment"
+        android:name="com.lawlett.planner.ui.idea.IdeaFragment"
         tools:layout="@layout/fragment_idea">
         <action
             android:id="@+id/action_idea_fragment_to_recordIdeaFragment"
@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/timing_fragment"
-        android:name="com.lawlett.planner.ui.main.TimingFragment"
+        android:name="com.lawlett.planner.ui.timing.TimingFragment"
         tools:layout="@layout/fragment_timing">
         <action
             android:id="@+id/action_timing_fragment_to_settingsFragment"
@@ -86,7 +86,7 @@
 
     <fragment
         android:id="@+id/events_fragment"
-        android:name="com.lawlett.planner.ui.main.EventsFragment"
+        android:name="com.lawlett.planner.ui.events.EventsFragment"
         android:label="fragment_events"
         tools:layout="@layout/fragment_events">
         <action
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/recordIdeaFragment"
-        android:name="com.lawlett.planner.ui.main.CreateIdeaFragment"
+        android:name="com.lawlett.planner.ui.idea.CreateIdeaFragment"
         android:label="fragment_record_idea"
         tools:layout="@layout/fragment_create_idea">
         <action
@@ -110,12 +110,12 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.lawlett.planner.ui.main.settings.SettingsFragment"
+        android:name="com.lawlett.planner.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/createTasksFragment"
-        android:name="com.lawlett.planner.ui.main.CreateTasksFragment"
+        android:name="com.lawlett.planner.ui.tasks.CreateTasksFragment"
         android:label="fragment_create_tasks"
         tools:layout="@layout/fragment_create_tasks" >
         <action
@@ -129,7 +129,7 @@
     </fragment>
     <fragment
         android:id="@+id/stopwatchFragment"
-        android:name="com.lawlett.planner.ui.main.timing.StopwatchFragment"
+        android:name="com.lawlett.planner.ui.timing.StopwatchFragment"
         android:label="fragment_stopwatch"
         tools:layout="@layout/fragment_stopwatch" >
         <action
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
-        android:name="com.lawlett.planner.ui.main.timing.TimerFragment"
+        android:name="com.lawlett.planner.ui.timing.TimerFragment"
         android:label="fragment_timer"
         tools:layout="@layout/fragment_timer" >
         <action
@@ -147,7 +147,7 @@
     </fragment>
     <fragment
         android:id="@+id/createEventFragment"
-        android:name="com.lawlett.planner.ui.main.CreateEventFragment"
+        android:name="com.lawlett.planner.ui.events.CreateEventFragment"
         android:label="fragment_create_event"
         tools:layout="@layout/fragment_create_event" />
 

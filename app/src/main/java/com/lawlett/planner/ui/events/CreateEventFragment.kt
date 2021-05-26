@@ -1,10 +1,9 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.events
 
 import android.app.AlarmManager
 import android.os.Bundle
 import android.view.View
-import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.databinding.FragmentCreateEventBinding
 import java.util.*
 

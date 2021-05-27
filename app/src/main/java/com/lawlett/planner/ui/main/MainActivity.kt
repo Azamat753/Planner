@@ -3,6 +3,7 @@ package com.lawlett.planner.ui.main
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -22,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        this.checkedTheme()
-        loadLocale(this)
         super.onCreate(savedInstanceState)
+        loadLocale(this)
+        this.checkedTheme()
         setContentView(R.layout.activity_main)
         setupNavigation()
         setupBottomNavigation()
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         changeTitleToolbar()
         checkEventFragment()
     }
+
     private fun checkEventFragment() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             bottomNavigation.menu.getItem(3).isEnabled = destination.id !in arrayOf(
@@ -41,10 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
 //        getWidgetIntent()
     }
-    private fun getWidgetIntent(){
-        val id = intent.getIntExtra(AppWidget.BUTTON_KEY,0)
+
+    private fun getWidgetIntent() {
+        val id = intent.getIntExtra(AppWidget.BUTTON_KEY, 0)
         Log.d("pop", "getWidgetIntent $id")
-        when(id){
+        when (id) {
             100 -> navController.navigate(R.id.category_fragment)
         }
     }

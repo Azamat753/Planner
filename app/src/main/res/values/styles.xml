@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="windowColor">#254568</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#162C53</item>
         <item name="bottomNavigationColor">#162C53</item>
         <item name="toolbarColor">#162C53</item>
         <item name="textColor">#162C53</item>
@@ -10,6 +12,7 @@
         <item name="iconColor">#162C53</item>
         <item name="plusBackground">#162C53</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -19,20 +22,20 @@
 
     <style name="AppTheme.Green" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#075E54</item>
         <item name="bottomNavigationColor">#075E54</item>
         <item name="toolbarColor">#075E54</item>
         <item name="textColor">#075E54</item>
         <item name="editTextStrokeColor">#075E54</item>
         <item name="iconColor">#075E54</item>
-        <item name="plusBackground">#FFF</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="plusBackground">#075E54</item>
+        <item name="settings_text_color">#FFFFFF</item>
         <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Pink" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#E91E63</item>
         <item name="bottomNavigationColor">#E91E63</item>
         <item name="toolbarColor">#E91E63</item>
         <item name="textColor">#E91E63</item>
@@ -40,23 +43,25 @@
         <item name="iconColor">#E91E63</item>
         <item name="plusBackground">#E91E63</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Orange" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#FF5722</item>
         <item name="bottomNavigationColor">#FF5722</item>
         <item name="toolbarColor">#FF5722</item>
         <item name="textColor">#FF5722</item>
         <item name="editTextStrokeColor">#FF5722</item>
         <item name="iconColor">#FF5722</item>
         <item name="plusBackground">#FF5722</item>
-        <item name="settings_text_color">#FF5722</item>
+        <item name="settings_text_color">#FFFFFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.BlackBlue" parent="AppTheme.NoActionBar">
         <item name="windowColor">#254568</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#162C53</item>
         <item name="bottomNavigationColor">#162C53</item>
         <item name="toolbarColor">#162C53</item>
         <item name="textColor">#162C53</item>
@@ -64,11 +69,12 @@
         <item name="iconColor">#162C53</item>
         <item name="plusBackground">#162C53</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Yellow" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#E8D637</item>
         <item name="bottomNavigationColor">#E8D637</item>
         <item name="toolbarColor">#E8D637</item>
         <item name="textColor">#E8D637</item>
@@ -76,11 +82,12 @@
         <item name="iconColor">#E8D637</item>
         <item name="plusBackground">#E8D637</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Red" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#F44336</item>
         <item name="bottomNavigationColor">#F44336</item>
         <item name="toolbarColor">#F44336</item>
         <item name="textColor">#F44336</item>
@@ -88,23 +95,25 @@
         <item name="iconColor">#F44336</item>
         <item name="plusBackground">#F44336</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.BlueLight" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#0365C4</item>
         <item name="bottomNavigationColor">#0365C4</item>
         <item name="toolbarColor">#0365C4</item>
         <item name="textColor">#0365C4</item>
         <item name="editTextStrokeColor">#0365C4</item>
         <item name="iconColor">#0365C4</item>
         <item name="plusBackground">#0365C4</item>
+        <item name="create_event_editText">#FFF</item>
         <item name="settings_text_color">#FFF</item>
     </style>
 
     <style name="AppTheme.Violet" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#673AB7</item>
         <item name="bottomNavigationColor">#673AB7</item>
         <item name="toolbarColor">#673AB7</item>
         <item name="textColor">#673AB7</item>
@@ -112,11 +121,12 @@
         <item name="iconColor">#673AB7</item>
         <item name="plusBackground">#673AB7</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.PalePurple" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#3F51B5</item>
         <item name="bottomNavigationColor">#3F51B5</item>
         <item name="toolbarColor">#3F51B5</item>
         <item name="textColor">#3F51B5</item>
@@ -124,11 +134,12 @@
         <item name="iconColor">#3F51B5</item>
         <item name="plusBackground">#3F51B5</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.GreenLight" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="android:statusBarColor" >#8BC34A</item>
         <item name="bottomNavigationColor">#8BC34A</item>
         <item name="toolbarColor">#8BC34A</item>
         <item name="textColor">#8BC34A</item>
@@ -136,11 +147,12 @@
         <item name="iconColor">#8BC34A</item>
         <item name="plusBackground">#8BC34A</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Black" parent="AppTheme.NoActionBar">
         <item name="windowColor">#000000</item>
-        <item name="android:statusBarColor">?attr/toolbarColor</item>
+        <item name="android:statusBarColor">#000000</item>
         <item name="bottomNavigationColor">#000000</item>
         <item name="toolbarColor">#000000</item>
         <item name="textColor">#FFF</item>
@@ -148,13 +160,14 @@
         <item name="iconColor">#FFF</item>
         <item name="plusBackground">#FFF</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:statusBarColor">?attr/toolbarColor</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">@color/fabColor</item>
+        <item name="android:background">?attr/iconColor</item>
     </style>
 
     <style name="ViewStyles">

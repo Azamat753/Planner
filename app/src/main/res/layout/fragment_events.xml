@@ -6,23 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.events.EventsFragment">
 
-<!--    <com.oscarvera.calendarhorizontal.HorizontalCalendarView-->
-<!--        android:id="@+id/calendar_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/royalStart"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
     <devs.mulham.horizontalcalendar.HorizontalCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@color/windowBackground"
+        android:background="?attr/toolbarColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:textColorSelected="?attr/textColor" />
+        app:textColorSelected="?attr/settings_text_color" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_quick_btn"

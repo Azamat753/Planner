@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.lawlett.planner.R
 import com.lawlett.planner.utils.LanguagePreference
 import com.lawlett.planner.utils.ThemePreference
@@ -52,13 +53,13 @@ fun loadLocale(context: Context) {
     }
 }
 
-fun Context.checkedTheme() {
-    when (ThemePreference.getInstance(this)?.getLightTheme) {
-        true -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+fun Activity.checkedTheme() {
+    when (ThemePreference.getInstance(this)?.getTheme) {
+        0 -> {
+            this.setTheme(R.style.AppTheme_Orange)
         }
-        false -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        1 -> {
+            this.setTheme(R.style.AppTheme_Green)
         }
     }
 }

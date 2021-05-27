@@ -1,11 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:windowBackground">?attr/windowColor</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/toolbarColor</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="windowColor">#254568</item>
+        <item name="android:statusBarColor" >?attr/toolbarColor</item>
+        <item name="bottomNavigationColor">#162C53</item>
+        <item name="toolbarColor">#162C53</item>
+        <item name="textColor">#162C53</item>
+        <item name="editTextStrokeColor">#162C53</item>
+        <item name="iconColor">#162C53</item>
+        <item name="plusBackground">#162C53</item>
+        <item name="settings_text_color">#FFF</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -23,6 +27,7 @@
         <item name="iconColor">#075E54</item>
         <item name="plusBackground">#FFF</item>
         <item name="settings_text_color">#FFF</item>
+        <item name="create_event_editText">#FFF</item>
     </style>
 
     <style name="AppTheme.Pink" parent="AppTheme.NoActionBar">

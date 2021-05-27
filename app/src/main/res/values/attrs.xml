@@ -3,12 +3,13 @@
         <attr name="appWidgetBackgroundColor" format="color" />
         <attr name="appWidgetTextColor" format="color" />
     </declare-styleable>
-    <attr format="color" name="toolbarColor"/>
-    <attr format="color" name="textColor"/>
-    <attr format="color" name="bottomNavigationColor"/>
-    <attr format="color" name="editTextStrokeColor"/>
-    <attr format="color" name="iconColor"/>
-    <attr format="color" name="plusBackground"/>
-    <attr format="color" name="settings_text_color"/>
-    <attr format="color" name="windowColor"/>
+    <attr name="toolbarColor" format="color" />
+    <attr name="textColor" format="color" />
+    <attr name="bottomNavigationColor" format="color" />
+    <attr name="editTextStrokeColor" format="color" />
+    <attr name="iconColor" format="color" />
+    <attr name="plusBackground" format="color" />
+    <attr name="settings_text_color" format="color" />
+    <attr name="windowColor" format="color" />
+    <attr name="create_event_editText" format="color"/>
 </resources>

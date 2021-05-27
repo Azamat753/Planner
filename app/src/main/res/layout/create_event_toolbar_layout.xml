@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="vertical"
+    android:background="?attr/toolbarColor"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_view_event"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                tools:ignore="UnusedAttribute"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                app:srcCompat="@drawable/ic_left_arrow" />
+
+            <TextView
+                android:id="@+id/toolbar_title_quick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="35dp"
+               android:layout_centerInParent="true"
+                android:text="@string/add_event"
+                android:textColor="@android:color/white"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/done_view_event"
+                android:layout_width="30dp"
+                android:foreground="?attr/selectableItemBackground"
+                tools:ignore="UnusedAttribute"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="12dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/ic_done" />
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>

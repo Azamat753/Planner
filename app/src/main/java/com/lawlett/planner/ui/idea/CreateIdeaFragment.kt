@@ -18,7 +18,7 @@ import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.databinding.FragmentCreateIdeaBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.loadImage
-import com.lawlett.planner.extensions.toastShow
+import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.fragment_create_idea.*
 
@@ -111,10 +111,10 @@ class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreat
 
     companion object {
         //image pick code
-        private val IMAGE_PICK_CODE = 1000;
+        val IMAGE_PICK_CODE = 1000;
 
         //Permission code
-        private val PERMISSION_CODE = 1001;
+        val PERMISSION_CODE = 1001;
 
         //Camera code
         private val PERMISSION_CAMERA = 1002;
@@ -135,7 +135,7 @@ class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreat
                     openCamera()
                 } else {
                     //permission from popup was denied
-                    requireContext().toastShow("Permission denied")
+                    requireContext().showToast("Permission denied")
                 }
             }
         }

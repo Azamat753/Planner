@@ -18,7 +18,6 @@ import java.util.*
 
 class App : Application() {
 
-
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()

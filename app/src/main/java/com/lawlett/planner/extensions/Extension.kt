@@ -10,7 +10,7 @@ import com.airbnb.lottie.utils.Logger.error
 import com.lawlett.planner.R
 import com.squareup.picasso.Picasso
 
-fun Context.toastShow(message: String) {
+fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 fun ImageView.loadImage(uri: Uri?) {

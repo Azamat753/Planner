@@ -2,23 +2,23 @@ package com.lawlett.planner.data.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.lawlett.planner.data.room.models.Tasks
+import com.lawlett.planner.data.room.models.TasksModel
 
 @Dao
 interface TasksDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTask(tasks: Tasks)
+    suspend fun addTask(tasksModel: TasksModel)
 
     @Query("SELECT * FROM tasks_table WHERE category=:category ")
-    fun loadCategoryLiveData(category: String): LiveData<List<Tasks>>
+    fun loadCategoryLiveData(category: String): LiveData<List<TasksModel>>
 
     @Update
-    suspend fun update(tasks: Tasks)
+    suspend fun update(tasksModel: TasksModel)
 
     @Delete
-    suspend fun delete(tasks: Tasks)
+    suspend fun delete(tasksModel: TasksModel)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun updateWord(tasks: List<Tasks?>)
+   suspend fun updateWord(tasks: List<TasksModel?>)
 }

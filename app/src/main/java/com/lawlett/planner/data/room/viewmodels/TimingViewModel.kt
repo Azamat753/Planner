@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.lawlett.planner.data.room.TasksDatabase
-import com.lawlett.planner.data.room.models.Timing
+import com.lawlett.planner.data.room.models.TimingModel
 import com.lawlett.planner.data.room.repositories.TimingRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,10 +16,10 @@ class TimingViewModel(application: Application):AndroidViewModel(application) {
         val timingDao= TasksDatabase.getDatabase(application).timingDao()
         repository= TimingRepository(timingDao)
     }
-    fun addTask(timing: Timing){
+    fun addTask(timingModel: TimingModel){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addTask(timing)
+            repository.addTask(timingModel)
         }
     }
-    fun getData():LiveData<List<Timing>> =repository.loadData()
+    fun getData():LiveData<List<TimingModel>> =repository.loadData()
 }

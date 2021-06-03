@@ -12,7 +12,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
 import com.lawlett.planner.R
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.data.room.models.Timing
+import com.lawlett.planner.data.room.models.TimingModel
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.databinding.FragmentStopwatchBinding
 import com.lawlett.planner.extensions.gone
@@ -63,7 +63,7 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
         val currentDate = SimpleDateFormat("dd ", Locale.getDefault()).format(Date())
 
         toolbar_title.text = getString(R.string.stopwatch)
-        var stopwatch=Timing(stopwatch = stopwatch_task_edit.text.toString() ,stopwatchDay ="$currentDate $month $year" )
+        var stopwatch=TimingModel(stopwatch = stopwatch_task_edit.text.toString() ,stopwatchDay ="$currentDate $month $year" )
         viewModel.addTask(stopwatch)
         }
 

@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
-import com.lawlett.planner.data.room.models.Tasks
+import com.lawlett.planner.data.room.models.TasksModel
 import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter(private val listener: Listener) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     lateinit var view: View
-    private var taskList = emptyList<Tasks>()
+    private var taskList = emptyList<TasksModel>()
 
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var taskViewHolder: TaskViewHolder
 
         @SuppressLint("ClickableViewAccessibility")
-        fun onBind(task: Tasks, listener: Listener) {
+        fun onBind(task: TasksModel, listener: Listener) {
             itemView.task_ch.text = task.task
             itemView.task_ch.isChecked = task.isDone
             itemView.task_ch.setOnClickListener {
@@ -43,7 +43,7 @@ class TaskAdapter(private val listener: Listener) :
         holder.onBind(taskList[position], listener)
 
     }
-    fun setData(task: List<Tasks>) {
+    fun setData(task: List<TasksModel>) {
         this.taskList = task
         notifyDataSetChanged()
     }

@@ -12,4 +12,5 @@
     <attr name="settings_text_color" format="color" />
     <attr name="windowColor" format="color" />
     <attr name="create_event_editText" format="color"/>
+    <attr name="alert_color" format="color"/>
 </resources>

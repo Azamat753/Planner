@@ -14,6 +14,7 @@
         <item name="android:navigationBarColor">#162C53</item>
         <item name="settings_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
+        <item name="alert_color">#FFF</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -7,7 +7,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.data.room.models.Tasks
+import com.lawlett.planner.data.room.models.TasksModel
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
@@ -22,9 +22,9 @@ class CreateTasksFragment :
     private val viewModel by inject<TaskViewModel>()
     private val adapter = TaskAdapter(this)
     private val args: CreateTasksFragmentArgs by navArgs()
-    lateinit var taskModel: Tasks
+    lateinit var taskModel: TasksModel
     var currentDone: Int = 0
-    var listTasks: List<Tasks>? = null
+    var listTasks: List<TasksModel>? = null
     lateinit var touchHelper: ItemTouchHelper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -109,7 +109,7 @@ class CreateTasksFragment :
         mic_task.setOnClickListener {
             val taskValues = cr_editText.text.toString()
             if (taskValues.isNotEmpty()) {
-                val tasks = Tasks(category = category,
+                val tasks = TasksModel(category = category,
                     task = taskValues,
                     isDone = false)
                 viewModel.addTask(tasks)

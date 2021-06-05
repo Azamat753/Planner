@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="your_api_key">my_api_key</string>
+
+    <string name="clear_list">Limpar a lista</string>
+    <string name="clearSetting">Limpar dados de senha</string>
+    <string name="progress">Progresso</string>
+    <string name="clear_minutes">Limpe o campo em apenas alguns minutos</string>
+    <string name="save">Salvar</string>
+    <string name="events">Eventos</string>
+    <string name="tasks">Tarefas</string>
+    <string name="ideas">Ideias</string>
+    <string name="all_tasks">Registros totais</string>
+    <string name="complete_tasks">Tarefas concluídas</string>
+    <string name="timing">Cronometragem</string>
+    <string name="all_records">Registros totais</string>
+    <string name="all_minutes">Poucos minutos</string>
+    <string name="meets">Encontros</string>
+    <string name="personal">Pessoal</string>
+    <string name="home">Casa</string>
+    <string name="work">Trabalho</string>
+    <string name="privates">Privado</string>
+    <string name="january">Janeiro</string>
+    <string name="february">Fevereiro</string>
+    <string name="march">Marcha</string>
+    <string name="april">Abril</string>
+    <string name="may">Maio</string>
+    <string name="june">Junho</string>
+    <string name="july">Julho</string>
+    <string name="august">Agosto</string>
+    <string name="september">Setembro</string>
+    <string name="october">Outubro</string>
+    <string name="november">Novembro</string>
+    <string name="december">Dezembro</string>
+    <string name="are_you_sure">Você tem certeza ?</string>
+    <string name="complete_work">Para terminar o trabalho</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+    <string name="clear_password">Limpar senha</string>
+    <string name="clear_minute">Limpar campo de minutos</string>
+    <string name="data_about_minutes_clear">Minutos de dados apagados</string>
+    <string name="record_idea">Insira a essência da ideia</string>
+    <string name="record_description">Insira uma descrição</string>
+    <string name="event_calendar">Eventos de calendário</string>
+    <string name="done_tasks">Executando tarefas</string>
+    <string name="fast_add_your_event"><![CDATA[Adicione seus eventos rapidamente \nMudança rápida entre datas \nVisualizando semanas]]></string>
+    <string name="list_tasks_help_you">A lista de tarefas o ajudará a preencher o seu dia e fazer as coisas</string>
+    <string name="record_idea_simple">Escrevendo ideias</string>
+    <string name="check_timing">Rastreamento de tempo</string>
+    <string name="most_effect_idea">A maneira mais eficaz de transferir ideias, pensamentos e tarefas sem perder o foco</string>
+    <string name="plus_you_kpd">Uma das melhores maneiras de melhorar sua eficiência</string>
+    <string name="settings">Configurações</string>
+    <string name="create_password">Criação de senha</string>
+    <string name="create_question">Crie uma pergunta</string>
+    <string name="create_question_answer">Crie uma resposta</string>
+    <string name="qst_example">Qual é a sua cor favorita?</string>
+    <string name="change_theme">Mudar de assunto</string>
+    <string name="planner">Planner</string>
+    <string name="add_event">Adicionar Evento</string>
+    <string name="walk_dog">Passear o cão</string>
+    <string name="begin">Começar</string>
+    <string name="begin_time">O começo do tempo</string>
+    <string name="end_time">Fim do tempo</string>
+    <string name="delete">Removido</string>
+    <string name="empty">Vazio</string>
+    <string name="stopwatch">Cronômetro</string>
+    <string name="go_count">A contagem regressiva está em andamento</string>
+    <string name="need_all_fields">Todos os campos devem ser preenchidos</string>
+    <string name="try_color">Experimentar</string>
+    <string name="done_t">Tarefas concluídas</string>
+    <string name="column_empty">A coluna está vazia</string>
+    <string name="write_idea">Escreva uma ideia</string>
+    <string name="color">Cor</string>
+    <string name="camera">Câmera</string>
+    <string name="image">Cenário</string>
+    <string name="timer">Cronômetro</string>
+    <string name="what_are_doing">O que você vai fazer?</string>
+    <string name="apply">Aceitar</string>
+    <string name="time">Tempo</string>
+    <string name="toStart">Começar</string>
+    <string name="complete">Completar</string>
+    <string name="minutes_amount">Minutos</string>
+    <string name="data_of_password_delete">Dados de senha excluídos</string>
+    <string name="choose_language">Escolha o seu idioma…</string>
+    <string name="change_language">Mudar idioma</string>
+    <string name="task">Mudar idioma</string>
+    <string name="zero_minutes_pass">0 minutos se passaram</string>
+    <string name="ready">Pronto ?</string>
+    <string name="timer_dont_end">O cronômetro ainda não acabou</string>
+    <string name="timer_end">O cronômetro terminou seu trabalho</string>
+    <string name="minut">minutos</string>
+    <string name="choose_color">Escolha uma cor</string>
+    <string name="select_time">Escolha o tempo</string>
+    <string name="re_enter">Reentrar</string>
+    <string name="of_symbols">Digite uma senha de 4 caracteres</string>
+    <string name="do_not_match">Não corresponde</string>
+    <string name="correct_password">Senha correta</string>
+    <string name="Wrong">Não está certo</string>
+    <string name="plan_own_day">Planeje seu dia</string>
+    <string name="choose_theme">"Escolha um tópico … "</string>
+    <string name="light_theme">Tema claro</string>
+    <string name="dark_theme">Tema escuro</string>
+    <string name="to_delete">Excluir</string>
+    <string name="color_dont_choosed">Nenhuma cor selecionada</string>
+    <string name="share_app">Compartilhar isso</string>
+    <string name="add_title">Digite o texto</string>
+    <string name="add_icon">Escolha uma figura: </string>
+    <string name="answer_qst">Responda à pergunta</string>
+    <string name="add_password">Defina uma senha</string>
+    <string name="qst_not_found">Digite sua pergunta</string>
+    <string name="invalid_entered">Dados inválidos inseridos</string>
+    <string name="answer_not_found">Digite sua resposta</string>
+    <string name="create_secret_word">Crie uma palavra secreta</string>
+    <string name="enter_secret_word">Digite a palavra secreta</string>
+    <string name="attention">Atenção!</string>
+    <string name="task_dialog_message">Tem certeza de que deseja excluir?</string>
+    <string name="cancel">Cancelamento</string>
+    <string name="choosed">Você escolheu: </string>
+    <string name="change_image_title">Alterar a imagem e o nome da categoria</string>
+    <string name="remove_category">Excluir categoria</string>
+    <string name="what_to_do">O que você gostaria de fazer?</string>
+    <string name="help_idea_add">Para adicionar uma nova ideia, clique em +</string>
+    <string name="help_calendar_add">Para adicionar um novo evento, clique em +</string>
+    <string name="help_timing_add">Para adicionar uma nova tarefa, clique em +</string>
+    <string name="changing_theme">Mudar tema</string>
+    <string name="board_theme_desc">Você pode escolher um tema aqui clicando em uma das opções ou ir para Configurações</string>
+    <string name="are_you_sure_delete_all">Tem certeza de que deseja excluir todas as entradas?</string>
+    <string name="choose_app">Selecione o aplicativo</string>
+    <string name="new_aim">É hora de definir novas metas!</string>
+    <string name="helper_dialog_text">Você pode alterar o nome e a imagem da categoria com um toque longo:</string>
+    <string name="move_tasks">Você pode trocar tarefas</string>
+    <string name="delete_task">Você pode excluir uma tarefa desnecessária:</string>
+    <string name="achievement_app">Progresso</string>
+    <string name="completed">completado</string>
+    <string name="review_on_app">Feedback sobre o aplicativo Planner</string>
+    <string name="hello">Olá! </string>
+    <string name="write_reviews">Escreva uma crítica</string>
+    <string name="attaboy">Bem feito </string>
+    <string name="Persistent">Persistente </string>
+    <string name="Overwhelming">Opressor </string>
+    <string name="important_message">Mensagem importante!</string>
+    <string name="you_got">Você tem o título: </string>
+    <string name="done">Feito</string>
+    <string name="help_bubble">Clique para ver dicas</string>
+    <string name="timer_text">Você pode usar um cronômetro</string>
+    <string name="stopwatch_text">Você pode usar um cronômetro</string>
+    <string name="dialog_title">Mudança de imagem e nome</string>
+    <string name="move_title">Reposicionando uma tarefa</string>
+    <string name="delete_title">Excluindo uma tarefa</string>
+    <string name="timer_title">Cronômetro</string>
+    <string name="stopwatch_title">Cronômetro</string>
+    <string name="intro">Introdução</string>
+    <string name="you_sure_delete">Tem certeza de que deseja excluir um registro?</string>
+    <string name="sync_planner_with_google">Sincronize o Planner com sua conta do Google para manter seus registros seguros</string>
+    <string name="good_luck">Desejamos-lhe mais sucesso !</string>
+    <string name="wait">Por favor, espere…</string>
+    <string name="error">Ocorreu um erro</string>
+    <string name="voice_add">Entrada de voz…</string>
+    <string name="enter">Entrar</string>
+    <string name="read">Ler</string>
+    <string name="cloud_save_data">Armazenamento em nuvem</string>
+    <string name="speak_something">Diga alguma coisa</string>
+    <string name="private_policy">Política de Privacidade</string>
+    <string name="you_sure_read_private_policy">Tem a certeza que leu a Política de Privacidade?</string>
+    <string name="date">Data</string>
+    <string name="sync">Sincronizar</string>
+    <string name="want_save_data_in_google">Você quer proteger seus registros ?</string>
+    <string name="you_name">Seu nome</string>
+    <string name="rate_app">Colocar uma avaliação</string>
+    <string name="not_enough_balanсe">Não há fundos suficientes no balanço !</string>
+    <string name="attention_alert">Atenção!</string>
+    <string name="advice1_1">\"Trate o dinheiro com respeito\"</string>
+    <string name="advice1_2">Seu dinheiro é o seu tempo" enlatado " e a energia que você gastou para ganhá-lo.</string>
+    <string name="advice2">\"Crie o hábito de manter registros de receitas e despesas eletronicamente ou por escrito.\"</string>
+    <string name="advice3_1">Livre-se de cartões de crédito, empréstimos ao consumidor e outras dívidas.</string>
+    <string name="advice3_2">\" As dívidas pressionam psicologicamente, levam as pessoas ao estresse e fazem as pessoas se preocuparem com o amanhã. Como resultado, para usar o dinheiro de outras pessoas, você pagará não apenas com seu dinheiro, mas também com sua saúde e energia.\"</string>
+    <string name="advice4_1">Viva dentro dos seus meios.</string>
+    <string name="advice4_2">\" Quando você quebra essa regra, perde a harmonia em sua própria vida. Você gasta dinheiro que não ganhou, na verdade, aproveitando o que não lhe pertence, você pode perdê-lo a qualquer momento! Perceba a diferença entre suas necessidades — o que você realmente precisa e seus desejos — o que "não seria ruim ter". Priorize para fechar todas as necessidades primeiro, e o que resta a ser permitido na lista de desejos e entretenimento.\"</string>
+    <string name="advice5_1">Desista de compras por impulso e gastos opcionais.</string>
+    <string name="advice5_2">\" Faça uma lista de compras antes de ir à loja e cumpra-a.\"</string>
+    <string name="advice6_1">Trabalhe para aumentar sua renda.</string>
+    <string name="advice6_2">\" Descubra o que exatamente você está sendo pago e desenvolva - se nessa área. Adquirir um conhecimento mais profundo em um nicho estreito, expandir suas competências e responsabilidades, melhorar a qualidade do trabalho realizado e concluir o trabalho mais rapidamente pode ser a chave para aumentar sua renda.\"</string>
+    <string name="advice7_2">\" O aumento da renda é o resultado de um trabalho longo e regular; portanto, seja paciente e comece a avançar em direção ao objetivo em pequenos passos.\"</string>
+    <string name="advice7_1">Não espere resultados rápidos.</string>
+    <string name="advice8_1">Crie e compre fontes adicionais de renda.</string>
+    <string name="advice8_2">\" O segredo da estabilidade financeira de muitas pessoas bem-sucedidas reside em múltiplas fontes de renda.\"</string>
+    <string name="advice9">Cuide do dinheiro — não o gaste em jogos de azar, pirâmides financeiras, empresas e negócios duvidosos.</string>
+    <string name="advice10_1">Não empreste dinheiro</string>
+    <string name="advice10_2">\" Grandes riscos e relacionamentos com pessoas estragar e perder dinheiro. Deixe os bancos o trabalho deles\"</string>
+    <string name="advice11_1">Não espalhe nem mesmo um pouco de dinheiro.</string>
+    <string name="advice11_2">\" Um centavo protege não apenas o rublo, mas também o dólar e o euro!\"</string>
+    <string name="advice12_1">Desista de maus hábitos financeiros,</string>
+    <string name="advice12_2">\" Regularmente puxando dinheiro de sua carteira, mas não trazendo prazer anterior. Gastamos dinheiro para obter algumas emoções. Com o mesmo preço, coisas diferentes podem trazer diferentes quantidades de emoção. Por exemplo, o café em um café por 200 rublos, que você está acostumado a beber depois do jantar, não causa mais prazer e satisfação, mas ainda custa ao seu orçamento 1000 rublos por semana. Para os mesmos mil, você poderia ter muito mais emoção indo a uma massagem ou a um filme.\"</string>
+    <string name="advice13_1">Não hesite em perguntar sobre o desconto e aproveitar as ofertas especiais.</string>
+    <string name="advice13_2">\" Certamente será mais lucrativo para um vendedor oferecer um desconto e vender um produto do que recusar um desconto e não vender nada.\"</string>
+    <string name="advice14_1">Estude literatura sobre alfabetização financeira.</string>
+    <string name="advice14_2">\" Seu bem-estar depende diretamente do seu nível de alfabetização financeira!\"</string>
+    <string name="advice15">Crie um plano financeiro pessoal e siga-o.</string>
+    <string name="advice16_1">Pague a si mesmo primeiro — é tarde demais para tentar reservar dinheiro depois que você já o gastou.</string>
+    <string name="advice16_2">\" Você precisa reservar parte do dinheiro para atingir suas metas financeiras assim que as receber.\"</string>
+    <string name="advice17_1">Investir é mais fácil e mais acessível do que você pensa.</string>
+    <string name="advice17_2">\" Além disso, alguns instrumentos financeiros permitem automatizar esse processo de várias maneiras. O principal é entender se isso é tão importante para você que você está pronto para começar a agir?\"</string>
+    <string name="advice18_1">Compre as coisas de qualidade necessárias.</string>
+    <string name="advice18_2">\" Produtos de qualidade, como regra, são mais caros, mas são mais baratos de usar.\"</string>
+    <string name="advice19_1">Certifique-se de que seus ganhos sempre cresçam mais rápido que seus gastos.</string>
+    <string name="advice19_2">\" Dito isto, seus ganhos devem sempre ser maiores que suas despesas. Este é um dos princípios básicos do bem-estar financeiro.\"</string>
+    <string name="advice20_1">Sempre conte o dinheiro, mesmo que seja pequeno.</string>
+    <string name="advice20_2">\" Pequenas despesas diárias podem somar enormes quantias ao longo dos anos e ainda maiores ao longo das décadas. Toda vez que você diz a si mesmo algo como "1000 rublos não são dinheiro, não é uma pena perder", você tira de si mesmo no futuro dezenas e centenas de milhares, nos quais esses Mil se transformariam se você o investisse com competência.\"</string>
+    <string name="advice21_1">Compare os preços em diferentes locais antes de comprar algo.</string>
+    <string name="advice21_2">\" Sua melhor aposta é medir o preço em suas horas de vida — quanto tempo você terá que trabalhar para obter o valor certo para essa compra. Dessa forma, será mais fácil comparar o preço do item que você paga com o valor dele para você. Você está pronto para dar uma hora de sua vida por uma xícara de café? E um mês de vida para um novo telefone?\"</string>
+    <string name="advice22">\"Não inveje outras pessoas, mas Aprenda com elas o que elas entendem melhor do que você.\"</string>
+    <string name="advice23">Perceba que seu bem-estar financeiro depende inteiramente de você e de suas ações.</string>
+    <string name="advice24_1">Entre na "dieta do dinheiro" agora!</string>
+    <string name="advice24_2">\" Mude seu estilo de vida agora sem procrastinar. Isso economizará milhares de dólares ao longo do ano.\"</string>
+    <string name="advices">Conselho</string>
+    <string name="costs">Dispêndio</string>
+    <string name="help">Assistência</string>
+    <string name="income">Rendimento</string>
+    <string name="balance">Equilíbrio</string>
+    <string name="saving">Economia</string>
+    <string name="frequent_spending">Gastos frequentes</string>
+    <string name="enter_amount">Digite o valor</string>
+    <string name="habit">Hábito</string>
+    <string name="habit_name">Hábito</string>
+    <string name="days_amount">Número de dias</string>
+    <string name="day_amount">Digite o número de dias:</string>
+    <string name="habit_add">Para adicionar um hábito, clique em +</string>
+    <string name="your_habit_is_done">Hoje você já marcou a conclusão desta tarefa</string>
+    <string name="you_is_done_habit_today">Você realmente completou a tarefa hoje?</string>
+    <string name="edit">Corrigir</string>
+    <string name="change_day">Alterar o número de dias</string>
+    <string name="helper_finance_dialog">
+        Equilíbrio.\n
+Aqui você pode ver seu saldo atual.
+Seu saldo aumenta à medida que você adiciona renda.
+Diminui com a adição de despesas ou gastos frequentes.\n
+        \nEconomia.\n
+Aqui você pode gravar seu estado atual
+poupança pressionando o botão Mais.  (Também) você não
+você pode gastar com as economias atuais . Com dever
+clique no botão pode remover o valor total da poupança.\n
+\nRendimento.\n
+Ao clicar no botão Mais você pode adicionar sua renda .
+Cada vez que você adiciona renda, seu saldo aumenta.\n
+\nDispêndio.\n
+Ao clicar no botão menos você pode adicionar
+suas despesas. Você precisa inserir o valor e a descrição
+consumo (desejável). Para sua conveniência, criamos
+seção: histórico de despesas, no topo da seção "despesas"
+você pode acompanhar suas despesas.\n
+\nGastos frequentes.\n
+Ao clicar no botão Mais você pode adicionar o seu
+gastos frequentes (item). Isso é útil para
+você conseguiu rastrear o que costuma gastar dinheiro.
+Ao clicar no item, você pode adicionar o valor gasto
+e veja a quantidade total de dinheiro gasto. Também,
+deslizando para a direita, você pode remover um item da lista de gastos frequentes.
+   </string>
+    <string name="home_menu">Principal</string>
+    <string name="finance">Finanças</string>
+    <string name="set_notification">Definir notificação</string>
+    <string name="you_forgot_habbit">\"Você não esqueceu o hábito\"</string>
+    <string name="set_notification_on">\"Notificação definida para\"</string>
+    <string name="profile">Perfil</string>
+    <string name="you_can_edit_profile">Você pode editar seu perfil</string>
+    <string name="advice25_1">A sorte em uma inspeção mais detalhada acaba sendo apenas o resultado de muito trabalho e preparação cuidadosa.</string>
+    <string name="advice26_1">Se você decidiu fazer algo, mas não começou a fazê – lo dentro de 72 horas-85% das vezes você nunca fará isso.</string>
+    <string name="advice27_1">\"Quem faz espera sucesso. Quem "tenta" espera que algo o atrapalhe.\"</string>
+    <string name="advice27_2">Metade do esforço não dá metade do resultado, mas um resultado zero.</string>
+    <string name="advice28_1">Quem trabalha o dia todo-não há tempo para ganhar dinheiro.</string>
+    <string name="advice29_1">O maior talento é ser capaz de encontrar motivação para suas próprias ações.</string>
+    <string name="advice30_1">O bem-estar financeiro é impossível sem restrições financeiras e planejamento de suas despesas. A liberdade financeira passa por restrições financeiras.</string>
+    <string name="advice_31_1">É melhor começar mal do que ficar ocioso.</string>
+    <string name="advice32_1">Pense na sua saúde. O sucesso é impossível sem boa saúde.</string>
+    <string name="advice_32_2">\" Riqueza sem saúde não trará alegria.\"</string>
+    <string name="advice_33_1">É melhor ir ao alvo na velocidade da tartaruga do que na velocidade da luz inventar desculpas por que você está parado.</string>
+    <string name="advice_34_1">Pegue seu hobby favorito e construa uma carreira nele.</string>
+    <string name="advice35_1">\"Para bons ganhos, é necessário um bom conhecimento.\"</string>
+    <string name="advice_35_2">Tente aprender constantemente, ler, expandir seus horizontes. Os tolos só têm sorte no casino, e raramente.</string>
+    <string name="advice_36_1">Riqueza não é quanto você gastou em um cassino, Restaurante, resort ou loja.</string>
+    <string name="advice36_2">\" Riqueza é o que você reservou e economizou.\"</string>
+    <string name="advice37_1">Uma vez sortudo apenas para tolos. Os espertos têm sempre sorte.</string>
+    <string name="advice38_1">Você não é responsável por todos os eventos</string>
+    <string name="advice38_2">Mas você é sempre responsável por sua interpretação dos eventos e por sua reação a eles.</string>
+    <string name="advice39_1">\"Sentar e esperar por um milagre é tão estúpido quanto um atleta sentado em casa em frente à TV,\"</string>
+    <string name="advice39_2">assista aos Jogos Olímpicos e espere obter uma medalha de ouro neles.</string>
+    <string name="advice40_1">O dinheiro sempre tem exatamente o significado que atribuímos a ele.</string>
+    <string name="advice41_1">O dinheiro por si só não faz ninguém feliz ou infeliz. Eles não são bons nem ruins.</string>
+    <string name="advice_41_2">Uma pessoa feliz com dinheiro ficará ainda mais feliz. Um pessimista que faz um problema com tudo terá ainda mais problemas com dinheiro. O dinheiro traz à tona o caráter do proprietário. Eles são como uma lupa.</string>
+    <string name="advice42_1">\"Ninguém fica Rico apenas porque ganha muito.\"</string>
+    <string name="advice42_2">Você só é rico quando pode viver com juros sobre seu capital sem ter que trabalhar: o dinheiro funciona para você.</string>
+    <string name="advice43_1">Posição fundamental: nunca aceite o conselho de uma pessoa que não é quem você se tornaria de bom grado.</string>
+    <string name="advice44_1">Viver sem responsabilidade significa degradar-se a um estado de vítima impotente.</string>
+    <string name="advice44_2">\" Significa viver de acordo com as regras que os outros escreveram para você.\"</string>
+    <string name="advice45_1">A maioria das pessoas superestima o que pode fazer em um ano e subestima o que pode fazer em dez anos.</string>
+    <string name="advice46_1">\"Vemos rosas, mas não notamos espinhos. Nós vemos o sucesso, mas não a preparação para isso.\"</string>
+    <string name="advice46_2">E não vemos os contratempos de outras pessoas. Ficaremos surpresos ao saber com que cuidado os "sortudos"preparam sua sorte.</string>
+    <string name="advice47_1">Há uma diferença fundamental entre o jogo que você está jogando para não perder e o que você quer ganhar.</string>
+    <string name="advice48_1">Você não é pago tanto quanto vale? Não se você trabalha por esse dinheiro –</string>
+    <string name="advice48_2">\" então vale tanto. Se algo não estiver satisfeito-mude seu trabalho, estilo de vida, mude a si mesmo.\"</string>
+    <string name="notification_for_habit">Aviso para hábitos</string>
+    <string name="you_can_set_notification">Você pode definir a hora certa para você</string>
+    <string name="need">É necessário</string>
+    <string name="amount">Montante:</string>
+    <string name="description">Descrição:</string>
+    <string name="enter_name">Digite um nome</string>
+    <string name="protect_data">Proteção dos dados</string>
+    <string name="you_can_save_cloud">Você pode salvar seus dados na nuvem</string>
+    <string name="how_get_achievements">Para cada 5 tarefas concluídas, você obtém uma conquista</string>
+    <string name="about_planner">Planner - um aplicativo para criar vários registros, tarefas e acompanhar sua implementação. Ferramenta versátil para criar registros \n \n o Planner é um aplicativo móvel gratuito capaz de manter todos os seus negócios sob controle. Um assistente necessário em qualquer campo de atividade.\n\n Começar a usar o aplicativo simplesmente vá até a janela "Tarefas", selecione a categoria e escreva o que você gostaria de fazer \n \n \n Intuitiva interface\n\n Planner Combina simplicidade e funcionalidade, abordando uma ampla gama de tarefas: desde a criação de obras de таймингу a elaboração de hábitos.\n\n temporização \n \n Temporizador- anote o que você quer fazer agora \n determine o tempo e como você está pronto comece\n Leia, pratique esportes, medite, desenvolva-se em todas as direções ao longo do tempo especificado sem se distrair com nada,se distraia, não Pause até que o tempo acabe, termine o temporizador no final e seu resultado será gravado \n \ psecundômetro – tem funcionalidade semelhante só aqui você não limitar-se no tempo\n Leia, exercer ,medite, crescer em todas as direções, sem limitação de tempo, no final conclua o cronômetro e o seu resultado será gravado\n E instantaneamente você vai aprender o quanto o tempo que você investir no seu sucesso \n \n Eventos \n Crie o seu evento com a configuração de data, início e fim do tempo, não se esqueça de permitir que o aplicativo para exibir notificações.\n Você pode também horizontal calendário para fixar a data desejada e criar para este dia do evento \n \пЗадачи \n\n que Temos para si mais populares da categoria, que são criados tarefas ,é possível criar uma nova categoria ou editar um existente, mantenha sobre a categoria desejada no segundo, trocando o nome e o ícone.\n Se você quiser alterar a posição da tarefa, segure a tarefa por um segundo \n para removê-la, basta deslizar.\n Para cada 5 tarefas concluídas, você é recompensado com uma conquista.\n Categoria "privado" crie sua senha e crie planos pessoais que somente você deve saber, esta categoria não solicitará uma senha enquanto o aplicativo estiver no modo ativo, no caso de você esquecer a senha, vá para Configurações\n \nidei \n escreva a essência da ideia e fixe uma foto\n \pfinanças\N Gerencie suas finanças\n reabasteça o saldo.\n registre suas despesas para monitorar quando e o que elas vão \n gastos frequentes são seus espaços em branco (Modelos) Crie para si mesmo vários modelos despesas que você escreve com mais frequência e da próxima vez clique no modelo pronto e especifique o valor.\n\nAplicações \n crie hábitos para si mesmo para a realização diária \n indica qual hábito você deseja criar, o ícone e o número de dias para o qual deseja desenvolver um novo hábito.\n defina a notificação para o momento certo para você para não esquecer.\n Todos os dias, observe que você mantém sua promessa feita a si mesmo.\n se de alguma forma você esqueceu de observar, seus dias que você manteve antes não são apagados, a regra é apenas uma coisa, você pode marcar apenas uma vez por dia. \n \ psincronização \n Proteja seus dados contra perdas ative a sincronização para que seus dados estejam seguros caso você mude de dispositivo, quando você autorizar seus registros novamente.\n \naprofile \n Se você estiver sincronizado, será indicado como nome e foto do perfil tiradas da sua conta, se desejar, você poderá alterá-las clicando nelas.\n \naprogress \n Aqui você será mostrado o seu progresso em todos os seus registros, em particular, seu progresso na conclusão de tarefas em porcentagem e na conclusão de tarefas de tempo em minutos.\n \najuda \n no canto superior direito da tela de Tarefas, há um botão com o sinal "?", preparamos para você breves vídeos sobre como trabalhar com o aplicativo.\n\nconfigurações \n Aqui você pode escolher o idioma certo para trabalhar com o aplicativo e o tema que você gosta.\n \nFaça sua contribuição \n o aplicativo está se desenvolvendo ativamente, incorporando sugestões e desejos de cada usuário.\n Deixe um comentário-contribua para a melhoria do produto.\n\n\n</string>
+    <string name="description_about_app">Descrição da aplicação</string>
+</resources>

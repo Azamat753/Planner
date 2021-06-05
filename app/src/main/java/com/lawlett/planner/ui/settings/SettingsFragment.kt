@@ -41,4 +41,9 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
             )
         }
     }
+    private fun sendEmail(){
+       val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        startActivity(intent)
+    }
 }

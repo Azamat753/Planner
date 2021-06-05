@@ -6,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lawlett.planner.data.room.dao.TasksDao
 import com.lawlett.planner.data.room.dao.TimingDao
-import com.lawlett.planner.data.room.models.Tasks
-import com.lawlett.planner.data.room.models.Timing
+import com.lawlett.planner.data.room.models.TasksModel
+import com.lawlett.planner.data.room.models.TimingModel
 
-@Database(entities = [Tasks::class, Timing::class], version = 1, exportSchema = false)
+@Database(entities = [TasksModel::class, TimingModel::class], version = 1, exportSchema = false)
 abstract class TasksDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TasksDao

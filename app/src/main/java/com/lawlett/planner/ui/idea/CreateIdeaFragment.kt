@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.idea
 
 import android.Manifest
 import android.app.Activity
@@ -14,14 +14,15 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentCreateIdeaBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.loadImage
 import com.lawlett.planner.extensions.toastShow
 import com.lawlett.planner.extensions.visible
 import kotlinx.android.synthetic.main.fragment_create_idea.*
 
-class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
+class CreateIdeaFragment : BaseFragment<FragmentCreateIdeaBinding>(FragmentCreateIdeaBinding::inflate) {
     private val IMAGE_CAPTURE_CODE = 1001
     var image_uri: Uri? = null
 
@@ -72,7 +73,9 @@ class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
                     val permission = arrayOf(Manifest.permission.CAMERA,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     //show popup to request permission
-                    requestPermissions(permission, PERMISSION_CODE)
+                    requestPermissions(permission,
+                        PERMISSION_CODE
+                    )
                 } else {
                     //permission already granted
                     openCamera()
@@ -101,7 +104,9 @@ class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
         //Intent to pick image
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
+        startActivityForResult(intent,
+            IMAGE_PICK_CODE
+        )
     }
 
     companion object {
@@ -146,7 +151,9 @@ class CreateIdeaFragment : BaseFragment(R.layout.fragment_create_idea) {
                     //permission denied
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
                     //show popup to request runtime permission
-                    requestPermissions(permissions, PERMISSION_CODE);
+                    requestPermissions(permissions,
+                        PERMISSION_CODE
+                    );
                 } else {
                     //permission already granted
                     pickImageFromGallery();

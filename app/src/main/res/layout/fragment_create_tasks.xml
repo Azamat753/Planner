@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.CreateTasksFragment">
+    tools:context=".ui.tasks.CreateTasksFragment">
 
     <Toolbar
         android:id="@+id/cr_category_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/royalStart"
+        android:background="?attr/toolbarColor"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -53,7 +53,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:padding="16dp"
-        android:textColorHint="@color/myWhite"
+        android:textColorHint="?attr/textColor"
         android:hint="@string/task"
         app:borderWidth="2dp"
         app:cornerRadius="8dp"

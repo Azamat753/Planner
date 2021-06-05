@@ -1,20 +1,22 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.timing
 
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
+import com.lawlett.planner.databinding.FragmentTimingBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.TimingAdapter
 import kotlinx.android.synthetic.main.fragment_timing.*
 import org.koin.android.ext.android.inject
 
-class TimingFragment : BaseFragment(R.layout.fragment_timing) {
+class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding::inflate) {
 
     private val rotateOpen: Animation by lazy {
         AnimationUtils.loadAnimation(
@@ -54,18 +56,18 @@ class TimingFragment : BaseFragment(R.layout.fragment_timing) {
     }
 
     private fun getData() {
-        viewModel.getData().observe(viewLifecycleOwner, { timings ->
+        viewModel.getData().observe(viewLifecycleOwner, Observer { timings ->
             adapter.setData(timings)
         })
 
     }
 
     private fun initRecycler() {
-        timing_recycler.adapter = adapter
+        binding.timingRecycler.adapter=adapter
     }
 
     private fun checkRecordsOnEmpty() {
-
+        
     }
 
     private fun initClickers() {

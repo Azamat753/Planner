@@ -1,16 +1,16 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.progress
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.addCallback
-import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import androidx.lifecycle.Observer
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import kotlinx.android.synthetic.main.fragment_progress.*
 import org.koin.android.ext.android.inject
+import com.lawlett.planner.databinding.FragmentProgressBinding
 
-class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
+class ProgressFragment : BaseFragment<FragmentProgressBinding>(FragmentProgressBinding::inflate) {
     private val viewModel by inject<TaskViewModel>()
     private var allTasksDoneAmount: Int = 0
     private var personalDoneAmount: Int = 0
@@ -47,7 +47,7 @@ class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
     }
 
     private fun getData() {
-        viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 personalAmount = 0
                 personalDoneAmount = 0
@@ -61,7 +61,7 @@ class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
             }
         })
 
-        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 workAmount = 0
                 workDoneAmount = 0
@@ -75,7 +75,7 @@ class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
             }
         })
 
-        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner,Observer { tasks ->
             if (tasks.isEmpty()) {
                 meetAmount = 0
                 meetDoneAmount = 0
@@ -89,7 +89,7 @@ class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
             }
         })
 
-        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner,Observer { tasks ->
             if (tasks.isEmpty()) {
                 homeAmount = 0
                 homeDoneAmount = 0
@@ -103,7 +103,7 @@ class ProgressFragment : BaseFragment(R.layout.fragment_progress) {
             }
         })
 
-        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner,Observer { tasks ->
             if (tasks.isEmpty()) {
                 privateAmount = 0
                 privateDoneAmount = 0

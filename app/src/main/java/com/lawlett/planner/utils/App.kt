@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDex
 import com.lawlett.planner.di.viewModelModule
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
@@ -14,7 +15,9 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import java.util.*
 
+
 class App : Application() {
+
 
     override fun onCreate() {
         super.onCreate()
@@ -28,6 +31,7 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         MultiDex.install(this)
     }
     private fun createNotificationChannel() {

@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/royalStart">
+        android:background="?attr/toolbarColor">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:background="?attr/toolbarColor"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -74,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/navigation_background"
+        android:background="?attr/bottomNavigationColor"
         app:itemIconTint="#FFFFFF"
         app:itemTextColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

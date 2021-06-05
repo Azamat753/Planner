@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main.timing
+package com.lawlett.planner.ui.timing
 
 import android.media.MediaPlayer
 import android.media.RingtoneManager
@@ -13,9 +13,10 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.Timing
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
+import com.lawlett.planner.databinding.FragmentTimerBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.toastShow
 import com.lawlett.planner.extensions.visible
@@ -26,7 +27,7 @@ import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class TimerFragment : BaseFragment(R.layout.fragment_timer) {
+class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::inflate) {
     lateinit var mp: MediaPlayer
     private var timeLeftInMilliseconds: Long = 0
     lateinit var countDownTimer: CountDownTimer
@@ -156,7 +157,7 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setCustomBigContentView(expandedView)
                     .setContentTitle(getString(R.string.timer))
-                    .setColor(getColor(requireContext(), R.color.myWhite))
+                    .setColor(getColor(requireContext(), R.color.textColor))
                     .setContentText(getString(R.string.go_count))
                     .setOnlyAlertOnce(true)
                     .build()

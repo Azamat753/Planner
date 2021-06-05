@@ -1,7 +1,9 @@
 package com.lawlett.planner.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +14,7 @@ import com.lawlett.planner.extensions.checkedTheme
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.loadLocale
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.widget.AppWidget
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        this.checkedTheme()
-        loadLocale(this)
         super.onCreate(savedInstanceState)
+        loadLocale(this)
+        this.checkedTheme()
         setContentView(R.layout.activity_main)
         setupNavigation()
         setupBottomNavigation()
@@ -31,11 +34,21 @@ class MainActivity : AppCompatActivity() {
         changeTitleToolbar()
         checkEventFragment()
     }
+
     private fun checkEventFragment() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             bottomNavigation.menu.getItem(3).isEnabled = destination.id !in arrayOf(
                 R.id.events_fragment,
             )
+        }
+//        getWidgetIntent()
+    }
+
+    private fun getWidgetIntent() {
+        val id = intent.getIntExtra(AppWidget.BUTTON_KEY, 0)
+        Log.d("pop", "getWidgetIntent $id")
+        when (id) {
+            100 -> navController.navigate(R.id.category_fragment)
         }
     }
 
@@ -81,7 +94,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavBarColor() {
-        window.navigationBarColor = resources.getColor(R.color.statusBarC)
+        window.navigationBarColor = resources.getColor(R.color.toolbarBackground)
     }
 
     private fun setupBottomNavigation() {

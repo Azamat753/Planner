@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.databinding.FragmentBoardBinding
 import com.lawlett.planner.utils.BoardPreference
 import com.lawlett.planner.extensions.changeLanguage
 import kotlinx.android.synthetic.main.fragment_board.*
 
-class BoardFragment : BaseFragment(R.layout.fragment_board) {
+class BoardFragment : BaseFragment<FragmentBoardBinding>(FragmentBoardBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,5 +61,4 @@ class BoardFragment : BaseFragment(R.layout.fragment_board) {
             findNavController().navigate(R.id.action_board_fragment_to_progress_fragment)
         }
     }
-
 }

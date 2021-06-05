@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="ThemeOverlay.Planner.AppWidgetContainer" parent="">
+        <item name="appWidgetBackgroundColor">?attr/toolbarColor</item>
+    </style>
+</resources>

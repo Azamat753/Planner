@@ -8,15 +8,11 @@ class ThemePreference(context: Context) {
 
     private val preferences: SharedPreferences
 
-    val getLightTheme: Boolean
-        get() = preferences.getBoolean("theme_mode", false)
+    val getTheme: Int
+        get() = preferences.getInt("theme", 0)
 
-    fun saveLightTrue() {
-        preferences.edit().putBoolean("theme_mode", true).apply()
-    }
-
-    fun saveLightFalse() {
-        preferences.edit().putBoolean("theme_mode", false).apply()
+    fun saveTheme(theme:Int) {
+        preferences.edit().putInt("theme", theme).apply()
     }
 
     companion object {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/royalEnd"
+    android:background="@color/windowBackground"
     tools:context=".ui.onboard.BoardFragment">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -65,7 +65,7 @@
         android:fontFamily="@font/m_light"
         android:gravity="center"
         android:text="Calendar Events"
-        android:textColor="@color/myWhite"
+        android:textColor="?attr/textColor"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
         android:layout_marginTop="420dp"
         android:fontFamily="@font/m_light"
         android:text="Quickly add your events &amp; easy to switch beetween month &amp; week view"
-        android:textColor="@color/myWhite"
+        android:textColor="?attr/textColor"
         android:textSize="18sp"
         android:textStyle="bold" />
 

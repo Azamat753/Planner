@@ -1,0 +1,5 @@
+<resources>
+
+    <style name="ThemeOverlay.Planner.AppWidgetContainer" parent="">
+    </style>
+</resources>

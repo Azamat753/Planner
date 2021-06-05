@@ -1,21 +1,23 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.Tasks
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
+import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.ui.adapter.TaskAdapter
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAdapter.Listener {
+class CreateTasksFragment :
+    BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate),TaskAdapter.Listener {
 
     private val viewModel by inject<TaskViewModel>()
     private val adapter = TaskAdapter(this)
@@ -89,7 +91,7 @@ class CreateTasksFragment : BaseFragment(R.layout.fragment_create_tasks), TaskAd
     private fun initViewModel() {
         insertDataToDataBase(args.category)
         toolbar_title.text = args.category
-        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isNotEmpty()) {
                 adapter.setData(tasks)
                 listTasks = tasks

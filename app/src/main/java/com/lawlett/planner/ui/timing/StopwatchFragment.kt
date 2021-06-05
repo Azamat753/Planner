@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.main.timing
+package com.lawlett.planner.ui.timing
 
 import android.app.Notification
 import android.os.Bundle
@@ -10,14 +10,13 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
-import androidx.lifecycle.ViewModelProvider
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.Timing
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
+import com.lawlett.planner.databinding.FragmentStopwatchBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
-import com.lawlett.planner.ui.adapter.TimingAdapter
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
@@ -25,7 +24,7 @@ import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
+class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
     var elapsedMillis: Long = 0
     var myTask: String? = null
     var roundingAlone: Animation? = null
@@ -113,7 +112,7 @@ class StopwatchFragment : BaseFragment(R.layout.fragment_stopwatch) {
             .setCustomBigContentView(expandedView)
             .setContentTitle(getString(R.string.stopwatch))
             .setContentText(getString(R.string.go_count))
-            .setColor(getColor(requireContext(), R.color.myWhite))
+            .setColor(getColor(requireContext(), R.color.textColor))
             .build()
 
         notification.flags = Notification.FLAG_ONGOING_EVENT

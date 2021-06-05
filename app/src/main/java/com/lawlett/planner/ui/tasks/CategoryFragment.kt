@@ -1,16 +1,18 @@
-package com.lawlett.planner.ui.main
+package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.base.BaseFragment
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
+import com.lawlett.planner.databinding.FragmentCategoryBinding
 import kotlinx.android.synthetic.main.fragment_category.*
 import org.koin.android.ext.android.inject
 
-class CategoryFragment : BaseFragment(R.layout.fragment_category) {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
     private val viewModel by inject<TaskViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -20,35 +22,35 @@ class CategoryFragment : BaseFragment(R.layout.fragment_category) {
         showAmountTasks()
     }
     private fun showAmountTasks() {
-        viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 personal_amount.text = "0"
             } else {
                 personal_amount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 work_amount.text = "0"
             } else {
                 work_amount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 meet_task_amount.text = "0"
             } else {
                 meet_task_amount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner,Observer { tasks ->
             if (tasks.isEmpty()) {
                 home_task_amount.text = "0"
             } else {
                 home_task_amount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isEmpty()) {
                 private_task_amount.text = "0"
             } else {

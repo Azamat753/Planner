@@ -3,7 +3,6 @@ package com.lawlett.planner.ui.main
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavigation()
         setupBottomNavigation()
-        setupNavBarColor()
         setupToolbar()
         changeTitleToolbar()
         checkEventFragment()
@@ -91,10 +89,6 @@ class MainActivity : AppCompatActivity() {
         settings_view.setOnClickListener {
             navController.navigate(R.id.settingsFragment)
         }
-    }
-
-    private fun setupNavBarColor() {
-        window.navigationBarColor = resources.getColor(R.color.toolbarBackground)
     }
 
     private fun setupBottomNavigation() {

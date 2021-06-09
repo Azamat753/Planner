@@ -12,15 +12,13 @@ import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.ui.adapter.TaskAdapter
-import kotlinx.android.synthetic.main.fragment_create_tasks.*
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateTasksFragment :
-    BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate),TaskAdapter.Listener {
+class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate) {
 
     private val viewModel by inject<TaskViewModel>()
-    private val adapter = TaskAdapter(this)
+    private val adapter = TaskAdapter()
     private val args: CreateTasksFragmentArgs by navArgs()
     lateinit var taskModel: TasksModel
     var currentDone: Int = 0
@@ -33,10 +31,6 @@ class CreateTasksFragment :
         swipe()
         drag()
     }
-    private fun refreshList() {
-
-    }
-
     private fun drag() {
         touchHelper = ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
@@ -49,7 +43,6 @@ class CreateTasksFragment :
                 val targetPosition = target.adapterPosition
                 Collections.swap(listTasks, sourcePosition, targetPosition)
                 adapter.notifyItemMoved(sourcePosition, targetPosition)
-                refreshList()
                 return true
             }
 
@@ -65,7 +58,7 @@ class CreateTasksFragment :
                 listTasks?.let { viewModel.updatePosition(it) }
             }
         })
-        touchHelper.attachToRecyclerView(cr_recycler)
+        touchHelper.attachToRecyclerView(binding.crRecycler)
     }
 
     private fun swipe() {
@@ -85,15 +78,15 @@ class CreateTasksFragment :
                 }
             }
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
-        itemTouchHelper.attachToRecyclerView(cr_recycler)
+        itemTouchHelper.attachToRecyclerView(binding.crRecycler)
     }
 
     private fun initViewModel() {
         insertDataToDataBase(args.category)
-        toolbar_title.text = args.category
+        binding.toolbarTitle.text = args.category
         viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer{ tasks ->
             if (tasks.isNotEmpty()) {
-                adapter.setData(tasks)
+                adapter.setData(tasks as List<TasksModel>)
                 listTasks = tasks
                 currentDone = 0
                 tasks.forEach { if (it.isDone) currentDone++ }
@@ -102,33 +95,33 @@ class CreateTasksFragment :
     }
 
     private fun initRecycler() {
-        cr_recycler.adapter = adapter
+        binding.crRecycler.adapter = adapter
     }
 
     private fun insertDataToDataBase(category: String) {
-        mic_task.setOnClickListener {
-            val taskValues = cr_editText.text.toString()
+        binding.micTask.setOnClickListener {
+            val taskValues = binding.crEditText.text.toString()
             if (taskValues.isNotEmpty()) {
                 val tasks = TasksModel(category = category,
                     task = taskValues,
                     isDone = false)
                 viewModel.addTask(tasks)
-                cr_editText.clearField()
+                binding.crEditText.clearField()
             }
         }
     }
 
-    override fun onItemClick(pos: Int) {
-        taskModel = listTasks!![pos]
-        if (!taskModel.isDone) {
-            taskModel.isDone = true
-            incrementDone()
-        } else {
-            taskModel.isDone = false
-            decrementDone()
-        }
-        viewModel.update(taskModel)
-    }
+//    override fun onItemClick(pos: Int) {
+//        taskModel = listTasks!![pos]
+//        if (!taskModel.isDone) {
+//            taskModel.isDone = true
+//            incrementDone()
+//        } else {
+//            taskModel.isDone = false
+//            decrementDone()
+//        }
+//        viewModel.update(taskModel)
+//    }
 
     private fun decrementDone() {
         currentDone--

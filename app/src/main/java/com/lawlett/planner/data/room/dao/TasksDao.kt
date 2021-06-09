@@ -20,5 +20,5 @@ interface TasksDao {
     suspend fun delete(tasksModel: TasksModel)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun updateWord(tasks: List<TasksModel?>)
+   suspend fun updatePosition(tasks: List<TasksModel?>)
 }

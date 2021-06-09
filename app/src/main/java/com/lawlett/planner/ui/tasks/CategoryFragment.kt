@@ -6,10 +6,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
-import kotlinx.android.synthetic.main.fragment_category.*
+import com.lawlett.planner.ui.base.BaseFragment
 import org.koin.android.ext.android.inject
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
@@ -21,70 +20,72 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         openCategories()
         showAmountTasks()
     }
+
     private fun showAmountTasks() {
-        viewModel.getCategoryLiveData("Персональные").observe(viewLifecycleOwner, Observer{ tasks ->
+        viewModel.getCategoryLiveData("Персональные")
+            .observe(viewLifecycleOwner, Observer { tasks ->
+                if (tasks.isEmpty()) {
+                    binding.personalAmount.text = "0"
+                } else {
+                    binding.personalAmount.text = tasks.size.toString()
+                }
+            })
+        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isEmpty()) {
-                personal_amount.text = "0"
+                binding.workAmount.text = "0"
             } else {
-                personal_amount.text = tasks.size.toString()
+                binding.workAmount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Работа").observe(viewLifecycleOwner, Observer{ tasks ->
+        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isEmpty()) {
-                work_amount.text = "0"
+                binding.meetTaskAmount.text = "0"
             } else {
-                work_amount.text = tasks.size.toString()
+                binding.meetTaskAmount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Встречи").observe(viewLifecycleOwner, Observer{ tasks ->
+        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isEmpty()) {
-                meet_task_amount.text = "0"
+                binding.homeTaskAmount.text = "0"
             } else {
-                meet_task_amount.text = tasks.size.toString()
+                binding.homeTaskAmount.text = tasks.size.toString()
             }
         })
-        viewModel.getCategoryLiveData("Дом").observe(viewLifecycleOwner,Observer { tasks ->
+        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isEmpty()) {
-                home_task_amount.text = "0"
+                binding.privateTaskAmount.text = "0"
             } else {
-                home_task_amount.text = tasks.size.toString()
-            }
-        })
-        viewModel.getCategoryLiveData("Приватные").observe(viewLifecycleOwner, Observer{ tasks ->
-            if (tasks.isEmpty()) {
-                private_task_amount.text = "0"
-            } else {
-                private_task_amount.text = tasks.size.toString()
+                binding.privateTaskAmount.text = tasks.size.toString()
             }
         })
     }
 
     private fun openCategories() {
-        personconst.setOnClickListener {
+        binding.personconst.setOnClickListener {
             val pAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
                 CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment()
             pAction.category = getString(R.string.personal)
             findNavController().navigate(pAction)
         }
-        workconst.setOnClickListener {
+        binding.workconst.setOnClickListener {
             val wAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
                 CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment()
             wAction.category = getString(R.string.work)
             findNavController().navigate(wAction)
         }
-        meetconst.setOnClickListener {
+        binding.meetconst.setOnClickListener {
             val mAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
                 CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment()
             mAction.category = getString(R.string.meets)
             findNavController().navigate(mAction)
         }
-        homeconst.setOnClickListener {
+        binding.homeconst.setOnClickListener {
             val hAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
                 CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment()
             hAction.category = getString(R.string.home)
             findNavController().navigate(hAction)
         }
-        privateconst.setOnClickListener {
+        binding.privateconst.setOnClickListener {
             val prAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
                 CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment()
             prAction.category = getString(R.string.privates)

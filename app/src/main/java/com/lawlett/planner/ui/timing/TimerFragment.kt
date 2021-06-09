@@ -22,7 +22,6 @@ import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
 import com.lawlett.planner.utils.SimpleCountDownTimer
-import kotlinx.android.synthetic.main.fragment_timer.*
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -69,8 +68,8 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
         val currentDate = SimpleDateFormat("dd ", Locale.getDefault()).format(Date())
 
         val timings = TimingModel(
-            timerTitle = timer_task_edit.text.toString(),
-            timerMinutes = editText.text.toString().toInt(),
+            timerTitle = binding.timerTaskEdit.text.toString(),
+            timerMinutes = binding.editText.text.toString().toInt(),
             timerDay = "$currentDate $month $year"
         )
         viewModel.addTask(timings)
@@ -84,43 +83,43 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
     }
 
     private fun initClickers() {
-        close_button.setOnClickListener {
+        binding.closeButton.setOnClickListener {
             mp.reset()
             notificationManager.cancel(1)
             if (countDownTimer != null)
                 findNavController().navigateUp()
         }
 
-        timer_task_apply.setOnClickListener {
-            if (timer_task_edit.text.toString().isEmpty()) {
+        binding.   timerTaskApply.setOnClickListener {
+            if (binding.timerTaskEdit.text.toString().isEmpty()) {
                 requireContext().showToast(getString(R.string.empty))
             } else {
-                myTask = timer_task_edit.text.toString()
-                image_const.gone()
-                timerConst.visible()
+                myTask = binding.timerTaskEdit.text.toString()
+                binding.  imageConst.gone()
+                binding.  timerConst.visible()
             }
         }
-        apply_button.setOnClickListener {
-            if (editText.text.toString() == "" || editText.text.toString().toInt() < 1) {
+        binding.applyButton.setOnClickListener {
+            if (binding.editText.text.toString() == "" || binding.editText.text.toString().toInt() < 1) {
                 requireContext().showToast(getString(R.string.zero_minutes_pass))
 
             } else {
-                timeLeftInMilliseconds = (editText.text.toString().toInt() * 60000).toLong()
+                timeLeftInMilliseconds = (binding.editText.text.toString().toInt() * 60000).toLong()
                 timeLeftText = timeLeftInMilliseconds.toString()
-                apply_button.gone()
-                editText.gone()
-                countdown_text.text = getString(R.string.ready)
-                countdown_button.visible()
-                countdown_text.visible()
+                binding.       applyButton.gone()
+                binding.      editText.gone()
+                binding.      countdownText.text = getString(R.string.ready)
+                binding.     countdownButton.visible()
+                binding.      countdownText.visible()
             }
         }
-        countdown_button.setOnClickListener {
+        binding. countdownButton.setOnClickListener {
             startTimer()
             showNotification()
         }
 
-        exit_button.setOnClickListener {
-            var myTime = countdown_text.text.toString()
+        binding. exitButton.setOnClickListener {
+            var myTime = binding.countdownText.text.toString()
             if (myTime.equals("0:00") || myTime.equals("0:01") || myTime.equals("0:02")) {
                 recordDataInRoom()
                 if (mp != null)
@@ -154,7 +153,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 expandedView.setTextViewText(R.id.timer_expanded, timeLeftText)
 
                 val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setSmallIcon(R.mipmap.ic_planner)
                     .setCustomBigContentView(expandedView)
                     .setContentTitle(getString(R.string.timer))
                     .setColor(getColor(requireContext(), R.color.textColor))
@@ -174,8 +173,8 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
     }
 
     private fun startTimer() {
-        icanchor.startAnimation(roundingAlone)
-        countdown_button.animate().alpha(0f).setDuration(300).start()
+        binding.   icanchor.startAnimation(roundingAlone)
+        binding.    countdownButton.animate().alpha(0f).setDuration(300).start()
         object : SimpleCountDownTimer(timeLeftInMilliseconds, 1000) {
             override fun onTick(p0: Long) {
                 super.onTick(p0)
@@ -187,9 +186,9 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 if (seconds < 10) timeLeftText += ""
                 timeLeftText += seconds
 
-                countdown_text.text = timeLeftText
-                countdown_button.gone()
-                exit_button.visible()
+                binding.   countdownText.text = timeLeftText
+                binding.   countdownButton.gone()
+                binding.    exitButton.visible()
 
             }
 
@@ -200,8 +199,8 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 } else {
                     requireContext().showToast(getString(R.string.timer_end))
                 }
-                icanchor.clearAnimation()
-                countdown_button.visible()
+                binding. icanchor.clearAnimation()
+                binding.countdownButton.visible()
             }
         }.start()
     }

@@ -4,7 +4,7 @@
     android:initialLayout="@layout/app_widget"
     android:minWidth="110dp"
     android:minHeight="40dp"
-    android:previewImage="@mipmap/ic_launcher"
+    android:previewImage="@mipmap/ic_planner"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1000000"
     android:widgetCategory="home_screen" />

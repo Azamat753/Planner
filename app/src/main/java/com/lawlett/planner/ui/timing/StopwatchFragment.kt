@@ -11,20 +11,19 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.TimingModel
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.databinding.FragmentStopwatchBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
-import kotlinx.android.synthetic.main.fragment_create_tasks.*
-import kotlinx.android.synthetic.main.fragment_stopwatch.*
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
+class StopwatchFragment :
+    BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
     var elapsedMillis: Long = 0
     var myTask: String? = null
     var roundingAlone: Animation? = null
@@ -42,6 +41,7 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
         initListeners()
         insertToDataBase()
     }
+
     private fun insertToDataBase() {
         val c = Calendar.getInstance()
         val year = c[Calendar.YEAR]
@@ -62,29 +62,32 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
         val month = monthName[c[Calendar.MONTH]]
         val currentDate = SimpleDateFormat("dd ", Locale.getDefault()).format(Date())
 
-        toolbar_title.text = getString(R.string.stopwatch)
-        var stopwatch=TimingModel(stopwatch = stopwatch_task_edit.text.toString() ,stopwatchDay ="$currentDate $month $year" )
+//        binding.toolbarTitle.text = getString(R.string.stopwatch)
+        var stopwatch = TimingModel(
+            stopwatch = binding.stopwatchTaskEdit.text.toString(),
+            stopwatchDay = "$currentDate $month $year"
+        )
         viewModel.addTask(stopwatch)
-        }
+    }
 
 
     private fun initListeners() {
-        stopwatch_task_apply.setOnClickListener {
-            myTask = stopwatch_task_edit.text.toString()
-            imageconst.gone()
-            stopWatchConst.visible()
+        binding.stopwatchTaskApply.setOnClickListener {
+            myTask = binding.stopwatchTaskEdit.text.toString()
+            binding.imageconst.gone()
+            binding.stopWatchConst.visible()
         }
-        btnstart.setOnClickListener {
+        binding.btnstart.setOnClickListener {
             showCustomNotification()
-            icanchor_stopwatch.startAnimation(roundingAlone)
-            btnstop.animate().alpha(1f).translationY(-80f).setDuration(300).start()
-            btnstart.animate().alpha(0f).setDuration(300).start()
-            btnstop.visible()
-            btnstart.gone()
-            timerHere!!.base = SystemClock.elapsedRealtime()
-            timerHere!!.start()
+            binding.icanchorStopwatch.startAnimation(roundingAlone)
+            binding. btnstop.animate().alpha(1f).translationY(-80f).setDuration(300).start()
+            binding.  btnstart.animate().alpha(0f).setDuration(300).start()
+            binding. btnstop.visible()
+            binding. btnstart.gone()
+            binding. timerHere!!.base = SystemClock.elapsedRealtime()
+            binding. timerHere!!.start()
         }
-        btnstop.setOnClickListener {
+        binding.    btnstop.setOnClickListener {
             showElapsedTime()
             notificationManager?.cancel(1)
 
@@ -92,7 +95,7 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
     }
 
     private fun showElapsedTime() {
-        elapsedMillis = SystemClock.elapsedRealtime() - timerHere!!.base
+        elapsedMillis = SystemClock.elapsedRealtime() - binding.timerHere!!.base
         stopwatchTime = (elapsedMillis / 60000).toString()
     }
 
@@ -108,7 +111,7 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
             true
         )
         val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.mipmap.ic_planner)
             .setCustomBigContentView(expandedView)
             .setContentTitle(getString(R.string.stopwatch))
             .setContentText(getString(R.string.go_count))
@@ -124,11 +127,11 @@ class StopwatchFragment : BaseFragment<FragmentStopwatchBinding>(FragmentStopwat
         atg = AnimationUtils.loadAnimation(requireContext(), R.anim.atg)
         btgOne = AnimationUtils.loadAnimation(requireContext(), R.anim.btgone)
         btgTwo = AnimationUtils.loadAnimation(requireContext(), R.anim.btgtwo)
-        image_phone.startAnimation(atg)
-        btnstart.startAnimation(btgOne)
-        stopwatch_task_apply.startAnimation(btgTwo)
-        stopwatch_task_edit.startAnimation(btgOne)
-        btnstop.alpha = 0f
+        binding.   imagePhone.startAnimation(atg)
+        binding.   btnstart.startAnimation(btgOne)
+        binding.   stopwatchTaskApply.startAnimation(btgTwo)
+        binding.  stopwatchTaskEdit.startAnimation(btgOne)
+        binding.  btnstop.alpha = 0f
         roundingAlone = AnimationUtils.loadAnimation(requireContext(), R.anim.roundingalone)
 
     }

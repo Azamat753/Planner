@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.lawlett.planner.extensions.checkedTheme
 
 abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> T) : Fragment() {
 
@@ -21,5 +22,4 @@ abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflate
         _binding = inflate.invoke(inflater, container, false)
         return binding.root
     }
-
 }

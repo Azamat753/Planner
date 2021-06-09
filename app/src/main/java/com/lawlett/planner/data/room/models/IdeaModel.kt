@@ -9,6 +9,5 @@ data class IdeaModel(
     val id: Int? = null,
     val title: String,
     val image:String,
-    val createData:String,
     val color: Int
 )

@@ -13,7 +13,7 @@ interface TimingDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addTask(timingModel: TimingModel)
 
-    @Query("SELECT * FROM tasks_table ORDER BY id ASC")
+    @Query("SELECT * FROM tasks_table")
     fun readAllData(): LiveData<List<TimingModel>>
 
 }

@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TimingModel
-import kotlinx.android.synthetic.main.timing_item.view.*
 
 class TimingAdapter :RecyclerView.Adapter<TimingAdapter.TimingViewHolder>() {
     private var timingList= emptyList<TimingModel>()
@@ -23,9 +22,9 @@ class TimingAdapter :RecyclerView.Adapter<TimingAdapter.TimingViewHolder>() {
 
     override fun onBindViewHolder(holder: TimingViewHolder, position: Int) {
         val currentItem=timingList[position]
-        holder.itemView.timer_task_title.text=currentItem.timerTitle
-        holder.itemView.minutes_amount.text= currentItem.timerMinutes.toString()
-        holder.itemView.task_day.text=currentItem.timerDay
+//        holder.itemView.timer_task_title.text=currentItem.timerTitle
+//        holder.itemView.minutes_amount.text= currentItem.timerMinutes.toString()
+//        holder.itemView.task_day.text=currentItem.timerDay
 
     }
 

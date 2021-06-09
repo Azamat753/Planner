@@ -113,7 +113,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/third_layout"
+        android:id="@+id/change_theme_button"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="20dp"
@@ -135,7 +135,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/four_layout"
+        android:id="@+id/change_language_layout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="20dp"
@@ -143,7 +143,7 @@
         android:background="?attr/toolbarColor"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/third_layout">
+        app:layout_constraintTop_toBottomOf="@id/change_theme_button">
 
         <TextView
             android:id="@+id/language"
@@ -166,7 +166,7 @@
         android:background="?attr/toolbarColor"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/four_layout">
+        app:layout_constraintTop_toBottomOf="@id/change_language_layout">
 
         <TextView
             android:id="@+id/share"

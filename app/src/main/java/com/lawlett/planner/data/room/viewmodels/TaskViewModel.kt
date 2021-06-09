@@ -35,6 +35,5 @@ class TaskViewModel(private val repository: TaskRepository) : ViewModel() {
     fun getCategoryLiveData(category: String): LiveData<List<TasksModel>> {
         return repository.loadCategoryLiveData(category)
     }
-
 }
 

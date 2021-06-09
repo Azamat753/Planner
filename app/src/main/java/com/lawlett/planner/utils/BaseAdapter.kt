@@ -5,26 +5,41 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseAdapter<Binding : ViewBinding, T, ViewHolder: BaseViewHolder<Binding, T>>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding, private val viewHolder: ViewHolder) :
-    RecyclerView.Adapter<ViewHolder>() {
+abstract class BaseAdapter<T, Binding : ViewBinding>(
+    private val holderLayoutId: Int,
+    var data: List<T>,
+    private val inflater: (LayoutInflater) -> Binding
+) : RecyclerView.Adapter<BaseAdapter<T, Binding>.BaseViewHolder>() {
 
-    var list: ArrayList<T> = ArrayList()
+    var listener: IBaseAdapterClickListener<T>? = null
+    private var _binding: Binding? = null
+    val binding get() = _binding!!
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return viewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+        _binding = inflater.invoke(LayoutInflater.from(parent.context))
+        return BaseViewHolder(binding)
+    }
+    @JvmName("setData1")
+    fun setData(data: List<T>) {
+        this.data = data
+        notifyDataSetChanged()
     }
 
-    override fun getItemCount(): Int {
-        return list.size
+    override fun getItemCount(): Int = data.size
+
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        holder.onBind(data[position])
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(list[position])
+    abstract fun onBind(binding: Binding, model: T)
+
+    inner class BaseViewHolder(binding: Binding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(model: T) {
+            onBind(binding, model)
+            itemView.setOnClickListener { listener?.onClick(model) }
+        }
+    }
+    interface IBaseAdapterClickListener<T> {
+        fun onClick(model: T)
     }
 }
-
-private interface BaseViewModelBuilder<T> {
-    fun onBind(model: T)
-}
-
-abstract class BaseViewHolder<Binding : ViewBinding, T>(itemView: Binding) : RecyclerView.ViewHolder(itemView.root), BaseViewModelBuilder<T>

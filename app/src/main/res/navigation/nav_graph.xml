@@ -61,8 +61,8 @@
         <action
             android:id="@+id/action_idea_fragment_to_recordIdeaFragment"
             app:destination="@id/recordIdeaFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_idea_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
@@ -105,7 +105,7 @@
         <action
             android:id="@+id/action_recordIdeaFragment_to_idea_fragment"
             app:destination="@id/idea_fragment"
-            app:enterAnim="@anim/fragment_fade_enter"
+            app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/slide_out_down" />
     </fragment>
     <fragment
@@ -150,5 +150,9 @@
         android:name="com.lawlett.planner.ui.events.CreateEventFragment"
         android:label="fragment_create_event"
         tools:layout="@layout/fragment_create_event" />
+    <fragment
+        android:id="@+id/habitFragment"
+        android:name="com.lawlett.planner.ui.habit.HabitFragment"
+        android:label="HabitFragment" />
 
 </navigation>

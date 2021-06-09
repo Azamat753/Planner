@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.lawlett.planner.R
 import com.lawlett.planner.utils.LanguagePreference
 import com.lawlett.planner.utils.ThemePreference
@@ -53,13 +51,29 @@ fun loadLocale(context: Context) {
     }
 }
 
-fun Activity.checkedTheme() {
-    when (ThemePreference.getInstance(this)?.getTheme) {
-        0 -> {
+fun Context.checkedTheme() {
+    when (ThemePreference.getInstance(this)?.getTheme.toString()) {
+        getString(R.string.blue) -> {
+            this.setTheme(R.style.AppTheme_BlueLight)
+        }
+        getString(R.string.green) -> {
+            this.setTheme(R.style.AppTheme_GreenLight)
+        }
+        getString(R.string.red) -> {
+            this.setTheme(R.style.AppTheme_Red)
+        }
+        getString(R.string.black) -> {
+            this.setTheme(R.style.AppTheme_Black)
+        }
+        getString(R.string.yellow) -> {
+            this.setTheme(R.style.AppTheme_Yellow)
+        }
+        getString(R.string.orange) -> {
             this.setTheme(R.style.AppTheme_Orange)
         }
-        1 -> {
-            this.setTheme(R.style.AppTheme_Green)
+        getString(R.string.white) -> {
+            this.setTheme(R.style.AppTheme_White)
         }
+
     }
 }

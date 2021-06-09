@@ -7,13 +7,12 @@ import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.TimingViewModel
 import com.lawlett.planner.databinding.FragmentTimingBinding
 import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.TimingAdapter
-import kotlinx.android.synthetic.main.fragment_timing.*
+import com.lawlett.planner.ui.base.BaseFragment
 import org.koin.android.ext.android.inject
 
 class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding::inflate) {
@@ -56,24 +55,24 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
     }
 
     private fun getData() {
-        viewModel.getData().observe(viewLifecycleOwner, Observer { timings ->
-            adapter.setData(timings)
-        })
+//        viewModel.getData().observe(viewLifecycleOwner, Observer { timings ->
+//            adapter.setData(timings)
+//        })
 
     }
 
     private fun initRecycler() {
-        binding.timingRecycler.adapter=adapter
+        binding.timingRecycler.adapter = adapter
     }
 
     private fun checkRecordsOnEmpty() {
-        
+
     }
 
     private fun initClickers() {
-        fab.setOnClickListener { onAddButtonClicked() }
-        stopwatch_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_stopwatchFragment) }
-        timer_fab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_timerFragment) }
+        binding.fab.setOnClickListener { onAddButtonClicked() }
+        binding.stopwatchFab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_stopwatchFragment) }
+        binding.timerFab.setOnClickListener { findNavController().navigate(R.id.action_timing_fragment_to_timerFragment) }
     }
 
     private fun onAddButtonClicked() {
@@ -84,22 +83,22 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
 
     private fun setAnimation(isClicked: Boolean) {
         if (!isClicked) {
-            fab2_container.visible();
-            fab3_container.visible()
+            binding.fab2Container.visible();
+            binding.fab3Container.visible()
         }
-        fab2_container.invisible();
-        fab3_container.invisible()
+        binding.fab2Container.invisible();
+        binding.fab3Container.invisible()
     }
 
     private fun setVisibility(isClicked: Boolean) {
         if (!isClicked) {
-            fab2_container.startAnimation(fromBottom)
-            fab3_container.startAnimation(fromBottom)
-            fab.startAnimation(rotateOpen)
+            binding.fab2Container.startAnimation(fromBottom)
+            binding.fab3Container.startAnimation(fromBottom)
+            binding.fab.startAnimation(rotateOpen)
         } else {
-            fab2_container.startAnimation(toBottom)
-            fab3_container.startAnimation(toBottom)
-            fab.startAnimation(rotateClose)
+            binding.fab2Container.startAnimation(toBottom)
+            binding.fab3Container.startAnimation(toBottom)
+            binding.fab.startAnimation(rotateClose)
         }
     }
 }

@@ -10,7 +10,7 @@
         android:id="@+id/cr_category_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="?attr/toolbarColor"
+        android:background="?attr/windowColor"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -27,7 +27,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/m_light"
                     android:text="@string/personal"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/textColor"
                     android:textSize="23dp"
                     android:textStyle="bold" />
 

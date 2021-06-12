@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.progress_fragment -> {
-                    binding.toolbarMain.title = getString(R.string.progress)
+                    binding.toolbarMain.title = getString(R.string.main)
                 }
                 R.id.category_fragment -> {
                     binding.toolbarMain.title = getString(R.string.tasks)
@@ -114,6 +114,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.idea_fragment -> {
                     binding.toolbarMain.title = getString(R.string.ideas)
                 }
+                R.id.habitFragment -> {
+                    binding.toolbarMain.title = getString(R.string.habit)
+                }
             }
         }
     }
@@ -124,8 +127,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.createEventFragment,
                 R.id.stopwatchFragment,
                 R.id.timerFragment,
-                R.id.settingsFragment,
-                R.id.idea_fragment
+                R.id.settingsFragment
             )
         )
         setSupportActionBar(binding.toolbarMain)
@@ -162,6 +164,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
             R.id.nav_timing -> navController.navigate(R.id.timing_fragment)
+            R.id.nav_main -> navController.navigate(R.id.progress_fragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return false

@@ -45,7 +45,7 @@
     <string name="done_tasks">Тапсырмаларды орындау</string>
     <string name="fast_add_your_event">Оқиғаларды жылдам қосу &amp; күндер арасында жылдам ауысу &amp; апта көрінісі</string>
     <string name="list_tasks_help_you">Тапсырмалар тізімі сіздің күніңізді толтыруға және мақсатқа жетуге көмектеседі</string>
-    <string name="record_idea_simple">Идеяларды жазу</string>
+    <string name="record_idea_title">Идеяны жазу</string>
     <string name="check_timing">Уақытты бақылау</string>
     <string name="most_effect_idea">Идеяларды, ойлар мен тапсырмаларды назардан тыс қалдырмай жылжытудың ең тиімді әдісі</string>
     <string name="plus_you_kpd">Ең жақсы тәсілдерінің бірі арттыру, өзінің ПӘК-і</string>
@@ -57,7 +57,7 @@
     <string name="change_theme">Тақырыпты өзгерту</string>
     <string name="planner">Planner</string>
     <string name="add_event">Оқиға қосу</string>
-    <string name="walk_dog">Ат серуендеу</string>
+    <string name="go_meet">Ат серуендеу</string>
     <string name="begin">Басталуы</string>
     <string name="begin_time">Уақыттың басталуы</string>
     <string name="end_time">Уақыттың соңы</string>
@@ -256,7 +256,7 @@
 және жұмсалған ақшаның жалпы сомасын қараңыз. Сондай-ақ,,
 оңға сырғыту арқылы сіз элементті жиі шығындар тізімінен алып тастай аласыз.
    </string>
-    <string name="home_menu">Ең бастысы</string>
+    <string name="main">Ең бастысы</string>
     <string name="finance">Қаржы</string>
     <string name="set_notification">Хабарламаны орнату</string>
     <string name="you_forgot_habbit">\"Сіз әдетті ұмытқан жоқсыз\"</string>
@@ -316,4 +316,13 @@
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

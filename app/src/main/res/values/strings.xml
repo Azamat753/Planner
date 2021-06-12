@@ -45,7 +45,7 @@
     <string name="done_tasks">Выполнение задач</string>
     <string name="fast_add_your_event"><![CDATA[Быстрое добавление ваших событий \nБыстрое переключения  между датами \nПросмотр недель]]></string>
     <string name="list_tasks_help_you">Cписок задач поможет вам наполнить ваш день и добиться цели</string>
-    <string name="record_idea_simple">Запись идей</string>
+    <string name="record_idea_title">Запись идеи</string>
     <string name="check_timing">Отслеживание тайминга</string>
     <string name="most_effect_idea">Самый эффективный способ перенести идеи, мысли и задачи, не теряя внимания</string>
     <string name="plus_you_kpd">Один из лучших способов повысить свой КПД</string>
@@ -56,7 +56,7 @@
     <string name="change_theme">Сменить тему</string>
     <string name="planner">Planner</string>
     <string name="add_event">Добавить событие</string>
-    <string name="walk_dog">Сходить на встречу</string>
+    <string name="go_meet">Сходить на встречу</string>
     <string name="begin">Начало</string>
     <string name="begin_time">Начало времени</string>
     <string name="end_time">Конец времени</string>
@@ -103,7 +103,7 @@
     <string name="color_dont_choosed">Цвет не выбран</string>
     <string name="share_app">Поделиться</string>
     <string name="add_title">Введите текст</string>
-    <string name="add_icon">Выберите картинку: </string>
+    <string name="add_icon">Выберите картинку </string>
     <string name="answer_qst">Ответьте на вопрос</string>
     <string name="add_password">Установите пароль</string>
     <string name="qst_not_found">Введите вопрос</string>
@@ -258,7 +258,7 @@
 и увидеть общую сумму потраченных денег. Также,
 свайпая вправо, вы можете удалить Элемент из списка частых трат.
    </string>
-    <string name="home_menu">Главное</string>
+    <string name="main">Главное</string>
     <string name="finance">Финансы</string>
     <string name="set_notification">Установить уведомление</string>
     <string name="you_forgot_habbit">Вы не забыли о привычке </string>
@@ -318,4 +318,14 @@
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="new_event">Новое событие</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

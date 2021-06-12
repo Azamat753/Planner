@@ -2,20 +2,23 @@ package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.models.TasksModel
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.ui.adapter.TaskAdapter
+import com.lawlett.planner.ui.base.BaseFragment
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate) {
+class CreateTasksFragment :
+    BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate) {
 
     private val viewModel by inject<TaskViewModel>()
     private val adapter = TaskAdapter()
@@ -30,7 +33,9 @@ class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCre
         initViewModel()
         swipe()
         drag()
+        backPress()
     }
+
     private fun drag() {
         touchHelper = ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
@@ -83,8 +88,8 @@ class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCre
 
     private fun initViewModel() {
         insertDataToDataBase(args.category)
-        binding.toolbarTitle.text = args.category
-        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer{ tasks ->
+        binding.toolbar.title = args.category
+        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isNotEmpty()) {
                 adapter.setData(tasks as List<TasksModel>)
                 listTasks = tasks
@@ -102,9 +107,11 @@ class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCre
         binding.micTask.setOnClickListener {
             val taskValues = binding.crEditText.text.toString()
             if (taskValues.isNotEmpty()) {
-                val tasks = TasksModel(category = category,
+                val tasks = TasksModel(
+                    category = category,
                     task = taskValues,
-                    isDone = false)
+                    isDone = false
+                )
                 viewModel.addTask(tasks)
                 binding.crEditText.clearField()
             }
@@ -134,4 +141,9 @@ class CreateTasksFragment : BaseFragment<FragmentCreateTasksBinding>(FragmentCre
         taskModel.doneAmount = currentDone
         viewModel.update(taskModel)
     }
+
+    private fun backPress() {
+        requireActivity().onBackPressedDispatcher.addCallback {
+            findNavController().navigateUp()
+        }    }
 }

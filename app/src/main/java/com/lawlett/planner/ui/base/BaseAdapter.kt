@@ -1,4 +1,4 @@
-package com.lawlett.planner.utils
+package com.lawlett.planner.ui.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/progress_fragment"
-        android:icon="@drawable/ic_progress"
-        android:title="@string/progress" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/main" />
 
     <item
         android:id="@+id/category_fragment"

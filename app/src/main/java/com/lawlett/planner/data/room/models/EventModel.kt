@@ -9,7 +9,7 @@ data class EventModel(
     val id:Int?=null,
     val title:String,
     val date:String,
-    val startTime:String,
-    val endTime:String,
+    val time:String,
+    val remindTime:String,
     val color:Int
 )

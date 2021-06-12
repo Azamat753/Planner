@@ -4,8 +4,7 @@ import android.annotation.SuppressLint
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.HabitModel
 import com.lawlett.planner.databinding.ItemHabitBinding
-import com.lawlett.planner.extensions.loadImage
-import com.lawlett.planner.utils.BaseAdapter
+import com.lawlett.planner.ui.base.BaseAdapter
 
 class HabitAdapter : BaseAdapter<HabitModel, ItemHabitBinding>(
     R.layout.item_habit,

@@ -10,120 +10,208 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <devs.mulham.horizontalcalendar.HorizontalCalendarView
-            android:id="@+id/calendarView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calendar_card"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="0dp"
             android:layout_marginTop="4dp"
-            android:background="?attr/windowColor"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:selectorColor="?attr/toolbarColor"
-            app:textColorNormal="?attr/hint_color"
-            app:textColorSelected="?attr/toolbarColor" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/idea_title"
-            style="@style/dashboardTextColor"
-            android:layout_width="wrap_content"
+            <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="?attr/windowColor"
+                app:selectorColor="?attr/toolbarColor"
+                app:textColorNormal="?attr/hint_color"
+                app:textColorSelected="?attr/toolbarColor" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/idea_card"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/ideas"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            android:layout_margin="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/task_card">
 
-        <View
-            android:id="@+id/idea_line"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:background="?attr/toolbarColor"
-            app:layout_constraintEnd_toEndOf="@+id/idea_title"
-            app:layout_constraintStart_toStartOf="@id/idea_title"
-            app:layout_constraintTop_toBottomOf="@id/idea_title" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/idea_title"
+                    style="@style/dashboardTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/ideas"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ideas_progress_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/idea_title"
+                    tools:listitem="@layout/item_idea_progress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/event_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/idea_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/event_title"
+                    style="@style/dashboardTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/events"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/event_progress_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/event_title"
+                    tools:listitem="@layout/item_event" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/task_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/habit_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/task_title"
+                    style="@style/dashboardTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:paddingRight="15dp"
+                    android:text="@string/tasks"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/category_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/task_title"
+                    tools:listitem="@layout/item_category" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:id="@+id/habit_card"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/calendar_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/habit_progress"
+                    style="@style/dashboardTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:paddingRight="15dp"
+                    android:text="@string/habit"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/habit_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/habit_progress"
+                    tools:listitem="@layout/item_habit" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ideas_progress_recycler"
+            android:id="@+id/main_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:orientation="horizontal"
             android:overScrollMode="never"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/idea_line"
-            tools:listitem="@layout/item_idea_progress" />
-
-
-        <TextView
-            android:id="@+id/task_progress"
-            style="@style/dashboardTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/tasks"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ideas_progress_recycler" />
-
-        <View
-            android:id="@+id/tasks_line"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:background="?attr/toolbarColor"
-            app:layout_constraintEnd_toEndOf="@+id/task_progress"
-            app:layout_constraintStart_toStartOf="@id/task_progress"
-            app:layout_constraintTop_toBottomOf="@id/task_progress" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tasks_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tasks_line"
-            tools:listitem="@layout/main_task_item" />
-
-        <TextView
-            android:id="@+id/habit_progress"
-            style="@style/dashboardTextColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/habit"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tasks_recycler" />
-
-        <View
-            android:id="@+id/habit_line"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:background="?attr/toolbarColor"
-            app:layout_constraintEnd_toEndOf="@+id/habit_progress"
-            app:layout_constraintStart_toStartOf="@id/habit_progress"
-            app:layout_constraintTop_toBottomOf="@id/habit_progress" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/habit_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/habit_line"
-            tools:listitem="@layout/item_habit" />
+            app:layout_constraintTop_toBottomOf="@id/event_card"
+            tools:listitem="@layout/item_main_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

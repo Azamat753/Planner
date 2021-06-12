@@ -8,6 +8,7 @@ import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.FragmentHabitBinding
 import com.lawlett.planner.ui.adapter.HabitAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.ui.dialog.fragment.CreateHabitBottomSheetDialog
 import org.koin.android.ext.android.inject
 
 class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::inflate) {
@@ -16,8 +17,18 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initClickers()
         initAdapter()
-        insertDataToDataBase("Прыгать", R.drawable.ic_person,"14","3","2")
+        insertDataToDataBase("Прыгать", R.drawable.ic_person, "14", "3", "2")
+    }
+
+    private fun initClickers() {
+        binding.addHabitFab.setOnClickListener { initBottomSheet() }
+    }
+
+    private fun initBottomSheet() {
+        var bottomDialog = CreateHabitBottomSheetDialog()
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
     private fun initAdapter() {

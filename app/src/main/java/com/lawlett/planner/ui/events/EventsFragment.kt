@@ -1,65 +1,38 @@
 package com.lawlett.planner.ui.events
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
-import androidx.navigation.fragment.findNavController
-import com.lawlett.planner.R
-import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.databinding.FragmentEventsBinding
-import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
-import java.util.*
+import com.lawlett.planner.ui.adapter.EventAdapter
+import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.ui.dialog.fragment.CreateEventBottomSheetDialog
+import org.koin.android.ext.android.inject
 
-class EventsFragment : BaseFragment<FragmentEventsBinding>(FragmentEventsBinding::inflate)  {
-
+class EventsFragment : BaseFragment<FragmentEventsBinding>(FragmentEventsBinding::inflate) {
+    val adapter = EventAdapter()
+    val viewModel by inject<EventViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        initHorCalendar()
+        initAdapter()
         initListeners()
-
     }
+
+    private fun initAdapter() {
+        binding.eventRecycler.adapter = adapter
+        viewModel.getData().observe(viewLifecycleOwner, { events ->
+            adapter.setData(events)
+        })
+    }
+
+    private fun initBottomSheetDialog() {
+        val bottomDialog = CreateEventBottomSheetDialog()
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+    }
+
     private fun initListeners() {
-        binding.addQuickBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_events_fragment_to_createEventFragment)
+        binding.addEventButton.setOnClickListener {
+            initBottomSheetDialog()
         }
     }
-//    private fun initHorCalendar() {
-//
-//        val startDate = Calendar.getInstance()
-//        startDate.add(Calendar.MONTH, -1)
-//        val endDate = Calendar.getInstance()
-//        endDate.add(Calendar.MONTH, 1)
-//
-//
-//        val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
-//            activity, R.id.calendarView
-//        ).range(startDate, endDate)
-//            .datesNumberOnScreen(5)
-//            .build()
-//
-//        horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
-//            @SuppressLint("LogNotTimber", "NewApi")
-//            override fun onDateSelected(date: Calendar, position: Int) {
-//                //                Intent intent = new Intent(getContext(), TodayEvent.class);
-//                //                intent.putExtra("month",String.valueOf(date.getTime().getMonth()));
-//                //                intent.putExtra("day",String.valueOf(date.getTime().getDate()));
-//                //                startActivity(intent);
-//            }
-//
-//            override fun onCalendarScroll(
-//                calendarView: devs.mulham.horizontalcalendar.HorizontalCalendarView?,
-//                dx: Int,
-//                dy: Int
-//            ) {}
-//
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @SuppressLint("LogNotTimber")
-//            override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
-//                return true
-//            }
-//        }
-//
-//    }
 }

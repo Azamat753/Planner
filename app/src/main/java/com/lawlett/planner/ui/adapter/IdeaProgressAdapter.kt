@@ -4,11 +4,11 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.IdeaModel
 import com.lawlett.planner.databinding.ItemIdeaProgressBinding
 import com.lawlett.planner.extensions.loadImage
-import com.lawlett.planner.utils.BaseAdapter
+import com.lawlett.planner.ui.base.BaseAdapter
 
 class IdeaProgressAdapter :
     BaseAdapter<IdeaModel, ItemIdeaProgressBinding>(
-        R.layout.idea_item,
+        R.layout.item_idea,
         listOf(),
         ItemIdeaProgressBinding::inflate
     ) {

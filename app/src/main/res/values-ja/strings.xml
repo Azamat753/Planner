@@ -45,7 +45,7 @@
     <string name="done_tasks">タスクの完了</string>
     <string name="fast_add_your_event">素早く追加のイベントを迅速にスイッチと豊富週間</string>
     <string name="list_tasks_help_you">タスクのリストまだ日、目標達成のた</string>
-    <string name="record_idea_simple">録音アイデア</string>
+    <string name="record_idea_title">録音アイデア</string>
     <string name="check_timing">タイミング追跡</string>
     <string name="most_effect_idea">あなたの注意を失うことなく、アイデア、思考、およびタスクを転送する最も効果的な方法</string>
     <string name="plus_you_kpd">あなたの効率を高めるための最良の方法の一つ</string>
@@ -57,7 +57,7 @@
     <string name="change_theme">件名を変更する</string>
     <string name="planner">Planner</string>
     <string name="add_event">イベントの追加</string>
-    <string name="walk_dog">会議に行く</string>
+    <string name="go_meet">会議に行く</string>
     <string name="begin">始まり</string>
     <string name="begin_time">時間の始まり</string>
     <string name="end_time">時間の終わり</string>
@@ -256,7 +256,7 @@
 そして、費やしたお金の総額を参照してください。 また、によって
 右にスワイプすると、頻繁な浪費者のリストから項目を削除できます。
    </string>
-    <string name="home_menu">主なもの</string>
+    <string name="main">主なもの</string>
     <string name="finance">金融</string>
     <string name="set_notification">通知を設定する</string>
     <string name="you_forgot_habbit">\"あなたは習慣を忘れていない\"</string>
@@ -316,4 +316,13 @@
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

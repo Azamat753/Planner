@@ -36,7 +36,7 @@ class BoardFragment : BaseFragment<FragmentBoardBinding>(FragmentBoardBinding::i
                 binding.changeLang.visibility = View.GONE
             }
             2 -> {
-                binding.titleTv.setText(R.string.record_idea_simple)
+                binding.titleTv.setText(R.string.record_idea_title)
                 binding.descTv.setText(R.string.most_effect_idea)
                 binding.calendarAnimation.visibility = View.GONE
                 binding.todoAnimation.visibility = View.GONE

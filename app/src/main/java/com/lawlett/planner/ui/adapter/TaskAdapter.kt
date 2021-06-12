@@ -2,15 +2,15 @@ package com.lawlett.planner.ui.adapter
 
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TasksModel
-import com.lawlett.planner.databinding.TaskItemBinding
-import com.lawlett.planner.utils.BaseAdapter
+import com.lawlett.planner.databinding.ItemTaskBinding
+import com.lawlett.planner.ui.base.BaseAdapter
 
-class TaskAdapter : BaseAdapter<TasksModel, TaskItemBinding>(
-    R.layout.task_item,
+class TaskAdapter : BaseAdapter<TasksModel, ItemTaskBinding>(
+    R.layout.item_task,
     listOf(),
-    inflater = TaskItemBinding::inflate
+    inflater = ItemTaskBinding::inflate
 ) {
-    override fun onBind(binding: TaskItemBinding, model: TasksModel) {
+    override fun onBind(binding: ItemTaskBinding, model: TasksModel) {
         binding.taskCheckbox.text = model.task
         binding.taskCheckbox.isChecked = model.isDone
         listener?.onClick(model)

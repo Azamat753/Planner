@@ -45,7 +45,7 @@
     <string name="done_tasks">完成任务</string>
     <string name="fast_add_your_event">快速添加您的活动在日期之间快速切换查看周</string>
     <string name="list_tasks_help_you">任务列表将帮助你填补你的一天，实现你的目标</string>
-    <string name="record_idea_simple">记录想法</string>
+    <string name="record_idea_title">记录想法</string>
     <string name="check_timing">定时跟踪</string>
     <string name="most_effect_idea">在不失去注意力的情况下转移想法，想法和任务的最有效方法</string>
     <string name="plus_you_kpd">提高效率的最佳方法之一</string>
@@ -57,7 +57,7 @@
     <string name="change_theme">改变话题</string>
     <string name="planner">Planner</string>
     <string name="add_event">添加事件</string>
-    <string name="walk_dog">去参加会议</string>
+    <string name="go_meet">去参加会议</string>
     <string name="begin">开始</string>
     <string name="begin_time">时间开始</string>
     <string name="end_time">时间结束</string>
@@ -256,7 +256,7 @@
 并查看花费的总金额。 此外，通过
 向右滑动，您可以从频繁消费者列表中删除项目。
    </string>
-    <string name="home_menu">主要的事情</string>
+    <string name="main">主要的事情</string>
     <string name="finance">财务</string>
     <string name="set_notification">设置通知</string>
     <string name="you_forgot_habbit">\"你没有忘记习惯\"</string>
@@ -316,4 +316,13 @@
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

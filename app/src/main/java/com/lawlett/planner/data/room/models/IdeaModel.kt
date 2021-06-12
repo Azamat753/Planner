@@ -8,6 +8,6 @@ data class IdeaModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val title: String,
-    val image:String,
+    val image: String,
     val color: Int
 )

@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/category_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="@string/habit" />
+                tools:text="@string/task" />
 
             <TextView
                 android:id="@+id/complete_task_count"

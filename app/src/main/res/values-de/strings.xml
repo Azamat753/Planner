@@ -45,7 +45,7 @@
     <string name="done_tasks">Aufgaben ausführen</string>
     <string name="fast_add_your_event">Fügen Sie schnell Ihre Ereignisse hinzu und wechseln Sie schnell zwischen Daten und Wochen</string>
     <string name="list_tasks_help_you">Die To-Do-Liste hilft Ihnen dabei, Ihren Tag zu füllen und Dinge zu erledigen</string>
-    <string name="record_idea_simple">Ideen schreiben</string>
+    <string name="record_idea_title">Ideen schreiben</string>
     <string name="check_timing">Timing-Tracking</string>
     <string name="most_effect_idea">Der effektivste Weg, um Ideen, Gedanken und Aufgaben zu übertragen, ohne den Fokus zu verlieren</string>
     <string name="plus_you_kpd">Eine der besten Möglichkeiten, um Ihre Effizienz zu verbessern</string>
@@ -57,7 +57,7 @@
     <string name="change_theme">Wechsel das Thema</string>
     <string name="planner">Planner</string>
     <string name="add_event">Fügen Sie ein Ereignis hinzu</string>
-    <string name="walk_dog">Gehen Sie mit dem Hund spazieren</string>
+    <string name="go_meet">Gehen Sie mit dem Hund spazieren</string>
     <string name="begin">Anfang</string>
     <string name="begin_time">Der Anfang der Zeit</string>
     <string name="end_time">Ende der Zeit</string>
@@ -256,7 +256,7 @@ Durch Klicken auf das Element können Sie den ausgegebenen Betrag hinzufügen
 und sehen Sie die Summe des ausgegebenen Geldes. Auch,
 streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen Ausgaben entfernen.
    </string>
-    <string name="home_menu">Die Hauptsache</string>
+    <string name="main">Die Hauptsache</string>
     <string name="finance">Finanz</string>
     <string name="set_notification">Benachrichtigung einstellen</string>
     <string name="you_forgot_habbit">\"Du hast die Gewohnheit nicht vergessen\"</string>
@@ -316,4 +316,13 @@ streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen A
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

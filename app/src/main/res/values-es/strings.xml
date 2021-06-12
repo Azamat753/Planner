@@ -45,7 +45,7 @@
     <string name="done_tasks">Realizar tareas</string>
     <string name="fast_add_your_event">Быстрое добавление ваших событий Быстрое переключения  между датами Просмотр недель</string>
     <string name="list_tasks_help_you">Una lista de tareas le ayudará a llenar su día y hacer las cosas</string>
-    <string name="record_idea_simple">Escribir ideas</string>
+    <string name="record_idea_title">Escribir ideas</string>
     <string name="check_timing">Seguimiento de tiempo</string>
     <string name="most_effect_idea">La forma más efectiva de transferir ideas, pensamientos y tareas sin perder la atención</string>
     <string name="plus_you_kpd">Una de las mejores maneras de aumentar su eficiencia</string>
@@ -57,7 +57,7 @@
     <string name="change_theme">Cambiar tema</string>
     <string name="planner">Planner</string>
     <string name="add_event">Añadir evento</string>
-    <string name="walk_dog">Ir a una reunión</string>
+    <string name="go_meet">Ir a una reunión</string>
     <string name="begin">Comienzo</string>
     <string name="begin_time">Tiempo de Inicio</string>
     <string name="end_time">Fin del tiempo</string>
@@ -256,7 +256,7 @@ Al hacer clic en un Elemento, puede agregar la cantidad gastada
 y ver la cantidad total de dinero gastado. También,
 al deslizar hacia la derecha, puede eliminar un Elemento de la lista de gastos frecuentes.
    </string>
-    <string name="home_menu">Principal</string>
+    <string name="main">Principal</string>
     <string name="finance">Finanza</string>
     <string name="set_notification">Establecer notificación</string>
     <string name="you_forgot_habbit">\"No te has olvidado del hábito\"</string>
@@ -316,4 +316,13 @@ al deslizar hacia la derecha, puede eliminar un Elemento de la lista de gastos f
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

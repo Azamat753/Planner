@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.events.EventsFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/event_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_event" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_quick_btn"
+        android:id="@+id/add_event_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"

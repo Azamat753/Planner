@@ -4,16 +4,16 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">#3F51B5</item>
-        <item name="bottomNavigationColor">#3F51B5</item>
-        <item name="toolbarColor">#3F51B5</item>
-        <item name="textColor">#3F51B5</item>
-        <item name="editTextStrokeColor">#3F51B5</item>
-        <item name="iconColor">#3F51B5</item>
-        <item name="plusBackground">#3F51B5</item>
-        <item name="android:navigationBarColor">#3F51B5</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="android:statusBarColor">#0365C4</item>
+        <item name="bottomNavigationColor">#0365C4</item>
+        <item name="toolbarColor">#0365C4</item>
+        <item name="textColor">#0365C4</item>
+        <item name="editTextStrokeColor">#0365C4</item>
+        <item name="iconColor">#0365C4</item>
+        <item name="plusBackground">#0365C4</item>
+        <item name="android:navigationBarColor">#0365C4</item>
         <item name="create_event_editText">#FFF</item>
+        <item name="settings_text_color">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
 
@@ -21,10 +21,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>"
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-
-        <!--        <item name="android:windowTranslucentNavigation">false</item>-->
-        <!--        <item name="android:windowFullscreen">true</item>-->
-        <!--        <item name="android:windowContentOverlay">@null</item>-->
     </style>
 
     <style name="AppTheme.Green" parent="AppTheme.NoActionBar">
@@ -40,7 +36,6 @@
         <item name="settings_text_color">#FFFFFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
-
     </style>
 
     <style name="AppTheme.Pink" parent="AppTheme.NoActionBar">

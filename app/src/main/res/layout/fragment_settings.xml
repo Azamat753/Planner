@@ -6,178 +6,205 @@
     android:layout_height="match_parent"
     tools:context=".ui.settings.SettingsFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/settings_toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/toolbarColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo_wrapper"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_setting"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="?attr/settings_text_color"
+            app:navigationIconTint="?attr/toolbarColor"
+            app:subtitleTextColor="?attr/toolbarColor"
+            app:title="@string/settings"
+            app:titleTextColor="?attr/toolbarColor" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal">
+    </com.google.android.material.appbar.AppBarLayout>
 
-                <ImageView
-                    android:id="@+id/back_view_settings"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_left_arrow" />
-
-                <TextView
-                    android:id="@+id/toolbar_title_quick"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/settings"
-                    android:textColor="@android:color/white"
-                    android:textSize="23dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/logo"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/logo_wrapper"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/planner"
-        android:textColor="?attr/toolbarColor"
-        android:textSize="40sp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper">
 
-    <LinearLayout
-        android:id="@+id/first_layout"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:text="@string/planner"
+            android:textColor="?attr/toolbarColor"
+            android:textSize="30sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clear_password_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
-        android:background="?attr/toolbarColor"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/logo">
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/logo_wrapper">
 
-        <TextView
-            android:id="@+id/clear_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:drawableEnd="@drawable/ic_trash_forever_24"
-            android:drawablePadding="15dp"
-            android:text="@string/clearSetting"
-            android:textColor="?attr/settings_text_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/first_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rectangle_background"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/second_layout"
+            <TextView
+                android:id="@+id/clear_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawableEnd="@drawable/ic_trash_forever_24"
+                android:drawablePadding="15dp"
+                android:text="@string/clearSetting"
+                android:textColor="?attr/settings_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clear_time_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="?attr/toolbarColor"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/first_layout">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/clear_password_card">
 
-        <TextView
-            android:id="@+id/clear_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:drawableEnd="@drawable/ic_trash_forever_24"
-            android:drawablePadding="15dp"
-            android:text="@string/clear_minutes"
-            android:textColor="?attr/settings_text_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/second_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rectangle_background"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/clear_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawableEnd="@drawable/ic_trash_forever_24"
+                android:drawablePadding="15dp"
+                android:text="@string/clear_minutes"
+                android:textColor="?attr/settings_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/change_theme_button"
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/theme_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="?attr/toolbarColor"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/second_layout">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/clear_time_card">
 
-        <TextView
-            android:id="@+id/theme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:text="@string/change_theme"
-            android:textColor="?attr/settings_text_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/change_theme_button"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rectangle_background"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/change_language_layout"
+            <TextView
+                android:id="@+id/theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="@string/change_theme"
+                android:textColor="?attr/settings_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/language_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="?attr/toolbarColor"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/change_theme_button">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/theme_card">
 
-        <TextView
-            android:id="@+id/language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:drawablePadding="15dp"
-            android:text="@string/change_language"
-            android:textColor="?attr/settings_text_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/change_language_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rectangle_background"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/five_layout"
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawablePadding="15dp"
+                android:text="@string/change_language"
+                android:textColor="?attr/settings_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/share_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="?attr/toolbarColor"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/change_language_layout">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/language_card">
 
-        <TextView
-            android:id="@+id/share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:drawablePadding="15dp"
-            android:text="@string/share_app"
-            android:textColor="?attr/settings_text_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/five_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rectangle_background"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawablePadding="15dp"
+                android:text="@string/share_app"
+                android:textColor="?attr/settings_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

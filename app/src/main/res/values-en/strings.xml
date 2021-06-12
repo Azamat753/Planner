@@ -46,7 +46,7 @@
     <string name="done_tasks">Tasks execution</string>
     <string name="fast_add_your_event"><![CDATA[Quickly add your events \nQuickly switch between dates \nView weeks]]></string>
     <string name="list_tasks_help_you">A to-do list will help you fill your day and get things done</string>
-    <string name="record_idea_simple">Writing ideas</string>
+    <string name="record_idea_title">Writing idea</string>
     <string name="check_timing">Timing tracking</string>
     <string name="most_effect_idea">The most effective way to transfer ideas, thoughts, and tasks without losing focus</string>
     <string name="plus_you_kpd">One of the best ways to improve your efficiency</string>
@@ -58,7 +58,7 @@
     <string name="change_theme">Choose theme</string>
     <string name="planner">Planner</string>
     <string name="add_event">Add event</string>
-    <string name="walk_dog">Walk the dog</string>
+    <string name="go_meet">Walk the dog</string>
     <string name="begin">Start</string>
     <string name="begin_time">Start-time</string>
     <string name="end_time">End-time</string>
@@ -257,7 +257,7 @@ By clicking on the Item, you can add the amount spent
 and see the total amount of money spent. Also, by
 swiping to the right, you can remove an Item from the list of frequent spenders.
    </string>
-    <string name="home_menu">Main</string>
+    <string name="main">Main</string>
     <string name="finance">Finance</string>
     <string name="set_notification">Set a notification</string>
     <string name="you_forgot_habbit">\"You haven\'t forgotten the habit\"</string>
@@ -317,4 +317,13 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

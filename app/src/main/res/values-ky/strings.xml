@@ -46,7 +46,7 @@
     <string name="done_tasks">Тапшырмаларды аткаруу</string>
     <string name="fast_add_your_event"><![CDATA[Окуяларыңызды тез кошуңуз жана күндөр менен көрүү жумаларын тез алмаштырыңыз]]></string>
     <string name="list_tasks_help_you">Иштер тизмеси күнүңүздү толтуруп, иштериңизди бүтүрүүгө жардам берет</string>
-    <string name="record_idea_simple">Идеяларды жазуу</string>
+    <string name="record_idea_title">Идея жазуу</string>
     <string name="check_timing">Убакытты көзөмөлдөө</string>
     <string name="most_effect_idea">Фокусту жоготпостон идеяларды, ойлорду жана тапшырмаларды өткөрүп берүүнүн эң натыйжалуу жолу</string>
     <string name="plus_you_kpd">Натыйжалуулугун жогорулатуунун мыкты жолдорунун бири</string>
@@ -58,7 +58,7 @@
     <string name="change_theme">Теманы өзгөртүү</string>
     <string name="planner">Planner</string>
     <string name="add_event">Окуя кошуу</string>
-    <string name="walk_dog">Ит менен басуу</string>
+    <string name="go_meet">Ит менен басуу</string>
     <string name="begin">Баштоо</string>
     <string name="begin_time">Убакыттын башталышы</string>
     <string name="end_time">Убакыттын аягы</string>
@@ -257,7 +257,7 @@
 жана сарпталган акчанын жалпы суммасын көрүү. Ошондой эле,
 оңго серпип, көп чыгымдарды тизмесинен бир нерсени алып салсаңыз болот.
    </string>
-    <string name="home_menu">Башкы</string>
+    <string name="main">Башкы</string>
     <string name="finance">Каржы</string>
     <string name="set_notification">Кабарлоо орнотуу</string>
     <string name="you_forgot_habbit">\"Сиз адатты унуткан жоксузбу\"</string>
@@ -317,4 +317,13 @@
     <string name="black">Черный</string>
     <string name="green">Зелёный</string>
     <string name="white">Белый</string>
+    <string name="add_some_event">Введите определенное событие</string>
+    <string name="create_event">Создание события</string>
+    <string name="remind">Напомнить</string>
+    <string name="fill_field">Заполните поле</string>
+    <string name="new_idea">Новая идея</string>
+    <string name="new_category">Новая категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="icon">Иконка</string>
+    <string name="new_habit">Новая привычка</string>
 </resources>

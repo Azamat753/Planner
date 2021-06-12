@@ -74,6 +74,5 @@ fun Context.checkedTheme() {
         getString(R.string.white) -> {
             this.setTheme(R.style.AppTheme_White)
         }
-
     }
 }

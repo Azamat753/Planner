@@ -19,6 +19,7 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
         _binding = inflater.invoke(LayoutInflater.from(parent.context))
         return BaseViewHolder(binding)
     }
+
     @JvmName("setData1")
     fun setData(data: List<T>) {
         this.data = data
@@ -39,6 +40,7 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
             itemView.setOnClickListener { listener?.onClick(model) }
         }
     }
+
     interface IBaseAdapterClickListener<T> {
         fun onClick(model: T)
     }

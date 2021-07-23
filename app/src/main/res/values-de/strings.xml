@@ -105,7 +105,7 @@
     <string name="share_app">Teile das</string>
     <string name="achievement_app">Fortschritt</string>
     <string name="add_title">Text eingeben</string>
-    <string name="add_icon">Wähle ein Bild:</string>
+    <string name="choose_image">Wähle ein Bild:</string>
     <string name="answer_qst">Beantworte die Frage</string>
     <string name="add_password">Setzen Sie das Passwort</string>
     <string name="qst_not_found">Geben Sie Ihre Frage ein</string>

@@ -106,7 +106,7 @@
     <string name="share_app">Поділитися</string>
     <string name="achievement_app">Досягнення</string>
     <string name="add_title">Введіть текст</string>
-    <string name="add_icon">Виберіть картинку: </string>
+    <string name="choose_image">Виберіть картинку: </string>
     <string name="answer_qst">Дайте відповідь на питання</string>
     <string name="add_password">встановіть пароль</string>
     <string name="qst_not_found">Введіть питання</string>

@@ -208,7 +208,6 @@
             android:layout_margin="6dp"
             android:orientation="horizontal"
             android:overScrollMode="never"
-            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/event_card"
             tools:listitem="@layout/item_main_list" />

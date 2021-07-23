@@ -12,7 +12,7 @@ class CategoryAdapter : BaseAdapter<CategoryModel, ItemCategoryBinding>(
     ItemCategoryBinding::inflate
 ) {
     override fun onBind(binding: ItemCategoryBinding, model: CategoryModel) {
-        binding.categoryImage.setImageResource(R.drawable.ic_work)
+        binding.categoryImage.setImageResource(model.categoryImage)
         binding.categoryName.text=model.categoryName
         binding.taskAmount.text=model.taskAmount.toString()
     }

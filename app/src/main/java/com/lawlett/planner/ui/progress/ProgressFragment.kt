@@ -26,7 +26,10 @@ class ProgressFragment :
     private val habitViewModel by inject<HabitViewModel>()
     private val categoryViewModel by inject<CategoryViewModel>()
     private val eventViewModel by inject<EventViewModel>()
-
+    private var listIdea: List<IdeaModel> = ArrayList()
+    private var listHabit: List<HabitModel> = ArrayList()
+    private var listEvent: List<EventModel> = ArrayList()
+    private var listTask: List<CategoryModel> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(this) {
@@ -41,14 +44,13 @@ class ProgressFragment :
         initHabitAdapter()
         initHorizontalCalendar()
         initEventProgressAdapter()
-//        fillMainList()
 //        initMainAdapter()
     }
 
     private fun initMainAdapter() {
-        val adapter = MainListAdapter()
+        val adapter = MainAdapter(fillMainList())
         binding.mainRecycler.adapter = adapter
-        adapter.setData(fillMainList())
+
     }
 
 
@@ -89,26 +91,7 @@ class ProgressFragment :
 
     private fun fillMainList(): List<MainListModel> {
         val list: ArrayList<MainListModel> = ArrayList()
-        var listIdea: List<IdeaModel> = ArrayList()
-        var listHabit: List<HabitModel> = ArrayList()
-        var listEvent: List<EventModel> = ArrayList()
-        var listTask: List<CategoryModel> = ArrayList()
-        ideaViewModel.getIdeasLiveData().observe(viewLifecycleOwner, { ideas ->
-        eventViewModel.getData().observe(viewLifecycleOwner, { events ->
-        habitViewModel.getHabitsLiveData().observe(viewLifecycleOwner, { habits ->
-        categoryViewModel.getCategoryLiveData().observe(viewLifecycleOwner, { category ->
-        list.add(
-            MainListModel(
-                listHabit = habits,
-                listEvent = events,
-                listIdea = ideas,
-                listTask = category
-            )
-        )
-        })
-        })
-        })
-        })
+        list.add(MainListModel(listIdea, listHabit, listEvent, listTask))
         return list
     }
 
@@ -118,6 +101,7 @@ class ProgressFragment :
         binding.ideasProgressRecycler.adapter = adapter
         ideaViewModel.getIdeasLiveData().observe(viewLifecycleOwner, { ideas ->
             adapter.setData(ideas)
+            listIdea = ideas
         })
     }
 
@@ -126,6 +110,7 @@ class ProgressFragment :
         binding.eventProgressRecycler.adapter = adapter
         eventViewModel.getData().observe(viewLifecycleOwner, { events ->
             adapter.setData(events)
+            listEvent = events
         })
     }
 
@@ -134,6 +119,7 @@ class ProgressFragment :
         binding.habitRecycler.adapter = adapter
         habitViewModel.getHabitsLiveData().observe(viewLifecycleOwner, { habits ->
             adapter.setData(habits)
+            listHabit = habits
         })
     }
 
@@ -142,6 +128,7 @@ class ProgressFragment :
         binding.categoryRecycler.adapter = adapter
         categoryViewModel.getCategoryLiveData().observe(viewLifecycleOwner, { category ->
             adapter.setData(category)
+            listTask = category
         })
     }
 }

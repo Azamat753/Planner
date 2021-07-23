@@ -106,7 +106,7 @@
     <string name="share_app">इसे साझा करें</string>
     <string name="achievement_app">प्रगति</string>
     <string name="add_title">लिखना प्रारम्भ करें</string>
-    <string name="add_icon">एक तस्वीर का चयन करें:</string>
+    <string name="choose_image">एक तस्वीर का चयन करें:</string>
     <string name="answer_qst">प्रश्न का उत्तर दो</string>
     <string name="add_password">एक पासवर्ड सेट करें</string>
     <string name="qst_not_found">अपना प्रश्न दर्ज करें</string>

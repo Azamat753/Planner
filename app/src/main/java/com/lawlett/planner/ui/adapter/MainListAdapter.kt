@@ -18,9 +18,9 @@ class MainListAdapter : BaseAdapter<MainListModel, ItemMainListBinding>(
         binding.mainRecycler.adapter= eventAdapter
         binding.mainRecycler.adapter= ideaAdapter
         binding.mainRecycler.adapter= categoryAdapter
-        ideaAdapter.setData(model.listIdea!!)
-        eventAdapter.setData(model.listEvent!!)
-        habitAdapter.setData(model.listHabit!!)
-        categoryAdapter.setData(model.listTask!!)
+        model.listIdea?.let { ideaAdapter.setData(it) }
+        model.listEvent?.let { eventAdapter.setData(it) }
+        model.listHabit?.let { habitAdapter.setData(it) }
+        model.listTask?.let { categoryAdapter.setData(it) }
     }
 }

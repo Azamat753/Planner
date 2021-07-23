@@ -104,7 +104,7 @@
     <string name="color_dont_choosed">颜色未选择</string>
     <string name="share_app">分享</string>
     <string name="add_title">输入文本</string>
-    <string name="add_icon">选择图片:</string>
+    <string name="choose_image">选择图片:</string>
     <string name="answer_qst">回答问题</string>
     <string name="add_password">设置密码</string>
     <string name="qst_not_found">输入问题</string>

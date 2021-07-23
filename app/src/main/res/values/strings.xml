@@ -103,7 +103,7 @@
     <string name="color_dont_choosed">Цвет не выбран</string>
     <string name="share_app">Поделиться</string>
     <string name="add_title">Введите текст</string>
-    <string name="add_icon">Выберите картинку </string>
+    <string name="choose_image">Выберите картинку </string>
     <string name="answer_qst">Ответьте на вопрос</string>
     <string name="add_password">Установите пароль</string>
     <string name="qst_not_found">Введите вопрос</string>

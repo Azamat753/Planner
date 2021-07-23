@@ -105,7 +105,7 @@
     <string name="color_dont_choosed">선택한 색상이 없습니다.</string>
     <string name="share_app">이 공유</string>
     <string name="add_title">텍스트 입력</string>
-    <string name="add_icon">사진 선택 : </string>
+    <string name="choose_image">사진 선택 : </string>
     <string name="answer_qst">질문에 답하세요</string>
     <string name="add_password">비밀번호 설정</string>
     <string name="qst_not_found">질문을 입력하세요</string>

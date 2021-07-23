@@ -105,7 +105,7 @@
     <string name="color_dont_choosed">Nenhuma cor selecionada</string>
     <string name="share_app">Compartilhar isso</string>
     <string name="add_title">Digite o texto</string>
-    <string name="add_icon">Escolha uma figura: </string>
+    <string name="choose_image">Escolha uma figura: </string>
     <string name="answer_qst">Responda à pergunta</string>
     <string name="add_password">Defina uma senha</string>
     <string name="qst_not_found">Digite sua pergunta</string>

@@ -104,7 +104,7 @@
     <string name="color_dont_choosed">Колер не абраны</string>
     <string name="share_app">Падзяліцца</string>
     <string name="add_title">Увядзіце тэкст</string>
-    <string name="add_icon">Выберыце карцінку:</string>
+    <string name="choose_image">Выберыце карцінку:</string>
     <string name="answer_qst">Адкажыце на пытанне</string>
     <string name="add_password">Усталюйце пароль</string>
     <string name="qst_not_found">Увядзіце пытанне</string>

@@ -104,7 +104,7 @@
     <string name="color_dont_choosed">Renk seçilmedi</string>
     <string name="share_app">Paylaş</string>
     <string name="add_title">Metni girin</string>
-    <string name="add_icon">Bir resim seçin:</string>
+    <string name="choose_image">Bir resim seçin:</string>
     <string name="answer_qst">Soruyu Cevapla</string>
     <string name="add_password">Şifreyi ayarla</string>
     <string name="qst_not_found">Soruyu girin</string>

@@ -105,7 +105,7 @@
     <string name="share_app">Бөлісу</string>
     <string name="achievement_app">Жетістіктер</string>
     <string name="add_title">Мәтінді енгізіңіз</string>
-    <string name="add_icon">Суретті таңдаңыз: </string>
+    <string name="choose_image">Суретті таңдаңыз: </string>
     <string name="answer_qst">Сұраққа жауап беріңіз</string>
     <string name="add_password">Құпия сөзді орнатыңыз</string>
     <string name="qst_not_found">Сұрақты енгізіңіз</string>

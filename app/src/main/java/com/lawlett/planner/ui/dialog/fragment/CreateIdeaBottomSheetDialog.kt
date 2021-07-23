@@ -1,13 +1,10 @@
 package com.lawlett.planner.ui.dialog.fragment
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -50,7 +47,7 @@ class CreateIdeaBottomSheetDialog :
                 binding.titleEditText.error = getString(R.string.fill_field)
             }
             imageUri == null -> {
-                binding.chooseImageButton.error = getString(R.string.add_icon)
+                binding.chooseImageButton.error = getString(R.string.choose_image)
             }
             else -> {
                 val idea = IdeaModel(title = title, image = imageUri.toString(), color = color)

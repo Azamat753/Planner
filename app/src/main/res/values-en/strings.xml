@@ -105,7 +105,7 @@
     <string name="color_dont_choosed">No color selected</string>
     <string name="share_app">To share</string>
     <string name="add_title">Add title</string>
-    <string name="add_icon">Add icon: </string>
+    <string name="choose_image">Add icon: </string>
     <string name="answer_qst">Answer the question</string>
     <string name="add_password">Set a password</string>
     <string name="qst_not_found">Set a question</string>

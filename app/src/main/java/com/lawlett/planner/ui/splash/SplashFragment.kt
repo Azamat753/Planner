@@ -18,7 +18,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         Handler().postDelayed({
             var isShown: Boolean = BoardPreference.getInstance(requireContext())!!.isShown
             if (isShown) {
-                findNavController().navigate(R.id.progress_fragment)
+                findNavController().navigate(R.id.action_splash_fragment_to_progress_fragment)
             } else {
                 findNavController().navigate(R.id.action_splash_fragment_to_board_fragment)
             }

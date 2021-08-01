@@ -7,20 +7,21 @@
 
     <fragment
         android:id="@+id/splash_fragment"
-
         android:name="com.lawlett.planner.ui.splash.SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splash_fragment_to_board_fragment"
-            app:destination="@id/board_fragment" />
+            app:destination="@id/board_fragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splash_fragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splash_fragment_to_progress_fragment"
-            app:destination="@id/progress_fragment" />
+            app:destination="@id/progress_fragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splash_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
-
-   <!-- <action
-        android:id="@+id/splash_fragment_to_board_fragment"
-        app:destination="@id/board_fragment" />-->
 
     <fragment
         android:id="@+id/board_fragment"
@@ -40,7 +41,6 @@
             app:destination="@id/settingsFragment" />
     </fragment>
 
-
     <fragment
         android:id="@+id/category_fragment"
         android:name="com.lawlett.planner.ui.tasks.CategoryFragment"
@@ -53,21 +53,15 @@
             app:destination="@id/createTasksFragment" />
     </fragment>
 
-
     <fragment
         android:id="@+id/idea_fragment"
         android:name="com.lawlett.planner.ui.idea.IdeaFragment"
         tools:layout="@layout/fragment_idea">
-        <action
-            android:id="@+id/action_idea_fragment_to_recordIdeaFragment"
-            app:destination="@id/recordIdeaFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
+
         <action
             android:id="@+id/action_idea_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
-
 
     <fragment
         android:id="@+id/timing_fragment"
@@ -90,24 +84,11 @@
         android:label="fragment_events"
         tools:layout="@layout/fragment_events">
         <action
-
             android:id="@+id/action_events_fragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_events_fragment_to_createEventFragment"
-            app:destination="@id/createEventFragment" />
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/splash_fragment" />
     </fragment>
-    <fragment
-        android:id="@+id/recordIdeaFragment"
-        android:name="com.lawlett.planner.ui.idea.CreateIdeaFragment"
-        android:label="fragment_record_idea"
-        tools:layout="@layout/fragment_create_idea">
-        <action
-            android:id="@+id/action_recordIdeaFragment_to_idea_fragment"
-            app:destination="@id/idea_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/slide_out_down" />
-    </fragment>
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.lawlett.planner.ui.settings.SettingsFragment"
@@ -117,42 +98,50 @@
         android:id="@+id/createTasksFragment"
         android:name="com.lawlett.planner.ui.tasks.CreateTasksFragment"
         android:label="fragment_create_tasks"
-        tools:layout="@layout/fragment_create_tasks" >
+        tools:layout="@layout/fragment_create_tasks">
         <action
             android:id="@+id/action_createTasksFragment_to_category_fragment"
             app:destination="@id/category_fragment" />
         <argument
             android:name="category"
-            app:argType="string"
-            android:defaultValue="default" />
+            android:defaultValue="default"
+            app:argType="string" />
 
     </fragment>
     <fragment
         android:id="@+id/stopwatchFragment"
         android:name="com.lawlett.planner.ui.timing.StopwatchFragment"
         android:label="fragment_stopwatch"
-        tools:layout="@layout/fragment_stopwatch" >
-        <action
-            android:id="@+id/action_stopwatchFragment_to_timing_fragment"
-            app:destination="@id/timing_fragment" />
-    </fragment>
+        tools:layout="@layout/fragment_stopwatch" />
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.lawlett.planner.ui.timing.TimerFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" >
-        <action
-            android:id="@+id/action_timerFragment_to_timing_fragment"
-            app:destination="@id/timing_fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/createEventFragment"
-        android:name="com.lawlett.planner.ui.events.CreateEventFragment"
-        android:label="fragment_create_event"
-        tools:layout="@layout/fragment_create_event" />
+        tools:layout="@layout/fragment_timer" />
+
     <fragment
         android:id="@+id/habitFragment"
         android:name="com.lawlett.planner.ui.habit.HabitFragment"
-        android:label="HabitFragment" />
+        android:label="HabitFragment"
+        tools:layout="@layout/fragment_habit" />
+    <fragment
+        android:id="@+id/standUpFragment"
+        android:name="com.lawlett.planner.ui.standup.StandUpFragment"
+        android:label="fragment_stand_up"
+        tools:layout="@layout/fragment_stand_up">
+        <action
+            android:id="@+id/action_standUpFragment_to_mainCreateStandUpFragment"
+            app:destination="@id/mainCreateStandUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createStandUpFragment"
+        android:name="com.lawlett.planner.ui.standup.CreateStandUpFragment"
+        android:label="fragment_create_standup"
+        tools:layout="@layout/fragment_create_standup"/>
+    <fragment
+        android:id="@+id/mainCreateStandUpFragment"
+        android:name="com.lawlett.planner.ui.standup.MainCreateStandUpFragment"
+        android:label="fragment_create_stand_up_main"
+        tools:layout="@layout/fragment_create_stand_up_main" />
 
 </navigation>

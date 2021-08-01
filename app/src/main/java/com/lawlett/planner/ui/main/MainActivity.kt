@@ -19,10 +19,11 @@ import com.lawlett.planner.extensions.checkedTheme
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.loadLocale
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.standup.CreateStandUpFragment
+import com.lawlett.planner.ui.standup.MainCreateStandUpFragment
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -35,7 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(binding.root)
         initNavigationGraph()
         setupNavigation()
-//        setupToolbar()
         initNavigationDrawer()
         changeTitleToolbar()
         lockProgressFragment()
@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
+
     }
 
     private fun initNavigationDrawer() {
@@ -117,21 +118,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.habitFragment -> {
                     binding.toolbarMain.title = getString(R.string.habit)
                 }
+                R.id.standUpFragment -> {
+                    binding.toolbarMain.title = getString(R.string.standup)
+                }
             }
         }
-    }
-
-    private fun setupToolbar() {
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.createEventFragment,
-                R.id.stopwatchFragment,
-                R.id.timerFragment,
-                R.id.settingsFragment
-            )
-        )
-        setSupportActionBar(binding.toolbarMain)
-        binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
     }
 
     private fun setupNavigation() {
@@ -139,12 +130,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (destination.id in arrayOf(
                     R.id.splash_fragment,
                     R.id.board_fragment,
-                    R.id.recordIdeaFragment,
                     R.id.settingsFragment,
                     R.id.createTasksFragment,
                     R.id.timerFragment,
                     R.id.stopwatchFragment,
-                    R.id.createEventFragment
+                    R.id.createStandUpFragment,
+                    R.id.mainCreateStandUpFragment
                 )
             ) {
                 binding.toolbarMain.gone()
@@ -152,6 +143,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             } else {
                 binding.toolbarMain.visible()
                 binding.bottomNavigation.visible()
+            }
+            if (destination.id in arrayOf(
+                    R.id.timing_fragment,
+                    R.id.standUpFragment
+                )
+            ) {
+                binding.bottomNavigation.gone()
             }
         }
     }
@@ -165,8 +163,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
             R.id.nav_timing -> navController.navigate(R.id.timing_fragment)
             R.id.nav_main -> navController.navigate(R.id.progress_fragment)
+            R.id.nav_standup -> navController.navigate(R.id.standUpFragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return false
     }
+
 }

@@ -8,7 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TasksModel
+import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
@@ -21,11 +23,13 @@ class CreateTasksFragment :
     BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate) {
 
     private val viewModel by inject<TaskViewModel>()
+    private val categoryViewModel by inject<CategoryViewModel>()
     private val adapter = TaskAdapter()
     private val args: CreateTasksFragmentArgs by navArgs()
     lateinit var taskModel: TasksModel
     var currentDone: Int = 0
     var listTasks: List<TasksModel>? = null
+    var taskAmount: Int = 0
     lateinit var touchHelper: ItemTouchHelper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -92,6 +96,7 @@ class CreateTasksFragment :
         viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer { tasks ->
             if (tasks.isNotEmpty()) {
                 adapter.setData(tasks as List<TasksModel>)
+                taskAmount = tasks.size
                 listTasks = tasks
                 currentDone = 0
                 tasks.forEach { if (it.isDone) currentDone++ }
@@ -99,12 +104,22 @@ class CreateTasksFragment :
         })
     }
 
+    private fun updateCategoryTaskAmount() {
+            categoryViewModel.getCategoryByName(args.category).observe(viewLifecycleOwner,
+                Observer { category ->
+                    if (category != null) {
+                        category.taskAmount = taskAmount
+                        categoryViewModel.update(category)
+                    }
+                })
+    }
+
     private fun initRecycler() {
         binding.crRecycler.adapter = adapter
     }
 
     private fun insertDataToDataBase(category: String) {
-        binding.micTask.setOnClickListener {
+        binding.addTaskPersonal.setOnClickListener {
             val taskValues = binding.crEditText.text.toString()
             if (taskValues.isNotEmpty()) {
                 val tasks = TasksModel(
@@ -113,22 +128,11 @@ class CreateTasksFragment :
                     isDone = false
                 )
                 viewModel.addTask(tasks)
+                updateCategoryTaskAmount()
                 binding.crEditText.clearField()
             }
         }
     }
-
-//    override fun onItemClick(pos: Int) {
-//        taskModel = listTasks!![pos]
-//        if (!taskModel.isDone) {
-//            taskModel.isDone = true
-//            incrementDone()
-//        } else {
-//            taskModel.isDone = false
-//            decrementDone()
-//        }
-//        viewModel.update(taskModel)
-//    }
 
     private fun decrementDone() {
         currentDone--
@@ -144,6 +148,7 @@ class CreateTasksFragment :
 
     private fun backPress() {
         requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigateUp()
-        }    }
+            findNavController().navigate(R.id.category_fragment)
+        }
+    }
 }

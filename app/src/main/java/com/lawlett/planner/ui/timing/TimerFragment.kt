@@ -20,7 +20,7 @@ import com.lawlett.planner.databinding.FragmentTimerBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
+import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.SimpleCountDownTimer
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
@@ -125,7 +125,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 if (mp != null)
                     mp.stop()
                 countDownTimer.cancel()
-                findNavController().navigate(R.id.action_timerFragment_to_timing_fragment)
+                findNavController().navigate(R.id.timing_fragment)
             } else {
                 requireContext().showToast(getString(R.string.timer_dont_end))
             }
@@ -152,7 +152,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
 
                 expandedView.setTextViewText(R.id.timer_expanded, timeLeftText)
 
-                val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                val notification = NotificationCompat.Builder(requireContext(), Constants.CHANNEL_ID)
                     .setSmallIcon(R.mipmap.ic_planner)
                     .setCustomBigContentView(expandedView)
                     .setContentTitle(getString(R.string.timer))

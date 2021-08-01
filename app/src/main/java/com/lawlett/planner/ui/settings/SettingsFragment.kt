@@ -29,12 +29,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
         }
     }
 
-    private fun backClick() {
-        requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigateUp()
-        }
-    }
-
     private fun changeTheme() {
         binding.changeThemeButton.setOnClickListener { initBottomSheet() }
     }

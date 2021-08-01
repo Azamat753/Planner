@@ -24,6 +24,7 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
 
     private fun initClickers() {
         binding.addHabitFab.setOnClickListener { initBottomSheet() }
+        backClick()
     }
 
     private fun initBottomSheet() {

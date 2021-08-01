@@ -8,8 +8,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDex
 import com.lawlett.planner.di.viewModelModule
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID_HOURS
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -36,11 +34,11 @@ class App : Application() {
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID, "Example Channel",
+                Constants.CHANNEL_ID, "Example Channel",
                 NotificationManager.IMPORTANCE_HIGH
             )
             val channel2 = NotificationChannel(
-                CHANNEL_ID_HOURS, "Example Channel2",
+                Constants.CHANNEL_ID_HOURS, "Example Channel2",
                 NotificationManager.IMPORTANCE_HIGH
             )
             val manager = getSystemService(

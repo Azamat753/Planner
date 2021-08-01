@@ -37,6 +37,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
         view.addQuickBtn.setOnClickListener {
             initBottomSheetDialog()
         }
+        backClick()
     }
 
     private fun initBottomSheetDialog() {

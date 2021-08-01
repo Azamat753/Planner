@@ -7,15 +7,23 @@ import androidx.room.RoomDatabase
 import com.lawlett.planner.data.room.dao.*
 import com.lawlett.planner.data.room.models.*
 
-@Database(entities = [TasksModel::class, TimingModel::class,IdeaModel::class,HabitModel::class,CategoryModel::class,EventModel::class], version = 1, exportSchema = false)
+@Database(
+    entities = [TasksModel::class, TimingModel::class, IdeaModel::class, HabitModel::class,
+        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AnswerModel::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class MainDataBase : RoomDatabase() {
 
     abstract fun taskDao(): TasksDao
     abstract fun timingDao(): TimingDao
-    abstract fun ideaDao():IdeaDao
-    abstract fun habitDao():HabitDao
-    abstract fun categoryDao():CategoryDao
-    abstract fun eventDao():EventDao
+    abstract fun ideaDao(): IdeaDao
+    abstract fun habitDao(): HabitDao
+    abstract fun categoryDao(): CategoryDao
+    abstract fun eventDao(): EventDao
+    abstract fun standUpDao(): StandUpDao
+    abstract fun questionDao(): QuestionDao
+    abstract fun answerDao(): AnswerDao
 
     companion object {
         @Volatile

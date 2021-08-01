@@ -17,7 +17,7 @@ import com.lawlett.planner.databinding.FragmentStopwatchBinding
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
+import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -80,14 +80,14 @@ class StopwatchFragment :
         binding.btnstart.setOnClickListener {
             showCustomNotification()
             binding.icanchorStopwatch.startAnimation(roundingAlone)
-            binding. btnstop.animate().alpha(1f).translationY(-80f).setDuration(300).start()
-            binding.  btnstart.animate().alpha(0f).setDuration(300).start()
-            binding. btnstop.visible()
-            binding. btnstart.gone()
-            binding. timerHere!!.base = SystemClock.elapsedRealtime()
-            binding. timerHere!!.start()
+            binding.btnstop.animate().alpha(1f).translationY(-80f).setDuration(300).start()
+            binding.btnstart.animate().alpha(0f).setDuration(300).start()
+            binding.btnstop.visible()
+            binding.btnstart.gone()
+            binding.timerHere!!.base = SystemClock.elapsedRealtime()
+            binding.timerHere!!.start()
         }
-        binding.    btnstop.setOnClickListener {
+        binding.btnstop.setOnClickListener {
             showElapsedTime()
             notificationManager?.cancel(1)
 
@@ -110,7 +110,7 @@ class StopwatchFragment :
             null,
             true
         )
-        val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+        val notification = NotificationCompat.Builder(requireContext(), Constants.CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_planner)
             .setCustomBigContentView(expandedView)
             .setContentTitle(getString(R.string.stopwatch))
@@ -127,11 +127,11 @@ class StopwatchFragment :
         atg = AnimationUtils.loadAnimation(requireContext(), R.anim.atg)
         btgOne = AnimationUtils.loadAnimation(requireContext(), R.anim.btgone)
         btgTwo = AnimationUtils.loadAnimation(requireContext(), R.anim.btgtwo)
-        binding.   imagePhone.startAnimation(atg)
-        binding.   btnstart.startAnimation(btgOne)
-        binding.   stopwatchTaskApply.startAnimation(btgTwo)
-        binding.  stopwatchTaskEdit.startAnimation(btgOne)
-        binding.  btnstop.alpha = 0f
+        binding.imagePhone.startAnimation(atg)
+        binding.btnstart.startAnimation(btgOne)
+        binding.stopwatchTaskApply.startAnimation(btgTwo)
+        binding.stopwatchTaskEdit.startAnimation(btgOne)
+        binding.btnstop.alpha = 0f
         roundingAlone = AnimationUtils.loadAnimation(requireContext(), R.anim.roundingalone)
 
     }

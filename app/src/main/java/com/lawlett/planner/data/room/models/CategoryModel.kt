@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class CategoryModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val categoryName: String,
-    val taskAmount: Int,
-    val categoryImage: Int
+    val categoryName: String?=null,
+    var taskAmount: Int?=null,
+    val categoryImage: Int?=null
 )

@@ -17,7 +17,7 @@ import com.lawlett.planner.databinding.CreateIdeaBottomSheetBinding
 import com.lawlett.planner.extensions.loadImage
 import com.lawlett.planner.ui.adapter.IdeaAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
-import com.lawlett.planner.utils.Const
+import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
 
@@ -63,7 +63,7 @@ class CreateIdeaBottomSheetDialog :
         intent.type = "image/*"
         startActivityForResult(
             intent,
-            Const.Constants.IMAGE_PICK_CODE
+            Constants.IMAGE_PICK_CODE
         )
     }
 
@@ -78,7 +78,7 @@ class CreateIdeaBottomSheetDialog :
                 val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
                 requestPermissions(
                     permissions,
-                    Const.Constants.PERMISSION_CODE
+            Constants.PERMISSION_CODE
                 );
             } else {
                 pickImageFromGallery();
@@ -89,7 +89,7 @@ class CreateIdeaBottomSheetDialog :
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK && requestCode == Const.Constants.IMAGE_PICK_CODE) {
+        if (resultCode == Activity.RESULT_OK && requestCode == Constants.IMAGE_PICK_CODE) {
             imageUri = data?.data
             binding.image.setImageURI(data?.data)
         } else if (resultCode == Activity.RESULT_OK) {

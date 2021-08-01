@@ -7,12 +7,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.annotation.LayoutRes
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.base.SimpleRecyclerAdapter
-import com.lawlett.planner.ui.base.SuperBaseViewHolder
+
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -48,13 +45,4 @@ fun View.invisible() {
 
 fun EditText.clearField() {
     this.text.clear()
-}
-
-fun <T : Any> RecyclerView.withSimpleAdapter(
-    dataList: List<T>, @LayoutRes layoutID: Int,
-    onBindView: SuperBaseViewHolder<T>.(data: T) -> Unit
-): SimpleRecyclerAdapter<T> {
-    val recyclerAdapter = SimpleRecyclerAdapter(dataList, layoutID, onBindView)
-    adapter = recyclerAdapter
-    return recyclerAdapter
 }

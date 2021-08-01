@@ -30,15 +30,10 @@ class ProgressFragment :
     private var listHabit: List<HabitModel> = ArrayList()
     private var listEvent: List<EventModel> = ArrayList()
     private var listTask: List<CategoryModel> = ArrayList()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            requireActivity().finish()
-        }
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        backClickFinish()
         initCategoryAdapter()
         initIdeaProgressAdapter()
         initHabitAdapter()
@@ -52,7 +47,6 @@ class ProgressFragment :
         binding.mainRecycler.adapter = adapter
 
     }
-
 
     private fun initHorizontalCalendar() {
         val startDate = Calendar.getInstance()
@@ -86,6 +80,13 @@ class ProgressFragment :
             override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
                 return true
             }
+        }
+    }
+
+
+    private fun backClickFinish() {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            requireActivity().finish()
         }
     }
 

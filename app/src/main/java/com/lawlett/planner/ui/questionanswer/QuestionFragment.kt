@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lawlett.planner.R
-import com.lawlett.planner.databinding.FragmentQuestionAnswerBinding
+//import com.lawlett.planner.databinding.FragmentQuestionAnswerBinding
 import com.lawlett.planner.ui.base.BaseFragment
 
 
-class QuestionFragment :BaseFragment<FragmentQuestionAnswerBinding>(FragmentQuestionAnswerBinding::inflate) {
-
-}
+//class QuestionFragment :BaseFragment<FragmentQuestionAnswerBinding>(FragmentQuestionAnswerBinding::inflate) {
+//
+//}

@@ -2,6 +2,7 @@ package com.lawlett.planner.ui.standup
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
@@ -20,9 +21,15 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
     val adapter = StandUpAdapter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.e("onViewCreated", "onViewCreated: StandUpFragment")
         initClickers()
         initAdapter()
         backClick()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("onViewCreated", "onCreate: StandUpFragment")
     }
 
     private fun getDataFromDataBase() {

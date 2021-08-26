@@ -1,38 +1,21 @@
 package com.lawlett.planner.ui.adapter
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import android.annotation.SuppressLint
 import com.lawlett.planner.R
-import com.lawlett.planner.data.room.models.TimingModel
+import com.lawlett.planner.data.room.models.SkillModel
+import com.lawlett.planner.databinding.TimingItemBinding
+import com.lawlett.planner.ui.base.BaseAdapter
 
-class TimingAdapter :RecyclerView.Adapter<TimingAdapter.TimingViewHolder>() {
-    private var timingList= emptyList<TimingModel>()
-
-    class TimingViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimingViewHolder {
-        return TimingViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.timing_item,parent,false)
-        )
-    }
-
-    override fun onBindViewHolder(holder: TimingViewHolder, position: Int) {
-        val currentItem=timingList[position]
-//        holder.itemView.timer_task_title.text=currentItem.timerTitle
-//        holder.itemView.minutes_amount.text= currentItem.timerMinutes.toString()
-//        holder.itemView.task_day.text=currentItem.timerDay
-
-    }
-
-    override fun getItemCount(): Int {
-        return timingList.size
-    }
-    fun setData(timingModel:List<TimingModel>){
-        this.timingList=timingModel
-        notifyDataSetChanged()
+class TimingAdapter : BaseAdapter<SkillModel, TimingItemBinding>(
+    R.layout.timing_item,
+    listOf(),
+     TimingItemBinding::inflate
+) {
+    @SuppressLint("SetTextI18n")
+    override fun onBind(binding: TimingItemBinding, model: SkillModel) {
+        val hour = if(model.hour.isNullOrEmpty()) "0" else model.hour
+        binding.timerTaskTitle.text = model.skillName
+        binding.hourAmount.text = "$hour Часов"
+        binding.createdDate.text = model.dateCreated
     }
 }

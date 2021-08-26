@@ -3,12 +3,8 @@ package com.lawlett.planner.ui.tasks
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.CategoryModel
-import com.lawlett.planner.data.room.models.TasksModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
-import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
 import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter

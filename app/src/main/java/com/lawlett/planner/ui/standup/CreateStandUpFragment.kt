@@ -3,6 +3,7 @@ package com.lawlett.planner.ui.standup
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -23,9 +24,15 @@ class CreateStandUpFragment :
     BaseFragment<FragmentCreateStandupBinding>(FragmentCreateStandupBinding::inflate) {
     private val viewModel by inject<StandUpViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.e("onViewCreated", "onViewCreated: CreateStandUpFragment")
         super.onViewCreated(view, savedInstanceState)
         setViews()
         goBack()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("onViewCreated", "onCreate: CreateStandUpFragment")
     }
 
     private fun fillWhatDone() {
@@ -138,7 +145,7 @@ class CreateStandUpFragment :
                         viewModel.insertData(model)
                     }
                     clearPreferences()
-                    findNavController().popBackStack()
+                        findNavController().popBackStack(R.id.mainCreateStandUpFragment,true)
                 }
             }
         }

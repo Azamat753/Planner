@@ -143,5 +143,15 @@
         android:name="com.lawlett.planner.ui.standup.MainCreateStandUpFragment"
         android:label="fragment_create_stand_up_main"
         tools:layout="@layout/fragment_create_stand_up_main" />
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.lawlett.planner.ui.questionanswer.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" />
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.lawlett.planner.ui.questionanswer.AnswerFragment"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer" />
 
 </navigation>

@@ -9,7 +9,7 @@ import com.lawlett.planner.data.room.models.*
 
 @Database(
     entities = [TasksModel::class, TimingModel::class, IdeaModel::class, HabitModel::class,
-        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AnswerModel::class],
+        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AnswerModel::class,SkillModel::class],
     version = 1,
     exportSchema = false
 )
@@ -24,6 +24,7 @@ abstract class MainDataBase : RoomDatabase() {
     abstract fun standUpDao(): StandUpDao
     abstract fun questionDao(): QuestionDao
     abstract fun answerDao(): AnswerDao
+    abstract fun skillDao(): SkillDao
 
     companion object {
         @Volatile

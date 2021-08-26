@@ -11,4 +11,10 @@ data class TasksModel(
     val task: String,
     var isDone: Boolean,
     var doneAmount:Int?=null
-)
+
+
+) {
+    override fun toString(): String {
+        return "TasksModel(id=$id, category='$category', task='$task', isDone=$isDone, doneAmount=$doneAmount)"
+    }
+}

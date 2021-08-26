@@ -11,8 +11,8 @@ class TaskAdapter : BaseAdapter<TasksModel, ItemTaskBinding>(
     inflater = ItemTaskBinding::inflate
 ) {
     override fun onBind(binding: ItemTaskBinding, model: TasksModel) {
-        binding.taskCheckbox.text = model.task
-        binding.taskCheckbox.isChecked = model.isDone
-        listener?.onClick(model)
+        binding.taskTv.text = model.task
+        binding.taskCheck.isChecked = model.isDone
+        binding.taskCheck.setOnClickListener { listener?.onClick(model) }
     }
 }

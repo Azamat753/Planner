@@ -15,4 +15,6 @@ object Constants {
     const val PROBLEMS="PROBLEMS"
     const val INFO="INFO"
     const val STAND_UP="standUp"
+
+    const val SKILL_MODEL ="model"
 }

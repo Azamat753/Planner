@@ -1,31 +1,21 @@
 package com.lawlett.planner.ui.standup
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.viewpager.widget.ViewPager
-import com.lawlett.planner.R
 import com.lawlett.planner.databinding.FragmentCreateStandUpMainBinding
-import com.lawlett.planner.extensions.gone
-import com.lawlett.planner.extensions.invisible
-import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
-import java.lang.Exception
 
 
 class MainCreateStandUpFragment :
     BaseFragment<FragmentCreateStandUpMainBinding>(FragmentCreateStandUpMainBinding::inflate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.e("onViewCreated", "onViewCreated: MainCreateStandUpFragment")
         instance = this
         initAdapter()
     }
@@ -40,9 +30,14 @@ class MainCreateStandUpFragment :
     }
 
     private fun initAdapter() {
-        val adapter = fragmentManager?.let { StandUpPagerAdapter(it) }
+        val adapter = StandUpPagerAdapter(childFragmentManager)
         binding.pagerStandUp.adapter = adapter
         binding.dotsIndicatorStandUp.setViewPager(binding.pagerStandUp)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("onViewCreated", "onCreate: MainCreateStandUpFragment")
     }
 
     class StandUpPagerAdapter(fm: FragmentManager) :

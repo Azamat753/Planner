@@ -3,6 +3,7 @@ package com.lawlett.planner.ui.main
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocale(this)
+        Log.e("onViewCreated", "onCreate: MainActivity")
         this.checkedTheme()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

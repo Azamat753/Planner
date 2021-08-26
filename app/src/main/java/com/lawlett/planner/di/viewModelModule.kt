@@ -18,6 +18,7 @@ var viewModelModule = module {
     viewModel { StandUpViewModel(get()) }
     viewModel { QuestionViewModel(get()) }
     viewModel { AnswerViewModel(get()) }
+    viewModel { SkillViewModel(get()) }
 
     factory { IdeaRepository(get()) }
     factory { TaskRepository(get()) }
@@ -27,6 +28,7 @@ var viewModelModule = module {
     factory { StandUpRepository(get()) }
     factory { QuestionRepository(get()) }
     factory { AnswerRepository(get()) }
+    factory { SkillRepository(get()) }
 
     factory { MainDataBase.getDatabase(androidContext()).habitDao() }
     factory { MainDataBase.getDatabase(androidContext()).categoryDao() }
@@ -36,4 +38,5 @@ var viewModelModule = module {
     factory { MainDataBase.getDatabase(androidContext()).standUpDao() }
     factory { MainDataBase.getDatabase(androidContext()).questionDao() }
     factory { MainDataBase.getDatabase(androidContext()).answerDao() }
+    factory { MainDataBase.getDatabase(androidContext()).skillDao() }
 }

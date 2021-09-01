@@ -71,8 +71,11 @@ fun Context.checkedTheme() {
         getString(R.string.orange) -> {
             this.setTheme(R.style.AppTheme_Orange)
         }
-        getString(R.string.white) -> {
-            this.setTheme(R.style.AppTheme_White)
+        getString(R.string.pink) -> {
+            this.setTheme(R.style.AppTheme_Pink)
+        }
+        getString(R.string.violet) -> {
+            this.setTheme(R.style.AppTheme_Violet)
         }
     }
 }

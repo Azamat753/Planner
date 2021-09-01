@@ -8,22 +8,21 @@ import com.lawlett.planner.data.room.dao.*
 import com.lawlett.planner.data.room.models.*
 
 @Database(
-    entities = [TasksModel::class, TimingModel::class, IdeaModel::class, HabitModel::class,
-        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AnswerModel::class,SkillModel::class],
+    entities = [TasksModel::class,  IdeaModel::class, HabitModel::class,
+        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AchievementModel::class,SkillModel::class],
     version = 1,
     exportSchema = false
 )
 abstract class MainDataBase : RoomDatabase() {
 
     abstract fun taskDao(): TasksDao
-    abstract fun timingDao(): TimingDao
     abstract fun ideaDao(): IdeaDao
     abstract fun habitDao(): HabitDao
     abstract fun categoryDao(): CategoryDao
     abstract fun eventDao(): EventDao
     abstract fun standUpDao(): StandUpDao
     abstract fun questionDao(): QuestionDao
-    abstract fun answerDao(): AnswerDao
+    abstract fun achievementDao(): AchievementDao
     abstract fun skillDao(): SkillDao
 
     companion object {
@@ -41,7 +40,7 @@ abstract class MainDataBase : RoomDatabase() {
                     MainDataBase::class.java,
                     "task_database"
                 )
-                    .fallbackToDestructiveMigration()
+
                     .build()
                 INSTANCE = instance
                 return instance

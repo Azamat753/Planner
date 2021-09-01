@@ -7,8 +7,7 @@
     android:padding="16dp"
     app:cardCornerRadius="14dp"
     app:cardElevation="8dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,15 +48,16 @@
             app:layout_constraintTop_toBottomOf="@id/task_amount"
             tools:text="Работа" />
 
-        <ImageView
+        <TextView
             android:id="@+id/category_image"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:textSize="20sp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_work" />
+            android:text="💪" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

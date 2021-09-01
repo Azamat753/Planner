@@ -2,20 +2,22 @@ package com.lawlett.planner.ui.tasks
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.addCallback
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.AchievementModel
+import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.models.TasksModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
+import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.ui.adapter.TaskAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
@@ -24,23 +26,32 @@ import nl.dionsegijn.konfetti.models.Size
 import org.koin.android.ext.android.inject
 import java.util.*
 
+
 class CreateTasksFragment :
     BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<TasksModel> {
 
     private val viewModel by inject<TaskViewModel>()
     private val categoryViewModel by inject<CategoryViewModel>()
+    private val achievementViewModel by inject<AchievementViewModel>()
     private val adapter = TaskAdapter()
     private val args: CreateTasksFragmentArgs by navArgs()
     lateinit var taskModel: TasksModel
-    var currentDone: Int = 0
     var listTasks: List<TasksModel>? = null
     var taskAmount: Int = 0
-    lateinit var touchHelper: ItemTouchHelper
+    var categoryName = ""
+    private lateinit var touchHelper: ItemTouchHelper
+    var doneTaskAmount = 0
+    var nowLevel = 0
+    var levelId = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        categoryName = args.model.categoryName.toString()
+        binding.toolbar.title = categoryName
         initRecycler()
         initViewModel()
+        getCurrentLevel()
         swipe()
         drag()
         backPress()
@@ -61,8 +72,9 @@ class CreateTasksFragment :
             )
             .burst(100)
     }
-    private fun rainKonfetti(){
-        binding. viewKonfetti.build()
+
+    private fun rainKonfetti() {
+        binding.viewKonfetti.build()
             .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
             .setDirection(0.0, 359.0)
             .setSpeed(1f, 5f)
@@ -125,28 +137,51 @@ class CreateTasksFragment :
     }
 
     private fun initViewModel() {
-        insertDataToDataBase(args.category)
-        binding.toolbar.title = args.category
-        viewModel.getCategoryLiveData(args.category).observe(viewLifecycleOwner, Observer { tasks ->
+        insertDataToDataBase(categoryName)
+        viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner, { tasks ->
             if (tasks.isNotEmpty()) {
                 adapter.setData(tasks as List<TasksModel>)
                 taskAmount = tasks.size
                 listTasks = tasks
-                currentDone = 0
-                tasks.forEach { if (it.isDone) currentDone++ }
+                doneTaskAmount = 0
+                tasks.forEach { if (it.isDone) doneTaskAmount++ }
             }
         })
-
+        adapter.notifyDataSetChanged()
     }
 
+
+    private fun getCurrentLevel() {
+        achievementViewModel.getData().observe(viewLifecycleOwner, { level ->
+            if (level.isNotEmpty()) {
+                nowLevel = level[0].level
+                levelId = level[0].id!!
+            } else {
+                val model = AchievementModel(level = 0)
+                achievementViewModel.insertData(model)
+            }
+        })
+    }
+
+    private fun rewardAnAchievement(completeTask: Int) {
+        if (completeTask % 5 == 0) {
+            nowLevel += 1
+            val model = AchievementModel(level = nowLevel, id = levelId)
+            achievementViewModel.update(model)
+            binding.achievementView.show("Поздравляем!", "Уровень $nowLevel")
+        }
+    }
+
+
     private fun updateCategoryTaskAmount() {
-        categoryViewModel.getCategoryByName(args.category).observe(viewLifecycleOwner,
-            Observer { category ->
-                if (category != null) {
-                    category.taskAmount = taskAmount
-                    categoryViewModel.update(category)
-                }
-            })
+        val getModel: CategoryModel = args.model
+        val model = CategoryModel(
+            taskAmount = listTasks?.size?.plus(1),
+            categoryIcon = getModel.categoryIcon,
+            id = getModel.id,
+            categoryName = getModel.categoryName
+        )
+        categoryViewModel.update(model)
     }
 
     private fun initRecycler() {
@@ -164,24 +199,25 @@ class CreateTasksFragment :
                     isDone = false
                 )
                 viewModel.addTask(tasks)
-                updateCategoryTaskAmount()
                 binding.crEditText.clearField()
             }
             burstKonfetti()
+            updateCategoryTaskAmount()
         }
     }
 
     private fun decrementDone(model: TasksModel) {
-        currentDone--
-        model.doneAmount = currentDone
+        doneTaskAmount--
+        model.doneAmount = doneTaskAmount
         viewModel.update(model)
     }
 
     private fun incrementDone(model: TasksModel) {
         rainKonfetti()
-        currentDone++
-        model.doneAmount = currentDone
+        doneTaskAmount++
+        model.doneAmount = doneTaskAmount
         viewModel.update(model)
+        rewardAnAchievement(doneTaskAmount)
     }
 
     private fun backPress() {
@@ -191,11 +227,11 @@ class CreateTasksFragment :
     }
 
     override fun onClick(model: TasksModel) {
-        if (!model.isDone){
-            model.isDone=true
+        if (!model.isDone) {
+            model.isDone = true
             incrementDone(model)
-        }else{
-            model.isDone=false
+        } else {
+            model.isDone = false
             decrementDone(model)
         }
     }

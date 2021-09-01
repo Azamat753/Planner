@@ -9,6 +9,6 @@ data class SkillModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val skillName: String? = null,
-    val hour: String? = null,
+    val hour: String? = "0",
     val dateCreated: String? = null
 ) : Serializable

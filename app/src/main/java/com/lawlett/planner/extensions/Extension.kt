@@ -1,14 +1,26 @@
 package com.lawlett.planner.extensions
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.lawlett.planner.R
+import tyrantgit.explosionfield.ExplosionField
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun Context.showToast(message: String) {
@@ -45,4 +57,17 @@ fun View.invisible() {
 
 fun EditText.clearField() {
     this.text.clear()
+}
+
+fun View.explosionView(explosionField: ExplosionField) {
+    explosionField.explode(this)
+}
+
+fun getTodayDate(): String {
+    val sdf = SimpleDateFormat("dd.MM.yyyy")
+    return sdf.format(Date()).toString()
+}
+
+fun Double.toDecimal(): String {
+    return DecimalFormat("##.#").format(this)
 }

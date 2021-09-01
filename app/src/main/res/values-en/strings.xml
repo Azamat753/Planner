@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Planner</string>
+    <string name="app_name">Planner+</string>
     <string name="your_api_key">my_api_key</string>
 
     <string name="clear_list">Clear the list</string>
@@ -332,4 +332,6 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
     <string name="important_info">Важная информация</string>
     <string name="skip">Пропустить</string>
     <string name="next">Дальше</string>
+    <string name="pink">Розовый</string>
+    <string name="violet">Фиолетовый</string>
 </resources>

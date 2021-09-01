@@ -25,7 +25,9 @@ class SkillViewModel(private val repository: SkillRepository) : ViewModel() {
 
     fun delete(model: SkillModel?) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.delete(model)
+            if (model != null) {
+                repository.delete(model)
+            }
         }
     }
 

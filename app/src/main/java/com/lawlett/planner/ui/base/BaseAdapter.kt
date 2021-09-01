@@ -31,6 +31,9 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.onBind(data[position])
     }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
     abstract fun onBind(binding: Binding, model: T)
 

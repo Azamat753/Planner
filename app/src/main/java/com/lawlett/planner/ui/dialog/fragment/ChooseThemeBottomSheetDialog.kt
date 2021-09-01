@@ -45,7 +45,8 @@ class ChooseThemeBottomSheetDialog :
         listThemeModels.add(ThemeModel(getString(R.string.blue), "#0365C4"))
         listThemeModels.add(ThemeModel(getString(R.string.black), "#000000"))
         listThemeModels.add(ThemeModel(getString(R.string.green), "#8BC34A"))
-        listThemeModels.add(ThemeModel(getString(R.string.white), "#8BC34A"))
+        listThemeModels.add(ThemeModel(getString(R.string.pink), "#E91E63"))
+        listThemeModels.add(ThemeModel(getString(R.string.violet), "#673AB7"))
         return listThemeModels
     }
 }

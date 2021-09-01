@@ -14,9 +14,9 @@ class HabitAdapter : BaseAdapter<HabitModel, ItemHabitBinding>(
     @SuppressLint("SetTextI18n")
     override fun onBind(binding: ItemHabitBinding, model: HabitModel) {
         binding.habitTitle.text = model.title
-        binding.habitImage.setImageResource(R.drawable.ic_done)
-        binding.habitCount.text = model.currentDay + " / " + model.allDays
+        binding.habitImage.text = model.icon
+        binding.habitCount.text = model.currentDay.toString() + " / " + model.allDays
         binding.habitProgress.max = model.allDays.toInt()
-        binding.habitProgress.progress = model.currentDay.toInt()
+        binding.habitProgress.progress = model.currentDay
     }
 }

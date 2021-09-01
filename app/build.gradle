@@ -17,7 +17,6 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -35,6 +34,7 @@ android {
     viewBinding {
         enabled = true
     }
+
 }
 
 dependencies {
@@ -90,4 +90,10 @@ dependencies {
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
     //konfeti
     implementation 'nl.dionsegijn:konfetti:1.3.2'
+    //explosionView
+    implementation 'tyrantgit:explosionfield:1.0.1'
+    //fab
+    implementation 'com.github.clans:fab:1.6.4'
+    //achievement
+    implementation 'com.cdev.android:achievement-view:0.9.1'
 }

@@ -8,8 +8,8 @@ data class HabitModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val title: String,
-    val image: Int,
+    val icon: String,
     val allDays: String,
-    val currentDay:String,
-    val myDay:String
+    val currentDay:Int=0,
+    val myDay:Int=-1
 )

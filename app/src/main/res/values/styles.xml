@@ -188,20 +188,6 @@
         <item name="hint_color">#aaa</item>
     </style>
 
-    <style name="AppTheme.White" parent="AppTheme.NoActionBar">
-        <item name="windowColor">#FFF</item>
-        <item name="android:statusBarColor">#FFF</item>
-        <item name="bottomNavigationColor">#FFF</item>
-        <item name="toolbarColor">#FFF</item>
-        <item name="android:navigationBarColor">#FFF</item>
-        <item name="textColor">#000000</item>
-        <item name="editTextStrokeColor">#000000</item>
-        <item name="iconColor">#000000</item>
-        <item name="plusBackground">#000000</item>
-        <item name="settings_text_color">#000000</item>
-        <item name="create_event_editText">#000000</item>
-        <item name="hint_color">#aaa</item>
-    </style>
 
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>

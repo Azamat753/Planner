@@ -10,9 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.lawlett.planner.R
 import com.lawlett.planner.extensions.checkedTheme
+import tyrantgit.explosionfield.ExplosionField
 
 abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> T) :
     Fragment() {
+    lateinit var explosionField: ExplosionField
 
     private var _binding: T? = null
     val binding get() = _binding!!
@@ -24,6 +26,7 @@ abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflate
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflate.invoke(inflater, container, false)
+        explosionField = ExplosionField.attach2Window(requireActivity())
         return binding.root
     }
 

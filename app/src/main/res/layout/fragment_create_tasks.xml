@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.tasks.CreateTasksFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -82,4 +83,14 @@
         app:layout_constraintStart_toEndOf="@id/cr_editText"
         app:srcCompat="@drawable/ic_mic" />
 
+    <com.cdev.achievementview.AchievementView
+        android:id="@+id/achievement_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@id/cr_editText"
+        android:layout_marginBottom="40dp"
+        custom:collapseStartDelay="3500"
+        custom:colorLeft="@color/green_light"
+        custom:colorRight="@android:color/holo_green_dark"
+        custom:drawableLeft="@drawable/trophy"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

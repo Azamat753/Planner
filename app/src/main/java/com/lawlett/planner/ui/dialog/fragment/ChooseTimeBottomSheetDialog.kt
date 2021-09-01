@@ -5,6 +5,7 @@ import android.view.View
 import com.lawlett.planner.data.room.models.SkillModel
 import com.lawlett.planner.data.room.viewmodels.SkillViewModel
 import com.lawlett.planner.databinding.ChooseTimeBottomSheetDialogBinding
+import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
@@ -37,8 +38,6 @@ class ChooseTimeBottomSheetDialog :
 
     private fun initClickers() {
         binding.applyButton.setOnClickListener {
-            val sdf = SimpleDateFormat("dd.MM.yyyy")
-            val formatDateCreated = sdf.format(Date()).toString()
             val hour = binding.hourPicker.value * 60
             val minute = binding.minutePicker.value
             val calculatedHours: Double = ((hour + minute) / 60.0).roundTo(1)
@@ -46,8 +45,8 @@ class ChooseTimeBottomSheetDialog :
                 if (getSkillModel().hour.isNullOrEmpty()) "0" else (getSkillModel().hour?.toDouble()
                     ?.plus(calculatedHours)).toString()
             val dateCreated: String =
-                if (getSkillModel().dateCreated.isNullOrEmpty()) formatDateCreated else getSkillModel().dateCreated.toString()
-            var model = SkillModel(
+                if (getSkillModel().dateCreated.isNullOrEmpty()) getTodayDate() else getSkillModel().dateCreated.toString()
+            val model = SkillModel(
                 id = getSkillModel().id,
                 hour = totalHour,
                 skillName = getSkillModel().skillName,

@@ -11,6 +11,6 @@ class IconAdapter : BaseAdapter<IconModel, ItemIconBinding>(
     ItemIconBinding::inflate
 ) {
     override fun onBind(binding: ItemIconBinding, model: IconModel) {
-        binding.iconView.setImageResource(model.icon)
+        binding.iconView.text = model.icon
     }
 }

@@ -10,27 +10,31 @@ import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.models.IconModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.databinding.CreateCategoryBottomSheetDialogBinding
-import com.lawlett.planner.extensions.showToast
+import com.lawlett.planner.extensions.getIcons
 import com.lawlett.planner.ui.adapter.IconAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import org.koin.android.ext.android.inject
+import java.lang.ClassCastException
 
 class CreateCategoryBottomSheetDialog :
     BaseBottomSheetDialog<CreateCategoryBottomSheetDialogBinding>(
         CreateCategoryBottomSheetDialogBinding::inflate
     ), BaseAdapter.IBaseAdapterClickListener<IconModel> {
-    var icon: Int = 0
+    var icon: String = ""
     val viewModel by inject<CategoryViewModel>()
     var isImageChoose: Boolean = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
+        checkModel()
     }
 
     private fun initClickers() {
         binding.iconButton.setOnClickListener { iconPickerDialog() }
-        binding.applyButton.setOnClickListener { insertCategory() }
+        binding.applyButton.setOnClickListener {
+            insertOrUpdateCategory()
+        }
     }
 
     private fun iconPickerDialog() {
@@ -41,34 +45,37 @@ class CreateCategoryBottomSheetDialog :
         dialog.setContentView(R.layout.dialog_icon)
         val recyclerView = dialog.findViewById(R.id.icon_recycler) as RecyclerView
         recyclerView.adapter = adapter
-        adapter.setData(fillIcons())
+        adapter.setData(getIcons())
         if (isImageChoose) {
             dialog.cancel()
         }
         dialog.show()
     }
 
-    private fun fillIcons(): List<IconModel> {
-        val list: ArrayList<IconModel> = ArrayList()
-        list.add(IconModel(R.drawable.ic_work))
-        list.add(IconModel(R.drawable.ic_done))
-        list.add(IconModel(R.drawable.ic_home))
-        list.add(IconModel(R.drawable.ic_hamburger))
-        list.add(IconModel(R.drawable.ic_done))
-        list.add(IconModel(R.drawable.ic_person))
-        list.add(IconModel(R.drawable.ic_choose_image))
-        list.add(IconModel(R.drawable.ic_today))
-        list.add(IconModel(R.drawable.ic_camera))
-        list.add(IconModel(R.drawable.ic_pen))
-        list.add(IconModel(R.drawable.ic_notification))
-        list.add(IconModel(R.drawable.ic_mic))
-        list.add(IconModel(R.drawable.ic_date_white))
-        return list
+    fun checkModel(): Boolean {
+        try {
+            val model: CategoryModel = arguments?.getSerializable("model") as CategoryModel
+            binding.iconTv.text = model.categoryIcon
+            binding.title.text = model.categoryName
+            binding.titleEditText.setText(model.categoryName)
+        }catch (ex:NullPointerException){
+            ex.printStackTrace()
+        }
+        return arguments?.getSerializable("model") != null
     }
 
-    private fun insertCategory() {
+    private fun insertOrUpdateCategory() {
+        val title =binding.titleEditText.text.toString()
+        if (checkModel()) {
+            updateCategory(title)
+        } else {
+            insertCategory(title)
+        }
+    }
+
+    private fun insertCategory(title: String) {
         when {
-            icon == 0 -> {
+            icon == "" -> {
                 binding.iconButton.error = getString(R.string.choose_image)
             }
             binding.titleEditText.text.toString().isEmpty() -> {
@@ -76,19 +83,35 @@ class CreateCategoryBottomSheetDialog :
             }
             else -> {
                 val category = CategoryModel(
-                    categoryImage = icon,
-                    categoryName = binding.titleEditText.text.toString(),
+                    categoryIcon = icon,
+                    categoryName = title,
                     taskAmount = 0
                 )
-                dismiss()
                 viewModel.addCategory(category)
+                dismiss()
             }
+        }
+    }
+
+    private fun updateCategory(title: String) {
+        val model: CategoryModel = arguments?.getSerializable("model") as CategoryModel
+        if (binding.titleEditText.text.toString().isEmpty()) {
+            binding.titleEditText.error = getString(R.string.fill_field)
+        } else {
+            val updateModel = CategoryModel(
+                id = model.id,
+                categoryIcon = icon,
+                categoryName = title,
+                taskAmount = model.taskAmount
+            )
+            viewModel.update(updateModel)
+            dismiss()
         }
     }
 
     override fun onClick(model: IconModel) {
         icon = model.icon
         isImageChoose = true
-        requireContext().showToast("isClicked")
+        binding.iconTv.text = model.icon
     }
 }

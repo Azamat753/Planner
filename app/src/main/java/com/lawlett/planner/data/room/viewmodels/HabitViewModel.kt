@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HabitViewModel(private val repository: HabitRepository) : ViewModel() {
-    fun addIdea(model: HabitModel) {
+    fun insertData(model: HabitModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addIdea(model)
         }

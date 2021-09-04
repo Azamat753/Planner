@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     android:background="?attr/toolbarColor"
-    android:gravity="bottom"
+    android:padding="12dp"
     android:orientation="vertical">
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="26dp"
         android:src="@drawable/ic_person_white"
         android:foreground="?attr/selectableItemBackground"
         tools:ignore="UnusedAttribute" />
@@ -26,10 +26,25 @@
         android:foreground="?attr/selectableItemBackground"
         android:singleLine="true"
         android:maxLines="1"
-        android:padding="16dp"
+        android:padding="8dp"
         android:text="@string/you_name"
         android:textColor="?attr/settings_text_color"
         android:textSize="25sp"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/nav_header_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:maxLength="16"
+        android:foreground="?attr/selectableItemBackground"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:text="Уровень"
+        android:textColor="?attr/settings_text_color"
+        android:textSize="16sp"
         tools:ignore="UnusedAttribute" />
 
 </LinearLayout>

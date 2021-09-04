@@ -6,7 +6,6 @@ import com.lawlett.planner.data.room.models.SkillModel
 import com.lawlett.planner.databinding.TimingItemBinding
 import com.lawlett.planner.extensions.toDecimal
 import com.lawlett.planner.ui.base.BaseAdapter
-import java.text.DecimalFormat
 
 class TimingAdapter : BaseAdapter<SkillModel, TimingItemBinding>(
     R.layout.timing_item,

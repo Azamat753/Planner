@@ -108,16 +108,27 @@
             app:argType="com.lawlett.planner.data.room.models.CategoryModel" />
 
     </fragment>
+
     <fragment
         android:id="@+id/stopwatchFragment"
         android:name="com.lawlett.planner.ui.timing.StopwatchFragment"
         android:label="fragment_stopwatch"
-        tools:layout="@layout/fragment_stopwatch" />
+        tools:layout="@layout/fragment_stopwatch">
+        <argument
+            android:name="model"
+            app:argType="com.lawlett.planner.data.room.models.SkillModel" />
+    </fragment>
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.lawlett.planner.ui.timing.TimerFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" />
+        tools:layout="@layout/fragment_timer">
+
+        <argument
+            android:name="model"
+            app:argType="com.lawlett.planner.data.room.models.SkillModel" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/habitFragment"
@@ -137,7 +148,7 @@
         android:id="@+id/createStandUpFragment"
         android:name="com.lawlett.planner.ui.standup.CreateStandUpFragment"
         android:label="fragment_create_standup"
-        tools:layout="@layout/fragment_create_standup"/>
+        tools:layout="@layout/fragment_create_standup" />
     <fragment
         android:id="@+id/mainCreateStandUpFragment"
         android:name="com.lawlett.planner.ui.standup.MainCreateStandUpFragment"

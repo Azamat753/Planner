@@ -2,9 +2,6 @@ package com.lawlett.planner.ui.events
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
-import androidx.navigation.fragment.findNavController
-import com.lawlett.planner.R
 import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.databinding.FragmentEventsBinding
 import com.lawlett.planner.ui.adapter.EventAdapter

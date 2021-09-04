@@ -1,44 +1,75 @@
 package com.lawlett.planner.ui.timing
 
-import android.media.RingtoneManager
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.RemoteViews
+import androidx.activity.addCallback
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.SkillModel
-import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.data.room.viewmodels.SkillViewModel
 import com.lawlett.planner.databinding.FragmentTimerBinding
 import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.SimpleCountDownTimer
 import org.koin.android.ext.android.inject
-import java.lang.NullPointerException
+import java.lang.reflect.InvocationTargetException
 
 class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::inflate) {
     private var timeLeftInMilliseconds: Long = 0
     private lateinit var notificationManager: NotificationManagerCompat
     var myTask: String? = null
     var timeLeftText: String? = null
-    var atg: Animation? = null
-    var btgOne: Animation? = null
-    var btgTwo: Animation? = null
+    private var atg: Animation? = null
+    private var btgOne: Animation? = null
+    private var btgTwo: Animation? = null
     private val viewModel by inject<SkillViewModel>()
+    private val args: TimerFragmentArgs by navArgs()
+    private var modelId: Int = 0
+    private var previousTime: Double = 0.0
+    private lateinit var previousDateCreated: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAnimation()
+        fillFieldsForUpdateTimer()
         initNotification()
         initClickers()
+        onBackPress(R.id.timing_fragment)
+    }
+
+    private fun fillFieldsForUpdateTimer() {
+        if (isUpdate()) {
+            val model = args.model
+            binding.timerTaskEdit.setText(model.skillName)
+            modelId = model.id!!
+            previousTime = model.hour!!.toDouble()
+            previousDateCreated = model.dateCreated.toString()
+        }
+    }
+
+    private fun isUpdate(): Boolean {
+        var isHave = false
+        try {
+            isHave = args.model.skillName != null
+        } catch (inTarEx: InvocationTargetException) {
+            inTarEx.printStackTrace()
+        } catch (ar: IllegalArgumentException) {
+            ar.printStackTrace()
+        }
+        return isHave
     }
 
     private fun initAnimation() {
@@ -66,6 +97,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 timeLeftInMilliseconds =
                     (binding.countTime.text.toString().toInt() * 60000).toLong()
                 timeLeftText = timeLeftInMilliseconds.toString()
+                binding.skillNameTv.text = myTask
                 binding.applyButton.gone()
                 binding.countTime.gone()
                 binding.countdownText.text = getString(R.string.ready)
@@ -73,6 +105,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 binding.countdownText.visible()
                 binding.mgAnimation.gone()
                 binding.clockAnimation.visible()
+                binding.skillNameTv.visible()
             }
         }
 
@@ -82,19 +115,34 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
         }
 
         binding.exitButton.setOnClickListener {
-            val myTime = binding.countdownText.text.toString()
-            if (myTime.equals("0:00") || myTime.equals("0:01") || myTime.equals("0:02")) {
-                val enterTime = (binding.countTime.text.toString().toDouble() / 60).toString()
-                val model =
-                    SkillModel(hour = enterTime, skillName = myTask, dateCreated = getTodayDate())
-                viewModel.insertData(model)
+            if (isUpdate()) {
+                val hour = calculateRemainingTime().toDouble() + previousTime
+                val model = SkillModel(
+                    skillName = myTask,
+                    dateCreated = previousDateCreated,
+                    id = modelId,
+                    hour = hour.toString()
+                )
+                viewModel.update(model)
             } else {
+//                val myTime = binding.countdownText.text.toString()
+//                if (myTime == "0:00" || myTime == "0:01" || myTime == "0:02") {
+//                    val enterTime = (binding.countTime.text.toString().toDouble() / 60).toString()
+//                    val model =
+//                        SkillModel(
+//                            hour = enterTime,
+//                            skillName = myTask,
+//                            dateCreated = getTodayDate()
+//                        )
+//                    viewModel.insertData(model)
+//                } else {
                 val model = SkillModel(
                     hour = calculateRemainingTime(),
                     skillName = myTask,
                     dateCreated = getTodayDate()
                 )
                 viewModel.insertData(model)
+//                }
             }
             findNavController().navigate(R.id.timing_fragment)
         }
@@ -107,7 +155,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
     }
 
     private fun showNotification() {
-        val expandedView: RemoteViews = RemoteViews(
+        val expandedView = RemoteViews(
             requireContext().packageName,
             R.layout.notification_expanded_timer
         )
@@ -175,7 +223,6 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
     }
 
     private fun initNotification() {
-        val notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
         notificationManager = NotificationManagerCompat.from(requireContext())
 
     }

@@ -23,11 +23,11 @@ class MainCreateStandUpFragment :
         lateinit var instance: MainCreateStandUpFragment
     }
 
-    init {
-        fun getInstance(): MainCreateStandUpFragment {
-            return instance
-        }
-    }
+//    init {
+//        fun getInstance(): MainCreateStandUpFragment {
+//            return instance
+//        }
+//    }
 
     private fun initAdapter() {
         val adapter = StandUpPagerAdapter(childFragmentManager)

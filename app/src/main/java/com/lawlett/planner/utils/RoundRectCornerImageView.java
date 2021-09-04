@@ -9,9 +9,7 @@ import android.util.AttributeSet;
 
 public class RoundRectCornerImageView extends androidx.appcompat.widget.AppCompatImageView {
 
-    private float radius = 18.0f;
     private Path path;
-    private RectF rect;
 
     public RoundRectCornerImageView(Context context) {
         super(context);
@@ -35,7 +33,8 @@ public class RoundRectCornerImageView extends androidx.appcompat.widget.AppCompa
 
     @Override
     protected void onDraw(Canvas canvas) {
-        rect = new RectF(0, 0, this.getWidth(), this.getHeight());
+        RectF rect = new RectF(0, 0, this.getWidth(), this.getHeight());
+        float radius = 18.0f;
         path.addRoundRect(rect, radius, radius, Path.Direction.CW);
         canvas.clipPath(path);
         super.onDraw(canvas);

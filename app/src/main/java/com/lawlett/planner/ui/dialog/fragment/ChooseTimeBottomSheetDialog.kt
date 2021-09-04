@@ -9,8 +9,6 @@ import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ChooseTimeBottomSheetDialog :
     BaseBottomSheetDialog<ChooseTimeBottomSheetDialogBinding>(ChooseTimeBottomSheetDialogBinding::inflate) {
@@ -28,11 +26,11 @@ class ChooseTimeBottomSheetDialog :
         binding.title.text = getSkillModel().skillName
     }
 
-    fun getSkillModel(): SkillModel {
+    private fun getSkillModel(): SkillModel {
         return arguments?.getSerializable(Constants.SKILL_MODEL) as SkillModel
     }
 
-    fun Double.roundTo(n: Int): Double {
+    private fun Double.roundTo(n: Int): Double {
         return "%.${n}f".format(this).toDouble()
     }
 

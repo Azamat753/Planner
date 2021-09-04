@@ -6,15 +6,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.CategoryModel
-import com.lawlett.planner.data.room.models.SkillModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
 import com.lawlett.planner.extensions.explosionView
-import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.ui.dialog.fragment.ChooseTimeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.fragment.CreateCategoryBottomSheetDialog
 import com.lawlett.planner.utils.SwipeHelper
 import org.koin.android.ext.android.inject
@@ -85,10 +82,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
             })
     }
 
-    fun swipeItem() {
+    private fun swipeItem() {
         val itemTouchHelper = ItemTouchHelper(object : SwipeHelper(binding.categoryRecycler) {
             override fun instantiateUnderlayButton(position: Int): List<UnderlayButton> {
-                var buttons: List<UnderlayButton>
+                val buttons: List<UnderlayButton>
                 val deleteButton = deleteButton(position)
                 val markAsUnreadButton = markAsUnreadButton(position)
                 buttons = listOf(deleteButton, markAsUnreadButton)

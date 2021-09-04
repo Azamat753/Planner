@@ -9,7 +9,7 @@ import com.lawlett.planner.data.room.models.*
 
 @Database(
     entities = [TasksModel::class,  IdeaModel::class, HabitModel::class,
-        CategoryModel::class, EventModel::class, StandUpModel::class, QuestionModel::class, AchievementModel::class,SkillModel::class],
+        CategoryModel::class, EventModel::class, StandUpModel::class,  AchievementModel::class,SkillModel::class],
     version = 1,
     exportSchema = false
 )
@@ -21,7 +21,6 @@ abstract class MainDataBase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun eventDao(): EventDao
     abstract fun standUpDao(): StandUpDao
-    abstract fun questionDao(): QuestionDao
     abstract fun achievementDao(): AchievementDao
     abstract fun skillDao(): SkillDao
 

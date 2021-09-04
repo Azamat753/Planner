@@ -11,7 +11,6 @@ import com.lawlett.planner.data.room.models.IconModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.CreateHabitBottomSheetDialogBinding
 import com.lawlett.planner.extensions.getIcons
-import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.ui.adapter.IconAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
@@ -19,7 +18,7 @@ import org.koin.android.ext.android.inject
 
 class CreateHabitBottomSheetDialog :
     BaseBottomSheetDialog<CreateHabitBottomSheetDialogBinding>(CreateHabitBottomSheetDialogBinding::inflate), BaseAdapter.IBaseAdapterClickListener<IconModel> {
-    var isImageChoose: Boolean = false
+    private var isImageChoose: Boolean = false
     var icon: String = ""
     val viewModel by inject<HabitViewModel>()
 

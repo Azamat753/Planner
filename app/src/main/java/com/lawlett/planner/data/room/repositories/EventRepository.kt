@@ -2,9 +2,7 @@ package com.lawlett.planner.data.room.repositories
 
 import androidx.lifecycle.LiveData
 import com.lawlett.planner.data.room.dao.EventDao
-import com.lawlett.planner.data.room.dao.IdeaDao
 import com.lawlett.planner.data.room.models.EventModel
-import com.lawlett.planner.data.room.models.IdeaModel
 
 class EventRepository (private val dao: EventDao){
     fun loadData():LiveData<List<EventModel>>{

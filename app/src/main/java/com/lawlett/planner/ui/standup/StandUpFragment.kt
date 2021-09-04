@@ -73,8 +73,8 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
 
         val intent = Intent()
         intent.action = Intent.ACTION_SEND
-        intent.type = "text/plain";
-        intent.putExtra(Intent.EXTRA_TEXT, standUp);
-        startActivity(Intent.createChooser(intent, "Share"));
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, standUp)
+        startActivity(Intent.createChooser(intent, "Share"))
     }
 }

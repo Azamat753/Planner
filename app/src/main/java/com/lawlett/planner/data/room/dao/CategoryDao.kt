@@ -3,7 +3,6 @@ package com.lawlett.planner.data.room.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.lawlett.planner.data.room.models.CategoryModel
-import com.lawlett.planner.data.room.models.TasksModel
 
 @Dao
 interface CategoryDao {

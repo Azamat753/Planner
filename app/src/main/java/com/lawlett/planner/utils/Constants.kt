@@ -5,10 +5,15 @@ object Constants {
     const val CHANNEL_ID_HOURS = "exampleChannelHours"
     const val TITLE = "title"
     const val TEXT = "text"
-    const val IMAGE_PICK_CODE = 1000;
-    const val PERMISSION_CODE = 1001;
+    const val IMAGE_PICK_CODE = 1000
+    const val PERMISSION_CODE = 1001
     const val STAND_UP_POS = "standUp_pos"
     const val BOARD_POS = "board_pos"
+
+    const val USER_NAME = "name"
+    const val USER_IMAGE = "image"
+
+    const val COMPLETE_TASK = "completeTask"
 
     const val WHAT_DONE="WHAT_DONE"
     const val WHAT_PLAN="WHAT_PLAN"

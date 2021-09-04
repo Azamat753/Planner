@@ -1,20 +1,16 @@
 package com.lawlett.planner.extensions
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Dialog
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.view.LayoutInflater
 import android.view.View
-import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.addCallback
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.lawlett.planner.R
 import tyrantgit.explosionfield.ExplosionField
@@ -71,3 +67,4 @@ fun getTodayDate(): String {
 fun Double.toDecimal(): String {
     return DecimalFormat("##.#").format(this)
 }
+

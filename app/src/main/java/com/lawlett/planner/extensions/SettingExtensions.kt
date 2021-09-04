@@ -45,7 +45,7 @@ private fun setLocale(s: String, context: Context) {
 }
 
 fun loadLocale(context: Context) {
-    var language: String? = LanguagePreference.getInstance(context)?.getLanguage
+    val language: String? = LanguagePreference.getInstance(context)?.getLanguage
     if (language != null) {
         setLocale(language, context)
     }

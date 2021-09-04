@@ -4,7 +4,6 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.databinding.ItemStandupBinding
 import com.lawlett.planner.extensions.gone
-import com.lawlett.planner.extensions.invisible
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseAdapter
 

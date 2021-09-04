@@ -34,6 +34,18 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper">
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/standUp_animation"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_alignParentStart="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="done-girl.json"
+                app:lottie_loop="true" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -56,7 +68,7 @@
                 android:maxLines="40"
                 android:textColor="?attr/textColor"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@id/title" />
+                app:layout_constraintTop_toBottomOf="@id/standUp_animation" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/apply_button"

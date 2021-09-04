@@ -57,7 +57,7 @@ abstract class SwipeHelper(
     ) {
         var right = itemView.right
         buttons.forEach { button ->
-            val width = button.intrinsicWidth / buttons.intrinsicWidth() * abs(dX)
+            val width = button.intrinsicWidth / buttons.intrinsicWidth() * kotlin.math.abs(dX)
             val left = right - width
             button.draw(
                 canvas,
@@ -89,7 +89,7 @@ abstract class SwipeHelper(
 
                 val buttons = buttonsBuffer[position] ?: return
                 if (buttons.isEmpty()) return
-                maxDX = max(-buttons.intrinsicWidth(), dX)
+                maxDX = (-buttons.intrinsicWidth()).coerceAtLeast(dX)
                 drawButtons(c, buttons, itemView, maxDX)
             }
         }

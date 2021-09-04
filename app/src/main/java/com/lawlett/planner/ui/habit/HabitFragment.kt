@@ -1,7 +1,6 @@
 package com.lawlett.planner.ui.habit
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -33,7 +32,7 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
     }
 
     private fun initBottomSheet() {
-        var bottomDialog = CreateHabitBottomSheetDialog()
+        val bottomDialog = CreateHabitBottomSheetDialog()
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
@@ -56,7 +55,7 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
     private fun checkDay(habitModel: HabitModel) {
         val calendar = Calendar.getInstance()
         val currentDay = calendar[Calendar.DAY_OF_MONTH]
-        val dayFromRoom: Int = habitModel.myDay.toInt()
+        val dayFromRoom: Int = habitModel.myDay
         if (currentDay != dayFromRoom) {
             val today = (habitModel.currentDay + 1)
             val model = HabitModel(

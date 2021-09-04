@@ -28,7 +28,7 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         MultiDex.install(this)
     }
     private fun createNotificationChannel() {

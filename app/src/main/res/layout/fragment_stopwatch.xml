@@ -89,6 +89,18 @@
         android:layout_height="match_parent"
         android:visibility="gone">
 
+        <TextView
+            android:id="@+id/skill_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/textColor"
+            android:textSize="30sp"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/stopwatch_clock_animation"
             android:layout_width="276dp"
@@ -99,7 +111,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/skill_name_tv"
             app:lottie_autoPlay="true"
             app:lottie_fileName="stopwatch_clock.json"
             app:lottie_loop="true" />

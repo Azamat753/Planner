@@ -75,16 +75,16 @@ class CreateIdeaBottomSheetDialog :
                 ) ==
                 PackageManager.PERMISSION_DENIED
             ) {
-                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
+                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
                 requestPermissions(
                     permissions,
             Constants.PERMISSION_CODE
-                );
+                )
             } else {
-                pickImageFromGallery();
+                pickImageFromGallery()
             }
         } else {
-            pickImageFromGallery();
+            pickImageFromGallery()
         }
     }
 

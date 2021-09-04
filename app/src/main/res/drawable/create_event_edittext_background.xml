@@ -4,7 +4,7 @@
     <item >
         <shape>
             <stroke android:color="?attr/create_event_editText" android:width="1dp"/>
-            <corners android:radius="15dp"></corners>
+            <corners android:radius="15dp" />
         </shape>
     </item>
 </selector>

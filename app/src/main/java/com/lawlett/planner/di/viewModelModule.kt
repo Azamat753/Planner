@@ -14,7 +14,6 @@ var viewModelModule = module {
     viewModel { CategoryViewModel(get()) }
     viewModel { EventViewModel(get()) }
     viewModel { StandUpViewModel(get()) }
-    viewModel { QuestionViewModel(get()) }
     viewModel { AchievementViewModel(get()) }
     viewModel { SkillViewModel(get()) }
 
@@ -24,7 +23,6 @@ var viewModelModule = module {
     factory { CategoryRepository(get()) }
     factory { EventRepository(get()) }
     factory { StandUpRepository(get()) }
-    factory { QuestionRepository(get()) }
     factory { AchievementRepository(get()) }
     factory { SkillRepository(get()) }
 
@@ -34,7 +32,6 @@ var viewModelModule = module {
     factory { MainDataBase.getDatabase(androidContext()).taskDao() }
     factory { MainDataBase.getDatabase(androidContext()).eventDao() }
     factory { MainDataBase.getDatabase(androidContext()).standUpDao() }
-    factory { MainDataBase.getDatabase(androidContext()).questionDao() }
     factory { MainDataBase.getDatabase(androidContext()).achievementDao() }
     factory { MainDataBase.getDatabase(androidContext()).skillDao() }
 }

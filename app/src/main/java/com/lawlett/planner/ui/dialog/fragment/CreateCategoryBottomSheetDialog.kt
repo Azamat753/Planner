@@ -15,7 +15,6 @@ import com.lawlett.planner.ui.adapter.IconAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import org.koin.android.ext.android.inject
-import java.lang.ClassCastException
 
 class CreateCategoryBottomSheetDialog :
     BaseBottomSheetDialog<CreateCategoryBottomSheetDialogBinding>(
@@ -23,7 +22,7 @@ class CreateCategoryBottomSheetDialog :
     ), BaseAdapter.IBaseAdapterClickListener<IconModel> {
     var icon: String = ""
     val viewModel by inject<CategoryViewModel>()
-    var isImageChoose: Boolean = false
+    private var isImageChoose: Boolean = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()

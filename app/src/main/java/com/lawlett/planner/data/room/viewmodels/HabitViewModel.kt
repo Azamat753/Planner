@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lawlett.planner.data.room.models.HabitModel
-import com.lawlett.planner.data.room.models.IdeaModel
 import com.lawlett.planner.data.room.repositories.HabitRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

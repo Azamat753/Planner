@@ -1,10 +1,21 @@
 package com.lawlett.planner.ui.main
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.Window
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -13,34 +24,111 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.AchievementModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.databinding.ActivityMainBinding
-import com.lawlett.planner.extensions.checkedTheme
-import com.lawlett.planner.extensions.gone
-import com.lawlett.planner.extensions.loadLocale
-import com.lawlett.planner.extensions.visible
-import com.lawlett.planner.ui.standup.CreateStandUpFragment
-import com.lawlett.planner.ui.standup.MainCreateStandUpFragment
+import com.lawlett.planner.extensions.*
+import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.StringPreference
+import org.koin.android.ext.android.inject
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private lateinit var headerImage: ImageView
+    private lateinit var headerName: TextView
+    private lateinit var headerLevel: TextView
+    private val achievementViewModel by inject<AchievementViewModel>()
+    private var nowLevel = 0
+    private var levelId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocale(this)
-        Log.e("onViewCreated", "onCreate: MainActivity")
         this.checkedTheme()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigationGraph()
         setupNavigation()
         initNavigationDrawer()
+        initListeners()
+        getCurrentLevel()
         changeTitleToolbar()
         lockProgressFragment()
+    }
+    private fun getCurrentLevel() {
+        achievementViewModel.getData().observe(this, { level ->
+            if (level.isNotEmpty()) {
+                nowLevel = level[0].level
+                levelId = level[0].id!!
+                headerLevel.text = "Уровень $nowLevel" // TODO: 04.09.2021 Найти другое решение
+            } else {
+                val model = AchievementModel(level = 0)
+                achievementViewModel.insertData(model)
+            }
+        })
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showCreateNameDialog() {
+        val inflater: LayoutInflater = LayoutInflater.from(this)
+        val view: View = inflater.inflate(R.layout.create_user_name, null)
+        val alertDialog = Dialog(this)
+        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.setContentView(view)
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val editText: EditText = alertDialog.findViewById(R.id.editText_create_name)
+        alertDialog.findViewById<TextView>(R.id.apply_btn).setOnClickListener {
+            if (editText.text.toString().isEmpty()) {
+                showToast(getString(R.string.empty))
+            } else {
+                val name = editText.text.toString()
+                headerName.text = name
+                StringPreference.getInstance(this)?.saveProfile(Constants.USER_NAME, name)
+                alertDialog.dismiss()
+            }
+        }
+        alertDialog.show()
+    }
+
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            StringPreference.getInstance(this)?.saveProfile(Constants.USER_IMAGE, uri.toString())
+        }
+
+    private fun initListeners() {
+        val view: View = binding.drawerNavigation.getHeaderView(0)
+        headerImage = view.findViewById(R.id.nav_header_iv)
+        headerName = view.findViewById(R.id.nav_header_tv)
+        headerLevel = view.findViewById(R.id.nav_header_level)
+
+        headerImage.setOnClickListener {
+            getContent.launch("image/*")
+        }
+        headerName.setOnClickListener {
+            showCreateNameDialog()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setUserNameAndImage()
+    }
+
+    private fun setUserNameAndImage() {
+        val image = StringPreference.getInstance(this)?.getProfile(Constants.USER_IMAGE)
+        val name = StringPreference.getInstance(this)?.getProfile(Constants.USER_NAME)
+            Glide.with(this).load(image).circleCrop().placeholder(R.drawable.ic_person_white).into(headerImage)
+        if (name!!.isNotEmpty()) {
+            headerName.text = name
+        }else{
+            headerName.text = getString(R.string.you_name)
+        }
     }
 
     private fun initNavigationGraph() {

@@ -3,9 +3,7 @@ package com.lawlett.planner.ui.dialog.fragment
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
 import com.lawlett.planner.R

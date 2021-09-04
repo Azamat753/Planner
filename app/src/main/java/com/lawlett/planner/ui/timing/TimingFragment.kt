@@ -18,7 +18,6 @@ import com.lawlett.planner.ui.dialog.fragment.CreateSkillBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.SwipeHelper
 import org.koin.android.ext.android.inject
-import tyrantgit.explosionfield.ExplosionField
 
 class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<SkillModel> {
@@ -44,6 +43,18 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
         })
     }
 
+    private fun openTimerFragmentAndSendModel(model: SkillModel) {
+        val pAction: TimingFragmentDirections.ActionTimingFragmentToTimerFragment =
+            TimingFragmentDirections.actionTimingFragmentToTimerFragment(model)
+        findNavController().navigate(pAction)
+    }
+
+    private fun openStopwatchFragmentAndSendModel(model: SkillModel) {
+        val pAction: TimingFragmentDirections.ActionTimingFragmentToStopwatchFragment=
+            TimingFragmentDirections.actionTimingFragmentToStopwatchFragment(model)
+        findNavController().navigate(pAction)
+    }
+
     private fun deleteButton(position: Int): SwipeHelper.UnderlayButton {
         return SwipeHelper.UnderlayButton(
             requireContext(),
@@ -66,39 +77,40 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
             })
     }
 
-    private fun markAsUnreadButton(position: Int): SwipeHelper.UnderlayButton {
+    private fun timerButton(position: Int): SwipeHelper.UnderlayButton {
         return SwipeHelper.UnderlayButton(
             requireContext(),
-            getString(R.string.edit),
+            getString(R.string.timer),
             14.0f,
             android.R.color.holo_green_light,
             object : SwipeHelper.UnderlayButtonClickListener {
                 override fun onClick() {
-                    requireContext().showToast("Marked as unread item $position")
+                    openTimerFragmentAndSendModel(listSkill!![position])
                 }
             })
     }
 
-    private fun archiveButton(position: Int): SwipeHelper.UnderlayButton {
+    private fun stopwatchButton(position: Int): SwipeHelper.UnderlayButton {
         return SwipeHelper.UnderlayButton(
             requireContext(),
-            "Archive",
+            getString(R.string.stopwatch),
             14.0f,
             android.R.color.holo_blue_light,
             object : SwipeHelper.UnderlayButtonClickListener {
                 override fun onClick() {
-                    requireContext().showToast("Archived item $position")
+                    openStopwatchFragmentAndSendModel(listSkill!![position])
                 }
             })
     }
 
-    fun swipeItem() {
+    private fun swipeItem() {
         val itemTouchHelper = ItemTouchHelper(object : SwipeHelper(binding.timingRecycler) {
             override fun instantiateUnderlayButton(position: Int): List<UnderlayButton> {
-                var buttons: List<UnderlayButton>
+                val buttons: List<UnderlayButton>
                 val deleteButton = deleteButton(position)
-                val markAsUnreadButton = markAsUnreadButton(position)
-                buttons = listOf(deleteButton)
+                val timer = timerButton(position)
+                val stopwatch = stopwatchButton(position)
+                buttons = listOf(deleteButton, timer, stopwatch)
                 return buttons
             }
         })

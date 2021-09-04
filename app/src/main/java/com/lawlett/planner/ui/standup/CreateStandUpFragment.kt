@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.addCallback
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.StandUpModel
@@ -27,7 +26,6 @@ class CreateStandUpFragment :
         Log.e("onViewCreated", "onViewCreated: CreateStandUpFragment")
         super.onViewCreated(view, savedInstanceState)
         setViews()
-        goBack()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -145,7 +143,7 @@ class CreateStandUpFragment :
                         viewModel.insertData(model)
                     }
                     clearPreferences()
-                        findNavController().popBackStack(R.id.mainCreateStandUpFragment,true)
+                    findNavController().popBackStack(R.id.mainCreateStandUpFragment, true)
                 }
             }
         }
@@ -164,10 +162,14 @@ class CreateStandUpFragment :
             1 -> {
                 binding.title.text = getString(R.string.what_plan_today)
                 fillWhatPlan()
+                binding.standUpAnimation.setAnimation("planning.json")
+                goBack()
             }
             2 -> {
                 binding.title.text = getString(R.string.problems)
                 fillProblems()
+                binding.standUpAnimation.setAnimation("solving.json")
+                goBack()
             }
             3 -> {
                 binding.applyButton.visible()
@@ -175,13 +177,15 @@ class CreateStandUpFragment :
                 binding.applyButton.text = getString(R.string.done)
                 fillInfo()
                 checkFieldAndFillModel()
+                binding.standUpAnimation.setAnimation("data.json")
+                goBack()
             }
         }
     }
 
     private fun goBack() {
         requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().popBackStack()
+            changePage(0)
         }
     }
 }

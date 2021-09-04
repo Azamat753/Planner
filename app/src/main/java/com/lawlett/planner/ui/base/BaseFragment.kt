@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.lawlett.planner.R
-import com.lawlett.planner.extensions.checkedTheme
 import tyrantgit.explosionfield.ExplosionField
 
 abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> T) :
@@ -38,6 +37,11 @@ abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflate
     fun backClick() {
         requireActivity().onBackPressedDispatcher.addCallback {
             findNavController().navigate(R.id.progress_fragment)
+        }
+    }
+    fun onBackPress(id:Int) {
+        requireActivity().onBackPressedDispatcher.addCallback {
+            findNavController().navigate(id)
         }
     }
 }

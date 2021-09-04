@@ -3,7 +3,6 @@ package com.lawlett.planner.ui.adapter
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.databinding.ItemCategoryBinding
-import com.lawlett.planner.databinding.ItemCategoryNewBinding
 import com.lawlett.planner.ui.base.BaseAdapter
 
 class CategoryAdapter : BaseAdapter<CategoryModel, ItemCategoryBinding>(

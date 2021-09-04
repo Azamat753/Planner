@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lawlett.planner.data.room.models.CategoryModel
-import com.lawlett.planner.data.room.models.IdeaModel
-import com.lawlett.planner.data.room.models.TasksModel
 import com.lawlett.planner.data.room.repositories.CategoryRepository
-import com.lawlett.planner.data.room.repositories.IdeaRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -16,10 +13,6 @@ class CategoryViewModel(private val repository: CategoryRepository) : ViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             repository.addIdea(categoryModel)
         }
-    }
-
-    fun getCategoryByName(category: String): LiveData<CategoryModel> {
-            return repository.loadCategoryByName(category)
     }
 
     fun update(categoryModel: CategoryModel) {

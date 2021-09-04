@@ -17,10 +17,11 @@ import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.data.room.viewmodels.TaskViewModel
 import com.lawlett.planner.databinding.FragmentCreateTasksBinding
 import com.lawlett.planner.extensions.clearField
-import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.ui.adapter.TaskAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.StringPreference
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
 import org.koin.android.ext.android.inject
@@ -41,9 +42,9 @@ class CreateTasksFragment :
     var taskAmount: Int = 0
     var categoryName = ""
     private lateinit var touchHelper: ItemTouchHelper
-    var doneTaskAmount = 0
-    var nowLevel = 0
-    var levelId = 0
+    private var doneTaskAmount: Int = 0
+    private var nowLevel = 0
+    private var levelId = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,6 +56,12 @@ class CreateTasksFragment :
         swipe()
         drag()
         backPress()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.viewKonfetti.clearAnimation()
+        binding.achievementView.clearAnimation()
     }
 
     private fun burstKonfetti() {
@@ -165,6 +172,8 @@ class CreateTasksFragment :
 
     private fun rewardAnAchievement(completeTask: Int) {
         if (completeTask % 5 == 0) {
+            StringPreference.getInstance(requireContext())
+                ?.saveProfile(Constants.COMPLETE_TASK, completeTask.toString())
             nowLevel += 1
             val model = AchievementModel(level = nowLevel, id = levelId)
             achievementViewModel.update(model)
@@ -217,7 +226,12 @@ class CreateTasksFragment :
         doneTaskAmount++
         model.doneAmount = doneTaskAmount
         viewModel.update(model)
-        rewardAnAchievement(doneTaskAmount)
+
+        val amount =
+            StringPreference.getInstance(requireContext())?.getProfile(Constants.COMPLETE_TASK)
+        if (!amount.equals(doneTaskAmount.toString())) {
+            rewardAnAchievement(doneTaskAmount)
+        }
     }
 
     private fun backPress() {

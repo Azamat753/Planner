@@ -1,13 +1,8 @@
 package com.lawlett.planner.ui.settings
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import androidx.activity.addCallback
-import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.databinding.FragmentSettingsBinding
 import com.lawlett.planner.extensions.changeLanguage
 import com.lawlett.planner.ui.base.BaseFragment

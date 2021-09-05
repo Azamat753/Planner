@@ -33,6 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cr_recycler"
         android:layout_width="match_parent"
+        android:layoutAnimation="@anim/item_layout_animation"
         android:layout_height="0dp"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

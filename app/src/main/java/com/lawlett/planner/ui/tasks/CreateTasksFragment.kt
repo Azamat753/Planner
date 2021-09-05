@@ -3,6 +3,8 @@ package com.lawlett.planner.ui.tasks
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -209,8 +211,8 @@ class CreateTasksFragment :
                 )
                 viewModel.addTask(tasks)
                 binding.crEditText.clearField()
+                burstKonfetti()
             }
-            burstKonfetti()
             updateCategoryTaskAmount()
         }
     }

@@ -1,10 +1,15 @@
 package com.lawlett.planner.extensions
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -66,5 +71,15 @@ fun getTodayDate(): String {
 
 fun Double.toDecimal(): String {
     return DecimalFormat("##.#").format(this)
+}
+
+fun Context.getDialog(layout: Int): Dialog {
+    val inflater: LayoutInflater = LayoutInflater.from(this)
+    val view: View = inflater.inflate(layout, null)
+    val dialog = Dialog(this)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setContentView(view)
+    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    return dialog
 }
 

@@ -154,5 +154,10 @@
         android:name="com.lawlett.planner.ui.standup.MainCreateStandUpFragment"
         android:label="fragment_create_stand_up_main"
         tools:layout="@layout/fragment_create_stand_up_main" />
+    <fragment
+        android:id="@+id/financeFragment"
+        android:name="com.lawlett.planner.ui.finance.FinanceFragment"
+        android:label="fragment_finance"
+        tools:layout="@layout/fragment_finance" />
 
 </navigation>

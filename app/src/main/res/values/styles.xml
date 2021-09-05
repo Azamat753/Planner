@@ -261,4 +261,5 @@
         <item name="spinBars">true</item>
         <item name="color">?attr/iconColor</item>
     </style>
+
 </resources>

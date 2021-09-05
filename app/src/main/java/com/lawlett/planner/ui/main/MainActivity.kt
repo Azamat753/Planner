@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         changeTitleToolbar()
         lockProgressFragment()
     }
+
     private fun getCurrentLevel() {
         achievementViewModel.getData().observe(this, { level ->
             if (level.isNotEmpty()) {
@@ -76,12 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     @SuppressLint("InflateParams")
     private fun showCreateNameDialog() {
-        val inflater: LayoutInflater = LayoutInflater.from(this)
-        val view: View = inflater.inflate(R.layout.create_user_name, null)
-        val alertDialog = Dialog(this)
-        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        alertDialog.setContentView(view)
-        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val alertDialog = getDialog(R.layout.create_user_name)
         val editText: EditText = alertDialog.findViewById(R.id.editText_create_name)
         alertDialog.findViewById<TextView>(R.id.apply_btn).setOnClickListener {
             if (editText.text.toString().isEmpty()) {
@@ -123,10 +119,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun setUserNameAndImage() {
         val image = StringPreference.getInstance(this)?.getProfile(Constants.USER_IMAGE)
         val name = StringPreference.getInstance(this)?.getProfile(Constants.USER_NAME)
-            Glide.with(this).load(image).circleCrop().placeholder(R.drawable.ic_person_white).into(headerImage)
+        Glide.with(this).load(image).circleCrop().placeholder(R.drawable.ic_person_white)
+            .into(headerImage)
         if (name!!.isNotEmpty()) {
             headerName.text = name
-        }else{
+        } else {
             headerName.text = getString(R.string.you_name)
         }
     }
@@ -136,7 +133,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
-
     }
 
     private fun initNavigationDrawer() {
@@ -211,6 +207,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.standUpFragment -> {
                     binding.toolbarMain.title = getString(R.string.standup)
                 }
+                R.id.financeFragment -> {
+                    binding.toolbarMain.title = getString(R.string.finance)
+                }
             }
         }
     }
@@ -236,7 +235,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             if (destination.id in arrayOf(
                     R.id.timing_fragment,
-                    R.id.standUpFragment
+                    R.id.standUpFragment,
+                    R.id.financeFragment
                 )
             ) {
                 binding.bottomNavigation.gone()
@@ -254,6 +254,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_timing -> navController.navigate(R.id.timing_fragment)
             R.id.nav_main -> navController.navigate(R.id.progress_fragment)
             R.id.nav_standup -> navController.navigate(R.id.standUpFragment)
+            R.id.nav_finance -> navController.navigate(R.id.financeFragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return false

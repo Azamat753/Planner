@@ -15,8 +15,12 @@ import com.lawlett.planner.data.room.viewmodels.IdeaViewModel
 import com.lawlett.planner.databinding.FragmentProgressBinding
 import com.lawlett.planner.ui.adapter.*
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.ui.dialog.fragment.ChooseTimeBottomSheetDialog
+import com.lawlett.planner.ui.dialog.fragment.CreateEventBottomSheetDialog
+import com.lawlett.planner.utils.Constants
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import org.koin.android.ext.android.inject
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -56,16 +60,12 @@ class ProgressFragment :
         val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
             activity, R.id.calendarView
         ).range(startDate, endDate)
-            .datesNumberOnScreen(5)
+            .datesNumberOnScreen(5).defaultSelectedDate(startDate)
             .build()
 
         horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
-            @SuppressLint("LogNotTimber", "NewApi")
             override fun onDateSelected(date: Calendar, position: Int) {
-                //                Intent intent = new Intent(getContext(), TodayEvent.class);
-                //                intent.putExtra("month",String.valueOf(date.getTime().getMonth()));
-                //                intent.putExtra("day",String.valueOf(date.getTime().getDate()));
-                //                startActivity(intent);
+
             }
 
             override fun onCalendarScroll(
@@ -76,8 +76,15 @@ class ProgressFragment :
             }
 
             @RequiresApi(api = Build.VERSION_CODES.O)
-            @SuppressLint("LogNotTimber")
+            @SuppressLint("LogNotTimber", "SimpleDateFormat")
             override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
+                val dateFormat = SimpleDateFormat("E, MMM d")
+                val chooseDate = dateFormat.format(date.time)
+                val bottomDialog = CreateEventBottomSheetDialog()
+                val bundle = Bundle()
+                bundle.putString("date", chooseDate)
+                bottomDialog.arguments = bundle
+                bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
                 return true
             }
         }

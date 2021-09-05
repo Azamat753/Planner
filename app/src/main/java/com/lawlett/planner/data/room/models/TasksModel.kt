@@ -7,12 +7,10 @@ import androidx.room.PrimaryKey
 data class TasksModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val category:String,
+    val category: String,
     val task: String,
     var isDone: Boolean,
-    var doneAmount:Int?=null
-
-
+    var doneAmount: Int? = null
 ) {
     override fun toString(): String {
         return "TasksModel(id=$id, category='$category', task='$task', isDone=$isDone, doneAmount=$doneAmount)"

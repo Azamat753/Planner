@@ -1,7 +1,6 @@
 package com.lawlett.planner.ui.dialog.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.SkillModel
@@ -11,8 +10,7 @@ import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import org.koin.android.ext.android.inject
 
 class CreateSkillBottomSheetDialog :
-    BaseBottomSheetDialog<CreateSkillBottomSheetDialogBinding>(CreateSkillBottomSheetDialogBinding::inflate),
-    GetSkill {
+    BaseBottomSheetDialog<CreateSkillBottomSheetDialogBinding>(CreateSkillBottomSheetDialogBinding::inflate){
     val viewModel by inject<SkillViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,12 +30,12 @@ class CreateSkillBottomSheetDialog :
         }
     }
 
-    override fun skillDataGet(data: String) {
-        Log.e("skillData", "skillDataGet: $data")
-    }
+//    override fun skillDataGet(data: String) {
+//        Log.e("skillData", "skillDataGet: $data")
+//    }
 
 }
-
-interface GetSkill {
-    fun skillDataGet(data: String)
-}
+//
+//interface GetSkill {
+//    fun skillDataGet(data: String)
+//}

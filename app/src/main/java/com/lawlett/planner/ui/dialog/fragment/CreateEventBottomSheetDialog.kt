@@ -23,6 +23,14 @@ class CreateEventBottomSheetDialog :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
+        getBundleFromCalendar()
+    }
+
+    private fun getBundleFromCalendar() {
+        if (arguments!=null){
+            val date = arguments?.getString("date")
+            binding.dateText.text = date
+        }
     }
 
     private fun initClickers() {

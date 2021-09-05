@@ -10,6 +10,7 @@ import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.models.IconModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.databinding.CreateCategoryBottomSheetDialogBinding
+import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.extensions.getIcons
 import com.lawlett.planner.ui.adapter.IconAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
@@ -39,9 +40,7 @@ class CreateCategoryBottomSheetDialog :
     private fun iconPickerDialog() {
         val adapter = IconAdapter()
         adapter.listener = this
-        val dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_icon)
+        val dialog = requireContext().getDialog(R.layout.dialog_icon)
         val recyclerView = dialog.findViewById(R.id.icon_recycler) as RecyclerView
         recyclerView.adapter = adapter
         adapter.setData(getIcons())

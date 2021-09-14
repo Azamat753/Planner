@@ -23,15 +23,11 @@ class CreateStandUpFragment :
     BaseFragment<FragmentCreateStandupBinding>(FragmentCreateStandupBinding::inflate) {
     private val viewModel by inject<StandUpViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.e("onViewCreated", "onViewCreated: CreateStandUpFragment")
         super.onViewCreated(view, savedInstanceState)
         setViews()
+        onBackPress(R.id.standUpFragment)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.e("onViewCreated", "onCreate: CreateStandUpFragment")
-    }
 
     private fun fillWhatDone() {
         binding.applyButton.setOnClickListener {
@@ -163,13 +159,11 @@ class CreateStandUpFragment :
                 binding.title.text = getString(R.string.what_plan_today)
                 fillWhatPlan()
                 binding.standUpAnimation.setAnimation("planning.json")
-                goBack()
             }
             2 -> {
                 binding.title.text = getString(R.string.problems)
                 fillProblems()
                 binding.standUpAnimation.setAnimation("solving.json")
-                goBack()
             }
             3 -> {
                 binding.applyButton.visible()
@@ -178,14 +172,7 @@ class CreateStandUpFragment :
                 fillInfo()
                 checkFieldAndFillModel()
                 binding.standUpAnimation.setAnimation("data.json")
-                goBack()
             }
-        }
-    }
-
-    private fun goBack() {
-        requireActivity().onBackPressedDispatcher.addCallback {
-            changePage(0)
         }
     }
 }

@@ -31,6 +31,7 @@ class App : Application() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         MultiDex.install(this)
     }
+
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
@@ -44,6 +45,7 @@ class App : Application() {
             val manager = getSystemService(
                 NotificationManager::class.java
             )
+
             val notificationChannels: MutableList<NotificationChannel> = ArrayList()
             notificationChannels.add(channel)
             notificationChannels.add(channel2)

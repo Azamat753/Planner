@@ -9,22 +9,24 @@
             android:icon="@drawable/ic_home"
             android:title="@string/main" />
         <item
-            android:id="@+id/nav_finance"
-            android:icon="@drawable/ic_check"
-            android:title="@string/finance" />
-        <item
             android:id="@+id/nav_timing"
             android:icon="@drawable/ic_timer"
-            android:title="@string/timing" />
-        <item
-            android:id="@+id/nav_achievements"
-            android:icon="@drawable/ic_done"
-            android:title="@string/achievement_app" />
+            android:title="@string/focus" />
 
         <item
             android:id="@+id/nav_standup"
             android:icon="@drawable/ic_standup"
-            android:title="Standup" />
+            android:title="@string/stand_up" />
+
+        <item
+            android:id="@+id/nav_idea"
+            android:icon="@drawable/ic_idea"
+            android:title="@string/ideas" />
+        <item
+            android:id="@+id/nav_finance"
+            android:icon="@drawable/ic_check"
+            android:title="@string/finance" />
+
 
         <item
             android:id="@+id/nav_settings"

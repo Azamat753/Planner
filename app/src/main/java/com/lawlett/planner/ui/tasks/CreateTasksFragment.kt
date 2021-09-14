@@ -3,8 +3,6 @@ package com.lawlett.planner.ui.tasks
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -60,10 +58,9 @@ class CreateTasksFragment :
         backPress()
     }
 
-    override fun onStop() {
-        super.onStop()
-        binding.viewKonfetti.clearAnimation()
-        binding.achievementView.clearAnimation()
+    override fun onStart() {
+        super.onStart()
+        clearAnimations(binding.viewKonfetti,binding.achievementView)
     }
 
     private fun burstKonfetti() {
@@ -175,7 +172,7 @@ class CreateTasksFragment :
     private fun rewardAnAchievement(completeTask: Int) {
         if (completeTask % 5 == 0) {
             StringPreference.getInstance(requireContext())
-                ?.saveProfile(Constants.COMPLETE_TASK, completeTask.toString())
+                ?.saveStringData(Constants.COMPLETE_TASK, completeTask.toString())
             nowLevel += 1
             val model = AchievementModel(level = nowLevel, id = levelId)
             achievementViewModel.update(model)
@@ -230,7 +227,7 @@ class CreateTasksFragment :
         viewModel.update(model)
 
         val amount =
-            StringPreference.getInstance(requireContext())?.getProfile(Constants.COMPLETE_TASK)
+            StringPreference.getInstance(requireContext())?.getStringData(Constants.COMPLETE_TASK)
         if (!amount.equals(doneTaskAmount.toString())) {
             rewardAnAchievement(doneTaskAmount)
         }
@@ -242,7 +239,7 @@ class CreateTasksFragment :
         }
     }
 
-    override fun onClick(model: TasksModel) {
+    override fun onClick(model: TasksModel,position:Int) {
         if (!model.isDone) {
             model.isDone = true
             incrementDone(model)

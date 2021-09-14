@@ -1,17 +1,12 @@
 package com.lawlett.planner.ui.main
 
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.content.res.Configuration
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -75,6 +70,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         })
     }
 
+    fun getCurrentLevelFromActivity(): Int {
+        return nowLevel
+    }
+
     @SuppressLint("InflateParams")
     private fun showCreateNameDialog() {
         val alertDialog = getDialog(R.layout.create_user_name)
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             } else {
                 val name = editText.text.toString()
                 headerName.text = name
-                StringPreference.getInstance(this)?.saveProfile(Constants.USER_NAME, name)
+                StringPreference.getInstance(this)?.saveStringData(Constants.USER_NAME, name)
                 alertDialog.dismiss()
             }
         }
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            StringPreference.getInstance(this)?.saveProfile(Constants.USER_IMAGE, uri.toString())
+            StringPreference.getInstance(this)?.saveStringData(Constants.USER_IMAGE, uri.toString())
         }
 
     private fun initListeners() {
@@ -117,8 +116,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setUserNameAndImage() {
-        val image = StringPreference.getInstance(this)?.getProfile(Constants.USER_IMAGE)
-        val name = StringPreference.getInstance(this)?.getProfile(Constants.USER_NAME)
+        val image = StringPreference.getInstance(this)?.getStringData(Constants.USER_IMAGE)
+        val name = StringPreference.getInstance(this)?.getStringData(Constants.USER_NAME)
         Glide.with(this).load(image).circleCrop().placeholder(R.drawable.ic_person_white)
             .into(headerImage)
         if (name!!.isNotEmpty()) {
@@ -178,7 +177,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun lockProgressFragment() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomNavigation.menu.getItem(0).isEnabled = destination.id !in arrayOf(
-                R.id.progress_fragment,
+                R.id.progress_fragment
             )
         }
     }
@@ -193,7 +192,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     binding.toolbarMain.title = getString(R.string.tasks)
                 }
                 R.id.timing_fragment -> {
-                    binding.toolbarMain.title = getString(R.string.timing)
+                    binding.toolbarMain.title = getString(R.string.focus)
                 }
                 R.id.events_fragment -> {
                     binding.toolbarMain.title = getString(R.string.events)
@@ -209,6 +208,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 R.id.financeFragment -> {
                     binding.toolbarMain.title = getString(R.string.finance)
+                }
+                R.id.timetableFragment -> {
+                    binding.toolbarMain.title = getString(R.string.timetable)
                 }
             }
         }
@@ -248,6 +250,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
@@ -255,9 +258,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_main -> navController.navigate(R.id.progress_fragment)
             R.id.nav_standup -> navController.navigate(R.id.standUpFragment)
             R.id.nav_finance -> navController.navigate(R.id.financeFragment)
+            R.id.nav_idea -> navController.navigate(R.id.idea_fragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return false
     }
-
 }

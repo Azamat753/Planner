@@ -47,10 +47,10 @@ class FinanceBottomSheetDialog :
 
     private fun addUpdateModel(
         argModel: FinanceModel,
-        ) {
+    ) {
         val updateAmount = binding.amountEditText.text.toString().toInt() + getModel().amount
         val model = FinanceModel(
-            id=getModel().id,
+            id = getModel().id,
             description = argModel.description,
             date = argModel.description,
             amount = updateAmount,

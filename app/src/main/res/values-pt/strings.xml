@@ -334,4 +334,14 @@ deslizando para a direita, você pode remover um item da lista de gastos frequen
     <string name="next">Дальше</string>
     <string name="pink">Розовый</string>
     <string name="violet">Фиолетовый</string>
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="timetable">Расписание</string>
+    <string name="stand_up">Стэндап</string>
+    <string name="focus">Фокус</string>
 </resources>

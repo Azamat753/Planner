@@ -135,7 +135,7 @@ class TimingFragment : BaseFragment<FragmentTimingBinding>(FragmentTimingBinding
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
-    override fun onClick(model: SkillModel) {
+    override fun onClick(model: SkillModel,position:Int) {
         val bottomDialog = ChooseTimeBottomSheetDialog()
         val bundle = Bundle()
         bundle.putSerializable(Constants.SKILL_MODEL, model)

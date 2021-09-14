@@ -8,84 +8,69 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/toolbar_wrapper"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/standUp_animation"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_alignParentStart="true"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="done-girl.json"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="10dp"
+            android:text="@string/what_done_yesterday"
+            android:textAlignment="center"
+            android:textColor="?attr/textColor"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/standUp_animation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/settings_text_color"
-                app:navigationIconTint="?attr/toolbarColor"
-                app:subtitleTextColor="?attr/toolbarColor"
-                app:title="@string/standup"
-                app:titleTextColor="?attr/toolbarColor" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="12dp"
+        <EditText
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper">
+            android:layout_marginTop="24dp"
+            android:hint="@string/description"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="40"
+            android:textColor="?attr/textColor"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@id/apply_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/standUp_animation" />
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/standUp_animation"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_alignParentStart="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="done-girl.json"
-                app:lottie_loop="true" />
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/what_done_yesterday"
-                android:textAlignment="center"
-                android:textColor="?attr/textColor"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:hint="@string/description"
-                android:inputType="textCapSentences|textMultiLine"
-                android:maxLines="40"
-                android:textColor="?attr/textColor"
-                android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@id/standUp_animation" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/apply_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginVertical="10dp"
-                android:elevation="8dp"
-                android:text="@string/next"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                app:backgroundTint="?attr/toolbarColor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/apply_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginVertical="10dp"
+            android:elevation="8dp"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:backgroundTint="?attr/toolbarColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.core.widget.NestedScrollView>

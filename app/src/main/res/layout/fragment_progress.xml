@@ -27,7 +27,7 @@
                 android:layout_height="90dp"
                 android:background="?attr/windowColor"
                 app:selectorColor="?attr/toolbarColor"
-                app:textColorNormal="?attr/hint_color"
+                app:textColorNormal="@color/hint_color"
                 app:textColorSelected="?attr/toolbarColor" />
 
         </androidx.cardview.widget.CardView>

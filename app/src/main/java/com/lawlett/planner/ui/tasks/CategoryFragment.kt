@@ -13,6 +13,7 @@ import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.fragment.CreateCategoryBottomSheetDialog
+import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.SwipeHelper
 import org.koin.android.ext.android.inject
 
@@ -74,10 +75,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
             object : SwipeHelper.UnderlayButtonClickListener {
                 override fun onClick() {
                     val bundle = Bundle()
-                    bundle.putSerializable("model", listModel?.get(position))
+                    bundle.putSerializable(Constants.CATEGORY_MODEL, listModel?.get(position))
                     val bottomDialog = CreateCategoryBottomSheetDialog()
                     bottomDialog.arguments = bundle
-                    bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+                    bottomDialog.show(requireActivity().supportFragmentManager, Constants.UPDATE_MODEL)
                 }
             })
     }
@@ -107,7 +108,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         getDataFromDataBase()
     }
 
-    override fun onClick(model: CategoryModel) {
+    override fun onClick(model: CategoryModel,position:Int) {
         openCategory(model)
     }
 

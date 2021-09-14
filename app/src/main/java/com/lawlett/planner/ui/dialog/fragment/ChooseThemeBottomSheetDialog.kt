@@ -26,7 +26,7 @@ class ChooseThemeBottomSheetDialog :
         binding.themeRecycler.adapter=adapter
         adapter.setData(fillThemeModel())
     }
-    override fun onClick(model: ThemeModel) {
+    override fun onClick(model: ThemeModel,position:Int) {
         ThemePreference.getInstance(requireContext())?.saveTheme(model.colorText)
         startActivity(Intent(requireContext(), MainActivity::class.java))
         requireActivity().overridePendingTransition(

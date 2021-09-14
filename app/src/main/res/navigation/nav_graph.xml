@@ -159,5 +159,10 @@
         android:name="com.lawlett.planner.ui.finance.FinanceFragment"
         android:label="fragment_finance"
         tools:layout="@layout/fragment_finance" />
+    <fragment
+        android:id="@+id/timetableFragment"
+        android:name="com.lawlett.planner.ui.timetable.TimetableFragment"
+        android:label="fragment_timetable"
+        tools:layout="@layout/fragment_timetable" />
 
 </navigation>

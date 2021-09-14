@@ -55,7 +55,7 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
         }
     }
 
-    override fun onClick(model: StandUpModel) {
+    override fun onClick(model: StandUpModel,position:Int) {
         shareStandUp(model)
     }
 

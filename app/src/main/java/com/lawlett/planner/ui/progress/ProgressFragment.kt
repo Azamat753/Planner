@@ -3,6 +3,7 @@ package com.lawlett.planner.ui.progress
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
@@ -20,6 +21,7 @@ import com.lawlett.planner.ui.dialog.fragment.CreateEventBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import org.koin.android.ext.android.inject
+import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -41,7 +43,9 @@ class ProgressFragment :
         initCategoryAdapter()
         initIdeaProgressAdapter()
         initHabitAdapter()
-        initHorizontalCalendar()
+        Handler().postDelayed({
+            initHorizontalCalendar()
+        }, 1)
         initEventProgressAdapter()
 //        initMainAdapter()
     }
@@ -53,44 +57,42 @@ class ProgressFragment :
     }
 
     private fun initHorizontalCalendar() {
-        val startDate = Calendar.getInstance()
-        startDate.add(Calendar.MONTH, -1)
-        val endDate = Calendar.getInstance()
-        endDate.add(Calendar.MONTH, 3)
-        val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
-            activity, R.id.calendarView
-        ).range(startDate, endDate)
-            .datesNumberOnScreen(5).defaultSelectedDate(startDate)
-            .build()
+            val startDate = Calendar.getInstance()
+            startDate.add(Calendar.MONTH, -1)
+            val endDate = Calendar.getInstance()
+            endDate.add(Calendar.MONTH, 3)
+            val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
+                activity, R.id.calendarView
+            ).range(startDate, endDate)
+                .datesNumberOnScreen(5).defaultSelectedDate(startDate)
+                .build()
 
-        horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
-            override fun onDateSelected(date: Calendar, position: Int) {
+            horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
+                override fun onDateSelected(date: Calendar, position: Int) {
 
+                }
+
+                override fun onCalendarScroll(
+                    calendarView: devs.mulham.horizontalcalendar.HorizontalCalendarView?,
+                    dx: Int,
+                    dy: Int
+                ) {
+                }
+
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                @SuppressLint("LogNotTimber", "SimpleDateFormat")
+                override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
+                    val dateFormat = SimpleDateFormat("E, MMM d")
+                    val chooseDate = dateFormat.format(date.time)
+                    val bottomDialog = CreateEventBottomSheetDialog()
+                    val bundle = Bundle()
+                    bundle.putString("date", chooseDate)
+                    bottomDialog.arguments = bundle
+                    bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+                    return true
+                }
             }
-
-            override fun onCalendarScroll(
-                calendarView: devs.mulham.horizontalcalendar.HorizontalCalendarView?,
-                dx: Int,
-                dy: Int
-            ) {
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @SuppressLint("LogNotTimber", "SimpleDateFormat")
-            override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
-                val dateFormat = SimpleDateFormat("E, MMM d")
-                val chooseDate = dateFormat.format(date.time)
-                val bottomDialog = CreateEventBottomSheetDialog()
-                val bundle = Bundle()
-                bundle.putString("date", chooseDate)
-                bottomDialog.arguments = bundle
-                bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
-                return true
-            }
-        }
     }
-
-
     private fun backClickFinish() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             requireActivity().finish()

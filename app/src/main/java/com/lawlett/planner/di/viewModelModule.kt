@@ -17,6 +17,7 @@ var viewModelModule = module {
     viewModel { AchievementViewModel(get()) }
     viewModel { SkillViewModel(get()) }
     viewModel { FinanceViewModel(get()) }
+    viewModel { TimetableViewModel(get()) }
 
     factory { IdeaRepository(get()) }
     factory { TaskRepository(get()) }
@@ -27,6 +28,7 @@ var viewModelModule = module {
     factory { AchievementRepository(get()) }
     factory { SkillRepository(get()) }
     factory { FinanceRepository(get()) }
+    factory { TimetableRepository(get()) }
 
     factory { MainDataBase.getDatabase(androidContext()).habitDao() }
     factory { MainDataBase.getDatabase(androidContext()).categoryDao() }
@@ -37,4 +39,5 @@ var viewModelModule = module {
     factory { MainDataBase.getDatabase(androidContext()).achievementDao() }
     factory { MainDataBase.getDatabase(androidContext()).skillDao() }
     factory { MainDataBase.getDatabase(androidContext()).financeDao() }
+    factory { MainDataBase.getDatabase(androidContext()).timetableDao() }
 }

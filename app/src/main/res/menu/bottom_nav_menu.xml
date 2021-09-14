@@ -12,19 +12,20 @@
         android:title="@string/tasks" />
 
     <item
-        android:id="@+id/habitFragment"
-        android:icon="@drawable/ic_done"
-        android:title="@string/habit" />
-
+        android:id="@+id/timetableFragment"
+        android:icon="@drawable/ic_timetable"
+        android:title="@string/timetable" />
     <item
         android:id="@+id/events_fragment"
         android:icon="@drawable/ic_date_white"
         android:title="@string/events" />
 
     <item
-        android:id="@+id/idea_fragment"
-        android:icon="@drawable/ic_idea"
-        android:title="@string/ideas" />
+        android:id="@+id/habitFragment"
+        android:icon="@drawable/ic_done"
+        android:title="@string/habit" />
+
+
 
 
 </menu>

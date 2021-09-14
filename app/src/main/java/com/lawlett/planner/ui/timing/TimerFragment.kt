@@ -125,24 +125,12 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 )
                 viewModel.update(model)
             } else {
-//                val myTime = binding.countdownText.text.toString()
-//                if (myTime == "0:00" || myTime == "0:01" || myTime == "0:02") {
-//                    val enterTime = (binding.countTime.text.toString().toDouble() / 60).toString()
-//                    val model =
-//                        SkillModel(
-//                            hour = enterTime,
-//                            skillName = myTask,
-//                            dateCreated = getTodayDate()
-//                        )
-//                    viewModel.insertData(model)
-//                } else {
                 val model = SkillModel(
                     hour = calculateRemainingTime(),
                     skillName = myTask,
                     dateCreated = getTodayDate()
                 )
                 viewModel.insertData(model)
-//                }
             }
             findNavController().navigate(R.id.timing_fragment)
         }

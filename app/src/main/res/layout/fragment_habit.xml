@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/habit_recycler"
@@ -45,4 +46,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.cdev.achievementview.AchievementView
+        android:id="@+id/achievement_view"
+        custom:collapseStartDelay="3500"
+        custom:colorLeft="@color/green_light"
+        custom:colorRight="@android:color/holo_green_dark"
+        custom:drawableLeft="@drawable/trophy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

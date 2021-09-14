@@ -8,7 +8,9 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.cdev.achievementview.AchievementView
 import com.lawlett.planner.R
+import nl.dionsegijn.konfetti.KonfettiView
 import tyrantgit.explosionfield.ExplosionField
 
 abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> T) :
@@ -43,5 +45,9 @@ abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflate
         requireActivity().onBackPressedDispatcher.addCallback {
             findNavController().navigate(id)
         }
+    }
+    fun clearAnimations(konfettiView: KonfettiView?=null,achievementView: AchievementView){
+        konfettiView?.clearAnimation()
+        achievementView.clearAnimation()
     }
 }

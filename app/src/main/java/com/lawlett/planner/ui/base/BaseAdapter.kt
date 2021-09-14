@@ -17,10 +17,11 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
 
     var listener: IBaseAdapterClickListener<T>? = null
     var longListener: IBaseAdapterLongClickListener? = null
+    var longListenerWithModel: IBaseAdapterLongClickListenerWithModel<T>? = null
     private var _binding: Binding? = null
     val binding get() = _binding!!
     var lastPosition: Int = -1
-
+    var  positionAdapter:Int=0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         _binding = inflater.invoke(LayoutInflater.from(parent.context))
         return BaseViewHolder(binding)
@@ -56,19 +57,28 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
     inner class BaseViewHolder(binding: Binding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: T) {
             onBind(binding, model)
-            itemView.setOnClickListener { listener?.onClick(model) }
+            positionAdapter= adapterPosition
+            itemView.setOnClickListener { listener?.onClick(model, adapterPosition) }
             itemView.setOnLongClickListener {
                 longListener?.onLongClick(adapterPosition)
+                return@setOnLongClickListener true
+            }
+            itemView.setOnLongClickListener {
+                longListenerWithModel?.onLongClick(model, itemView, adapterPosition)
                 return@setOnLongClickListener true
             }
         }
     }
 
     interface IBaseAdapterClickListener<T> {
-        fun onClick(model: T)
+        fun onClick(model: T, position: Int)
     }
 
     interface IBaseAdapterLongClickListener {
         fun onLongClick(position: Int)
+    }
+
+    interface IBaseAdapterLongClickListenerWithModel<T> {
+        fun onLongClick(model: T, itemView: View, position: Int)
     }
 }

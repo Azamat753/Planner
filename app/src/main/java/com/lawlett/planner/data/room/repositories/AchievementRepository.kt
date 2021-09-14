@@ -3,26 +3,32 @@ package com.lawlett.planner.data.room.repositories
 import androidx.lifecycle.LiveData
 import com.lawlett.planner.data.room.dao.AchievementDao
 import com.lawlett.planner.data.room.models.AchievementModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class AchievementRepository(private val answerDao: AchievementDao) {
+class AchievementRepository(private val achievementDao: AchievementDao) {
 
     fun getData(): LiveData<List<AchievementModel>> {
-        return answerDao.getData()
+        return achievementDao.getData()
+    }
+
+     fun getCurrentLevel(): LiveData<AchievementModel> {
+        return achievementDao.getCurrentLevel()
     }
 
     suspend fun insertData(model: AchievementModel) {
-        answerDao.insertData(model)
+        achievementDao.insertData(model)
     }
 
     suspend fun update(model: AchievementModel) {
-        answerDao.update(model)
+        achievementDao.update(model)
     }
 
     suspend fun delete(model: AchievementModel) {
-        answerDao.delete(model)
+        achievementDao.delete(model)
     }
 
     suspend fun updatePosition(list: List<AchievementModel?>) {
-        answerDao.updatePosition(list)
+        achievementDao.updatePosition(list)
     }
 }

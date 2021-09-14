@@ -7,6 +7,7 @@ import com.lawlett.planner.data.room.models.*
 import com.lawlett.planner.data.room.repositories.AchievementRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AchievementViewModel(private val repository: AchievementRepository) : ViewModel() {
 
@@ -36,5 +37,9 @@ class AchievementViewModel(private val repository: AchievementRepository) : View
 
     fun getData(): LiveData<List<AchievementModel>> {
         return repository.getData()
+    }
+
+    fun getCurrentLevel():LiveData<AchievementModel>{
+        return repository.getCurrentLevel()
     }
 }

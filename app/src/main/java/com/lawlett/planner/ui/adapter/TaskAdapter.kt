@@ -18,7 +18,7 @@ class TaskAdapter : BaseAdapter<TasksModel, ItemTaskBinding>(
     override fun onBind(binding: ItemTaskBinding, model: TasksModel) {
         binding.taskTv.text = model.task
         binding.taskCheck.isChecked = model.isDone
-        binding.taskCheck.setOnClickListener { listener?.onClick(model) }
+        binding.taskCheck.setOnClickListener { listener?.onClick(model,positionAdapter) }
     }
 
 

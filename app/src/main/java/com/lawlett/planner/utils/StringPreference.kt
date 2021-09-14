@@ -7,14 +7,11 @@ import android.content.SharedPreferences
 class StringPreference(context: Context) {
     private val preferences: SharedPreferences
 
-//    val getLanguage: String?
-//        get() = preferences.getString("language_", "")
-
-    fun getProfile(key: String): String? {
+    fun getStringData(key: String): String? {
         return preferences.getString(key,"")
     }
 
-    fun saveProfile(key: String, s: String) {
+    fun saveStringData(key: String, s: String) {
         preferences.edit().putString(key, s).apply()
     }
 

@@ -24,12 +24,18 @@ object Constants {
     const val INFO = "INFO"
     const val STAND_UP = "standUp"
 
-    const val SKILL_MODEL = "model"
+    const val SKILL_MODEL = "skill_model"
+    const val HABIT_MODEL = "habit_model"
+    const val CATEGORY_MODEL = "category_model"
 
     const val PATTERN_CATEGORY = "pattern_category"
     const val HISTORY_CATEGORY = "history_category"
     const val WORK_WITH_PATTERN = "work_with_pattern"
-    const val PATTERN_MODEL = "pattern_model"
     const val IS_INCOME = "isIncome"
+
+    const val CURRENT_DAY = "current_day"
+
+    const val UPDATE_MODEL = "update_model"
+    const val DAY_INDEX = "day_index"
 
 }

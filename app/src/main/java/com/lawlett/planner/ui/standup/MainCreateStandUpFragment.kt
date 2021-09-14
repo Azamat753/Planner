@@ -6,6 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.navigation.fragment.findNavController
+import com.lawlett.planner.R
 import com.lawlett.planner.databinding.FragmentCreateStandUpMainBinding
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
@@ -22,12 +24,6 @@ class MainCreateStandUpFragment :
     companion object {
         lateinit var instance: MainCreateStandUpFragment
     }
-
-//    init {
-//        fun getInstance(): MainCreateStandUpFragment {
-//            return instance
-//        }
-//    }
 
     private fun initAdapter() {
         val adapter = StandUpPagerAdapter(childFragmentManager)

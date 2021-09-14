@@ -25,102 +25,30 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/logo_wrapper"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
+        android:padding="12dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="?attr/toolbarColor"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_wrapper" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="12dp"
-            android:text="@string/app_name"
-            android:textColor="?attr/toolbarColor"
-            android:textSize="30sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/clear_password_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintTop_toBottomOf="@id/logo_wrapper">
-
-        <LinearLayout
-            android:id="@+id/first_layout"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/rectangle_background"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/clear_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:drawableEnd="@drawable/ic_trash_forever_24"
-                android:drawablePadding="15dp"
-                android:text="@string/clearSetting"
-                android:textColor="?attr/settings_text_color"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/clear_time_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintTop_toBottomOf="@id/clear_password_card">
-
-        <LinearLayout
-            android:id="@+id/second_layout"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/rectangle_background"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/clear_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:drawableEnd="@drawable/ic_trash_forever_24"
-                android:drawablePadding="15dp"
-                android:text="@string/clear_minutes"
-                android:textColor="?attr/settings_text_color"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/theme_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintTop_toBottomOf="@id/clear_time_card">
+        app:layout_constraintTop_toBottomOf="@id/logo_wrapper">
 
         <LinearLayout
             android:id="@+id/change_theme_button"

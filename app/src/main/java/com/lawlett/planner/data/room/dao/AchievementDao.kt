@@ -16,6 +16,9 @@ interface AchievementDao {
     @Query("SELECT * FROM achievement_table")
     fun getData(): LiveData<List<AchievementModel>>
 
+    @Query("SELECT * FROM achievement_table WHERE id=0")
+     fun getCurrentLevel(): LiveData<AchievementModel>
+
     @Delete
     suspend fun delete(achievementModel: AchievementModel)
 

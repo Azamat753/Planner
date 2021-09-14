@@ -17,7 +17,9 @@ import androidx.activity.addCallback
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.android.material.textfield.TextInputEditText
 import com.lawlett.planner.R
+import com.lawlett.planner.ui.main.MainActivity
 import tyrantgit.explosionfield.ExplosionField
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -81,5 +83,10 @@ fun Context.getDialog(layout: Int): Dialog {
     dialog.setContentView(view)
     dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     return dialog
+}
+
+fun Activity.getCurrentLevel(): Int? {
+    val activity: MainActivity? = this as MainActivity?
+    return activity?.getCurrentLevelFromActivity()
 }
 

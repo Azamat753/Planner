@@ -1,29 +1,61 @@
 package com.lawlett.planner.ui.habit
 
+import android.app.AlarmManager
 import android.app.AlertDialog
+import android.app.PendingIntent
+import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
-import android.widget.Toast
+import android.widget.PopupMenu
+import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.AchievementModel
 import com.lawlett.planner.data.room.models.HabitModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.FragmentHabitBinding
+import com.lawlett.planner.extensions.explosionView
+import com.lawlett.planner.extensions.getCurrentLevel
+import com.lawlett.planner.extensions.showToast
+import com.lawlett.planner.service.MessageService
 import com.lawlett.planner.ui.adapter.HabitAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.fragment.CreateHabitBottomSheetDialog
+import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
 
 class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::inflate),
-    BaseAdapter.IBaseAdapterClickListener<HabitModel> {
+    BaseAdapter.IBaseAdapterClickListener<HabitModel>,
+    BaseAdapter.IBaseAdapterLongClickListenerWithModel<HabitModel> {
     private val viewModel by inject<HabitViewModel>()
-    val adapter = HabitAdapter()
+    private val achievementViewModel by inject<AchievementViewModel>()
+    var listModel: List<HabitModel>? = null
+    private val calendar = Calendar.getInstance()
 
+    val adapter = HabitAdapter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
+    }
+
+    private fun editHabit(position: Int) {
+        val bundle = Bundle()
+        bundle.putSerializable(Constants.HABIT_MODEL, listModel?.get(position))
+        val bottomDialog = CreateHabitBottomSheetDialog()
+        bottomDialog.arguments = bundle
+        bottomDialog.show(
+            requireActivity().supportFragmentManager,
+            Constants.UPDATE_MODEL
+        )
+        adapter.notifyItemChanged(position)
     }
 
     private fun initClickers() {
@@ -40,44 +72,53 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         val adapter = HabitAdapter()
         binding.habitRecycler.adapter = adapter
         adapter.listener = this
+        adapter.longListenerWithModel = this
         getDataFromDataBase(adapter)
     }
 
-    private fun getDataFromDataBase(adapter: HabitAdapter) {
-        viewModel.getHabitsLiveData()
-            .observe(viewLifecycleOwner, { ideas ->
-                if (ideas.isNotEmpty()) {
-                    adapter.setData(ideas)
-                }
-            })
-    }
-
-    private fun checkDay(habitModel: HabitModel) {
+    private fun checkDay(habitModel: HabitModel,position: Int) {
         val calendar = Calendar.getInstance()
         val currentDay = calendar[Calendar.DAY_OF_MONTH]
         val dayFromRoom: Int = habitModel.myDay
-        if (currentDay != dayFromRoom) {
-            val today = (habitModel.currentDay + 1)
-            val model = HabitModel(
-                id = habitModel.id,
-                myDay = currentDay,
-                currentDay = today,
-                title = habitModel.title,
-                icon = habitModel.icon,
-                allDays = habitModel.allDays
-            )
-            viewModel.update(model)
-        } else {
-            Toast.makeText(requireContext(), R.string.your_habit_is_done, Toast.LENGTH_SHORT).show()
+//        if (currentDay != dayFromRoom) {
+        val today = (habitModel.currentDay + 1)
+        val model = HabitModel(
+            id = habitModel.id,
+            myDay = currentDay,
+            currentDay = today,
+            title = habitModel.title,
+            icon = habitModel.icon,
+            allDays = habitModel.allDays
+        )
+        viewModel.update(model)
+//        } else {
+//            Toast.makeText(requireContext(), R.string.your_habit_is_done, Toast.LENGTH_SHORT).show()
+//        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+
+    private fun rewardAnAchievement(completeTask: Int) {
+        if (completeTask % 5 == 0) {
+            var currentLevel: Int = requireActivity().getCurrentLevel()!!
+            currentLevel += 1
+            val model = AchievementModel(level = currentLevel, id = 1)
+            achievementViewModel.update(model)
+            binding.achievementView.show("Поздравляем!", "Уровень $currentLevel")
         }
     }
 
-    override fun onClick(model: HabitModel) {
+    override fun onClick(model: HabitModel,position: Int) {
         val dialogBuilder = AlertDialog.Builder(requireContext())
         dialogBuilder.setMessage(getString(R.string.you_is_done_habit_today))
             .setCancelable(false)
             .setPositiveButton("Конечно") { _, _ ->
-                checkDay(model)
+                checkDay(model,position)
+                rewardAnAchievement(model.currentDay)
+                adapter.notifyItemChanged(position)
             }
             .setNegativeButton("Ещё нет") { dialog, _ ->
                 dialog.cancel()
@@ -85,5 +126,109 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         val alert = dialogBuilder.create()
         alert.setTitle(getString(R.string.attention_alert))
         alert.show()
+    }
+
+    private fun getDataFromDataBase(adapter: HabitAdapter) {
+        viewModel.getHabitsLiveData()
+            .observe(viewLifecycleOwner, { habits ->
+                if (habits.isNotEmpty()) {
+                    adapter.setData(habits)
+                    listModel = habits
+                }
+            })
+    }
+
+    override fun onLongClick(model: HabitModel, view: View, position: Int) {
+        PopupMenu(requireContext(), view).run {
+            menuInflater.inflate(R.menu.habit_menu, menu)
+            setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.habit_menu_delete -> deleteHabit(position)
+                    R.id.habit_menu_edit -> editHabit(position)
+                    R.id.habit_notification -> pickTime(model)
+                }
+                true
+            }
+            show()
+        }
+    }
+
+    private fun pickTime(habitModel: HabitModel) {
+        if (requestPermission()) {
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+            val minute = calendar.get(Calendar.MINUTE)
+            val timePicker =
+                TimePickerDialog(
+                    requireContext(),
+                    { _, selectedHour, selectedMinute ->
+                        calendar.set(
+                            calendar.get(Calendar.YEAR),
+                            calendar.get(Calendar.MONTH),
+                            calendar.get(Calendar.DATE),
+                            selectedHour,
+                            selectedMinute
+                        )
+                        val time = calendar.timeInMillis
+                        setNotification(time, habitModel, selectedHour, selectedMinute)
+                    },
+                    hour,
+                    minute,
+                    true
+                )
+            timePicker.show()
+        }
+    }
+
+    private fun setNotification(
+        time: Long,
+        habitModel: HabitModel,
+        selectedHour: Int,
+        selectedMinute: Int
+    ) {
+        val i = Intent(requireContext(), MessageService::class.java)
+        i.putExtra("displayText", "sample text")
+        i.putExtra(Constants.TITLE, "Planner")
+        i.putExtra(
+            Constants.TEXT,
+            getString(R.string.you_forgot_habbit) + " " + habitModel.title + " ?"
+        )
+        val pi = PendingIntent.getBroadcast(
+            requireContext(),
+            habitModel.id as Int,
+            i,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val mAlarm = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        mAlarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, time, AlarmManager.INTERVAL_DAY, pi)
+        requireContext().showToast(
+            getString(R.string.set_notification_on) + " " + habitModel.title + " на " + "$selectedHour : $selectedMinute"
+        )
+    }
+
+    private fun requestPermission(): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(requireContext())) {
+                val intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + requireActivity().packageName)
+                )
+                startActivityForResult(intent, 1)
+                return false
+            }
+        }
+        return true
+    }
+
+    fun deleteHabit(position: Int) {
+        binding.habitRecycler.findViewHolderForAdapterPosition(
+            position
+        )?.itemView?.explosionView(explosionField)
+
+        listModel?.get(position)?.let { viewModel.delete(it) }
+        if (position == 0) {
+            findNavController().navigate(R.id.habitFragment)
+        } else {
+            adapter.notifyItemRemoved(position)
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.lawlett.planner.data.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "events_table")
 data class EventModel(
@@ -12,4 +13,4 @@ data class EventModel(
     val time: String,
     val remindTime: String,
     val color: Int
-)
+):Serializable

@@ -1,6 +1,5 @@
 package com.lawlett.planner.ui.finance
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -20,10 +19,11 @@ import com.lawlett.planner.ui.dialog.fragment.FinanceBottomSheetDialog
 import com.lawlett.planner.utils.AdvicePreference
 import com.lawlett.planner.utils.AdviceText
 import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.IntPreference
 import org.koin.android.ext.android.inject
 
 class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBinding::inflate),
-    BaseAdapter.IBaseAdapterLongClickListener, BaseAdapter.IBaseAdapterClickListener<FinanceModel> {
+    BaseAdapter.IBaseAdapterLongClickListener, BaseAdapter.IBaseAdapterClickListener<FinanceModel>,FinanceBottomSheetDialog.UpdateBalance {
     val adapter = FinanceAdapter()
     private val adapterPattern = FinancePatternAdapter()
     val viewModel by inject<FinanceViewModel>()
@@ -33,6 +33,8 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         initClickers()
         getHistory()
         setPattern()
+        showAdvice()
+        setBalance()
     }
 
     private fun setPattern() {
@@ -60,6 +62,13 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         adapter.notifyDataSetChanged()
     }
 
+    fun setBalance() {
+        val income: Int = IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME)?:0
+        val expensive : Int = IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE)?:0
+        val balance: Int = income - expensive
+        binding.balanceAmountTv.text = balance.toString()
+    }
+
     private fun initClickers() {
         binding.incomeBtn.setOnClickListener {
             openSheetDialog(Constants.HISTORY_CATEGORY, true)
@@ -69,39 +78,27 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         }
         binding.historyCard.setOnClickListener { showHistoryDialog() }
         binding.patternBtn.setOnClickListener { openSheetDialog(Constants.PATTERN_CATEGORY, false) }
-        binding.adviceCard.setOnClickListener { showAdviceDialog() }
     }
 
-    private fun showAdviceDialog() {
-        val dialog = requireContext().getDialog(R.layout.advice_dialog)
-        val titleCard :View= dialog.findViewById(R.id.title_card)
-        val title = titleCard.findViewById<TextView>(R.id.title)
-        title.text = getString(R.string.advices)
-        setAdvice(dialog)
-        dialog.show()
-    }
-
-    private fun setAdvice(dialog: Dialog) {
+    private fun showAdvice() {
         val advicePreference = AdvicePreference(requireContext())
         val advicePosition = advicePreference.getAdvice()
-        val adviceTitle = dialog.findViewById<TextView>(R.id.advice_title)
-        val adviceSub = dialog.findViewById<TextView>(R.id.advice_sub)
-        adviceTitle.text = AdviceText().getTitleAdvice(advicePosition, requireContext())
-        adviceSub.text = AdviceText().getDescAdvice(advicePosition, requireContext())
+        binding.adviceTitle.text = AdviceText().getTitleAdvice(advicePosition, requireContext())
+        binding.adviceSub.text = AdviceText().getDescAdvice(advicePosition, requireContext())
     }
 
     private fun showHistoryDialog() {
         val dialog = requireContext().getDialog(R.layout.history_dialog)
         val recyclerView: RecyclerView = dialog.findViewById(R.id.history_recycler)
         val title: TextView = dialog.findViewById(R.id.title)
-        title.text = "История"
+        title.text = getString(R.string.history)
         recyclerView.adapter = adapter
         adapter.longListener = this
         dialog.show()
     }
 
     private fun openSheetDialog(category: String, isIncome: Boolean, model: FinanceModel? = null) {
-        val bottomDialog = FinanceBottomSheetDialog()
+        val bottomDialog = FinanceBottomSheetDialog(this)
         val bundle = Bundle()
         bundle.putBoolean(Constants.IS_INCOME, isIncome)
         bundle.putSerializable(Constants.WORK_WITH_PATTERN, model)
@@ -121,7 +118,11 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         }
     }
 
-    override fun onClick(model: FinanceModel,position:Int) {
+    override fun onClick(model: FinanceModel, position: Int) {
         openSheetDialog(Constants.WORK_WITH_PATTERN, false, model)
+    }
+
+    override fun needUpdate() {
+        setBalance()
     }
 }

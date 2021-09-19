@@ -167,7 +167,7 @@
     <string name="nav_open" translatable="false">Open</string>
     <string name="nav_close" translatable="false">Close</string>
     <string name="want_save_data_in_google">Вы хотите защитить свои записи ?</string>
-    <string name="you_name">Ваше имя</string>
+    <string name="you_name">Ваше имя   ✍ </string>
     <string name="rate_app">Поставить оценку</string>
     <string name="not_enough_balanсe">Недостаточно средств на балансе !</string>
     <string name="attention_alert">Внимание!</string>
@@ -347,6 +347,9 @@
     <string name="timetable">Расписание</string>
     <string name="stand_up">Стэндап</string>
     <string name="focus">Фокус</string>
+    <string name="expensive">Расход</string>
+    <string name="history">История</string>
+    <string name="choose_action">Выберите действие</string>
     <string-array name="dayOfWeek_array">
         <item>@string/monday</item>
         <item>@string/tuesday</item>

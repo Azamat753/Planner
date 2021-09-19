@@ -1,5 +1,6 @@
 package com.lawlett.planner.ui.timing
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.os.Bundle
 import android.os.SystemClock
@@ -112,6 +113,7 @@ class StopwatchFragment :
         return stopwatchTime.toString()
     }
 
+    @SuppressLint("ResourceType")
     private fun showCustomNotification() {
         val expandedView = RemoteViews(
             requireContext().packageName,
@@ -128,7 +130,7 @@ class StopwatchFragment :
             .setCustomBigContentView(expandedView)
             .setContentTitle(getString(R.string.stopwatch))
             .setContentText(getString(R.string.go_count))
-            .setColor(getColor(requireContext(), R.color.textColor))
+            .setColor(getColor(requireContext(), R.attr.textColor))
             .build()
 
         notification.flags = Notification.FLAG_ONGOING_EVENT

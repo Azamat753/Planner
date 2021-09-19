@@ -26,6 +26,6 @@ class StringPreference(context: Context) {
 
     init {
         instance = this
-        preferences = context.getSharedPreferences("profile", Context.MODE_PRIVATE)
+        preferences = context.getSharedPreferences("String", Context.MODE_PRIVATE)
     }
 }

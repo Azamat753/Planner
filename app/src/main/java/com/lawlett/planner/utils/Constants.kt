@@ -33,6 +33,10 @@ object Constants {
     const val WORK_WITH_PATTERN = "work_with_pattern"
     const val IS_INCOME = "isIncome"
 
+    const val INCOME = "income"
+    const val EXPENSIVE = "expensive"
+
+
     const val CURRENT_DAY = "current_day"
 
     const val UPDATE_MODEL = "update_model"

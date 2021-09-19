@@ -5,31 +5,84 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AlertDialog
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.LanguageModel
 import com.lawlett.planner.utils.LanguagePreference
 import com.lawlett.planner.utils.ThemePreference
 import java.util.*
 
-fun Activity.changeLanguage() {
-    val listItems = arrayOf("English", "Кыргызский", "Русский")
-    val mBuilder = AlertDialog.Builder(this)
-    mBuilder.setTitle(R.string.choose_language)
-    mBuilder.setSingleChoiceItems(listItems, -1) { dialog, which ->
-        when (which) {
-            0 -> {
-                setLocale("en", this)
-            }
-            1 -> {
-                setLocale("ky", this)
-            }
-            2 -> {
-                setLocale("ru", this)
-            }
+fun Activity.changeLanguage(position: Int) {
+    when (position) {
+        0 -> {
+            setLocale("ru", this)
         }
-        this.recreate()
-        dialog.dismiss()
+        1 -> {
+            setLocale("be", this)
+        }
+        2 -> {
+            setLocale("uk", this)
+        }
+        3 -> {
+            setLocale("en", this)
+        }
+        4 -> {
+            setLocale("de", this)
+        }
+        5 -> {
+            setLocale("pt", this)
+        }
+        6 -> {
+            setLocale("fr", this)
+        }
+        7 -> {
+            setLocale("it", this)
+        }
+        8 -> {
+            setLocale("es", this)
+        }
+        9 -> {
+            setLocale("ky", this)
+        }
+        10 -> {
+            setLocale("kk", this)
+        }
+        11 -> {
+            setLocale("tr", this)
+        }
+        12 -> {
+            setLocale("ko", this)
+        }
+        13 -> {
+            setLocale("zh", this)
+        }
+        14 -> {
+            setLocale("ja", this)
+        }
+        15 -> {
+            setLocale("hi", this)
+        }
     }
-    val mDialog = mBuilder.create()
-    mDialog.show()
+    this.recreate()
+}
+
+fun getLanguageList(): List<LanguageModel> {
+    val listModel: ArrayList<LanguageModel> = arrayListOf()
+    listModel.add(LanguageModel("Русский"))
+    listModel.add(LanguageModel("Беларускі"))
+    listModel.add(LanguageModel("Український"))
+    listModel.add(LanguageModel("English"))
+    listModel.add(LanguageModel("Deutsche"))
+    listModel.add(LanguageModel("Português"))
+    listModel.add(LanguageModel("Français"))
+    listModel.add(LanguageModel("Italiano"))
+    listModel.add(LanguageModel("Español"))
+    listModel.add(LanguageModel("Кыргызча"))
+    listModel.add(LanguageModel("Қазақ тілі"))
+    listModel.add(LanguageModel("Türk"))
+    listModel.add(LanguageModel("한국어"))
+    listModel.add(LanguageModel("中文"))
+    listModel.add(LanguageModel("日本語"))
+    listModel.add(LanguageModel("हिंदी"))
+    return listModel
 }
 
 private fun setLocale(s: String, context: Context) {

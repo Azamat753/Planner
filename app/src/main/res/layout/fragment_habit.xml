@@ -49,8 +49,8 @@
     <com.cdev.achievementview.AchievementView
         android:id="@+id/achievement_view"
         custom:collapseStartDelay="3500"
-        custom:colorLeft="@color/green_light"
-        custom:colorRight="@android:color/holo_green_dark"
+        custom:colorLeft="@color/green_for_achievement"
+        custom:colorRight="@color/dark_green_for_achievement"
         custom:drawableLeft="@drawable/trophy"
         android:layout_width="match_parent"
         android:layout_height="50dp"

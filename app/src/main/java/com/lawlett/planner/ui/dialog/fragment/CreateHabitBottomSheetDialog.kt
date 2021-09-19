@@ -1,10 +1,5 @@
 package com.lawlett.planner.ui.dialog.fragment
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.app.TimePickerDialog
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -16,15 +11,11 @@ import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.CreateHabitBottomSheetDialogBinding
 import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.extensions.getIcons
-import com.lawlett.planner.extensions.showToast
-import com.lawlett.planner.service.MessageService
 import com.lawlett.planner.ui.adapter.IconAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
-import com.lawlett.planner.utils.Constants.TITLE
 import org.koin.android.ext.android.inject
-import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateHabitBottomSheetDialog :
@@ -42,6 +33,7 @@ class CreateHabitBottomSheetDialog :
         setValueForDayPicker()
         setDataForUpdate()
     }
+
 
     private fun setValueForDayPicker() {
         binding.dayPicker.minValue = 7

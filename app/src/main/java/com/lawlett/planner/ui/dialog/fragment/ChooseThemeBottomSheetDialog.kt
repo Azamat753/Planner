@@ -33,15 +33,16 @@ class ChooseThemeBottomSheetDialog :
             android.R.anim.fade_in, android.R.anim.fade_out
         )
     }
+
     private fun fillThemeModel(): ArrayList<ThemeModel> {
         val listThemeModels: ArrayList<ThemeModel> = ArrayList()
         listThemeModels.add(ThemeModel(getString(R.string.red), "#F44336"))
         listThemeModels.add(ThemeModel(getString(R.string.orange), "#FF5722"))
         listThemeModels.add(ThemeModel(getString(R.string.yellow), "#E8D637"))
         listThemeModels.add(ThemeModel(getString(R.string.blue), "#0365C4"))
-        listThemeModels.add(ThemeModel(getString(R.string.black), "#000000"))
-        listThemeModels.add(ThemeModel(getString(R.string.green), "#8BC34A"))
-        listThemeModels.add(ThemeModel(getString(R.string.pink), "#E91E63"))
+        listThemeModels.add(ThemeModel(getString(R.string.black), "#323232"))
+        listThemeModels.add(ThemeModel(getString(R.string.green), "#99DE9F"))
+        listThemeModels.add(ThemeModel(getString(R.string.pink), "#FC9885"))
         listThemeModels.add(ThemeModel(getString(R.string.violet), "#673AB7"))
         return listThemeModels
     }

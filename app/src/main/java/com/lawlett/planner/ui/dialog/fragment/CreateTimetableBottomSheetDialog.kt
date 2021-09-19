@@ -11,13 +11,12 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TimetableModel
 import com.lawlett.planner.data.room.viewmodels.TimetableViewModel
 import com.lawlett.planner.databinding.CreateTimetableBottomSheetBinding
-import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateTimetableBottomSheetDialog :
+class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycler?) :
     BaseBottomSheetDialog<CreateTimetableBottomSheetBinding>(CreateTimetableBottomSheetBinding::inflate),
     AdapterView.OnItemSelectedListener {
     private val viewModel by inject<TimetableViewModel>()
@@ -61,11 +60,12 @@ class CreateTimetableBottomSheetDialog :
                 binding.endTimeText.error = getString(R.string.fill_field)
             }
             else -> {
-                if (isUpdate()){
+                if (isUpdate()) {
                     updateModel(startTime, endTime, title)
-                }else{
+                } else {
                     insertModel(startTime, endTime, color, title)
                 }
+                updateRecycler?.needUpdate(binding.dayOfWeekSpinner.selectedItemPosition)
                 dismiss()
             }
         }
@@ -103,16 +103,30 @@ class CreateTimetableBottomSheetDialog :
 
     @SuppressLint("SetTextI18n")
     private fun pickTime(isStart: Boolean) {
+        var myHour = ""
+        var myMinute = ""
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
         val timePicker =
             TimePickerDialog(
                 requireContext(),
                 { _, selectedHour, selectedMinute ->
-                    if (isStart) {
-                        binding.startTimeText.text = "$selectedHour : $selectedMinute"
+                    myHour = if (selectedHour.toString().count() == 1) {
+                        "0$selectedHour"
                     } else {
-                        binding.endTimeText.text = "$selectedHour : $selectedMinute"
+                        selectedHour.toString()
+                    }
+
+                    myMinute = if (selectedMinute.toString().count() == 1) {
+                        "0$selectedMinute"
+                    } else {
+                        selectedMinute.toString()
+                    }
+
+                    if (isStart) {
+                        binding.startTimeText.text = "$myHour : $myMinute"
+                    } else {
+                        binding.endTimeText.text = "$myHour : $myMinute"
                     }
                 },
                 hour,
@@ -156,5 +170,9 @@ class CreateTimetableBottomSheetDialog :
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
+    }
+
+    interface UpdateRecycler {
+        fun needUpdate(dayOfWeek: Int)
     }
 }

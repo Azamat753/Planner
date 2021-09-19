@@ -343,4 +343,7 @@ glisser vers la droite, vous pouvez supprimer un Élément de la liste des dépe
     <string name="timetable">Расписание</string>
     <string name="stand_up">Стэндап</string>
     <string name="focus">Фокус</string>
+    <string name="expensive">Расход</string>
+    <string name="history">История</string>
+    <string name="choose_action">Выберите действие</string>
 </resources>

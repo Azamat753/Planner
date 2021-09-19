@@ -2,6 +2,7 @@ package com.lawlett.planner.ui.tasks
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.lawlett.planner.R
@@ -9,6 +10,7 @@ import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
 import com.lawlett.planner.extensions.explosionView
+import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
@@ -18,7 +20,8 @@ import com.lawlett.planner.utils.SwipeHelper
 import org.koin.android.ext.android.inject
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate),
-    BaseAdapter.IBaseAdapterClickListener<CategoryModel> {
+    BaseAdapter.IBaseAdapterClickListener<CategoryModel>,
+    BaseAdapter.IBaseAdapterLongClickListenerWithModel<CategoryModel> {
     private val viewModel by inject<CategoryViewModel>()
     private val adapter = CategoryAdapter()
     var listModel: List<CategoryModel>? = null
@@ -27,7 +30,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
-        swipeItem()
     }
 
     private fun initClickers() {
@@ -43,60 +45,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
             }
         })
     }
-
-    private fun deleteButton(position: Int): SwipeHelper.UnderlayButton {
-        return SwipeHelper.UnderlayButton(
-            requireContext(),
-            getString(R.string.to_delete),
-            14.0f,
-            android.R.color.holo_red_light,
-            object : SwipeHelper.UnderlayButtonClickListener {
-                override fun onClick() {
-                    binding.categoryRecycler.findViewHolderForAdapterPosition(
-                        position
-                    )?.itemView?.explosionView(explosionField)
-
-                    listModel?.get(position)?.let { viewModel.delete(it) }
-                    if (position == 0) {
-                        findNavController().navigate(R.id.category_fragment)
-                    } else {
-                        adapter.notifyItemRemoved(position)
-                    }
-                }
-            })
-    }
-
-    private fun markAsUnreadButton(position: Int): SwipeHelper.UnderlayButton {
-        return SwipeHelper.UnderlayButton(
-            requireContext(),
-            getString(R.string.edit),
-            14.0f,
-            android.R.color.holo_green_light,
-            object : SwipeHelper.UnderlayButtonClickListener {
-                override fun onClick() {
-                    val bundle = Bundle()
-                    bundle.putSerializable(Constants.CATEGORY_MODEL, listModel?.get(position))
-                    val bottomDialog = CreateCategoryBottomSheetDialog()
-                    bottomDialog.arguments = bundle
-                    bottomDialog.show(requireActivity().supportFragmentManager, Constants.UPDATE_MODEL)
-                }
-            })
-    }
-
-    private fun swipeItem() {
-        val itemTouchHelper = ItemTouchHelper(object : SwipeHelper(binding.categoryRecycler) {
-            override fun instantiateUnderlayButton(position: Int): List<UnderlayButton> {
-                val buttons: List<UnderlayButton>
-                val deleteButton = deleteButton(position)
-                val markAsUnreadButton = markAsUnreadButton(position)
-                buttons = listOf(deleteButton, markAsUnreadButton)
-                return buttons
-            }
-        })
-
-        itemTouchHelper.attachToRecyclerView(binding.categoryRecycler)
-    }
-
     private fun initBottomSheet() {
         val bottomDialog = CreateCategoryBottomSheetDialog()
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
@@ -105,10 +53,11 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     private fun initAdapter() {
         binding.categoryRecycler.adapter = adapter
         adapter.listener = this
+        adapter.longListenerWithModel = this
         getDataFromDataBase()
     }
 
-    override fun onClick(model: CategoryModel,position:Int) {
+    override fun onClick(model: CategoryModel, position: Int) {
         openCategory(model)
     }
 
@@ -116,5 +65,47 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         val pAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
             CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment(model)
         findNavController().navigate(pAction)
+    }
+
+    override fun onLongClick(model: CategoryModel, itemView: View, position: Int) {
+        val dialog = requireContext().getDialog(R.layout.long_click_dialog)
+        val delete = dialog.findViewById<TextView>(R.id.delete_button)
+        val edit = dialog.findViewById<TextView>(R.id.edit_button)
+
+        delete.setOnClickListener {
+            deleteCategory(position, model)
+            dialog.dismiss()
+        }
+        edit.setOnClickListener {
+            editCategory(position)
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun deleteCategory(
+        position: Int,
+        model: CategoryModel
+    ) {
+        binding.categoryRecycler.findViewHolderForAdapterPosition(
+            position
+        )?.itemView?.explosionView(explosionField)
+        viewModel.delete(model)
+        if (position == 0) {
+            findNavController().navigate(R.id.category_fragment)
+        } else {
+            adapter.notifyItemRemoved(position)
+        }
+    }
+
+    private fun editCategory(position: Int) {
+        val bundle = Bundle()
+        bundle.putSerializable(Constants.CATEGORY_MODEL, listModel?.get(position))
+        val bottomDialog = CreateCategoryBottomSheetDialog()
+        bottomDialog.arguments = bundle
+        bottomDialog.show(
+            requireActivity().supportFragmentManager,
+            Constants.UPDATE_MODEL
+        )
     }
 }

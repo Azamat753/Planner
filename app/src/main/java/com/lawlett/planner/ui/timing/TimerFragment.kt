@@ -1,5 +1,6 @@
 package com.lawlett.planner.ui.timing
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -149,6 +150,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
         )
 
         object : SimpleCountDownTimer(timeLeftInMilliseconds, 1000) {
+            @SuppressLint("ResourceType")
             override fun onTick(p0: Long) {
                 super.onTick(p0)
                 val minutes = p0.toInt() / 60000
@@ -166,7 +168,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                         .setSmallIcon(R.mipmap.ic_planner)
                         .setCustomBigContentView(expandedView)
                         .setContentTitle(getString(R.string.timer))
-                        .setColor(getColor(requireContext(), R.color.textColor))
+                        .setColor(getColor(requireContext(), R.attr.textColor))
                         .setContentText(getString(R.string.go_count))
                         .setOnlyAlertOnce(true)
                         .build()

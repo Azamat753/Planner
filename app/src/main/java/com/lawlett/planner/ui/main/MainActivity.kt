@@ -93,7 +93,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            StringPreference.getInstance(this)?.saveStringData(Constants.USER_IMAGE, uri.toString())
+            val image = StringPreference.getInstance(this)?.getStringData(Constants.USER_IMAGE)
+            if (uri == null && image?.isNotEmpty() == true) {
+                Glide.with(this).load(image).circleCrop().placeholder(R.drawable.ic_person_white)
+                    .into(headerImage)
+            } else {
+                StringPreference.getInstance(this)
+                    ?.saveStringData(Constants.USER_IMAGE, uri.toString())
+            }
         }
 
     private fun initListeners() {

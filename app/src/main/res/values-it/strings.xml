@@ -343,4 +343,7 @@ scorri verso destra, puoi rimuovere un elemento dall\'elenco delle spese frequen
     <string name="timetable">Расписание</string>
     <string name="stand_up">Стэндап</string>
     <string name="focus">Фокус</string>
+    <string name="expensive">Расход</string>
+    <string name="history">История</string>
+    <string name="choose_action">Выберите действие</string>
 </resources>

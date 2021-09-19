@@ -1,35 +1,30 @@
 package com.lawlett.planner.ui.timetable
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import android.widget.Button
-import android.widget.PopupMenu
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TimetableModel
 import com.lawlett.planner.data.room.viewmodels.TimetableViewModel
 import com.lawlett.planner.databinding.FragmentTimetableBinding
-import com.lawlett.planner.extensions.explosionView
-import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.extensions.showToast
+import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.TimetableAdapter
-import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseAdapter.IBaseAdapterLongClickListenerWithModel
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.ui.dialog.fragment.ChooseTimeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.fragment.CreateTimetableBottomSheetDialog
 import com.lawlett.planner.utils.Constants
-import com.lawlett.planner.utils.SwipeHelper
 import org.koin.android.ext.android.inject
 
 class TimetableFragment :
-    BaseFragment<FragmentTimetableBinding>(FragmentTimetableBinding::inflate) {
+    BaseFragment<FragmentTimetableBinding>(FragmentTimetableBinding::inflate),
+    CreateTimetableBottomSheetDialog.UpdateRecycler {
     private val viewModel by inject<TimetableViewModel>()
     private val adapter = TimetableAdapter()
-
     private lateinit var listMonday: List<TimetableModel>
     private lateinit var listTuesday: List<TimetableModel>
     private lateinit var listWednesday: List<TimetableModel>
@@ -62,11 +57,10 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.sundayRecycler, position, listSunday,6)
+                    showActionDialog(binding.sundayRecycler, position, listSunday, 6)
                 }
             }
     }
-
 
     private fun initSaturdayAdapter() {
         val adapter = TimetableAdapter()
@@ -79,7 +73,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.saturdayRecycler, position, listSaturday,5)
+                    showActionDialog(binding.saturdayRecycler, position, listSaturday, 5)
                 }
             }
     }
@@ -95,7 +89,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.fridayRecycler, position, listFriday,4)
+                    showActionDialog(binding.fridayRecycler, position, listFriday, 4)
                 }
             }
     }
@@ -111,7 +105,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.thursdayRecycler, position, listThursday,3)
+                    showActionDialog(binding.thursdayRecycler, position, listThursday, 3)
                 }
             }
     }
@@ -128,11 +122,10 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.wednesdayRecycler, position, listWednesday,2)
+                    showActionDialog(binding.wednesdayRecycler, position, listWednesday, 2)
                 }
             }
     }
-
 
     private fun initTuesdayAdapter() {
         val adapter = TimetableAdapter()
@@ -145,12 +138,11 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.tuesdayRecycler, position, listTuesday,1)
+                    showActionDialog(binding.tuesdayRecycler, position, listTuesday, 1)
                 }
             }
 
     }
-
 
     private fun initMondayAdapter() {
         binding.mondayRecycler.adapter = adapter
@@ -162,7 +154,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.mondayRecycler, position, listMonday,0)
+                    showActionDialog(binding.mondayRecycler, position, listMonday, 0)
                 }
             }
     }
@@ -174,17 +166,15 @@ class TimetableFragment :
         dayIndex: Int
     ) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
-        val deleteCard: View = dialog.findViewById(R.id.delete_wrapper)
-        val delete = deleteCard.findViewById<Button>(R.id.card_button)
-        val editCard: View = dialog.findViewById(R.id.edit_wrapper)
-        val edit = editCard.findViewById<Button>(R.id.card_button)
+        val delete = dialog.findViewById<Button>(R.id.delete_button)
+        val edit = dialog.findViewById<Button>(R.id.edit_button)
         edit.text = getString(R.string.edit)
         delete.setOnClickListener {
             deleteItem(recyclerView, position, list)
             dialog.dismiss()
         }
         edit.setOnClickListener {
-            openSheetDialogForEdit(list[position],dayIndex)
+            openSheetDialogForEdit(list[position], dayIndex)
             dialog.dismiss()
         }
         dialog.show()
@@ -211,17 +201,37 @@ class TimetableFragment :
         binding.addTimetableButton.setOnClickListener {
             openSheetDialog(-5)
         }
-        binding.monday.titleCard.setOnClickListener { openSheetDialog(0) }
-        binding.tuesday.titleCard.setOnClickListener { openSheetDialog(1) }
-        binding.wednesday.titleCard.setOnClickListener { openSheetDialog(2) }
-        binding.thursday.titleCard.setOnClickListener { openSheetDialog(3) }
-        binding.friday.titleCard.setOnClickListener { openSheetDialog(4) }
-        binding.saturday.titleCard.setOnClickListener { openSheetDialog(5) }
-        binding.sunday.titleCard.setOnClickListener { openSheetDialog(6) }
+        binding.monday.titleCard.setOnClickListener {
+            setVisibility(binding.mondayRecycler)
+        }
+        binding.tuesday.titleCard.setOnClickListener { setVisibility(binding.tuesdayRecycler) }
+        binding.wednesday.titleCard.setOnClickListener { setVisibility(binding.wednesdayRecycler) }
+        binding.thursday.titleCard.setOnClickListener { setVisibility(binding.thursdayRecycler) }
+        binding.friday.titleCard.setOnClickListener { setVisibility(binding.fridayRecycler) }
+        binding.saturday.titleCard.setOnClickListener { setVisibility(binding.saturdayRecycler) }
+        binding.sunday.titleCard.setOnClickListener { setVisibility(binding.sundayRecycler) }
     }
 
-    private fun openSheetDialogForEdit(model: TimetableModel,dayIndex: Int) {
-        val bottomDialog = CreateTimetableBottomSheetDialog()
+    private fun setVisibility(recyclerView: RecyclerView) {
+        if (recyclerView.isVisible) {
+            recyclerView.gone()
+        } else {
+            val lac = LayoutAnimationController(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.item_anim
+                )
+            )
+            lac.delay = 0.20f
+            lac.order = LayoutAnimationController.ORDER_NORMAL
+            recyclerView.layoutAnimation = lac
+            recyclerView.startLayoutAnimation()
+            recyclerView.visible()
+        }
+    }
+
+    private fun openSheetDialogForEdit(model: TimetableModel, dayIndex: Int) {
+        val bottomDialog = CreateTimetableBottomSheetDialog(this)
         val bundle = Bundle()
         bundle.putSerializable(Constants.UPDATE_MODEL, model)
         bottomDialog.arguments = bundle
@@ -229,7 +239,7 @@ class TimetableFragment :
     }
 
     private fun openSheetDialog(day: Int) {
-        val bottomDialog = CreateTimetableBottomSheetDialog()
+        val bottomDialog = CreateTimetableBottomSheetDialog(this)
         bottomDialog.show(requireActivity().supportFragmentManager, day.toString())
     }
 
@@ -241,5 +251,31 @@ class TimetableFragment :
         binding.friday.title.text = getString(R.string.friday)
         binding.saturday.title.text = getString(R.string.saturday)
         binding.sunday.title.text = getString(R.string.sunday)
+    }
+
+    override fun needUpdate(dayOfWeek: Int) {
+        when (dayOfWeek) {
+            0 -> {
+                initMondayAdapter()
+            }
+            1 -> {
+                initTuesdayAdapter()
+            }
+            2 -> {
+                initWednesdayAdapter()
+            }
+            3 -> {
+                initThursdayAdapter()
+            }
+            4 -> {
+                initFridayAdapter()
+            }
+            5 -> {
+                initSaturdayAdapter()
+            }
+            6 -> {
+                initSundayAdapter()
+            }
+        }
     }
 }

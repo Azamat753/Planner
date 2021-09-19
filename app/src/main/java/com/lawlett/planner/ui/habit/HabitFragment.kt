@@ -11,7 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.PopupMenu
+import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.AchievementModel
@@ -21,6 +21,7 @@ import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.FragmentHabitBinding
 import com.lawlett.planner.extensions.explosionView
 import com.lawlett.planner.extensions.getCurrentLevel
+import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.service.MessageService
 import com.lawlett.planner.ui.adapter.HabitAdapter
@@ -46,9 +47,9 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         initAdapter()
     }
 
-    private fun editHabit(position: Int) {
+    private fun editHabit(position: Int, model: HabitModel) {
         val bundle = Bundle()
-        bundle.putSerializable(Constants.HABIT_MODEL, listModel?.get(position))
+        bundle.putSerializable(Constants.HABIT_MODEL, model)
         val bottomDialog = CreateHabitBottomSheetDialog()
         bottomDialog.arguments = bundle
         bottomDialog.show(
@@ -76,11 +77,11 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         getDataFromDataBase(adapter)
     }
 
-    private fun checkDay(habitModel: HabitModel,position: Int) {
+    private fun checkDay(habitModel: HabitModel, position: Int) {
         val calendar = Calendar.getInstance()
         val currentDay = calendar[Calendar.DAY_OF_MONTH]
         val dayFromRoom: Int = habitModel.myDay
-//        if (currentDay != dayFromRoom) {
+//        if (currentDay != dayFromRoom) { todo to on
         val today = (habitModel.currentDay + 1)
         val model = HabitModel(
             id = habitModel.id,
@@ -111,12 +112,12 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         }
     }
 
-    override fun onClick(model: HabitModel,position: Int) {
+    override fun onClick(model: HabitModel, position: Int) {
         val dialogBuilder = AlertDialog.Builder(requireContext())
         dialogBuilder.setMessage(getString(R.string.you_is_done_habit_today))
             .setCancelable(false)
             .setPositiveButton("Конечно") { _, _ ->
-                checkDay(model,position)
+                checkDay(model, position)
                 rewardAnAchievement(model.currentDay)
                 adapter.notifyItemChanged(position)
             }
@@ -138,19 +139,20 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
             })
     }
 
-    override fun onLongClick(model: HabitModel, view: View, position: Int) {
-        PopupMenu(requireContext(), view).run {
-            menuInflater.inflate(R.menu.habit_menu, menu)
-            setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.habit_menu_delete -> deleteHabit(position)
-                    R.id.habit_menu_edit -> editHabit(position)
-                    R.id.habit_notification -> pickTime(model)
-                }
-                true
-            }
-            show()
+    override fun onLongClick(model: HabitModel, itemView: View, position: Int) {
+        val dialog = requireContext().getDialog(R.layout.long_click_dialog)
+        val delete = dialog.findViewById<Button>(R.id.delete_button)
+        val edit = dialog.findViewById<Button>(R.id.edit_button)
+
+        delete.setOnClickListener {
+            deleteHabit(position, model, itemView)
+            dialog.dismiss()
         }
+        edit.setOnClickListener {
+            editHabit(position, model)
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 
     private fun pickTime(habitModel: HabitModel) {
@@ -219,12 +221,9 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         return true
     }
 
-    fun deleteHabit(position: Int) {
-        binding.habitRecycler.findViewHolderForAdapterPosition(
-            position
-        )?.itemView?.explosionView(explosionField)
-
-        listModel?.get(position)?.let { viewModel.delete(it) }
+    fun deleteHabit(position: Int, model: HabitModel, view: View) {
+        view.explosionView(explosionField)
+        viewModel.delete(model)
         if (position == 0) {
             findNavController().navigate(R.id.habitFragment)
         } else {

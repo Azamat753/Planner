@@ -71,6 +71,24 @@ fun getTodayDate(): String {
     return sdf.format(Date()).toString()
 }
 
+fun theMonth(month: Int, context: Context): String {
+    val monthNames = arrayOf(
+        context.getString(R.string.january),
+        context.getString(R.string.february),
+        context.getString(R.string.march),
+        context.getString(R.string.april),
+        context.getString(R.string.may),
+        context.getString(R.string.june),
+        context.getString(R.string.july),
+        context.getString(R.string.august),
+        context.getString(R.string.september),
+        context.getString(R.string.october),
+        context.getString(R.string.november),
+        context.getString(R.string.december)
+    )
+    return monthNames[month]
+}
+
 fun Double.toDecimal(): String {
     return DecimalFormat("##.#").format(this)
 }

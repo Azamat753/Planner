@@ -49,7 +49,7 @@ class BoardFragment : BaseFragment<FragmentBoardBinding>(FragmentBoardBinding::i
 
     private fun initClickers() {
         binding.changeLang.setOnClickListener {
-            requireActivity().changeLanguage()
+//            requireActivity().changeLanguage()
         }
         binding.startTv.setOnClickListener {
             BoardPreference.getInstance(requireContext())!!.saveShown()

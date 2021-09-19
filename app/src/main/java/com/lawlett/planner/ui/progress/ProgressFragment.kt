@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.Button
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
 import com.lawlett.planner.R
@@ -14,14 +15,14 @@ import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.data.room.viewmodels.IdeaViewModel
 import com.lawlett.planner.databinding.FragmentProgressBinding
+import com.lawlett.planner.extensions.getDialog
+import com.lawlett.planner.extensions.theMonth
 import com.lawlett.planner.ui.adapter.*
 import com.lawlett.planner.ui.base.BaseFragment
-import com.lawlett.planner.ui.dialog.fragment.ChooseTimeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.fragment.CreateEventBottomSheetDialog
-import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.ui.dialog.fragment.CreateTimetableBottomSheetDialog
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import org.koin.android.ext.android.inject
-import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -57,42 +58,84 @@ class ProgressFragment :
     }
 
     private fun initHorizontalCalendar() {
-            val startDate = Calendar.getInstance()
-            startDate.add(Calendar.MONTH, -1)
-            val endDate = Calendar.getInstance()
-            endDate.add(Calendar.MONTH, 3)
-            val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
-                activity, R.id.calendarView
-            ).range(startDate, endDate)
-                .datesNumberOnScreen(5).defaultSelectedDate(startDate)
-                .build()
+        val startDate = Calendar.getInstance()
+        startDate.add(Calendar.MONTH, -1)
+        val endDate = Calendar.getInstance()
+        endDate.add(Calendar.MONTH, 3)
+        val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
+            activity, R.id.calendarView
+        ).range(startDate, endDate)
+            .datesNumberOnScreen(5).defaultSelectedDate(startDate)
+            .build()
 
-            horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
-                override fun onDateSelected(date: Calendar, position: Int) {
+        horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
+            override fun onDateSelected(date: Calendar, position: Int) {
 
-                }
-
-                override fun onCalendarScroll(
-                    calendarView: devs.mulham.horizontalcalendar.HorizontalCalendarView?,
-                    dx: Int,
-                    dy: Int
-                ) {
-                }
-
-                @RequiresApi(api = Build.VERSION_CODES.O)
-                @SuppressLint("LogNotTimber", "SimpleDateFormat")
-                override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
-                    val dateFormat = SimpleDateFormat("E, MMM d")
-                    val chooseDate = dateFormat.format(date.time)
-                    val bottomDialog = CreateEventBottomSheetDialog()
-                    val bundle = Bundle()
-                    bundle.putString("date", chooseDate)
-                    bottomDialog.arguments = bundle
-                    bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
-                    return true
-                }
             }
+
+            override fun onCalendarScroll(
+                calendarView: devs.mulham.horizontalcalendar.HorizontalCalendarView?,
+                dx: Int,
+                dy: Int
+            ) {
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @SuppressLint("LogNotTimber", "SimpleDateFormat")
+            override fun onDateLongClicked(date: Calendar, position: Int): Boolean {
+
+                val dialog = requireContext().getDialog(R.layout.long_click_dialog)
+                val event = dialog.findViewById<Button>(R.id.delete_button)
+                val timetable = dialog.findViewById<Button>(R.id.edit_button)
+                event.text = getString(R.string.events)
+                timetable.text = getString(R.string.timetable)
+
+                event.setOnClickListener {
+                    addEvent(date)
+                    dialog.dismiss()
+                }
+                timetable.setOnClickListener {
+                    addTimeTable(date)
+                    dialog.dismiss()
+                }
+                dialog.show()
+                return true
+            }
+        }
     }
+
+    private fun addTimeTable(date: Calendar) {
+        val day = date.get(Calendar.DAY_OF_WEEK)
+        var dayOfWeek = 0
+        when (day) {
+            Calendar.MONDAY -> dayOfWeek = 0
+            Calendar.TUESDAY -> dayOfWeek = 1
+            Calendar.WEDNESDAY -> dayOfWeek = 2
+            Calendar.THURSDAY -> dayOfWeek = 3
+            Calendar.FRIDAY -> dayOfWeek = 4
+            Calendar.SATURDAY -> dayOfWeek = 5
+            Calendar.SUNDAY -> dayOfWeek = 6
+        }
+
+        val bottomDialog = CreateTimetableBottomSheetDialog(null)
+        bottomDialog.show(
+            requireActivity().supportFragmentManager,
+            dayOfWeek.toString()
+        )
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private fun addEvent(date: Calendar) {
+        val dayOfWeek = theMonth(date.get(Calendar.MONTH),requireContext())
+        val dayOfMonth = date.get(Calendar.DAY_OF_MONTH)
+        val chooseDate = "$dayOfWeek $dayOfMonth"
+        val bottomDialog = CreateEventBottomSheetDialog()
+        val bundle = Bundle()
+        bundle.putString("date", chooseDate)
+        bottomDialog.arguments = bundle
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+    }
+
     private fun backClickFinish() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             requireActivity().finish()

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:backgroundTint="?attr/iconColor"
     android:padding="16dp"
     app:cardCornerRadius="14dp"
     app:cardElevation="8dp"
@@ -12,8 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/windowColor"
-            android:foreground="?attr/selectableItemBackground"
+        android:foreground="?attr/selectableItemBackground"
         android:padding="12dp"
         tools:ignore="UnusedAttribute">
 
@@ -26,7 +26,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:textAlignment="center"
-            android:textColor="?attr/toolbarColor"
+            android:textColor="?attr/settings_text_color"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:textSize="20sp"
             android:scaleType="centerCrop"
+            android:text="💪"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="💪" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

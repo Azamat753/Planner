@@ -1,15 +1,20 @@
 package com.lawlett.planner.ui.adapter
 
+import android.annotation.SuppressLint
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.models.TasksModel
 import com.lawlett.planner.databinding.ItemMainTaskBinding
 import com.lawlett.planner.ui.base.BaseAdapter
 
-class TaskProgressAdapter : BaseAdapter<TasksModel, ItemMainTaskBinding>(R.layout.item_main_task,
+class TaskProgressAdapter : BaseAdapter<CategoryModel, ItemMainTaskBinding>(R.layout.item_main_task,
     listOf(),inflater = ItemMainTaskBinding::inflate) {
-    override fun onBind(binding: ItemMainTaskBinding, model: TasksModel) {
-        binding.taskTitle.text=model.category
-        binding.completeTaskCount.text= model.doneAmount.toString()
-        binding.categoryImage.setImageResource(R.drawable.ic_work)
+    @SuppressLint("SetTextI18n")
+    override fun onBind(binding: ItemMainTaskBinding, model: CategoryModel) {
+        binding.categoryTitle.text=model.categoryName
+        binding.categoryCount.text=model.taskAmount.toString() + " / " +  model.doneTaskAmount.toString()
+        binding.categoryImage.text = model.categoryIcon
+        binding.categoryProgress.max = model.taskAmount!!
+        binding.categoryProgress.progress = model.doneTaskAmount
     }
 }

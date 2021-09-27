@@ -15,7 +15,7 @@ class HabitAdapter : BaseAdapter<HabitModel, ItemHabitBinding>(
     override fun onBind(binding: ItemHabitBinding, model: HabitModel) {
         binding.habitTitle.text = model.title
         binding.habitImage.text = model.icon
-        binding.habitCount.text = model.currentDay.toString() + " / " + model.allDays
+            binding.habitCount.text = model.currentDay.toString() + " / " + model.allDays
         binding.habitProgress.max = model.allDays.toInt()
         binding.habitProgress.progress = model.currentDay
     }

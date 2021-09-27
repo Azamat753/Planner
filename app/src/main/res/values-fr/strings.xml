@@ -102,7 +102,7 @@
     <string name="dark_theme">Thème sombre</string>
     <string name="to_delete">Supprimer</string>
     <string name="color_dont_choosed">Aucune couleur sélectionnée</string>
-    <string name="share_app">Partager</string>
+    <string name="share">Partager</string>
     <string name="add_title">Entrez le texte</string>
     <string name="choose_image">Sélectionnez une image:</string>
     <string name="answer_qst">Répondez à la question</string>
@@ -346,4 +346,14 @@ glisser vers la droite, vous pouvez supprimer un Élément de la liste des dépe
     <string name="expensive">Расход</string>
     <string name="history">История</string>
     <string name="choose_action">Выберите действие</string>
+    <string name="ofCourse">Конечно</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="wrong_password">Не верный пароль</string>
+    <string name="block">Заблокировать</string>
+    <string name="set_password">Задайте пароль</string>
+    <string name="in_case_lost_password">На случай потери пароля</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="not_correct">Не верно</string>
+    <string name="changePassword">Сменить пароль</string>
+    <string name="unblock">Разблокировать</string>
 </resources>

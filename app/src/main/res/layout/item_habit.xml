@@ -71,20 +71,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_home" />
 
-        <TextView
-            android:id="@+id/habit_options"
-            app:layout_constraintStart_toEndOf="@id/habit_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="30sp"
-            android:paddingEnd="20sp"
-            android:paddingBottom="30sp"
-            android:text="&#8942;"
-            android:textColor="?attr/textColor"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

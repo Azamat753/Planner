@@ -12,7 +12,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.main.MainActivity
+import com.lawlett.planner.ui.activity.MainActivity
 import com.lawlett.planner.utils.Constants
 
 class MessageService : BroadcastReceiver() {
@@ -36,7 +36,7 @@ class MessageService : BroadcastReceiver() {
                 PendingIntent.getActivity(p0, 2, intent1, PendingIntent.FLAG_ONE_SHOT)
             val notification = p0?.let {
                 NotificationCompat.Builder(it, Constants.CHANNEL_ID_HOURS)
-                    .setSmallIcon(R.mipmap.ic_planner)
+                    .setSmallIcon(R.mipmap.ic_planner_last)
                     .setContentTitle(title).setContentText(text)
                     .setOnlyAlertOnce(true)
                     .setContentIntent(pendingIntent)
@@ -52,7 +52,7 @@ class MessageService : BroadcastReceiver() {
             val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
             val builder = p0?.let {
                 NotificationCompat.Builder(it)
-                    .setSmallIcon(R.mipmap.ic_planner)
+                    .setSmallIcon(R.mipmap.ic_planner_last)
                     .setContentTitle(title)
                     .setContentText(text)
                     .setAutoCancel(true)

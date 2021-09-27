@@ -11,7 +11,6 @@ object Constants {
     const val PERMISSION_CODE = 1001
 
     const val STAND_UP_POS = "standUp_pos"
-    const val BOARD_POS = "board_pos"
 
     const val USER_NAME = "name"
     const val USER_IMAGE = "image"
@@ -36,10 +35,18 @@ object Constants {
     const val INCOME = "income"
     const val EXPENSIVE = "expensive"
 
-
     const val CURRENT_DAY = "current_day"
 
     const val UPDATE_MODEL = "update_model"
-    const val DAY_INDEX = "day_index"
+
+    const val CATEGORY_PASSWORD = "category_password"
+    const val SECRET_WORD = "secret_word"
+
+    const val IS_PROGRESS = "isFromProgress"
+
+    const val OPEN_CATEGORY = "open_cy"
+    const val UNBLOCK_CATEGORY = "unblock_cy"
+    const val CHANGE_PASSWORD_CATEGORY = "change_p_cy"
+
 
 }

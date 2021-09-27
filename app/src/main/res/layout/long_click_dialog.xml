@@ -82,9 +82,34 @@
                     android:layout_margin="10dp"
                     android:layout_marginVertical="10dp"
                     android:elevation="8dp"
-                    android:text="@string/set_notification"
                     android:visibility="gone"
                     android:textAllCaps="false"
+                    android:textSize="16sp"
+                    app:backgroundTint="?attr/toolbarColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/four_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="8dp"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:text="@string/changePassword"
+                    android:textSize="16sp"
+                    app:backgroundTint="?attr/toolbarColor" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/five_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="8dp"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:text="@string/unblock"
                     android:textSize="16sp"
                     app:backgroundTint="?attr/toolbarColor" />
 

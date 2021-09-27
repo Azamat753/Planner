@@ -253,7 +253,7 @@
     <style name="TextTitleHabit">
         <item name="android:fontFamily">@font/m_medium</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">?attr/settings_text_color</item>
+        <item name="android:textColor">?attr/textColor</item>
         <item name="android:textStyle">bold</item>
     </style>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.settings.SettingsFragment">
+    tools:context=".ui.fragment.settings.SettingsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar_wrapper"
@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:drawablePadding="15dp"
-                android:text="@string/share_app"
+                android:text="@string/share"
                 android:textColor="?attr/settings_text_color"
                 android:textSize="15sp"
                 android:textStyle="bold" />

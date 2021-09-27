@@ -30,10 +30,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
     }
+//    viewBinding {
+//        enabled = true
+//    }
 
 }
 
@@ -96,4 +98,8 @@ dependencies {
     implementation 'com.github.clans:fab:1.6.4'
     //achievement
     implementation 'com.cdev.android:achievement-view:0.9.1'
+    //textSurface
+    implementation 'com.github.elevenetc:textsurface:0.9.1'
+    //spotlight
+    implementation 'com.github.takusemba:spotlight:2.0.0'
 }

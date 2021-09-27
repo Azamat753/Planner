@@ -13,13 +13,9 @@ import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.addCallback
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.google.android.material.textfield.TextInputEditText
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.main.MainActivity
+import com.lawlett.planner.ui.activity.MainActivity
 import tyrantgit.explosionfield.ExplosionField
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat

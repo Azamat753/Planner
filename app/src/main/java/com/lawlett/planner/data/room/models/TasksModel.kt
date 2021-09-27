@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "tasks_table")
-data class TasksModel(
+data class  TasksModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     val category: String,

@@ -8,7 +8,9 @@ import java.io.Serializable
 data class CategoryModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    val categoryName: String?=null,
-    var taskAmount: Int?=null,
-    val categoryIcon: String?=null
-):Serializable
+    val categoryName: String? = null,
+    var taskAmount: Int? = null,
+    val categoryIcon: String? = null,
+    val doneTaskAmount: Int = 0,
+    val isBlock: Boolean = false
+) : Serializable

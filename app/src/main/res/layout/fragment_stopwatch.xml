@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.timing.TimerFragment">
+    tools:context=".ui.fragment.timing.TimerFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageconst"
@@ -55,7 +55,7 @@
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/edit_text_background"
+            android:background="@drawable/edit_bg"
             android:hint="@string/read"
             android:inputType="textCapSentences"
             android:maxLength="21"

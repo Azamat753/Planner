@@ -102,7 +102,7 @@
     <string name="dark_theme">Dunkles Thema</string>
     <string name="to_delete">Löschen</string>
     <string name="color_dont_choosed">Keine Farbe ausgewählt</string>
-    <string name="share_app">Teile das</string>
+    <string name="share">Teile das</string>
     <string name="achievement_app">Fortschritt</string>
     <string name="add_title">Text eingeben</string>
     <string name="choose_image">Wähle ein Bild:</string>
@@ -346,4 +346,14 @@ streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen A
     <string name="expensive">Расход</string>
     <string name="history">История</string>
     <string name="choose_action">Выберите действие</string>
+    <string name="ofCourse">Конечно</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="wrong_password">Не верный пароль</string>
+    <string name="block">Заблокировать</string>
+    <string name="set_password">Задайте пароль</string>
+    <string name="in_case_lost_password">На случай потери пароля</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="not_correct">Не верно</string>
+    <string name="changePassword">Сменить пароль</string>
+    <string name="unblock">Разблокировать</string>
 </resources>

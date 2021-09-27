@@ -357,4 +357,6 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
     <string name="not_correct">Не верно</string>
     <string name="changePassword">Сменить пароль</string>
     <string name="unblock">Разблокировать</string>
+    <string name="heavenly">Небесный</string>
+    <string name="bilberry">Черничный</string>
 </resources>

@@ -69,16 +69,16 @@
         <item name="hint_color">#aaa</item>
     </style>
 
-    <style name="AppTheme.BlackBlue" parent="AppTheme.NoActionBar">
-        <item name="windowColor">#254568</item>
-        <item name="android:statusBarColor">#162C53</item>
-        <item name="bottomNavigationColor">#162C53</item>
-        <item name="toolbarColor">#162C53</item>
-        <item name="textColor">#162C53</item>
-        <item name="editTextStrokeColor">#162C53</item>
-        <item name="iconColor">#162C53</item>
-        <item name="plusBackground">#162C53</item>
-        <item name="android:navigationBarColor">#162C53</item>
+    <style name="AppTheme.DarkBlue" parent="AppTheme.NoActionBar">
+        <item name="windowColor">#FFFFFF</item>
+        <item name="android:statusBarColor">@color/dark_blue_theme</item>
+        <item name="bottomNavigationColor">@color/dark_blue_theme</item>
+        <item name="toolbarColor">@color/dark_blue_theme</item>
+        <item name="textColor">@color/dark_blue_theme</item>
+        <item name="editTextStrokeColor">@color/dark_blue_theme</item>
+        <item name="iconColor">@color/dark_blue_theme</item>
+        <item name="plusBackground">@color/dark_blue_theme</item>
+        <item name="android:navigationBarColor">@color/dark_blue_theme</item>
         <item name="settings_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
@@ -86,14 +86,14 @@
 
     <style name="AppTheme.Yellow" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">#E8D637</item>
-        <item name="bottomNavigationColor">#E8D637</item>
-        <item name="toolbarColor">#E8D637</item>
-        <item name="textColor">#E8D637</item>
-        <item name="editTextStrokeColor">#E8D637</item>
-        <item name="iconColor">#E8D637</item>
-        <item name="plusBackground">#E8D637</item>
-        <item name="android:navigationBarColor">#E8D637</item>
+        <item name="android:statusBarColor">@color/yellow_theme</item>
+        <item name="bottomNavigationColor">@color/yellow_theme</item>
+        <item name="toolbarColor">@color/yellow_theme</item>
+        <item name="textColor">@color/yellow_theme</item>
+        <item name="editTextStrokeColor">@color/yellow_theme</item>
+        <item name="iconColor">@color/yellow_theme</item>
+        <item name="plusBackground">@color/yellow_theme</item>
+        <item name="android:navigationBarColor">@color/yellow_theme</item>
         <item name="settings_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
@@ -101,14 +101,14 @@
 
     <style name="AppTheme.Red" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">#F44336</item>
-        <item name="bottomNavigationColor">#F44336</item>
-        <item name="toolbarColor">#F44336</item>
-        <item name="textColor">#F44336</item>
-        <item name="editTextStrokeColor">#F44336</item>
-        <item name="iconColor">#F44336</item>
-        <item name="plusBackground">#F44336</item>
-        <item name="android:navigationBarColor">#F44336</item>
+        <item name="android:statusBarColor">@color/red_theme</item>
+        <item name="bottomNavigationColor">@color/red_theme</item>
+        <item name="toolbarColor">@color/red_theme</item>
+        <item name="textColor">@color/red_theme</item>
+        <item name="editTextStrokeColor">@color/red_theme</item>
+        <item name="iconColor">@color/red_theme</item>
+        <item name="plusBackground">@color/red_theme</item>
+        <item name="android:navigationBarColor">@color/red_theme</item>
         <item name="create_event_editText">#FFF</item>
         <item name="settings_text_color">#FFF</item>
         <item name="hint_color">#aaa</item>
@@ -144,16 +144,16 @@
         <item name="hint_color">#aaa</item>
     </style>
 
-    <style name="AppTheme.PalePurple" parent="AppTheme.NoActionBar">
+    <style name="AppTheme.LightBlue" parent="AppTheme.NoActionBar">
         <item name="windowColor">#FFFFFF</item>
-        <item name="android:statusBarColor">#3F51B5</item>
-        <item name="bottomNavigationColor">#3F51B5</item>
-        <item name="toolbarColor">#3F51B5</item>
-        <item name="textColor">#3F51B5</item>
-        <item name="editTextStrokeColor">#3F51B5</item>
-        <item name="iconColor">#3F51B5</item>
-        <item name="plusBackground">#3F51B5</item>
-        <item name="android:navigationBarColor">#3F51B5</item>
+        <item name="android:statusBarColor">@color/light_blue_theme</item>
+        <item name="bottomNavigationColor">@color/light_blue_theme</item>
+        <item name="toolbarColor">@color/light_blue_theme</item>
+        <item name="textColor">@color/light_blue_theme</item>
+        <item name="editTextStrokeColor">@color/light_blue_theme</item>
+        <item name="iconColor">@color/light_blue_theme</item>
+        <item name="plusBackground">@color/light_blue_theme</item>
+        <item name="android:navigationBarColor">@color/light_blue_theme</item>
         <item name="settings_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>

@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initListeners()
         getCurrentLevel()
         changeTitleToolbar()
-        lockProgressFragment()
     }
 
     private fun getCurrentLevel() {

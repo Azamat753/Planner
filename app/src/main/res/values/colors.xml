@@ -3,4 +3,9 @@
     <color name="transparent">#00AF4C4C</color>
     <color name="green_for_achievement">#4CAF50</color>
     <color name="dark_green_for_achievement">#317133</color>
+    <color name="red_theme">#FF2525</color>
+    <color name="yellow_theme">#FFC03D</color>
+    <color name="light_blue_theme">#73AFBA</color>
+    <color name="dark_blue_theme">#464196</color>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.lawlett.planner.ui.fragment.timing
+package com.lawlett.planner.ui.fragment.focus
 
 import android.os.Bundle
 import android.os.SystemClock

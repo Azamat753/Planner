@@ -3,17 +3,17 @@ package com.lawlett.planner.ui.adapter
 import android.annotation.SuppressLint
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.SkillModel
-import com.lawlett.planner.databinding.TimingItemBinding
+import com.lawlett.planner.databinding.FocusItemBinding
 import com.lawlett.planner.extensions.toDecimal
 import com.lawlett.planner.ui.base.BaseAdapter
 
-class TimingAdapter : BaseAdapter<SkillModel, TimingItemBinding>(
-    R.layout.timing_item,
+class FocusAdapter : BaseAdapter<SkillModel, FocusItemBinding>(
+    R.layout.focus_item,
     listOf(),
-    TimingItemBinding::inflate
+    FocusItemBinding::inflate
 ) {
     @SuppressLint("SetTextI18n")
-    override fun onBind(binding: TimingItemBinding, model: SkillModel) {
+    override fun onBind(binding: FocusItemBinding, model: SkillModel) {
         val hour = if (model.hour.isNullOrEmpty()) "0" else model.hour
         if (hour.toDouble() < 1) {
             val minute = hour.toDouble() * 60

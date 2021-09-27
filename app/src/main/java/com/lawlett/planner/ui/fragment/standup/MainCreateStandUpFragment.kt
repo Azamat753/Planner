@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.navigation.fragment.navArgs
 import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.databinding.FragmentCreateStandUpMainBinding
 import com.lawlett.planner.ui.base.BaseFragment
@@ -14,7 +13,6 @@ import com.lawlett.planner.utils.Constants
 
 class MainCreateStandUpFragment :
     BaseFragment<FragmentCreateStandUpMainBinding>(FragmentCreateStandUpMainBinding::inflate) {
-    private val args: MainCreateStandUpFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,8 +24,8 @@ class MainCreateStandUpFragment :
         lateinit var instance: MainCreateStandUpFragment
     }
 
-    fun getModel():StandUpModel{
-        return args.model
+    fun getModel(): StandUpModel {
+        return arguments?.getSerializable(Constants.UPDATE_MODEL) as StandUpModel
     }
 
     private fun initAdapter() {

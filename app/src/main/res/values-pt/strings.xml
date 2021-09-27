@@ -357,4 +357,6 @@ deslizando para a direita, você pode remover um item da lista de gastos frequen
     <string name="not_correct">Не верно</string>
     <string name="changePassword">Сменить пароль</string>
     <string name="unblock">Разблокировать</string>
+    <string name="heavenly">Небесный</string>
+    <string name="bilberry">Черничный</string>
 </resources>

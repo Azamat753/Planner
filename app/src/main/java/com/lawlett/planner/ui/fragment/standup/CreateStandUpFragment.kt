@@ -27,8 +27,9 @@ class CreateStandUpFragment :
     }
 
     private fun isUpdate(): Boolean {
-        return MainCreateStandUpFragment.instance.getModel()!=null
+        return MainCreateStandUpFragment.instance.getModel().whatDone.isNotEmpty()
     }
+
     private fun getModel():StandUpModel{
         return MainCreateStandUpFragment.instance.getModel()
     }
@@ -148,13 +149,24 @@ class CreateStandUpFragment :
                         )
                         viewModel.insertData(model)
                     } else {
-                        val model = StandUpModel(
-                            whatPlan = whatPlan,
-                            whatDone = whatDone,
-                            problems = problems,
-                            dateCreated = currentDate
-                        )
-                        viewModel.insertData(model)
+                        if (isUpdate()){
+                            val model = StandUpModel(
+                                id= getModel().id,
+                                whatPlan = whatPlan,
+                                whatDone = whatDone,
+                                problems = problems,
+                                dateCreated = currentDate
+                            )
+                            viewModel.update(model)
+                        }else{
+                            val model = StandUpModel(
+                                whatPlan = whatPlan,
+                                whatDone = whatDone,
+                                problems = problems,
+                                dateCreated = currentDate
+                            )
+                            viewModel.insertData(model)
+                        }
                     }
                     clearPreferences()
                     findNavController().popBackStack(R.id.mainCreateStandUpFragment, true)

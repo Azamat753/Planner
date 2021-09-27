@@ -356,4 +356,6 @@ sağa kaydırarak, sık harcama listesinden bir öğeyi kaldırabilirsiniz.
     <string name="not_correct">Не верно</string>
     <string name="changePassword">Сменить пароль</string>
     <string name="unblock">Разблокировать</string>
+    <string name="heavenly">Небесный</string>
+    <string name="bilberry">Черничный</string>
 </resources>

@@ -14,7 +14,6 @@
         android:id="@+id/theme_color_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
         android:background="@drawable/rectangle_background"
         android:padding="12dp"
         android:text="Оранжевый"

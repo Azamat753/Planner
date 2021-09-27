@@ -2,6 +2,7 @@ package com.lawlett.planner.data.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "ideas_table")
 data class IdeaModel(
@@ -10,4 +11,4 @@ data class IdeaModel(
     val title: String,
     val image: String,
     val color: Int
-)
+):Serializable

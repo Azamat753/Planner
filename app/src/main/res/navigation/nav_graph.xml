@@ -48,8 +48,8 @@
 
     <fragment
         android:id="@+id/timing_fragment"
-        android:name="com.lawlett.planner.ui.fragment.timing.TimingFragment"
-        tools:layout="@layout/fragment_timing">
+        android:name="com.lawlett.planner.ui.fragment.focus.FocusFragment"
+        tools:layout="@layout/fragment_focus">
         <action
             android:id="@+id/action_timing_fragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
@@ -94,7 +94,7 @@
 
     <fragment
         android:id="@+id/stopwatchFragment"
-        android:name="com.lawlett.planner.ui.fragment.timing.StopwatchFragment"
+        android:name="com.lawlett.planner.ui.fragment.focus.StopwatchFragment"
         android:label="fragment_stopwatch"
         tools:layout="@layout/fragment_stopwatch">
         <argument
@@ -103,7 +103,7 @@
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
-        android:name="com.lawlett.planner.ui.fragment.timing.TimerFragment"
+        android:name="com.lawlett.planner.ui.fragment.focus.TimerFragment"
         android:label="fragment_timer"
         tools:layout="@layout/fragment_timer">
 

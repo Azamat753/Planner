@@ -36,13 +36,15 @@ class ChooseThemeBottomSheetDialog :
 
     private fun fillThemeModel(): ArrayList<ThemeModel> {
         val listThemeModels: ArrayList<ThemeModel> = ArrayList()
-        listThemeModels.add(ThemeModel(getString(R.string.red), "#F44336"))
+        listThemeModels.add(ThemeModel(getString(R.string.red), "#FF2525"))
         listThemeModels.add(ThemeModel(getString(R.string.orange), "#FF5722"))
-        listThemeModels.add(ThemeModel(getString(R.string.yellow), "#E8D637"))
+        listThemeModels.add(ThemeModel(getString(R.string.yellow), "#FFC03D"))
+        listThemeModels.add(ThemeModel(getString(R.string.heavenly), "#73AFBA"))
         listThemeModels.add(ThemeModel(getString(R.string.blue), "#0365C4"))
-        listThemeModels.add(ThemeModel(getString(R.string.black), "#323232"))
         listThemeModels.add(ThemeModel(getString(R.string.green), "#99DE9F"))
         listThemeModels.add(ThemeModel(getString(R.string.pink), "#FC9885"))
+        listThemeModels.add(ThemeModel(getString(R.string.black), "#323232"))
+        listThemeModels.add(ThemeModel(getString(R.string.bilberry), "#464196"))
         listThemeModels.add(ThemeModel(getString(R.string.violet), "#673AB7"))
         return listThemeModels
     }

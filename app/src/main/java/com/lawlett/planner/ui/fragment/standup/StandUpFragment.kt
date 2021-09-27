@@ -15,6 +15,7 @@ import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.ui.adapter.StandUpAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 
 
@@ -52,8 +53,11 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
 
     private fun initClickers() {
         binding.addStandUpButton.setOnClickListener {
+            val bundle=Bundle()
+            val model = StandUpModel(whatDone = "",whatPlan = "",problems = "",information = "",dateCreated = "")
+            bundle.putSerializable(Constants.UPDATE_MODEL,model)
             findNavController().navigate(
-                R.id.mainCreateStandUpFragment
+                R.id.mainCreateStandUpFragment,bundle
             )
         }
     }
@@ -83,16 +87,19 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
         val edit: Button = dialog.findViewById(R.id.edit_button)
         val share: Button = dialog.findViewById(R.id.third_button)
         share.text = getString(R.string.share)
+
         delete.setOnClickListener {
             deleteModel(itemView, model, dialog)
             dialog.dismiss()
         }
+
         edit.setOnClickListener {
-            val pAction: StandUpFragmentDirections.ActionStandUpFragmentToMainCreateStandUpFragment =
-                StandUpFragmentDirections.actionStandUpFragmentToMainCreateStandUpFragment(model)
-            findNavController().navigate(pAction)
+            val bundle = Bundle()
+            bundle.putSerializable(Constants.UPDATE_MODEL, model)
+            findNavController().navigate(R.id.mainCreateStandUpFragment, bundle)
             dialog.dismiss()
         }
+
         share.setOnClickListener {
             shareStandUp(model)
             dialog.dismiss()

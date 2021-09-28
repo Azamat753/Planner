@@ -107,12 +107,14 @@
             app:layout_constraintTop_toBottomOf="@id/balance_card">
 
             <Button
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/income_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/iconColor"
                 android:text="@string/income"
-                android:textColor="?attr/settings_text_color" />
+                android:textColor="?attr/settings_text_color"
+                tools:ignore="UnusedAttribute" />
 
         </androidx.cardview.widget.CardView>
 
@@ -132,9 +134,11 @@
                 android:id="@+id/expenses_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
                 android:background="?attr/iconColor"
                 android:text="@string/expensive"
-                android:textColor="?attr/settings_text_color" />
+                android:textColor="?attr/settings_text_color"
+                tools:ignore="UnusedAttribute" />
 
         </androidx.cardview.widget.CardView>
 
@@ -184,6 +188,7 @@
                     app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    tools:listitem="@layout/item_finance"
                     app:layout_constraintTop_toBottomOf="@id/frequent_spending_text_tv"
                     app:spanCount="2" />
 
@@ -207,7 +212,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:padding="8dp">
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="8dp"
+                tools:ignore="UnusedAttribute">
 
                 <ImageView
                     android:id="@+id/expenses_imageView"

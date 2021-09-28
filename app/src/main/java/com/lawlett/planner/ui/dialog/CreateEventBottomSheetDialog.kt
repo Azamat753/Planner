@@ -1,16 +1,25 @@
 package com.lawlett.planner.ui.dialog
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.EventModel
 import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.databinding.CreateEventBottomSheetBinding
+import com.lawlett.planner.extensions.theMonth
+import com.lawlett.planner.service.MessageService
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
@@ -20,7 +29,11 @@ class CreateEventBottomSheetDialog :
     BaseBottomSheetDialog<CreateEventBottomSheetBinding>(CreateEventBottomSheetBinding::inflate) {
     private val viewModel by inject<EventViewModel>()
     private val calendar = Calendar.getInstance()
-
+    var choosedHour: Int = 0
+    var choosedMinute: Int = 0
+    var choosedYear: Int = 0
+    var choosedMonth: Int = 0
+    var choosedDay: Int = 0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
@@ -53,7 +66,11 @@ class CreateEventBottomSheetDialog :
         binding.applyButton.setOnClickListener { insertToDataBase() }
         binding.dateButton.setOnClickListener { pickDate() }
         binding.timeButton.setOnClickListener { pickTime(false) }
-        binding.remindButton.setOnClickListener { pickTime(true) }
+        binding.remindButton.setOnClickListener {
+            if (requestPermission()) {
+                pickTime(true)
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
@@ -64,29 +81,57 @@ class CreateEventBottomSheetDialog :
         val datePicker = DatePickerDialog(
             requireContext(),
             { _, selectedYear, selectedMonth, selectedDay ->
-                binding.dateText.text = " ${theMonth(selectedMonth)}  $selectedDay  "
+                choosedYear = selectedYear
+                choosedMonth = selectedMonth
+                choosedDay = selectedDay
+                binding.dateText.text =
+                    " ${theMonth(selectedMonth, requireContext())}  $selectedDay  "
             },
             year, month, day
         )
         datePicker.show()
     }
 
-    fun theMonth(month: Int): String {
-        val monthNames = arrayOf(
-            getString(R.string.january),
-            getString(R.string.february),
-            getString(R.string.march),
-            getString(R.string.april),
-            getString(R.string.may),
-            getString(R.string.june),
-            getString(R.string.july),
-            getString(R.string.august),
-            getString(R.string.september),
-            getString(R.string.october),
-            getString(R.string.november),
-            getString(R.string.december)
+    private fun requestPermission(): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(requireContext())) {
+                val intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + requireActivity().packageName)
+                )
+                startActivityForResult(intent, 1)
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun setNotification(
+        hour: Int,
+        minute: Int,
+        title: String,
+        year: Int,
+        month: Int,
+        day: Int
+    ) {
+        val i = Intent(requireContext(), MessageService::class.java)
+        i.putExtra("displayText", "sample text")
+        i.putExtra(Constants.TITLE, "Planner+")
+        i.putExtra(Constants.TEXT, title)
+        val pi = PendingIntent.getBroadcast(
+            requireContext(),
+            minute,
+            i,
+            PendingIntent.FLAG_UPDATE_CURRENT
         )
-        return monthNames[month]
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month)
+        calendar.set(Calendar.DAY_OF_MONTH, day)
+        calendar.set(Calendar.HOUR, hour)
+        calendar.set(Calendar.MINUTE, minute)
+        val time = calendar.timeInMillis
+        val mAlarm = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        mAlarm[AlarmManager.RTC_WAKEUP, time] = pi
     }
 
     @SuppressLint("SetTextI18n")
@@ -99,7 +144,8 @@ class CreateEventBottomSheetDialog :
             TimePickerDialog(
                 requireContext(),
                 { _, selectedHour, selectedMinute ->
-
+                    choosedHour = selectedHour
+                    choosedMinute = selectedMinute
                     myHour = if (selectedHour.toString().count() == 1) {
                         "0$selectedHour"
                     } else {
@@ -148,6 +194,7 @@ class CreateEventBottomSheetDialog :
                 } else {
                     insertModel(title, date, time, remind, color)
                 }
+                setNotification(choosedHour, choosedHour, title,choosedYear,choosedMonth,choosedDay)
                 findNavController().navigate(R.id.events_fragment)
                 dismiss()
             }

@@ -10,12 +10,14 @@ import com.lawlett.planner.data.room.viewmodels.SkillViewModel
 import com.lawlett.planner.databinding.FragmentFocusBinding
 import com.lawlett.planner.extensions.explosionView
 import com.lawlett.planner.extensions.getDialog
+import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.adapter.FocusAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.ChooseTimeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateSkillBottomSheetDialog
+import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 
@@ -31,6 +33,25 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
+        addFalseDataForExample()
+    }
+
+    private fun addFalseDataForExample() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.FOCUS_EXAMPLE_DATA) == false
+        ) {
+            val model = SkillModel(
+                skillName = "Дипломная работа",
+                hour = "12.7",
+                dateCreated = getTodayDate()
+            )
+            val model2 =
+                SkillModel(skillName = "Психология", hour = "46.2", dateCreated = getTodayDate())
+            viewModel.insertData(model)
+            viewModel.insertData(model2)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.FOCUS_EXAMPLE_DATA, true)
+        }
     }
 
     private fun getData() {
@@ -58,7 +79,7 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     private fun initAdapter() {
         binding.timingRecycler.adapter = adapter
         adapter.listener = this
-        adapter.longListenerWithModel=this
+        adapter.longListenerWithModel = this
         getData()
     }
 

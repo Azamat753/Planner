@@ -9,6 +9,7 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.data.room.viewmodels.StandUpViewModel
 import com.lawlett.planner.databinding.FragmentCreateStandupBinding
+import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
@@ -30,14 +31,15 @@ class CreateStandUpFragment :
         return MainCreateStandUpFragment.instance.getModel().whatDone.isNotEmpty()
     }
 
-    private fun getModel():StandUpModel{
+    private fun getModel(): StandUpModel {
         return MainCreateStandUpFragment.instance.getModel()
     }
 
     private fun fillWhatDone() {
-        if (isUpdate()){
+        if (isUpdate()) {
             binding.description.setText(getModel().whatDone)
         }
+
         binding.applyButton.setOnClickListener {
             if (binding.description.text.toString().isEmpty()) {
                 setErrorOnField()
@@ -50,7 +52,7 @@ class CreateStandUpFragment :
     }
 
     private fun fillWhatPlan() {
-        if (isUpdate()){
+        if (isUpdate()) {
             binding.description.setText(getModel().whatPlan)
         }
         binding.applyButton.setOnClickListener {
@@ -65,7 +67,7 @@ class CreateStandUpFragment :
     }
 
     private fun fillProblems() {
-        if (isUpdate()){
+        if (isUpdate()) {
             binding.description.setText(getModel().problems)
         }
         binding.applyButton.setOnClickListener {
@@ -80,8 +82,8 @@ class CreateStandUpFragment :
     }
 
     private fun fillInfo() {
-        if (isUpdate()){
-            if (getModel().information!=null){
+        if (isUpdate()) {
+            if (getModel().information != null) {
                 binding.description.setText(getModel().information)
             }
         }
@@ -124,7 +126,6 @@ class CreateStandUpFragment :
             val whatPlan = getFromPreferences(Constants.WHAT_PLAN).toString()
             val problems = getFromPreferences(Constants.PROBLEMS).toString()
             val importantInfo = getFromPreferences(Constants.INFO).toString()
-
             when {
                 whatDone.isEmpty() -> {
                     changePage(0)
@@ -149,16 +150,16 @@ class CreateStandUpFragment :
                         )
                         viewModel.insertData(model)
                     } else {
-                        if (isUpdate()){
+                        if (isUpdate()) {
                             val model = StandUpModel(
-                                id= getModel().id,
+                                id = getModel().id,
                                 whatPlan = whatPlan,
                                 whatDone = whatDone,
                                 problems = problems,
                                 dateCreated = currentDate
                             )
                             viewModel.update(model)
-                        }else{
+                        } else {
                             val model = StandUpModel(
                                 whatPlan = whatPlan,
                                 whatDone = whatDone,

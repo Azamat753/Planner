@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     binding.toolbarMain.title = getString(R.string.habit)
                 }
                 R.id.standUpFragment -> {
-                    binding.toolbarMain.title = getString(R.string.standup)
+                    binding.toolbarMain.title = getString(R.string.stand_up)
                 }
                 R.id.financeFragment -> {
                     binding.toolbarMain.title = getString(R.string.finance)

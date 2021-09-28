@@ -33,7 +33,7 @@ fun setSpotLightTarget(targetView: View, backLayoutView: View,targets: ArrayList
             })
             .build()
         targets.add(target1)
-    }, 100)
+    }, 1000)
 }
 
 
@@ -60,7 +60,7 @@ fun setSpotLightBuilder(activity: Activity, targets: ArrayList<Target>, backLayo
         backLayoutView.findViewById<TextView>(R.id.next).setOnClickListener { spotlight.next() }
 //        backLayoutView.findViewById<TextView>(R.id.finish).setOnClickListener { spotlight.finish() }
 
-    }, 100)
+    }, 1000)
 }
 
 fun changeBubbleView(parentLayout: ConstraintLayout, firstView: Int, secondView: Int){

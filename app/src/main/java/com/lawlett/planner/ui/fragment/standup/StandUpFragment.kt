@@ -12,9 +12,11 @@ import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.data.room.viewmodels.StandUpViewModel
 import com.lawlett.planner.databinding.FragmentStandUpBinding
 import com.lawlett.planner.extensions.getDialog
+import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.ui.adapter.StandUpAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 
@@ -29,11 +31,43 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
         initClickers()
         initAdapter()
         backToProgress()
+        addFalseDataForExample()
+    }
+
+    private fun addFalseDataForExample() {
+        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.STANDUP_EXAMPLE_DATA)==false) {
+
+
+            val model = StandUpModel(
+                whatDone = "1.Переписал и перечитал код с урока\n" +
+                        "2.Просмотрел стрим\n" +
+                        "3.Написал верстку для Settings и для Quiz\n" +
+                        "4.в HistoryStorage создал методы для HistoryDao\n" +
+                        "5.в HistoryDao написал метод deleteAll под анотацией @Delete",
+                whatPlan = "1.Перечитаю код QuizApp для большего понимания \n" +
+                        "2.Перейду к реализации пунктов 4 и 5",
+                problems = "Были сложности с заполнением History фейковыми данными",
+                dateCreated = getTodayDate()
+            )
+            val model2 = StandUpModel(
+                whatDone = "-Реализовал отображение прогресса\n" +
+                        "-Реализовал отображение категории\n" +
+                        "-Реализовал отработку кнопки back если первая страница закрывает Activity\n" +
+                        "-Реализовал отработку кнопок на ответ\n" +
+                        "-Поставил таймер на onAnswerClick чтоб при нажатии на ответ ждал 1 секунду прежде чем перелистнуть на следующий вопрос\n",
+                whatPlan = "1.Начну верстку QuizResult \n 2.Реализую фунции определения наличия интернета или WI-FI",
+                problems = "С перемешиванием вопросов и вложением в  лист answer",
+                dateCreated = getTodayDate()
+            )
+            viewModel.insertData(model)
+            viewModel.insertData(model2)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.STANDUP_EXAMPLE_DATA, true)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("onViewCreated", "onCreate: StandUpFragment")
     }
 
     private fun getDataFromDataBase() {
@@ -53,11 +87,17 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
 
     private fun initClickers() {
         binding.addStandUpButton.setOnClickListener {
-            val bundle=Bundle()
-            val model = StandUpModel(whatDone = "",whatPlan = "",problems = "",information = "",dateCreated = "")
-            bundle.putSerializable(Constants.UPDATE_MODEL,model)
+            val bundle = Bundle()
+            val model = StandUpModel(
+                whatDone = "",
+                whatPlan = "",
+                problems = "",
+                information = "",
+                dateCreated = ""
+            )
+            bundle.putSerializable(Constants.UPDATE_MODEL, model)
             findNavController().navigate(
-                R.id.mainCreateStandUpFragment,bundle
+                R.id.mainCreateStandUpFragment, bundle
             )
         }
     }

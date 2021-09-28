@@ -48,5 +48,11 @@ object Constants {
     const val UNBLOCK_CATEGORY = "unblock_cy"
     const val CHANGE_PASSWORD_CATEGORY = "change_p_cy"
 
+    const val PROGRESS_EXAMPLE_DATA = "progress_ex"
+    const val FOCUS_EXAMPLE_DATA = "focus_ex"
+    const val STANDUP_EXAMPLE_DATA = "standup_ex"
+    const val FINANCE_EXAMPLE_DATA = "finance_ex"
+    const val IDEA_EXAMPLE_DATA = "idea_ex"
+
 
 }

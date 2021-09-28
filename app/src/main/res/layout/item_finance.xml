@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
+    android:foreground="?attr/selectableItemBackground"
     app:cardElevation="8dp"
     android:id="@+id/wrapper_card"
     app:cardUseCompatPadding="true">

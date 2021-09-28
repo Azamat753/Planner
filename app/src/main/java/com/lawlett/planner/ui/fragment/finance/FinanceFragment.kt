@@ -16,10 +16,7 @@ import com.lawlett.planner.ui.adapter.FinancePatternAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.FinanceBottomSheetDialog
-import com.lawlett.planner.utils.AdvicePreference
-import com.lawlett.planner.utils.AdviceText
-import com.lawlett.planner.utils.Constants
-import com.lawlett.planner.utils.IntPreference
+import com.lawlett.planner.utils.*
 import org.koin.android.ext.android.inject
 
 class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBinding::inflate),
@@ -36,6 +33,28 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         setPattern()
         showAdvice()
         setBalance()
+        addFalsePatternDataForExample()
+    }
+
+    private fun addFalsePatternDataForExample() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.FINANCE_EXAMPLE_DATA) == false
+        ) {
+            val model = FinanceModel(
+                description = "Транпорт",
+                category = Constants.PATTERN_CATEGORY,
+                amount = 770
+            )
+            val model2 = FinanceModel(
+                description = "Продукты",
+                category = Constants.PATTERN_CATEGORY,
+                amount = 1320
+            )
+            viewModel.addModel(model)
+            viewModel.addModel(model2)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.FINANCE_EXAMPLE_DATA, true)
+        }
     }
 
     private fun setPattern() {
@@ -64,8 +83,9 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
     }
 
     fun setBalance() {
-        val income: Int = IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME)?:0
-        val expensive : Int = IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE)?:0
+        val income: Int = IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME) ?: 0
+        val expensive: Int =
+            IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE) ?: 0
         val balance: Int = income - expensive
         binding.balanceAmountTv.text = balance.toString()
     }

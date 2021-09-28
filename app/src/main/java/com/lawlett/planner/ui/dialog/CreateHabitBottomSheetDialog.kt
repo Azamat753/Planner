@@ -48,7 +48,7 @@ class CreateHabitBottomSheetDialog :
         if (isUpdate()) {
             val model: HabitModel = arguments?.getSerializable(Constants.HABIT_MODEL) as HabitModel
             binding.titleEditText.setText(model.title)
-            binding.remindText.text = model.remindTime
+//            binding.remindText.text = model.remindTime
             binding.iconTv.text = model.icon
             binding.dayPicker.value = model.allDays.toInt()
         }
@@ -107,8 +107,6 @@ class CreateHabitBottomSheetDialog :
             dismiss()
         }
     }
-
-
 
     private fun iconPickerDialog() {
         val adapter = IconAdapter()

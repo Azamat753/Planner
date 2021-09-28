@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.*
@@ -21,6 +22,8 @@ import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateEventBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateTimetableBottomSheetDialog
+import com.lawlett.planner.utils.BooleanPreference
+import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.Target
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import org.koin.android.ext.android.inject
@@ -42,21 +45,93 @@ class ProgressFragment :
         backClickFinish()
         initCategoryAdapter()
         initHabitAdapter()
-
         Handler().postDelayed({
             initHorizontalCalendar()
         }, 1)
         initEventProgressAdapter()
+//        showSpotlight()
+        addFalseDataForExample()
+    }
 
-//        val targetHabit: TextView = binding.habitProgress
-//        val targets = ArrayList<Target>()
-//
-//        val root = FrameLayout(requireContext())
-//        val first = layoutInflater.inflate(R.layout.layout_target, root)
-//
-//        setSpotLightTarget(binding.habitProgress, first, targets, "ghf")
-//        setSpotLightBuilder(requireActivity(), targets, first)
+    private fun addFalseDataForExample() {
+        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.PROGRESS_EXAMPLE_DATA)==false) {
+            val calendar = Calendar.getInstance()
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+            val minute = calendar.get(Calendar.MINUTE)
+            var myHour = ""
+            var myMinute = ""
 
+            myHour = if (hour.toString().count() == 1) {
+                "0$hour"
+            } else {
+                hour.toString()
+            }
+
+            myMinute = if (minute.toString().count() == 1) {
+                "0$minute"
+            } else {
+                minute.toString()
+            }
+
+            val habitModel = HabitModel(
+                title = getString(R.string.wake_up_morning),
+                currentDay = 0,
+                allDays = "21",
+                icon = "\uD83D\uDE06"
+            )
+            val habitModel2 =
+                HabitModel(title = getString(R.string.read_by_minutes), currentDay = 0, allDays = "30", icon = "⏳")
+
+            val categoryModel = CategoryModel(
+                categoryName = getString(R.string.health),
+                categoryIcon = "\uD83C\uDF4E",
+                taskAmount = 0,
+                doneTaskAmount = 0
+            )
+            val categoryModel2 = CategoryModel(
+                categoryName = getString(R.string.targets),
+                categoryIcon = "\uD83C\uDFAF",
+                taskAmount = 0,
+                doneTaskAmount = 0
+            )
+
+            val eventModel = EventModel(
+                title = getString(R.string.download_app),
+                date = " ${theMonth(month, requireContext())}  $day",
+                time = "$myHour : $myMinute",
+                color = R.color.dark_blue_theme,
+                remindTime = ""
+            )
+            val eventModel2 = EventModel(
+                title = getString(R.string.look_how_it_work),
+                date = " ${theMonth(month, requireContext())}  $day",
+                time = "$myHour : $myMinute",
+                color = R.color.red_theme,
+                remindTime = ""
+            )
+
+            habitViewModel.insertData(habitModel)
+            habitViewModel.insertData(habitModel2)
+            categoryViewModel.addCategory(categoryModel)
+            categoryViewModel.addCategory(categoryModel2)
+            eventViewModel.addData(eventModel)
+            eventViewModel.addData(eventModel2)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.PROGRESS_EXAMPLE_DATA, true)
+        }
+    }
+
+    private fun showSpotlight() {
+        val targetHabit: CardView = binding.calendarCard
+        val targets = ArrayList<Target>()
+
+        val root = FrameLayout(requireContext())
+        val first = layoutInflater.inflate(R.layout.layout_target, root)
+
+        setSpotLightTarget(targetHabit, first, targets, "Ваш календарь")
+        setSpotLightBuilder(requireActivity(), targets, first)
     }
 
     override fun onStop() {
@@ -77,7 +152,6 @@ class ProgressFragment :
 
         horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
             override fun onDateSelected(date: Calendar, position: Int) {
-
             }
 
             override fun onCalendarScroll(
@@ -197,7 +271,7 @@ class ProgressFragment :
 
     private fun openCategory(model: CategoryModel) {
         val pAction: ProgressFragmentDirections.ActionProgressFragmentToCreateTasksFragment =
-            ProgressFragmentDirections.actionProgressFragmentToCreateTasksFragment(model,true)
+            ProgressFragmentDirections.actionProgressFragmentToCreateTasksFragment(model, true)
         findNavController().navigate(pAction)
     }
 }

@@ -333,7 +333,6 @@
     <string name="problems">Проблемы или блокираторы</string>
     <string name="important_info">Важная информация</string>
     <string name="skip">Пропустить</string>
-    <string name="standup" translatable="false">StandUp</string>
     <string name="next">Дальше</string>
     <string name="pink">Розовый</string>
     <string name="violet">Фиолетовый</string>
@@ -369,8 +368,16 @@
     <string name="not_correct">Не верно</string>
     <string name="changePassword">Сменить пароль</string>
     <string name="unblock">Разблокировать</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="heavenly">Небесный</string>
     <string name="bilberry">Черничный</string>
+    <string name="wake_up_morning">Вставать в 6 утра</string>
+    <string name="read_by_minutes">Читать по 15 минут</string>
+    <string name="health">Здоровье</string>
+    <string name="targets">Цели</string>
+    <string name="download_app">Скачать приложение Planner+</string>
+    <string name="look_how_it_work">Посмотреть как он работает</string>
+    <string name="for_next_lesson">Для следующего урока</string>
+    <string name="implement_new_fun">Реализация новой функции</string>
+    <string name="new_process">Новый процесс</string>
+    <string name="set_amount_day">Укажите количество дней</string>
 </resources>

@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_sand_time"
             app:fab_colorNormal="?attr/windowColor"
-            fab:fab_label="Новый навык"
+            fab:fab_label="@string/new_process"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton

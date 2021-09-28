@@ -22,11 +22,11 @@ import java.util.*
     }
 }
 
- fun checkDay(habitModel: HabitModel,habitViewModel: HabitViewModel) {
+ fun checkDay(habitModel: HabitModel,habitViewModel: HabitViewModel,context: Context) {
     val calendar = Calendar.getInstance()
     val currentDay = calendar[Calendar.DAY_OF_MONTH]
     val dayFromRoom: Int = habitModel.myDay
-//        if (currentDay != dayFromRoom) { todo to on
+        if (currentDay != dayFromRoom) {
     val today = (habitModel.currentDay + 1)
     val model = HabitModel(
         id = habitModel.id,
@@ -37,9 +37,9 @@ import java.util.*
         allDays = habitModel.allDays
     )
     habitViewModel.update(model)
-//        } else {
-//            Toast.makeText(requireContext(), R.string.your_habit_is_done, Toast.LENGTH_SHORT).show()
-//        }
+        } else {
+            context.showToast(context.getString(R.string.your_habit_is_done))
+        }
 }
 
  fun showHabitDayUpDialog(
@@ -50,7 +50,7 @@ import java.util.*
     dialogBuilder.setMessage(context.getString(R.string.you_is_done_habit_today))
         .setCancelable(false)
         .setPositiveButton(context.getString(R.string.ofCourse)) { _, _ ->
-            checkDay(model,habitViewModel)
+            checkDay(model,habitViewModel,context)
             rewardAnAchievement(model.currentDay,activity,achievementViewModel,achievementView)
             habitAdapter.notifyItemChanged(position)
         }

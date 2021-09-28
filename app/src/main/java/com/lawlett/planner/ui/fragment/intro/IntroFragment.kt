@@ -212,12 +212,12 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                     ),
                     Sequential(
                         TransSurface(500, createTaskText, Pivot.CENTER),
-                        ShapeReveal.create(createTaskText, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(createTaskText, 500, SideCut.show(Side.LEFT), false)
                     ),
 
                     Sequential(
                         TransSurface(500, habitText, Pivot.CENTER),
-                        ShapeReveal.create(habitText, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(habitText, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
                     Sequential(
@@ -226,7 +226,7 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                             followFinance,
                             Pivot.CENTER
                         ),
-                        ShapeReveal.create(followFinance, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(followFinance, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
                     Sequential(
@@ -236,18 +236,18 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                     Delay.duration(500),
                     Sequential(
                         TransSurface(500, followTimeTable, Pivot.CENTER),
-                        ShapeReveal.create(followTimeTable, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(followTimeTable, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
                     Sequential(
                         TransSurface(500, followFinance, Pivot.CENTER),
-                        ShapeReveal.create(writeStandUp, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(writeStandUp, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
 
                     Sequential(
                         TransSurface(500, and, Pivot.CENTER),
-                        ShapeReveal.create(and, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(and, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
                     Sequential(
@@ -256,22 +256,22 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                             createEvent,
                             Pivot.CENTER
                         ),
-                        ShapeReveal.create(createEvent, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(createEvent, 500, SideCut.show(Side.LEFT), false)
                     ),
 
                     Sequential(
                         TransSurface(500, keepIdea, Pivot.CENTER),
-                        ShapeReveal.create(keepIdea, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(keepIdea, 500, SideCut.show(Side.LEFT), false)
                     ),
 
                     Sequential(
-                        TransSurface(2500, letsStart, Pivot.CENTER),
-                        ShapeReveal.create(letsStart, 1300, SideCut.show(Side.LEFT), false)
+                        TransSurface(700, letsStart, Pivot.CENTER),
+                        ShapeReveal.create(letsStart, 500, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(500),
                     Sequential(
                         TransSurface(500, clickOnScreen, Pivot.CENTER),
-                        ShapeReveal.create(clickOnScreen, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(clickOnScreen, 500, SideCut.show(Side.LEFT), false)
                     ),
 
                     Alpha.hide(textHello, 1000),

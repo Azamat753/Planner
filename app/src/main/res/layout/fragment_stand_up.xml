@@ -9,14 +9,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/standUp_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/add_standUp_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_standup" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

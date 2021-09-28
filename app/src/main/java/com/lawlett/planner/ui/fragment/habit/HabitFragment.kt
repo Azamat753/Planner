@@ -11,9 +11,9 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.EventModel
 import com.lawlett.planner.data.room.models.HabitModel
 import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
@@ -24,10 +24,12 @@ import com.lawlett.planner.ui.adapter.HabitAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateHabitBottomSheetDialog
+import com.lawlett.planner.utils.App
 import com.lawlett.planner.utils.Constants
-import com.takusemba.spotlight.Target
+import com.lawlett.planner.utils.Constants.TITLE
 import org.koin.android.ext.android.inject
 import java.util.*
+
 
 class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<HabitModel>,
@@ -87,11 +89,8 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         clearAnimations(achievementView = binding.achievementView)
     }
 
-
-
     override fun onClick(model: HabitModel, position: Int) {
-//        showHabitDayUpDialog(model, position)
-        com.lawlett.planner.extensions.showHabitDayUpDialog(
+        showHabitDayUpDialog(
             model,
             position,
             requireContext(),
@@ -103,6 +102,7 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         )
 
     }
+
     private fun getDataFromDataBase(adapter: HabitAdapter) {
         viewModel.getHabitsLiveData()
             .observe(viewLifecycleOwner, { habits ->
@@ -117,7 +117,13 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete = dialog.findViewById<Button>(R.id.delete_button)
         val edit = dialog.findViewById<Button>(R.id.edit_button)
-
+//        val remind = dialog.findViewById<Button>(R.id.third_button)
+//        remind.setText(R.string.remind)
+//        remind.visible() todo Нужно отключить уведомления после удаления
+//        remind.setOnClickListener {
+//            pickTime(model)
+//            dialog.dismiss()
+//        }
         delete.setOnClickListener {
             deleteHabit(position, model, itemView)
             dialog.dismiss()
@@ -180,6 +186,8 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
             getString(R.string.set_notification_on) + " " + habitModel.title + " на " + "$selectedHour : $selectedMinute"
         )
     }
+
+
 
     private fun requestPermission(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

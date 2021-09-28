@@ -358,4 +358,14 @@
     <string name="unblock">Разблокировать</string>
     <string name="heavenly">Небесный</string>
     <string name="bilberry">Черничный</string>
+    <string name="wake_up_morning">Вставать в 6 утра</string>
+    <string name="read_by_minutes">Читать по 15 минут</string>
+    <string name="health">Здоровье</string>
+    <string name="targets">Цели</string>
+    <string name="download_app">Скачать приложение Planner+</string>
+    <string name="look_how_it_work">Посмотреть как он работает</string>
+    <string name="for_next_lesson">Для следующего урока</string>
+    <string name="implement_new_fun">Реализации новой фунцкии</string>
+    <string name="new_process">Новый процесс</string>
+    <string name="set_amount_day">Укажите количество дней</string>
 </resources>

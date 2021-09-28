@@ -31,6 +31,7 @@ class MainCreateStandUpFragment :
     private fun initAdapter() {
         val adapter = StandUpPagerAdapter(childFragmentManager)
         binding.pagerStandUp.adapter = adapter
+        binding.pagerStandUp.setSwipePagingEnabled(false)
         binding.dotsIndicatorStandUp.setViewPager(binding.pagerStandUp)
     }
 

@@ -19,7 +19,7 @@
             android:background="?attr/settings_text_color"
             app:navigationIconTint="?attr/toolbarColor"
             app:subtitleTextColor="?attr/toolbarColor"
-            app:title="@string/standup"
+            app:title="@string/stand_up"
             app:titleTextColor="?attr/toolbarColor">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="StandUp"
+                    android:text="@string/stand_up"
                     android:textColor="?attr/textColor"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -62,10 +62,10 @@
         app:progressMode="true"
         app:selectedDotColor="?attr/bottomNavigationColor" />
 
-    <androidx.viewpager.widget.ViewPager
+    <com.lawlett.planner.utils.SwipeLockableViewPager
         android:id="@+id/pager_standUp"
         android:layout_margin="8dp"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_height="0dp"

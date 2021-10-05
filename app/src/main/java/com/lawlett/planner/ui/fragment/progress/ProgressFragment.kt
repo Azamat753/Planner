@@ -7,17 +7,22 @@ import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
-import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
-import com.lawlett.planner.data.room.models.*
-import com.lawlett.planner.data.room.viewmodels.*
+import com.lawlett.planner.data.room.models.CategoryModel
+import com.lawlett.planner.data.room.models.EventModel
+import com.lawlett.planner.data.room.models.HabitModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
+import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
+import com.lawlett.planner.data.room.viewmodels.EventViewModel
+import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.FragmentProgressBinding
 import com.lawlett.planner.extensions.*
-import com.lawlett.planner.ui.adapter.*
+import com.lawlett.planner.ui.adapter.EventAdapter
+import com.lawlett.planner.ui.adapter.HabitAdapter
+import com.lawlett.planner.ui.adapter.TaskProgressAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateEventBottomSheetDialog
@@ -49,12 +54,14 @@ class ProgressFragment :
             initHorizontalCalendar()
         }, 1)
         initEventProgressAdapter()
-//        showSpotlight()
         addFalseDataForExample()
+        showSpotlight()
     }
 
     private fun addFalseDataForExample() {
-        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.PROGRESS_EXAMPLE_DATA)==false) {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.PROGRESS_EXAMPLE_DATA) == false
+        ) {
             val calendar = Calendar.getInstance()
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -82,7 +89,12 @@ class ProgressFragment :
                 icon = "\uD83D\uDE06"
             )
             val habitModel2 =
-                HabitModel(title = getString(R.string.read_by_minutes), currentDay = 0, allDays = "30", icon = "⏳")
+                HabitModel(
+                    title = getString(R.string.read_by_minutes),
+                    currentDay = 0,
+                    allDays = "30",
+                    icon = "⏳"
+                )
 
             val categoryModel = CategoryModel(
                 categoryName = getString(R.string.health),
@@ -124,14 +136,54 @@ class ProgressFragment :
     }
 
     private fun showSpotlight() {
-        val targetHabit: CardView = binding.calendarCard
-        val targets = ArrayList<Target>()
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.PROGRESS_INSTRUCTION) == false
+        ) {
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view = View(requireContext())
+            Handler().postDelayed({
 
-        val root = FrameLayout(requireContext())
-        val first = layoutInflater.inflate(R.layout.layout_target, root)
+                val zeroSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    getString(R.string.before_start) + "\n " + getString(R.string.two_tools) + "\n " + getString(
+                        R.string.bottom_and_side
+                    ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(R.string.after_instruction) + "\n " + getString(
+                        R.string.go
+                    )
+                )
+                val firstSpot = setSpotLightTarget(
+                    binding.calendarCard,
+                    first,
+                    getString(R.string.you_calendar) + " \n " + getString(R.string.show_day) + " \n " + getString(
+                        R.string.set_event_new_task
+                    )
+                )
+                val secondSpot = setSpotLightTarget(
+                    binding.categoryRecycler,
+                    first,
+                    getString(R.string.next_you_cards) + " \n " + getString(R.string.here_show)
+                            + " \n " + getString(R.string.click_cards_ha_ca)
+                )
 
-        setSpotLightTarget(targetHabit, first, targets, "Ваш календарь")
-        setSpotLightBuilder(requireActivity(), targets, first)
+                val thirdSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    getString(R.string.show_profile) + " \n " + getString(R.string.avater_name) + " \n " + getString(
+                        R.string.lvlup_some_action
+                    )
+                )
+                targets.add(zeroSpot)
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                targets.add(thirdSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.PROGRESS_INSTRUCTION, true)
+        }
     }
 
     override fun onStop() {
@@ -247,6 +299,7 @@ class ProgressFragment :
                     achievementViewModel,
                     binding.achievementView
                 )
+                findNavController().navigate(R.id.progress_fragment)
             }
         }
         habitViewModel.getHabitsLiveData().observe(viewLifecycleOwner, { habits ->

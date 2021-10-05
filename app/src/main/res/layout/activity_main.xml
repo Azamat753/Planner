@@ -25,7 +25,7 @@
                 android:background="?attr/settings_text_color"
                 app:navigationIconTint="?attr/toolbarColor"
                 app:subtitleTextColor="?attr/toolbarColor"
-                app:title="@string/progress"
+                app:title="@string/main"
                 app:titleTextColor="?attr/toolbarColor" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -46,9 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/windowColor"
-            app:itemIconTint="?attr/bottomNavigationColor"
             app:itemTextColor="?attr/bottomNavigationColor"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
             app:menu="@menu/bottom_nav_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>

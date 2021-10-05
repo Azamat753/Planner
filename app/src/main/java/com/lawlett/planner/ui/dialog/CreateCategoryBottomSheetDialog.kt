@@ -68,7 +68,7 @@ class CreateCategoryBottomSheetDialog :
     }
 
     private fun insertOrUpdateCategory() {
-        val title = binding.titleEditText.text.toString()
+        val title = binding.titleEditText.text.toString().trim()
         if (isUpdate()) {
             updateCategory(title)
         } else {
@@ -81,7 +81,7 @@ class CreateCategoryBottomSheetDialog :
             icon == "" -> {
                 binding.iconButton.error = getString(R.string.choose_image)
             }
-            binding.titleEditText.text.toString().isEmpty() -> {
+            binding.titleEditText.text.toString().trim().isEmpty() -> {
                 binding.titleEditText.error = getString(R.string.fill_field)
             }
             else -> {
@@ -99,8 +99,8 @@ class CreateCategoryBottomSheetDialog :
     private fun updateCategory(title: String) {
         val model: CategoryModel =
             arguments?.getSerializable(Constants.CATEGORY_MODEL) as CategoryModel
-        val currentIcon = binding.iconTv.text.toString()
-        if (binding.titleEditText.text.toString().isEmpty()) {
+        val currentIcon = binding.iconTv.text.toString().trim()
+        if (binding.titleEditText.text.toString().trim().isEmpty()) {
             binding.titleEditText.error = getString(R.string.fill_field)
         } else {
             val updateModel = CategoryModel(

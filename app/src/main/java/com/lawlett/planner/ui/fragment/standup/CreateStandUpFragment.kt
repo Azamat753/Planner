@@ -41,11 +41,11 @@ class CreateStandUpFragment :
         }
 
         binding.applyButton.setOnClickListener {
-            if (binding.description.text.toString().isEmpty()) {
+            if (binding.description.text.toString().trim().isEmpty()) {
                 setErrorOnField()
             } else {
                 changePage(1)
-                val whatDone = binding.description.text.toString()
+                val whatDone = binding.description.text.toString().trim()
                 saveToPreferences(Constants.WHAT_DONE, whatDone)
             }
         }
@@ -56,11 +56,11 @@ class CreateStandUpFragment :
             binding.description.setText(getModel().whatPlan)
         }
         binding.applyButton.setOnClickListener {
-            if (binding.description.text.toString().isEmpty()) {
+            if (binding.description.text.toString().trim().isEmpty()) {
                 setErrorOnField()
             } else {
                 changePage(2)
-                val whatPlan = binding.description.text.toString()
+                val whatPlan = binding.description.text.toString().trim()
                 saveToPreferences(Constants.WHAT_PLAN, whatPlan)
             }
         }
@@ -71,11 +71,11 @@ class CreateStandUpFragment :
             binding.description.setText(getModel().problems)
         }
         binding.applyButton.setOnClickListener {
-            if (binding.description.text.toString().isEmpty()) {
+            if (binding.description.text.toString().trim().isEmpty()) {
                 setErrorOnField()
             } else {
                 changePage(3)
-                val problems = binding.description.text.toString()
+                val problems = binding.description.text.toString().trim()
                 saveToPreferences(Constants.PROBLEMS, problems)
             }
         }
@@ -87,8 +87,8 @@ class CreateStandUpFragment :
                 binding.description.setText(getModel().information)
             }
         }
-        if (binding.description.text.toString().isNotEmpty()) {
-            val importantInfo = binding.description.text.toString()
+        if (binding.description.text.toString().trim().isNotEmpty()) {
+            val importantInfo = binding.description.text.toString().trim()
             saveToPreferences(Constants.INFO, importantInfo)
         }
     }

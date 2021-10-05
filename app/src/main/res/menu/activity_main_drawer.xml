@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_main"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_home_colored"
             android:title="@string/main" />
         <item
             android:id="@+id/nav_timing"
@@ -19,14 +19,20 @@
             android:title="@string/stand_up" />
 
         <item
+            android:id="@+id/nav_dream"
+            android:icon="@drawable/ic_dream"
+            android:title="@string/dream" />
+
+
+        <item
             android:id="@+id/nav_idea"
             android:icon="@drawable/ic_idea"
             android:title="@string/ideas" />
+
         <item
             android:id="@+id/nav_finance"
             android:icon="@drawable/ic_finance"
             android:title="@string/finance" />
-
 
         <item
             android:id="@+id/nav_settings"

@@ -3,29 +3,28 @@
 
     <item
         android:id="@+id/progress_fragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/home_selector"
         android:title="@string/main" />
 
     <item
         android:id="@+id/category_fragment"
-        android:icon="@drawable/ic_check"
-        android:title="@string/tasks" />
+        android:icon="@drawable/category_selector"
+        android:title="@string/categories" />
 
     <item
         android:id="@+id/timetableFragment"
-        android:icon="@drawable/ic_timetable"
+        android:icon="@drawable/timetable_selector"
         android:title="@string/timetable" />
+
     <item
         android:id="@+id/events_fragment"
-        android:icon="@drawable/ic_date_white"
+        android:icon="@drawable/event_selector"
         android:title="@string/events" />
 
     <item
         android:id="@+id/habitFragment"
-        android:icon="@drawable/ic_done"
+        android:icon="@drawable/habit_selector"
         android:title="@string/habit" />
-
-
 
 
 </menu>

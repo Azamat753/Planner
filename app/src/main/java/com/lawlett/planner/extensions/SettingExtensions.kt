@@ -3,7 +3,6 @@ package com.lawlett.planner.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
-import androidx.appcompat.app.AlertDialog
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.LanguageModel
 import com.lawlett.planner.utils.LanguagePreference
@@ -133,8 +132,8 @@ fun Context.checkedTheme() {
         getString(R.string.heavenly)->{
             this.setTheme(R.style.AppTheme_LightBlue)
         }
-        "Тёмно-Синий"->{
-            this.setTheme(R.style.AppTheme_DarkBlue)
+        getString(R.string.bilberry)->{
+            this.setTheme(R.style.AppTheme_Bilberry)
         }
     }
 }

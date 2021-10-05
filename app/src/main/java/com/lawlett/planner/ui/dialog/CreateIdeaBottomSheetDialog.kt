@@ -59,7 +59,7 @@ class CreateIdeaBottomSheetDialog :
     private fun insertDataToDataBase() {
         val rnd = Random()
         val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-        val title = binding.titleEditText.text.toString()
+        val title = binding.titleEditText.text.toString().trim()
         when {
             title.isEmpty() -> {
                 binding.titleEditText.error = getString(R.string.fill_field)

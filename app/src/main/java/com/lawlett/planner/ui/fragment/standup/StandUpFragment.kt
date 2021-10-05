@@ -3,22 +3,24 @@ package com.lawlett.planner.ui.fragment.standup
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.data.room.viewmodels.StandUpViewModel
 import com.lawlett.planner.databinding.FragmentStandUpBinding
-import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.extensions.getTodayDate
+import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.StandUpAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
+import com.takusemba.spotlight.Target
 import org.koin.android.ext.android.inject
+import java.util.*
 
 
 class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBinding::inflate),
@@ -27,15 +29,57 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
     val adapter = StandUpAdapter()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("onViewCreated", "onViewCreated: StandUpFragment")
         initClickers()
         initAdapter()
         backToProgress()
         addFalseDataForExample()
+        showSpotlight()
     }
 
+    private fun showSpotlight() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.STANDUP_INSTRUCTION) == false
+        ) {
+        val targets = ArrayList<Target>()
+        val root = FrameLayout(requireContext())
+        val first = layoutInflater.inflate(R.layout.layout_target, root)
+        val view = View(requireContext())
+        Handler().postDelayed({
+            val firstSpot = setSpotLightTarget(
+                view,
+                first,
+                getString(R.string.stand_up)+" \n\n\n "+getString(R.string.list_standup)+"\n "+ getString(R.string.team_work)+" \n"+getString(
+                                    R.string.plan_and_problem_share)
+            )
+            val secondSpot = setSpotLightTarget(
+                view,
+                first,
+                getString(R.string.good_system)+" \n"+getString(R.string.good_friend_standup)
+            )
+            val thirdSpot = setSpotLightTarget(
+                view,
+                first,
+               getString(R.string.hold_card)+"\n"+getString(R.string.share_fun_send)
+            )
+            val fourSpot = setSpotLightTarget(
+                binding.addStandUpButton,
+                first,
+                getString(R.string.insert_button) + " \n" + getString(R.string.create_new_standup)
+            )
+            targets.add(firstSpot)
+            targets.add(secondSpot)
+            targets.add(thirdSpot)
+            targets.add(fourSpot)
+            setSpotLightBuilder(requireActivity(), targets, first)
+        }, 100)
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.STANDUP_INSTRUCTION, true)
+    }}
+
     private fun addFalseDataForExample() {
-        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.STANDUP_EXAMPLE_DATA)==false) {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.STANDUP_EXAMPLE_DATA) == false
+        ) {
 
 
             val model = StandUpModel(
@@ -47,7 +91,7 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
                 whatPlan = "1.Перечитаю код QuizApp для большего понимания \n" +
                         "2.Перейду к реализации пунктов 4 и 5",
                 problems = "Были сложности с заполнением History фейковыми данными",
-                dateCreated = getTodayDate()
+                dateCreated = getTodayDate(requireContext())
             )
             val model2 = StandUpModel(
                 whatDone = "-Реализовал отображение прогресса\n" +
@@ -57,7 +101,7 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
                         "-Поставил таймер на onAnswerClick чтоб при нажатии на ответ ждал 1 секунду прежде чем перелистнуть на следующий вопрос\n",
                 whatPlan = "1.Начну верстку QuizResult \n 2.Реализую фунции определения наличия интернета или WI-FI",
                 problems = "С перемешиванием вопросов и вложением в  лист answer",
-                dateCreated = getTodayDate()
+                dateCreated = getTodayDate(requireContext())
             )
             viewModel.insertData(model)
             viewModel.insertData(model2)
@@ -126,6 +170,7 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
         val delete = dialog.findViewById<Button>(R.id.delete_button)
         val edit: Button = dialog.findViewById(R.id.edit_button)
         val share: Button = dialog.findViewById(R.id.third_button)
+        share.visible()
         share.text = getString(R.string.share)
 
         delete.setOnClickListener {

@@ -5,11 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:id="@+id/title_card"
-    app:cardCornerRadius="8dp"
-    android:backgroundTint="?attr/iconColor"
-    app:cardElevation="8dp"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardUseCompatPadding="true">
+    style="@style/cardStyle">
 
     <TextView
         android:id="@+id/title"
@@ -18,7 +14,7 @@
         android:layout_margin="20dp"
         android:text="@string/new_event"
         android:textAlignment="center"
-        android:textColor="?attr/settings_text_color"
+        android:textColor="?attr/textColor"
         android:textSize="20sp" />
 
 </androidx.cardview.widget.CardView>

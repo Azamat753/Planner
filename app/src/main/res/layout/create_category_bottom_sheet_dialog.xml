@@ -15,10 +15,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/title_card"
+            style="@style/cardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -57,11 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine|textCapSentences"
-                android:maxLines="20"
-                android:textColor="?attr/textColor"
-                android:textColorHint="?attr/toolbarColor"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textStyle="bold" />
+                style="@style/editTextStyle"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -82,22 +77,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@id/apply_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/icon_button"
-            app:layout_constraintTop_toBottomOf="@id/title_wrapper"
-            app:layout_constraintBottom_toTopOf="@id/apply_button"/>
+            app:layout_constraintTop_toBottomOf="@id/title_wrapper" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/apply_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginVertical="10dp"
-            android:elevation="8dp"
-            android:text="@string/apply"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/toolbarColor"
+            style="@style/createButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/icon_button" />

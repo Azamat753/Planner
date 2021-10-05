@@ -57,11 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine|textCapSentences"
-                android:maxLines="20"
-                android:textColor="?attr/textColor"
-                android:textColorHint="?attr/toolbarColor"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textStyle="bold" />
+                style="@style/editTextStyle" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

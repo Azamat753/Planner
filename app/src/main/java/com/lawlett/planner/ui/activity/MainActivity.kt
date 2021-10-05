@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val achievementViewModel by inject<AchievementViewModel>()
     private var nowLevel = 0
     private var levelId = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocale(this)
@@ -76,12 +77,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     @SuppressLint("InflateParams")
     private fun showCreateNameDialog() {
         val alertDialog = getDialog(R.layout.create_user_name)
+        val title: TextView = alertDialog.findViewById(R.id.title)
+        title.text = getString(R.string.name)
         val editText: EditText = alertDialog.findViewById(R.id.editText_create_name)
         alertDialog.findViewById<TextView>(R.id.apply_btn).setOnClickListener {
-            if (editText.text.toString().isEmpty()) {
+            if (editText.text.toString().trim().trim().isEmpty()) {
                 showToast(getString(R.string.empty))
             } else {
-                val name = editText.text.toString()
+                val name = editText.text.toString().trim()
                 headerName.text = name
                 StringPreference.getInstance(this)?.saveStringData(Constants.USER_NAME, name)
                 alertDialog.dismiss()
@@ -137,6 +140,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+        binding.bottomNavigation.itemIconTintList = null
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
@@ -180,14 +184,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         actionBarDrawerToggle.onConfigurationChanged(newConfig)
     }
 
-    private fun lockProgressFragment() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNavigation.menu.getItem(0).isEnabled = destination.id !in arrayOf(
-                R.id.progress_fragment
-            )
-        }
-    }
-
     private fun changeTitleToolbar() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -195,7 +191,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     binding.toolbarMain.title = getString(R.string.main)
                 }
                 R.id.category_fragment -> {
-                    binding.toolbarMain.title = getString(R.string.tasks)
+                    binding.toolbarMain.title = getString(R.string.categories)
                 }
                 R.id.timing_fragment -> {
                     binding.toolbarMain.title = getString(R.string.focus)
@@ -218,6 +214,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.timetableFragment -> {
                     binding.toolbarMain.title = getString(R.string.timetable)
                 }
+                R.id.dreamFragment -> {
+                    binding.toolbarMain.title = getString(R.string.dream)
+                }
+                R.id.settingsFragment -> {
+                    binding.toolbarMain.title = getString(R.string.settings)
+                }
             }
         }
     }
@@ -226,7 +228,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in arrayOf(
                     R.id.splash_fragment,
-                    R.id.settingsFragment,
                     R.id.createTasksFragment,
                     R.id.timerFragment,
                     R.id.stopwatchFragment,
@@ -242,9 +243,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 binding.bottomNavigation.visible()
             }
             if (destination.id in arrayOf(
+                    R.id.settingsFragment,
                     R.id.timing_fragment,
                     R.id.standUpFragment,
-                    R.id.financeFragment
+                    R.id.financeFragment,
+                    R.id.dreamFragment
                 )
             ) {
                 binding.bottomNavigation.gone()
@@ -265,6 +268,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_standup -> navController.navigate(R.id.standUpFragment)
             R.id.nav_finance -> navController.navigate(R.id.financeFragment)
             R.id.nav_idea -> navController.navigate(R.id.idea_fragment)
+            R.id.nav_dream -> navController.navigate(R.id.dreamFragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return false

@@ -70,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/cr_editText"
-        app:srcCompat="@drawable/ic_done" />
+        app:srcCompat="@drawable/ic_done_colored" />
 
     <com.cdev.achievementview.AchievementView
         android:id="@+id/achievement_view"

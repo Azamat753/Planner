@@ -13,6 +13,8 @@ import com.lawlett.planner.R
 import com.lawlett.planner.databinding.FragmentIntroBinding
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.utils.BooleanPreference
+import com.lawlett.planner.utils.Constants
 import su.levenetc.android.textsurface.Text
 import su.levenetc.android.textsurface.TextBuilder
 import su.levenetc.android.textsurface.TextSurface
@@ -35,12 +37,13 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
         Handler().postDelayed({
             binding.textSurface.isClickable = true
             isShowed = true
-        }, 30000)
+        }, 26000)
 
         binding.textSurface.setOnClickListener {
             if (isShowed) {
                 requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
                 findNavController().navigate(R.id.progress_fragment)
+                BooleanPreference.getInstance(requireContext())?.saveBooleanData(Constants.SPLASH_SCREEN,true)
             }
         }
     }
@@ -52,19 +55,19 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
 
     private fun playFirst(textSurface: TextSurface) {
         val textHello: Text = TextBuilder
-            .create("Вас приветствует")
+            .create(getString(R.string.you_are_hello))
             .setSize(30F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.SURFACE_CENTER).build()
         val toolsFor: Text = TextBuilder
-            .create("Инструмент")
+            .create(getString(R.string.tool))
             .setSize(30F)
             .setAlpha(0)
             .setColor(Color.RED)
             .setPosition(Align.BOTTOM_OF, textHello).build()
         val forReachAim: Text = TextBuilder
-            .create("Достижения ваших целей")
+            .create(getString(R.string.got_you_aim))
             .setSize(26F)
             .setAlpha(0)
             .setColor(Color.WHITE)
@@ -83,44 +86,44 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
             .setPosition(Align.RIGHT_OF, plannerText).build()
 
         val whatICanDo: Text = TextBuilder
-            .create("Что я умею делать ?")
+            .create(getString(R.string.what_can_i_do))
             .setSize(30F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, plusText).build()
 
         val createTaskText: Text = TextBuilder
-            .create("Создавать заметки")
+            .create(getString(R.string.create_notes))
             .setSize(30F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, whatICanDo).build()
         val habitText: Text = TextBuilder
-            .create("Привычки")
+            .create(getString(R.string.habit))
             .setSize(26F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, createTaskText).build()
         val followFinance: Text = TextBuilder
-            .create("Следить за финансами")
+            .create(getString(R.string.follow_finance))
             .setSize(26F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, habitText).build()
         val keepFocus: Text = TextBuilder
-            .create("Держать фокус")
+            .create(getString(R.string.keep_focus))
             .setSize(22F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, followFinance).build()
         val followTimeTable: Text = TextBuilder
-            .create("Вести расписание")
+            .create(getString(R.string.keep_schedule))
             .setSize(25F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, keepFocus).build()
         val writeStandUp: Text = TextBuilder
-            .create("Писать стэндап")
+            .create(getString(R.string.create_standup))
             .setSize(22F)
             .setAlpha(0)
             .setColor(Color.WHITE)
@@ -134,34 +137,34 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
             .setPosition(Align.BOTTOM_OF, writeStandUp).build()
 
         val and: Text = TextBuilder
-            .create("А также")
+            .create(getString(R.string.also))
             .setSize(30F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.RIGHT_OF, newPositionUnderWriteStandUp).build()
         val createEvent: Text = TextBuilder
-            .create("Создавать события")
+            .create(getString(R.string.to_create_event))
             .setSize(28F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, and).build()
 
         val keepIdea: Text = TextBuilder
-            .create("Фиксировать идеи")
+            .create(getString(R.string.fix_idea))
             .setSize(22F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, createEvent).build()
 
         val letsStart: Text = TextBuilder
-            .create("Давайте начинать !")
+            .create(getString(R.string.lets_start))
             .setSize(34F)
             .setAlpha(0)
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, keepIdea).build()
 
         val clickOnScreen: Text = TextBuilder
-            .create("Кликните по экрану")
+            .create(getString(R.string.click_by_screen))
             .setSize(26F)
             .setAlpha(0)
             .setColor(Color.WHITE)

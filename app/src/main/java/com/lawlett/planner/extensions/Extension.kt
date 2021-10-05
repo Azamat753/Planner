@@ -62,9 +62,12 @@ fun View.explosionView(explosionField: ExplosionField) {
     explosionField.explode(this)
 }
 
-fun getTodayDate(): String {
-    val sdf = SimpleDateFormat("dd.MM.yyyy")
-    return sdf.format(Date()).toString()
+fun getTodayDate(context: Context): String {
+    val calendar = Calendar.getInstance()
+    val currentMonth = calendar[Calendar.MONTH]
+    val currentDay = calendar[Calendar.DAY_OF_MONTH]
+    val todayDate = theMonth(currentMonth,context) + " $currentDay"
+    return todayDate
 }
 
 fun theMonth(month: Int, context: Context): String {

@@ -174,10 +174,10 @@ class CreateEventBottomSheetDialog :
     private fun insertToDataBase() {
         val rnd = Random()
         val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-        val title = binding.titleEditText.text.toString()
-        val date = binding.dateText.text.toString()
-        val time = binding.timeText.text.toString()
-        val remind = binding.remindText.text.toString()
+        val title = binding.titleEditText.text.toString().trim()
+        val date = binding.dateText.text.toString().trim()
+        val time = binding.timeText.text.toString().trim()
+        val remind = binding.remindText.text.toString().trim()
         when {
             title.isEmpty() -> {
                 binding.titleEditText.error = getString(R.string.fill_field)

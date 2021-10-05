@@ -72,22 +72,22 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
 
     private fun initClickers() {
         binding.timerTaskApply.setOnClickListener {
-            if (binding.timerTaskEdit.text.toString().isEmpty()) {
+            if (binding.timerTaskEdit.text.toString().trim().isEmpty()) {
                 requireContext().showToast(getString(R.string.empty))
             } else {
-                myTask = binding.timerTaskEdit.text.toString()
+                myTask = binding.timerTaskEdit.text.toString().trim()
                 binding.imageConst.gone()
                 binding.timerConst.visible()
             }
         }
         binding.applyButton.setOnClickListener {
-            if (binding.countTime.text.toString() == "" || binding.countTime.text.toString()
+            if (binding.countTime.text.toString().trim() == "" || binding.countTime.text.toString().trim()
                     .toInt() < 1
             ) {
-                requireContext().showToast(getString(R.string.zero_minutes_pass))
+                requireContext().showToast("not translated")
             } else {
                 timeLeftInMilliseconds =
-                    (binding.countTime.text.toString().toInt() * 60000).toLong()
+                    (binding.countTime.text.toString().trim().toInt() * 60000).toLong()
                 timeLeftText = timeLeftInMilliseconds.toString()
                 binding.skillNameTv.text = myTask
                 binding.applyButton.gone()
@@ -119,7 +119,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 val model = SkillModel(
                     hour = calculateRemainingTime(),
                     skillName = myTask,
-                    dateCreated = getTodayDate()
+                    dateCreated = getTodayDate(requireContext())
                 )
                 viewModel.insertData(model)
             }
@@ -129,7 +129,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
 
     private fun calculateRemainingTime(): String {
         val currentTime = timeLeftText?.substringBefore(":")?.toDouble()
-        val time = (binding.countTime.text.toString().toDouble() - currentTime!!) / 60
+        val time = (binding.countTime.text.toString().trim().toDouble() - currentTime!!) / 60
         return time.toString()
     }
 

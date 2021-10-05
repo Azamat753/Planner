@@ -70,11 +70,11 @@ class CreateHabitBottomSheetDialog :
             icon == "" -> {
                 binding.iconButton.error = getString(R.string.choose_image)
             }
-            binding.titleEditText.text.toString().isEmpty() -> {
+            binding.titleEditText.text.toString().trim().isEmpty() -> {
                 binding.titleEditText.error = getString(R.string.fill_field)
             }
             else -> {
-                val title = binding.titleEditText.text.toString()
+                val title = binding.titleEditText.text.toString().trim()
                 val allDays = binding.dayPicker.value.toString()
                 val habit = HabitModel(
                     title = title,
@@ -89,12 +89,12 @@ class CreateHabitBottomSheetDialog :
 
     private fun updateHabit() {
         val model: HabitModel = arguments?.getSerializable(Constants.HABIT_MODEL) as HabitModel
-        if (binding.titleEditText.text.toString().isEmpty()) {
+        if (binding.titleEditText.text.toString().trim().isEmpty()) {
             binding.titleEditText.error = getString(R.string.fill_field)
         } else {
-            val title = binding.titleEditText.text.toString()
+            val title = binding.titleEditText.text.toString().trim()
             val allDays = binding.dayPicker.value.toString()
-            val currentIcon = binding.iconTv.text.toString()
+            val currentIcon = binding.iconTv.text.toString().trim()
             val habit = HabitModel(
                 title = title,
                 icon = currentIcon,

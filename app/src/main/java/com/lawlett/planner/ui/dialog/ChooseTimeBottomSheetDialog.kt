@@ -9,6 +9,7 @@ import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
+import java.util.*
 
 class ChooseTimeBottomSheetDialog :
     BaseBottomSheetDialog<ChooseTimeBottomSheetDialogBinding>(ChooseTimeBottomSheetDialogBinding::inflate) {
@@ -43,7 +44,7 @@ class ChooseTimeBottomSheetDialog :
                 if (getSkillModel().hour.isNullOrEmpty()) "0" else (getSkillModel().hour?.toDouble()
                     ?.plus(calculatedHours)).toString()
             val dateCreated: String =
-                if (getSkillModel().dateCreated.isNullOrEmpty()) getTodayDate() else getSkillModel().dateCreated.toString()
+                if (getSkillModel().dateCreated.isNullOrEmpty()) getTodayDate(requireContext()) else getSkillModel().dateCreated.toString()
             val model = SkillModel(
                 id = getSkillModel().id,
                 hour = totalHour,

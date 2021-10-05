@@ -17,9 +17,8 @@ class FinancePatternAdapter :
     ) {
     @SuppressLint("SetTextI18n")
     override fun onBind(binding: ItemFinanceBinding, model: FinanceModel) {
-                binding.amountTv.text = "${model.amount}"
-                binding.description.text = model.description
-                binding.dateTv.gone()
-
+            binding.amountTv.text = "${model.amount}"
+            binding.description.text = model.description
+            binding.dateTv.gone()
     }
 }

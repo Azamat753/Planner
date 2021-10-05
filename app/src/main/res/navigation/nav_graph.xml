@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/progress_fragment">
+    app:startDestination="@id/splash_fragment">
 
     <fragment
         android:id="@+id/splash_fragment"
@@ -156,5 +156,10 @@
         android:name="com.lawlett.planner.ui.fragment.intro.IntroFragment"
         android:label="fragment_intro"
         tools:layout="@layout/fragment_intro" />
+    <fragment
+        android:id="@+id/dreamFragment"
+        android:name="com.lawlett.planner.ui.fragment.dream.DreamFragment"
+        android:label="fragment_dream"
+        tools:layout="@layout/fragment_dream" />
 
 </navigation>

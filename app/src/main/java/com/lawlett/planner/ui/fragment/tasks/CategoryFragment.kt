@@ -2,9 +2,11 @@ package com.lawlett.planner.ui.fragment.tasks
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
@@ -14,16 +16,16 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
-import com.lawlett.planner.extensions.explosionView
-import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateCategoryBottomSheetDialog
 import com.lawlett.planner.ui.dialog.SetPasswordBottomSheetDialog
+import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.StringPreference
+import com.takusemba.spotlight.Target
 import org.koin.android.ext.android.inject
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate),
@@ -37,6 +39,35 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
+        showSpotlight()
+    }
+
+    private fun showSpotlight() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.CATEGORY_INSTRUCTION) == false
+        ) {
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+
+            Handler().postDelayed({
+                val firstSpot = setSpotLightTarget(
+                    binding.categoryRecycler,
+                    first,
+                    "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(R.string.inside_cards_record) + " \n "+getString(R.string.hold_card)
+                )
+                val secondSpot = setSpotLightTarget(
+                    binding.addCategoryFab,
+                    first,
+                    getString(R.string.insert_button)+" \n "+getString(R.string.create_new_category_click)
+                )
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.CATEGORY_INSTRUCTION, true)
+        }
     }
 
     private fun initClickers() {
@@ -67,7 +98,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
 
     override fun onClick(model: CategoryModel, position: Int) {
         if (model.isBlock) {
-            passPassword(Constants.OPEN_CATEGORY,model)
+            passPassword(Constants.OPEN_CATEGORY, model)
         } else {
             openCategory(model)
         }
@@ -92,8 +123,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         }
 
         apply.setOnClickListener {
-            val passwordInputUser = editText.text.toString()
-            val secretWordInputUser = wordEditText.text.toString()
+            val passwordInputUser = editText.text.toString().trim()
+            val secretWordInputUser = wordEditText.text.toString().trim()
 
             if (wordWrapper.isVisible) {
                 if (secretWordInputUser == secretWord) {
@@ -174,83 +205,83 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         }
 
         unBlock.setOnClickListener {
-            passPassword(Constants.UNBLOCK_CATEGORY,model)
+            passPassword(Constants.UNBLOCK_CATEGORY, model)
             dialog.dismiss()
         }
 
 
-    changePassword.setOnClickListener{
-         passPassword(Constants.CHANGE_PASSWORD_CATEGORY,model)
+        changePassword.setOnClickListener {
+            passPassword(Constants.CHANGE_PASSWORD_CATEGORY, model)
             dialog.dismiss()
         }
 
-    delete.setOnClickListener{
-        deleteCategory(position, model)
+        delete.setOnClickListener {
+            deleteCategory(position, model)
+            dialog.dismiss()
+        }
+
+        edit.setOnClickListener {
+            editCategory(position)
+            dialog.dismiss()
+        }
+
+        block.setOnClickListener {
+            blockCategory(password, model, dialog)
+        }
+        dialog.show()
+    }
+
+    private fun blockCategory(
+        password: String?,
+        model: CategoryModel,
+        dialog: Dialog
+    ) {
+        if (TextUtils.isEmpty(password)) {
+            openPasswordSheetDialog(model)
+        } else {
+            val updateModel = CategoryModel(
+                id = model.id,
+                categoryIcon = model.categoryIcon,
+                categoryName = model.categoryName,
+                taskAmount = model.taskAmount,
+                isBlock = true
+            )
+            viewModel.update(updateModel)
+        }
         dialog.dismiss()
     }
 
-    edit.setOnClickListener{
-        editCategory(position)
-        dialog.dismiss()
+    private fun openPasswordSheetDialog(model: CategoryModel) {
+        val bottomDialog = SetPasswordBottomSheetDialog()
+        val bundle = Bundle()
+        bundle.putSerializable(Constants.UPDATE_MODEL, model)
+        bottomDialog.arguments = bundle
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
-    block.setOnClickListener{
-        blockCategory(password, model, dialog)
+    private fun deleteCategory(
+        position: Int,
+        model: CategoryModel
+    ) {
+        binding.categoryRecycler.findViewHolderForAdapterPosition(
+            position
+        )?.itemView?.explosionView(explosionField)
+        viewModel.delete(model)
+        if (position == 0) {
+            findNavController().navigate(R.id.category_fragment)
+        } else {
+            adapter.notifyItemRemoved(position)
+        }
     }
-    dialog.show()
-}
 
-private fun blockCategory(
-    password: String?,
-    model: CategoryModel,
-    dialog: Dialog
-) {
-    if (TextUtils.isEmpty(password)) {
-        openPasswordSheetDialog(model)
-    } else {
-        val updateModel = CategoryModel(
-            id = model.id,
-            categoryIcon = model.categoryIcon,
-            categoryName = model.categoryName,
-            taskAmount = model.taskAmount,
-            isBlock = true
+    private fun editCategory(position: Int) {
+        val bundle = Bundle()
+        bundle.putSerializable(Constants.CATEGORY_MODEL, listModel?.get(position))
+        val bottomDialog = CreateCategoryBottomSheetDialog()
+        bottomDialog.arguments = bundle
+        bottomDialog.show(
+            requireActivity().supportFragmentManager,
+            Constants.UPDATE_MODEL
         )
-        viewModel.update(updateModel)
     }
-    dialog.dismiss()
-}
-
-private fun openPasswordSheetDialog(model: CategoryModel) {
-    val bottomDialog = SetPasswordBottomSheetDialog()
-    val bundle = Bundle()
-    bundle.putSerializable(Constants.UPDATE_MODEL, model)
-    bottomDialog.arguments = bundle
-    bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
-}
-
-private fun deleteCategory(
-    position: Int,
-    model: CategoryModel
-) {
-    binding.categoryRecycler.findViewHolderForAdapterPosition(
-        position
-    )?.itemView?.explosionView(explosionField)
-    viewModel.delete(model)
-    if (position == 0) {
-        findNavController().navigate(R.id.category_fragment)
-    } else {
-        adapter.notifyItemRemoved(position)
-    }
-}
-
-private fun editCategory(position: Int) {
-    val bundle = Bundle()
-    bundle.putSerializable(Constants.CATEGORY_MODEL, listModel?.get(position))
-    val bottomDialog = CreateCategoryBottomSheetDialog()
-    bottomDialog.arguments = bundle
-    bottomDialog.show(
-        requireActivity().supportFragmentManager,
-        Constants.UPDATE_MODEL
-    )
-}
 }

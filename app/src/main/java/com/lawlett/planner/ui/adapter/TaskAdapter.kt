@@ -1,24 +1,9 @@
 package com.lawlett.planner.ui.adapter
 
-import com.lawlett.planner.R
+import android.view.View
 import com.lawlett.planner.data.room.models.TasksModel
-import com.lawlett.planner.databinding.ItemTaskBinding
-import com.lawlett.planner.ui.base.BaseAdapter
-
-class TaskAdapter(private val checkListener: CheckListener?) :
-    BaseAdapter<TasksModel, ItemTaskBinding>(
-        R.layout.item_task,
-        listOf(),
-        inflater = ItemTaskBinding::inflate
-    ) {
-
-    override fun onBind(binding: ItemTaskBinding, model: TasksModel) {
-        binding.taskTv.text = model.task
-        binding.taskCheck.isChecked = model.isDone
-        binding.taskCheck.setOnClickListener { checkListener?.checkClick(model) }
-    }
-}
 
 interface CheckListener {
-    fun checkClick(model: TasksModel)
+    fun checkClick(model: TasksModel,position:Int)
+    fun longClick(model: TasksModel,itemView:View)
 }

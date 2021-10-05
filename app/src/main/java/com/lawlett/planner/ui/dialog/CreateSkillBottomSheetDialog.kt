@@ -19,7 +19,7 @@ class CreateSkillBottomSheetDialog :
 
     private fun initClickers() {
         binding.applyButton.setOnClickListener {
-            val skillName = binding.titleEditText.text.toString()
+            val skillName = binding.titleEditText.text.toString().trim().trim()
             val skill = SkillModel(skillName = skillName)
             if (skillName.isNotEmpty()) {
                 viewModel.insertData(skill)

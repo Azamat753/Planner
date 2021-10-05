@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.Button
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DefaultItemAnimator
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.AchievementModel
 import com.lawlett.planner.data.room.models.CategoryModel
@@ -18,8 +19,7 @@ import com.lawlett.planner.extensions.clearField
 import com.lawlett.planner.extensions.getDialog
 import com.lawlett.planner.extensions.gone
 import com.lawlett.planner.ui.adapter.CheckListener
-import com.lawlett.planner.ui.adapter.TaskAdapter
-import com.lawlett.planner.ui.base.BaseAdapter
+import com.lawlett.planner.ui.adapter.SimpleTaskAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.StringPreference
@@ -31,12 +31,12 @@ import java.util.*
 
 class CreateTasksFragment :
     BaseFragment<FragmentCreateTasksBinding>(FragmentCreateTasksBinding::inflate),
-    CheckListener, BaseAdapter.IBaseAdapterLongClickListenerWithModel<TasksModel> {
+    CheckListener {
 
     private val viewModel by inject<TaskViewModel>()
     private val categoryViewModel by inject<CategoryViewModel>()
     private val achievementViewModel by inject<AchievementViewModel>()
-    private lateinit var adapter: TaskAdapter
+    private lateinit var adapter: SimpleTaskAdapter
     private val args: CreateTasksFragmentArgs by navArgs()
     var listTasks: List<TasksModel>? = null
     var taskAmount: Int = 0
@@ -44,13 +44,14 @@ class CreateTasksFragment :
     private var doneTaskAmount: Int = 0
     private var nowLevel = 0
     private var levelId = 0
+    var isSorted = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         categoryName = args.model.categoryName.toString()
         binding.toolbar.title = categoryName
         initRecycler()
-        initViewModel()
+        initViewModel2()
         getCurrentLevel()
         overrideBackClick()
     }
@@ -93,14 +94,34 @@ class CreateTasksFragment :
         insertDataToDataBase(categoryName)
         viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner, { tasks ->
             if (tasks.isNotEmpty()) {
-                adapter.setData(tasks as List<TasksModel>)
+                adapter.update(tasks)
+                listTasks = tasks
                 taskAmount = tasks.size
                 doneTaskAmount = 0
-                listTasks = tasks
                 tasks.forEach { if (it.isDone) doneTaskAmount++ }
             }
         })
-        adapter.notifyDataSetChanged()
+    }
+
+    private fun initViewModel2() {
+        insertDataToDataBase(categoryName)
+        viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner, { tasks ->
+            if (tasks.isNotEmpty()) {
+                listTasks = tasks
+                    Collections.sort(listTasks, object : Comparator<TasksModel> {
+                        override fun compare(p0: TasksModel?, p1: TasksModel?): Int {
+                            return java.lang.Boolean.compare(p0?.isDone == true, p1?.isDone == true)
+                        }
+                    })
+                    isSorted = true
+                    adapter.update(listTasks as List<TasksModel>)
+                taskAmount = tasks.size
+                doneTaskAmount = 0
+                tasks.forEach {
+                    if (it.isDone) doneTaskAmount++
+                }
+            }
+        })
     }
 
     private fun getCurrentLevel() {
@@ -122,10 +143,10 @@ class CreateTasksFragment :
             nowLevel += 1
             val model = AchievementModel(level = nowLevel, id = levelId)
             achievementViewModel.update(model)
-            binding.achievementView.show("Поздравляем!", "Уровень $nowLevel")
+            getString(R.string.level)
+            binding.achievementView.show(getString(R.string.congratulation), getString(R.string.level)+ "$nowLevel")
         }
     }
-
 
     private fun updateCategoryTaskAmount() {
         Handler().postDelayed({
@@ -142,14 +163,13 @@ class CreateTasksFragment :
     }
 
     private fun initRecycler() {
-        adapter = TaskAdapter(this)
-        adapter.longListenerWithModel=this
+        adapter = SimpleTaskAdapter(this)
         binding.crRecycler.adapter = adapter
     }
 
     private fun insertDataToDataBase(category: String) {
         binding.addTaskPersonal.setOnClickListener {
-            val taskValues = binding.crEditText.text.toString()
+            val taskValues = binding.crEditText.text.toString().trim()
             if (taskValues.isNotEmpty()) {
                 val tasks = TasksModel(
                     category = category,
@@ -195,7 +215,7 @@ class CreateTasksFragment :
         }
     }
 
-    override fun checkClick(model: TasksModel) {
+    override fun checkClick(model: TasksModel, position: Int) {
         if (!model.isDone) {
             model.isDone = true
             incrementDone(model)
@@ -203,10 +223,11 @@ class CreateTasksFragment :
             model.isDone = false
             decrementDone(model)
         }
-        updateCategoryTaskAmount()
+        adapter.notifyItemMoved(position, binding.crRecycler.adapter?.itemCount!! - 1)
+        binding.crRecycler.itemAnimator=DefaultItemAnimator()
     }
 
-    override fun onLongClick(model: TasksModel, itemView: View, position: Int) {
+    override fun longClick(model: TasksModel, itemView: View) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete = dialog.findViewById<Button>(R.id.delete_button)
         val edit: Button = dialog.findViewById(R.id.edit_button)
@@ -214,9 +235,9 @@ class CreateTasksFragment :
         delete.setOnClickListener {
             explosionField.explode(itemView)
             viewModel.delete(model)
+            updateCategoryTaskAmount()
             dialog.dismiss()
         }
         dialog.show()
     }
-
 }

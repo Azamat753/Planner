@@ -20,7 +20,7 @@
         tools:listitem="@layout/focus_item" />
 
     <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/menu"
+        android:id="@+id/add_skill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

@@ -12,7 +12,12 @@ import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.ui.adapter.HabitAdapter
 import java.util.*
 
- fun rewardAnAchievement(completeTask: Int,activity: Activity,achievementViewModel: AchievementViewModel,achievementView: AchievementView) {
+fun rewardAnAchievement(
+    completeTask: Int,
+    activity: Activity,
+    achievementViewModel: AchievementViewModel,
+    achievementView: AchievementView
+) {
     if (completeTask % 5 == 0) {
         var currentLevel: Int = activity.getCurrentLevel()!!
         currentLevel += 1
@@ -22,37 +27,37 @@ import java.util.*
     }
 }
 
- fun checkDay(habitModel: HabitModel,habitViewModel: HabitViewModel,context: Context) {
+fun checkDay(habitModel: HabitModel, habitViewModel: HabitViewModel, context: Context) {
     val calendar = Calendar.getInstance()
     val currentDay = calendar[Calendar.DAY_OF_MONTH]
     val dayFromRoom: Int = habitModel.myDay
-        if (currentDay != dayFromRoom) {
-    val today = (habitModel.currentDay + 1)
-    val model = HabitModel(
-        id = habitModel.id,
-        myDay = currentDay,
-        currentDay = today,
-        title = habitModel.title,
-        icon = habitModel.icon,
-        allDays = habitModel.allDays
-    )
-    habitViewModel.update(model)
-        } else {
-            context.showToast(context.getString(R.string.your_habit_is_done))
-        }
+    if (currentDay != dayFromRoom) {
+        val today = (habitModel.currentDay + 1)
+        val model = HabitModel(
+            id = habitModel.id,
+            myDay = currentDay,
+            currentDay = today,
+            title = habitModel.title,
+            icon = habitModel.icon,
+            allDays = habitModel.allDays
+        )
+        habitViewModel.update(model)
+    } else {
+        context.showToast(context.getString(R.string.your_habit_is_done))
+    }
 }
 
- fun showHabitDayUpDialog(
-    model: HabitModel,position: Int,context: Context,habitAdapter: HabitAdapter,
-    habitViewModel: HabitViewModel,activity: Activity,achievementViewModel: AchievementViewModel,
-    achievementView: AchievementView) {
+fun showHabitDayUpDialog(
+    model: HabitModel, position: Int, context: Context, habitAdapter: HabitAdapter,
+    habitViewModel: HabitViewModel, activity: Activity, achievementViewModel: AchievementViewModel,
+    achievementView: AchievementView
+) {
     val dialogBuilder = AlertDialog.Builder(context)
     dialogBuilder.setMessage(context.getString(R.string.you_is_done_habit_today))
         .setCancelable(false)
         .setPositiveButton(context.getString(R.string.ofCourse)) { _, _ ->
-            checkDay(model,habitViewModel,context)
-            rewardAnAchievement(model.currentDay,activity,achievementViewModel,achievementView)
-            habitAdapter.notifyItemChanged(position)
+            checkDay(model, habitViewModel, context)
+            rewardAnAchievement(model.currentDay, activity, achievementViewModel, achievementView)
         }
         .setNegativeButton(context.getString(R.string.no)) { dialog, _ ->
             dialog.cancel()

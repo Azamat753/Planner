@@ -16,10 +16,8 @@
             android:id="@+id/title_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
+            style="@style/cardStyle"
             app:layout_constraintTop_toTopOf="parent">
-
 
             <TextView
                 android:id="@+id/title"
@@ -58,10 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine|textCapSentences|number"
-                android:maxLines="20"
-                android:textColor="?attr/textColor"
-                android:textColorHint="?attr/toolbarColor"
-                android:textCursorDrawable="@drawable/cursor_color"
+                style="@style/editTextStyle"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,25 +85,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine|textCapSentences"
-                android:maxLines="20"
-                android:textColor="?attr/textColor"
-                android:textColorHint="?attr/toolbarColor"
-                android:textCursorDrawable="@drawable/cursor_color"
+                style="@style/editTextStyle"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/apply_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginVertical="10dp"
-            android:elevation="8dp"
+            style="@style/createButton"
             android:text="@string/apply"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/toolbarColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/description_wrapper" />

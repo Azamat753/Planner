@@ -34,22 +34,6 @@
         app:srcCompat="@drawable/ic_add_task"
         tools:targetApi="lollipop" />
 
-    <TextView
-        android:id="@+id/habit_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:padding="30dp"
-        android:text="@string/habit_add"
-        android:textColor="?attr/textColor"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.cdev.achievementview.AchievementView
         android:id="@+id/achievement_view"
         custom:collapseStartDelay="3500"

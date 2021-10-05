@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:paddingEnd="16dp"
-            android:text="@string/go_meet"
+            android:text="@string/saturday"
             android:textColor="?attr/textColor"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@id/line"

@@ -15,9 +15,9 @@ import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.effet.RippleEffect
 import com.takusemba.spotlight.shape.RoundedRectangle
 
-fun setSpotLightTarget(targetView: View, backLayoutView: View,targets: ArrayList<com.takusemba.spotlight.Target>, discription: String ){
-    android.os.Handler().postDelayed({
-        val target1 = com.takusemba.spotlight.Target.Builder()
+fun setSpotLightTarget(targetView: View, backLayoutView: View, discription: String ):Target{
+//    android.os.Handler().postDelayed({
+        val target1 = Target.Builder()
             .setAnchor(targetView)
             .setShape(RoundedRectangle(targetView.height.toFloat(), targetView.width.toFloat(), 30F))
             .setEffect(RippleEffect(100f, 200f, Color.argb(30, 124, 255, 90)))
@@ -28,13 +28,13 @@ fun setSpotLightTarget(targetView: View, backLayoutView: View,targets: ArrayList
                 }
 
                 override fun onEnded() {
-
                 }
             })
             .build()
-        targets.add(target1)
-    }, 1000)
+    return target1
+//    }, 1000)
 }
+
 
 
 fun setSpotLightBuilder(activity: Activity, targets: ArrayList<Target>, backLayoutView: View){

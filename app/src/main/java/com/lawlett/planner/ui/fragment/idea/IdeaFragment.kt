@@ -2,27 +2,30 @@ package com.lawlett.planner.ui.fragment.idea
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageView
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.IdeaModel
 import com.lawlett.planner.data.room.viewmodels.IdeaViewModel
 import com.lawlett.planner.databinding.FragmentIdeaBinding
-import com.lawlett.planner.extensions.explosionView
-import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.extensions.loadImage
+import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.IdeaAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateIdeaBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
+import com.takusemba.spotlight.Target
 import org.koin.android.ext.android.inject
+import java.util.*
 
 
 class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::inflate),
-    BaseAdapter.IBaseAdapterLongClickListenerWithModel<IdeaModel>,BaseAdapter.IBaseAdapterClickListener<IdeaModel>{
+    BaseAdapter.IBaseAdapterLongClickListenerWithModel<IdeaModel>,
+    BaseAdapter.IBaseAdapterClickListener<IdeaModel> {
     private val viewModel by inject<IdeaViewModel>()
     val adapter = IdeaAdapter()
 
@@ -31,6 +34,35 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
         initClickers(binding)
         initAdapter()
         addFalseDataForExample()
+        showSpotlight()
+    }
+
+    private fun showSpotlight() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.IDEA_INSTRUCTION) == false
+        ) {
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view: View = View(requireContext())
+            Handler().postDelayed({
+                val firstSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    "Идеи \n\n\n Ваш список идей \n Визуальный образ хороший путь чтоб закрепить пришедшую идею \n При клике на карточку картинка открывается в полный размер \n Также зажав на карточку вы можете вызвать окно с действиями"
+                )
+                val secondSpot = setSpotLightTarget(
+                    binding.addIdeaBtn,
+                    first,
+                    "Кнопка добавить \n Нажав на эту кнопку вы можете записать идею"
+                )
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.IDEA_INSTRUCTION, true)
+        }
     }
 
     private fun addFalseDataForExample() {
@@ -53,16 +85,17 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
                 ?.saveBooleanData(Constants.IDEA_EXAMPLE_DATA, true)
         }
     }
+
     private fun getURLForResource(resourceId: Int): String {
         return Uri.parse(
-            "android.resource://" +R::class.java.getPackage().name + "/" + resourceId
+            "android.resource://" + R::class.java.getPackage().name + "/" + resourceId
         ).toString()
     }
 
     private fun initAdapter() {
         binding.ideaRecycler.adapter = adapter
         adapter.longListenerWithModel = this
-        adapter.listener=this
+        adapter.listener = this
         getDataFromDataBase()
     }
 
@@ -76,7 +109,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
     }
 
     private fun initClickers(view: FragmentIdeaBinding) {
-        view.addQuickBtn.setOnClickListener {
+        view.addIdeaBtn.setOnClickListener {
             initBottomSheetDialog()
         }
         backToProgress()
@@ -109,7 +142,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
 
     override fun onClick(model: IdeaModel, position: Int) {
         val dialog = requireContext().getDialog(R.layout.image_dialog)
-        val image :ImageView = dialog.findViewById(R.id.image_idea)
+        val image: ImageView = dialog.findViewById(R.id.image_idea)
         image.loadImage(model.image)
         image.setOnClickListener { dialog.dismiss() }
         dialog.show()

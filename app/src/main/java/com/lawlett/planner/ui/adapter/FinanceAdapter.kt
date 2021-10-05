@@ -24,5 +24,8 @@ class FinanceAdapter :
             binding.description.text = model.description
             binding.dateTv.text = model.date
         }
+        if (model.date=="") {
+            binding.amountTv.text = "История пуста"
+        }
     }
 }

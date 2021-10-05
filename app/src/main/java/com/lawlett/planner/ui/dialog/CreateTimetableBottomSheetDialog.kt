@@ -11,6 +11,8 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.TimetableModel
 import com.lawlett.planner.data.room.viewmodels.TimetableViewModel
 import com.lawlett.planner.databinding.CreateTimetableBottomSheetBinding
+import com.lawlett.planner.ui.adapter.FinanceAdapter
+import com.lawlett.planner.ui.adapter.FinancePatternAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
@@ -22,12 +24,16 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
     private val viewModel by inject<TimetableViewModel>()
     private val calendar = Calendar.getInstance()
     lateinit var dayOfWeek: String
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setTitle()
         initListener()
         initSpinner()
         fillSpinner()
+    }
+
+    private fun setTitle() {
+        binding.titleCard.title.text = getString(R.string.to_the_schedule)
     }
 
     private fun fillSpinner() {
@@ -46,9 +52,9 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
     private fun insertDataToDataBase() {
         val rnd = Random()
         val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-        val title = binding.titleEditText.text.toString()
-        val startTime = binding.startTimeText.text.toString()
-        val endTime = binding.endTimeText.text.toString()
+        val title = binding.titleEditText.text.toString().trim()
+        val startTime = binding.startTimeText.text.toString().trim()
+        val endTime = binding.endTimeText.text.toString().trim()
         when {
             title.isEmpty() -> {
                 binding.titleEditText.error = getString(R.string.fill_field)
@@ -110,7 +116,7 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
         val timePicker =
             TimePickerDialog(
                 requireContext(),
-                { _, selectedHour, selectedMinute ->
+                { date, selectedHour, selectedMinute ->
                     myHour = if (selectedHour.toString().count() == 1) {
                         "0$selectedHour"
                     } else {

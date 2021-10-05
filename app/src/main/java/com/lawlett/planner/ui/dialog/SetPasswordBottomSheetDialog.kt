@@ -35,8 +35,8 @@ class SetPasswordBottomSheetDialog :
 
     private fun setPassword() {
         binding.applyButton.setOnClickListener {
-            val password: String = binding.passwordEditText.text.toString()
-            val secretWord: String = binding.wordEditText.text.toString()
+            val password: String = binding.passwordEditText.text.toString().trim()
+            val secretWord: String = binding.wordEditText.text.toString().trim()
 
             if (TextUtils.isEmpty(password)) {
                 binding.passwordEditText.error = getString(R.string.fill_field)

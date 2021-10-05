@@ -1,28 +1,29 @@
 package com.lawlett.planner.ui.fragment.events
 
-import android.app.AlarmManager
-import android.app.PendingIntent
 import android.app.TimePickerDialog
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.EventModel
-import com.lawlett.planner.data.room.models.HabitModel
 import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.databinding.FragmentEventsBinding
 import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.service.MessageService
+import com.lawlett.planner.extensions.setSpotLightBuilder
+import com.lawlett.planner.extensions.setSpotLightTarget
 import com.lawlett.planner.ui.adapter.EventAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateEventBottomSheetDialog
+import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
+import com.takusemba.spotlight.Target
 import org.koin.android.ext.android.inject
 import java.util.*
 
@@ -36,6 +37,35 @@ class EventsFragment : BaseFragment<FragmentEventsBinding>(FragmentEventsBinding
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         initListeners()
+        showSpotlight()
+    }
+
+    private fun showSpotlight() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.EVENTS_INSTRUCTION) == false
+        ) {
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+            Handler().postDelayed({
+
+                val firstSpot = setSpotLightTarget(
+                    binding.eventRecycler,
+                    first,
+                    "\n\n\n\n "+ getString(R.string.events)+"\n\n\n "+ getString(R.string.planning_events) +"\n "+getString(R.string.set_remind_by_wish) +" \n "+getString(R.string.hold_card)
+                )
+                val secondSpot = setSpotLightTarget(
+                    binding.addEventButton,
+                    first,
+                    getString(R.string.insert_button)+" \n "+getString(R.string.create_ev_date)
+                )
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.EVENTS_INSTRUCTION, true)
+        }
     }
 
     private fun initAdapter() {

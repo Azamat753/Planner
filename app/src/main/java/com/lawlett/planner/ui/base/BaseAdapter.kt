@@ -16,7 +16,6 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
 ) : RecyclerView.Adapter<BaseAdapter<T, Binding>.BaseViewHolder>() {
 
     var listener: IBaseAdapterClickListener<T>? = null
-    var longListener: IBaseAdapterLongClickListener? = null
     var longListenerWithModel: IBaseAdapterLongClickListenerWithModel<T>? = null
     private var _binding: Binding? = null
     val binding get() = _binding!!
@@ -45,6 +44,7 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
     }
 
     abstract fun onBind(binding: Binding, model: T)
+
     private fun setAnimation(viewToAnimation: View, position: Int) {
         if (position > lastPosition) {
             val animation: Animation =
@@ -59,10 +59,7 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
             onBind(binding, model)
             positionAdapter= adapterPosition
             itemView.setOnClickListener { listener?.onClick(model, adapterPosition) }
-            itemView.setOnLongClickListener {
-                longListener?.onLongClick(adapterPosition)
-                return@setOnLongClickListener true
-            }
+
             itemView.setOnLongClickListener {
                 longListenerWithModel?.onLongClick(model, itemView, adapterPosition)
                 return@setOnLongClickListener true
@@ -72,10 +69,6 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
 
     interface IBaseAdapterClickListener<T> {
         fun onClick(model: T, position: Int)
-    }
-
-    interface IBaseAdapterLongClickListener {
-        fun onLongClick(position: Int)
     }
 
     interface IBaseAdapterLongClickListenerWithModel<T> {

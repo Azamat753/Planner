@@ -61,7 +61,7 @@ class StopwatchFragment :
 
     private fun initListeners() {
         binding.stopwatchTaskApply.setOnClickListener {
-            myTask = binding.stopwatchTaskEdit.text.toString()
+            myTask = binding.stopwatchTaskEdit.text.toString().trim()
             binding.imageconst.gone()
             binding.stopWatchConst.visible()
             binding.skillNameTv.visible()
@@ -88,7 +88,7 @@ class StopwatchFragment :
             } else {
                 val skillModel = SkillModel(
                     hour = showElapsedTime(),
-                    dateCreated = getTodayDate(),
+                    dateCreated = getTodayDate(requireContext()),
                     skillName = myTask
                 )
                 viewModel.insertData(skillModel)

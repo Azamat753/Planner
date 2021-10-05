@@ -2,6 +2,7 @@ package com.lawlett.planner.ui.dialog
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.FinanceModel
 import com.lawlett.planner.data.room.viewmodels.FinanceViewModel
@@ -13,14 +14,14 @@ import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.IntPreference
 import org.koin.android.ext.android.inject
 
-class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
+class FinanceBottomSheetDialog(private val updateBalance: UpdateBalance) :
     BaseBottomSheetDialog<FinanceBottomSheetDialogBinding>
         (FinanceBottomSheetDialogBinding::inflate) {
     val viewModel by inject<FinanceViewModel>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setTitle(tag.toString())
+        setTitle()
         showAddPatternDialog()
         workWithPattern()
         initClickers()
@@ -28,7 +29,7 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
 
     private fun showAddPatternDialog() {
         if (tag == Constants.PATTERN_CATEGORY) {
-            binding.title.text = "Добавить шаблон"
+            binding.title.text = getString(R.string.add_pattern)
             binding.descriptionWrapper.hint = getString(R.string.enter_name)
             binding.amountWrapper.gone()
         }
@@ -50,9 +51,9 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
     private fun addUpdateModel(
         argModel: FinanceModel,
     ) {
-        val updateAmount = binding.amountEditText.text.toString().toInt() + getModel().amount
-        val expensiveAmount = binding.amountEditText.text.toString().toInt()
-        IntPreference.getInstance(requireContext())?.saveInt(Constants.EXPENSIVE, expensiveAmount)
+        val updateAmount = binding.amountEditText.text.toString().trim().toInt() + getModel().amount
+        val amount = binding.amountEditText.text.toString().trim().toInt()
+       countExpensiveAndIncome(false,amount)
         val model = FinanceModel(
             id = getModel().id,
             description = argModel.description,
@@ -61,22 +62,24 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
             category = Constants.PATTERN_CATEGORY
         )
         viewModel.update(model)
+        findNavController().navigate(R.id.financeFragment)
         dismiss()
     }
 
     private fun addPattern() {
-        val description = binding.descriptionEditText.text.toString()
+        val description = binding.descriptionEditText.text.toString().trim()
         val model = FinanceModel(
             description = description,
             category = Constants.PATTERN_CATEGORY,
             amount = 0,
         )
         viewModel.addModel(model)
+        findNavController().navigate(R.id.financeFragment)
         dismiss()
     }
 
-    private fun setTitle(title: String) {
-        if (title == Constants.HISTORY_CATEGORY) {
+    private fun setTitle() {
+        if (arguments?.getBoolean(Constants.IS_INCOME) == true) {
             binding.title.text = getString(R.string.income)
         } else {
             binding.title.text = getString(R.string.expensive)
@@ -100,8 +103,8 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
     }
 
     private fun addModel() {
-        val amount = binding.amountEditText.text.toString().toInt()
-        val description = binding.descriptionEditText.text.toString()
+        val amount = binding.amountEditText.text.toString().trim().toInt()
+        val description = binding.descriptionEditText.text.toString().trim()
         val isIncome = arguments?.getBoolean(Constants.IS_INCOME)
         countExpensiveAndIncome(isIncome, amount)
 
@@ -110,10 +113,11 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
                 category = tag.toString(),
                 amount = amount,
                 description = description,
-                date = getTodayDate(),
+                date = getTodayDate(requireContext()),
                 isIncome = isIncome
             )
         viewModel.addModel(model)
+        findNavController().navigate(R.id.financeFragment)
         dismiss()
     }
 
@@ -132,7 +136,8 @@ class FinanceBottomSheetDialog (private val updateBalance: UpdateBalance):
         }
         updateBalance.needUpdate()
     }
-    interface UpdateBalance{
+
+    interface UpdateBalance {
         fun needUpdate()
     }
 }

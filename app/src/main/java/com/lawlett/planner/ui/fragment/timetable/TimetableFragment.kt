@@ -1,10 +1,12 @@
 package com.lawlett.planner.ui.fragment.timetable
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 import android.widget.Button
+import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +19,9 @@ import com.lawlett.planner.ui.adapter.TimetableAdapter
 import com.lawlett.planner.ui.base.BaseAdapter.IBaseAdapterLongClickListenerWithModel
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.CreateTimetableBottomSheetDialog
+import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
+import com.takusemba.spotlight.Target
 import org.koin.android.ext.android.inject
 
 class TimetableFragment :
@@ -36,6 +40,7 @@ class TimetableFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
+        backToProgress()
         initListeners()
         initMondayAdapter()
         initTuesdayAdapter()
@@ -44,6 +49,36 @@ class TimetableFragment :
         initFridayAdapter()
         initSaturdayAdapter()
         initSundayAdapter()
+        showSpotlight()
+    }
+
+    private fun showSpotlight() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.TIMETABLE_INSTRUCTION) == false
+        ) {
+
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+
+            Handler().postDelayed({
+                val firstSpot = setSpotLightTarget(
+                    binding.monday.titleCard,
+                    first,
+                    getString(R.string.timetable)+" \n\n\n "+getString(R.string.under_everyday)+" \n "+getString(R.string.cause_see)+" \n "+ getString(R.string.hold_task_action)
+                )
+                val secondSpot = setSpotLightTarget(
+                    binding.addTimetableButton,
+                    first,
+                    getString(R.string.insert_button)+ "\n "+getString(R.string.click_here_button)
+                )
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.TIMETABLE_INSTRUCTION, true)
+        }
     }
 
     private fun initSundayAdapter() {

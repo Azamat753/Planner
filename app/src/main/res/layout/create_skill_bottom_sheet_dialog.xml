@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Новый навык"
+            android:text="@string/new_process"
             android:textAlignment="center"
             android:textColor="?attr/textColor"
             android:textSize="20sp" />
@@ -38,7 +38,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:hint="Какой навык"
+        android:hint="@string/add_title"
         android:padding="16dp"
         android:textColorHint="?attr/hint_color"
         app:boxBackgroundColor="?attr/windowColor"
@@ -58,24 +58,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine|textCapSentences"
-            android:maxLines="20"
-            android:textColor="?attr/textColor"
-            android:textColorHint="?attr/toolbarColor"
-            android:textCursorDrawable="@drawable/cursor_color"
-            android:textStyle="bold" />
+            style="@style/editTextStyle" />
     </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/apply_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginVertical="10dp"
-            android:textAllCaps="false"
-            android:elevation="8dp"
-            android:text="@string/apply"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/toolbarColor"
+            style="@style/createButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_wrapper" />

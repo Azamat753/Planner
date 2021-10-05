@@ -53,6 +53,21 @@ object Constants {
     const val STANDUP_EXAMPLE_DATA = "standup_ex"
     const val FINANCE_EXAMPLE_DATA = "finance_ex"
     const val IDEA_EXAMPLE_DATA = "idea_ex"
+    const val DREAM_EXAMPLE_DATA = "dream_ex"
+
+    const val SPLASH_SCREEN = "splash"
+
+    const val PROGRESS_INSTRUCTION = "pr_instruction"
+    const val CATEGORY_INSTRUCTION = "cat_instruction"
+    const val TIMETABLE_INSTRUCTION = "timetable_instruction"
+    const val EVENTS_INSTRUCTION = "ev_instruction"
+    const val HABIT_INSTRUCTION = "ha_instruction"
+    const val FOCUS_INSTRUCTION = "fo_instruction"
+    const val STANDUP_INSTRUCTION = "st_instruction"
+    const val DREAM_INSTRUCTION = "dr_instruction"
+    const val IDEA_INSTRUCTION = "id_instruction"
+    const val FINANCE_INSTRUCTION = "fi_instruction"
+    const val SETTINGS_INSTRUCTION = "se_instruction"
 
 
 }

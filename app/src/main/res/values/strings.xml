@@ -333,7 +333,7 @@
     <string name="up_slept_hour">\" Вверху указано сколько часов вы проспали за указанный день\"</string>
     <string name="next_time_date">Дальше от скольки до скольки и дата</string>
     <string name="course_record_dream">\"Кликнув на карточку вы можете посмотреть что снилось в тот день ,конечно же если вы его записали \"</string>
-    <string name="create_new_record">Нажав на эту кнопку вы можете создать новыю запись</string>
+    <string name="create_new_record">Нажав на эту кнопку вы можете создать новую запись</string>
     <string name="folow_finance_window">\" Окно для слежения за ваши финансами \"</string>
     <string name="new_appear_open">\" Вверху карточка с советами связанные с финансами,новый появляется каждый раз когда вы открываете это окно \"</string>
     <string name="main_fun_in_ex">\"Основые функции выполняют кнопки Дохода и Расхода \"</string>

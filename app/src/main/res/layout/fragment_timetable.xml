@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.timetable.TimetableFragment">
 
 
@@ -111,5 +112,16 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.cdev.achievementview.AchievementView
+        android:id="@+id/achievement_view"
+        custom:collapseStartDelay="3500"
+        custom:colorLeft="@color/green_for_achievement"
+        custom:colorRight="@color/dark_green_for_achievement"
+        custom:drawableLeft="@drawable/trophy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,9 +13,12 @@ class DreamAdapter : BaseAdapter<DreamModel, ItemDreamBinding>(
 ) {
     @SuppressLint("SetTextI18n")
     override fun onBind(binding: ItemDreamBinding, model: DreamModel) {
-        binding.startTime.text = "C " + model.wokeUp
-        binding.endTime.text = "До " + model.fellAsleep
-        binding.sleptHour.text = "Ушло на сон "+model.sleptHour
+        binding.startTime.text =
+            binding.startTime.context.getString(R.string.since) + " " + model.wokeUp
+        binding.endTime.text =
+            binding.startTime.context.getString(R.string.before) + " " + model.fellAsleep
+        binding.sleptHour.text =
+            binding.startTime.context.getString(R.string.gone_to_dream) + " " + model.sleptHour
         binding.dateCreated.text = model.dateCreated
         binding.line.setBackgroundColor(model.color)
     }

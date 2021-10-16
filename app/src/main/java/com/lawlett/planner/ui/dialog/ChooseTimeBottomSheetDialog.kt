@@ -9,7 +9,6 @@ import com.lawlett.planner.extensions.getTodayDate
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
-import java.util.*
 
 class ChooseTimeBottomSheetDialog :
     BaseBottomSheetDialog<ChooseTimeBottomSheetDialogBinding>(ChooseTimeBottomSheetDialogBinding::inflate) {
@@ -32,7 +31,7 @@ class ChooseTimeBottomSheetDialog :
     }
 
     private fun Double.roundTo(n: Int): Double {
-        return "%.${n}f".format(this).toDouble()
+        return "%.${n}f".format(this).replace(",",".").toDouble()
     }
 
     private fun initClickers() {

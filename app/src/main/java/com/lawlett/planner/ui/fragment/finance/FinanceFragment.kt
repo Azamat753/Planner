@@ -9,13 +9,12 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.FinanceModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.FinanceViewModel
 import com.lawlett.planner.databinding.FragmentFinanceBinding
-import com.lawlett.planner.extensions.explosionView
-import com.lawlett.planner.extensions.getDialog
-import com.lawlett.planner.extensions.setSpotLightBuilder
-import com.lawlett.planner.extensions.setSpotLightTarget
+import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.FinanceAdapter
 import com.lawlett.planner.ui.adapter.FinancePatternAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
@@ -28,10 +27,12 @@ import java.util.*
 
 class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<FinanceModel>,
-    FinanceBottomSheetDialog.UpdateBalance {
+    FinanceBottomSheetDialog.UpdateBalance ,CheckListEvent{
+    private var listSize: Int=0
     val adapter = FinanceAdapter()
     private val adapterPattern = FinancePatternAdapter()
     val viewModel by inject<FinanceViewModel>()
+    val achievementViewModel by inject<AchievementViewModel>()
     var listModel: List<FinanceModel>? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -94,12 +95,12 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
             val model = FinanceModel(
                 description = getString(R.string.transport),
                 category = Constants.PATTERN_CATEGORY,
-                amount = 770
+                amount = 0
             )
             val model2 = FinanceModel(
                 description = getString(R.string.products),
                 category = Constants.PATTERN_CATEGORY,
-                amount = 1320
+                amount = 0
             )
             viewModel.addModel(model)
             viewModel.addModel(model2)
@@ -120,6 +121,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         viewModel.getCategory(Constants.PATTERN_CATEGORY)
             .observe(viewLifecycleOwner, { list ->
                 if (list.isNotEmpty()) {
+                    listSize=list.size
                     adapterPattern.setData(list)
                     listModel = list
                 }
@@ -185,7 +187,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         position: Int
     ) {
         val dialogBuilder = AlertDialog.Builder(requireContext())
-        dialogBuilder.setMessage("Вы действительно хотите удалить?")
+        dialogBuilder.setMessage(getString(R.string.are_you_sure))
             .setCancelable(false)
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
                 itemView.explosionView(explosionField)
@@ -204,9 +206,8 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         alert.show()
     }
 
-
     private fun openSheetDialog(category: String, isIncome: Boolean, model: FinanceModel? = null) {
-        val bottomDialog = FinanceBottomSheetDialog(this)
+        val bottomDialog = FinanceBottomSheetDialog(this,this)
         val bundle = Bundle()
         bundle.putBoolean(Constants.IS_INCOME, isIncome)
         bundle.putSerializable(Constants.WORK_WITH_PATTERN, model)
@@ -220,5 +221,15 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
 
     override fun needUpdate() {
         setBalance()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+
+    override fun check() {
+        adapterPattern.notifyDataSetChanged()
+        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
     }
 }

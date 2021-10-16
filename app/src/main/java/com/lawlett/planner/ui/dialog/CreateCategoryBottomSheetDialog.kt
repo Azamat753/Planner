@@ -43,7 +43,7 @@ class CreateCategoryBottomSheetDialog :
         val dialog = requireContext().getDialog(R.layout.dialog_icon)
         val titleCard: View = dialog.findViewById(R.id.title_card)
         val title = titleCard.findViewById<TextView>(R.id.title)
-        title.text = "Выбор иконки"
+        title.text = getString(R.string.choose_icon)
         val recyclerView = dialog.findViewById(R.id.icon_recycler) as RecyclerView
         recyclerView.adapter = adapter
         adapter.setData(getIcons())

@@ -5,7 +5,6 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.FinanceModel
 import com.lawlett.planner.databinding.ItemFinanceBinding
 import com.lawlett.planner.ui.base.BaseAdapter
-import com.lawlett.planner.utils.Constants
 
 class FinanceAdapter :
     BaseAdapter<FinanceModel, ItemFinanceBinding>(
@@ -25,7 +24,7 @@ class FinanceAdapter :
             binding.dateTv.text = model.date
         }
         if (model.date=="") {
-            binding.amountTv.text = "История пуста"
+            binding.amountTv.text = binding.amountTv.context.getString(R.string.history_empty)
         }
     }
 }

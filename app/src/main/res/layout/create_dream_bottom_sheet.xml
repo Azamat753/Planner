@@ -22,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Что приснилось ? (Необязательно)"
+            android:hint="@string/wh_dr_q"
             android:padding="16dp"
             android:textColorHint="?attr/hint_color"
             app:boxBackgroundColor="?attr/windowColor"
@@ -42,6 +42,7 @@
                 style="@style/editTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="500"
                 android:inputType="textMultiLine|textCapSentences" />
         </com.google.android.material.textfield.TextInputLayout>
 

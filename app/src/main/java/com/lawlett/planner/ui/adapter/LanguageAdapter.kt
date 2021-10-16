@@ -2,17 +2,17 @@ package com.lawlett.planner.ui.adapter
 
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.LanguageModel
-import com.lawlett.planner.databinding.ItemThemeBinding
+import com.lawlett.planner.databinding.ItemLangaugeBinding
 import com.lawlett.planner.ui.base.BaseAdapter
 
-class LanguageAdapter : BaseAdapter<LanguageModel, ItemThemeBinding>(
+class LanguageAdapter : BaseAdapter<LanguageModel, ItemLangaugeBinding>(
     R.layout.item_theme,
     listOf(),
-    inflater = ItemThemeBinding::inflate
+    inflater = ItemLangaugeBinding::inflate
 
 ) {
 
-    override fun onBind(binding: ItemThemeBinding, model: LanguageModel) {
-        binding.themeColorTv.text = model.language
+    override fun onBind(binding: ItemLangaugeBinding, model: LanguageModel) {
+        binding.languageTv.text = model.language
     }
 }

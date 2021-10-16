@@ -5,8 +5,9 @@ import android.content.Context
 import android.content.res.Configuration
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.LanguageModel
+import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.IntPreference
 import com.lawlett.planner.utils.LanguagePreference
-import com.lawlett.planner.utils.ThemePreference
 import java.util.*
 
 fun Activity.changeLanguage(position: Int) {
@@ -104,36 +105,36 @@ fun loadLocale(context: Context) {
 }
 
 fun Context.checkedTheme() {
-    when (ThemePreference.getInstance(this)?.getTheme.toString()) {
-        getString(R.string.blue) -> {
-            this.setTheme(R.style.AppTheme_BlueLight)
-        }
-        getString(R.string.green) -> {
-            this.setTheme(R.style.AppTheme_GreenLight)
-        }
-        getString(R.string.red) -> {
+    when (IntPreference.getInstance(this)?.getInt(Constants.THEME_PREFERENCE)) {
+        4 -> {
             this.setTheme(R.style.AppTheme_Red)
         }
-        getString(R.string.black) -> {
-            this.setTheme(R.style.AppTheme_Black)
-        }
-        getString(R.string.yellow) -> {
-            this.setTheme(R.style.AppTheme_Yellow)
-        }
-        getString(R.string.orange) -> {
+        1 -> {
             this.setTheme(R.style.AppTheme_Orange)
         }
-        getString(R.string.pink) -> {
-            this.setTheme(R.style.AppTheme_Pink)
+        2 -> {
+            this.setTheme(R.style.AppTheme_Yellow)
         }
-        getString(R.string.violet) -> {
-            this.setTheme(R.style.AppTheme_Violet)
-        }
-        getString(R.string.heavenly)->{
+        3 -> {
             this.setTheme(R.style.AppTheme_LightBlue)
         }
-        getString(R.string.bilberry)->{
+        0 -> {
+            this.setTheme(R.style.AppTheme_BlueLight)
+        }
+        5 -> {
+            this.setTheme(R.style.AppTheme_GreenLight)
+        }
+        6 -> {
+            this.setTheme(R.style.AppTheme_Pink)
+        }
+        7 -> {
+            this.setTheme(R.style.AppTheme_Black)
+        }
+        8 -> {
             this.setTheme(R.style.AppTheme_Bilberry)
+        }
+        9 -> {
+            this.setTheme(R.style.AppTheme_Violet)
         }
     }
 }

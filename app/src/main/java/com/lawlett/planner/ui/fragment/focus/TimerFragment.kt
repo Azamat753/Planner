@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.lawlett.planner.R
@@ -22,7 +21,6 @@ import java.lang.reflect.InvocationTargetException
 
 class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::inflate) {
     private var timeLeftInMilliseconds: Long = 0
-    private lateinit var notificationManager: NotificationManagerCompat
     var myTask: String? = null
     var timeLeftText: String? = null
     private var atg: Animation? = null
@@ -123,6 +121,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
                 )
                 viewModel.insertData(model)
             }
+
             findNavController().navigate(R.id.timing_fragment)
         }
     }

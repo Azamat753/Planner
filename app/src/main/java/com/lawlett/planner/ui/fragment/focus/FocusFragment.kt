@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.FrameLayout
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.SkillModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.SkillViewModel
 import com.lawlett.planner.databinding.FragmentFocusBinding
 import com.lawlett.planner.extensions.*
@@ -24,11 +26,12 @@ import java.util.*
 
 class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<SkillModel>,
-    BaseAdapter.IBaseAdapterLongClickListenerWithModel<SkillModel> {
+    BaseAdapter.IBaseAdapterLongClickListenerWithModel<SkillModel>, CheckListEvent {
 
-    var listSkill: List<SkillModel>? = null
+    private var listSize = 0
     private val adapter = FocusAdapter()
     private val viewModel by inject<SkillViewModel>()
+    private val achievementViewModel by inject<AchievementViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,53 +39,63 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         initAdapter()
         addFalseDataForExample()
         showSpotlight()
+        backToProgress()
     }
+
     private fun showSpotlight() {
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.FOCUS_INSTRUCTION) == false
         ) {
-        val targets = ArrayList<Target>()
-        val root = FrameLayout(requireContext())
-        val first = layoutInflater.inflate(R.layout.layout_target, root)
-        val view = View(requireContext())
+            val targets = ArrayList<Target>()
+            val root = FrameLayout(requireContext())
+            val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view = View(requireContext())
 
-        Handler().postDelayed({
-            val firstSpot = setSpotLightTarget(
-                view,
-                first,
-                "\n\n\n\n "+getString(R.string.focus)+ " \n\n\n "+getString(R.string.list_process)+" \n "+getString(R.string.theroy_thousand_hour)+" \n"+getString(
-                                    R.string.profession_thousand_hour)
-            )
-            val secondSpot = setSpotLightTarget(
-                view,
-                first,
-                getString(R.string.insert_button)+" \n "+getString(R.string.work_stopwatch_timer)
-            )
-            val thirdSpot = setSpotLightTarget(
-                view,
-                first,
-                getString(R.string.hold_card)
-            )
-            targets.add(firstSpot)
-            targets.add(secondSpot)
-            targets.add(thirdSpot)
-            setSpotLightBuilder(requireActivity(), targets, first)
-        }, 100)
-        BooleanPreference.getInstance(requireContext())
-            ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
-    }}
+            Handler().postDelayed({
+                val firstSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    "\n\n\n\n " + getString(R.string.focus) + " \n\n\n " + getString(R.string.list_process) + " \n " + getString(
+                        R.string.theroy_thousand_hour
+                    ) + " \n" + getString(
+                        R.string.profession_thousand_hour
+                    )
+                )
+                val secondSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    getString(R.string.insert_button) + " \n " + getString(R.string.work_stopwatch_timer)
+                )
+                val thirdSpot = setSpotLightTarget(
+                    view,
+                    first,
+                    getString(R.string.hold_card)
+                )
+                targets.add(firstSpot)
+                targets.add(secondSpot)
+                targets.add(thirdSpot)
+                setSpotLightBuilder(requireActivity(), targets, first)
+            }, 100)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
+        }
+    }
 
     private fun addFalseDataForExample() {
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.FOCUS_EXAMPLE_DATA) == false
         ) {
             val model = SkillModel(
-                skillName = "Дипломная работа",
+                skillName = getString(R.string.diplom_work),
                 hour = "12.7",
                 dateCreated = getTodayDate(requireContext())
             )
             val model2 =
-                SkillModel(skillName = "Психология", hour = "46.2", dateCreated = getTodayDate(requireContext()))
+                SkillModel(
+                    skillName = getString(R.string.phisology),
+                    hour = "46.2",
+                    dateCreated = getTodayDate(requireContext())
+                )
             viewModel.insertData(model)
             viewModel.insertData(model2)
             BooleanPreference.getInstance(requireContext())
@@ -93,9 +106,8 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     private fun getData() {
         viewModel.getData().observe(viewLifecycleOwner, { skills ->
             if (skills.isNotEmpty()) {
-                listSkill = skills
+                listSize=skills.size
                 adapter.setData(skills)
-                adapter.notifyDataSetChanged()
             }
         })
     }
@@ -126,7 +138,7 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     }
 
     private fun showCreateSkillDialog() {
-        val bottomDialog = CreateSkillBottomSheetDialog()
+        val bottomDialog = CreateSkillBottomSheetDialog(this)
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
@@ -138,6 +150,7 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
+
     override fun onLongClick(model: SkillModel, itemView: View, position: Int) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete: Button = dialog.findViewById(R.id.delete_button)
@@ -147,7 +160,7 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         stopwatch.text = getString(R.string.stopwatch)
         stopwatch.visible()
         delete.setOnClickListener {
-            deleteItem(itemView, position)
+            deleteItem(model, itemView, position)
             dialog.dismiss()
         }
         timer.setOnClickListener {
@@ -161,13 +174,23 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         dialog.show()
     }
 
-    private fun deleteItem(itemView: View, position: Int) {
+    private fun deleteItem(model: SkillModel, itemView: View, position: Int) {
         itemView.explosionView(explosionField)
-        viewModel.delete(listSkill?.get(position))
+        viewModel.delete(model)
         if (position == 0) {
             findNavController().navigate(R.id.timing_fragment)
         } else {
             adapter.notifyItemRemoved(position)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+
+    override fun check() {
+        adapter.notifyDataSetChanged()
+        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
     }
 }

@@ -11,7 +11,9 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListTimeTable
 import com.lawlett.planner.data.room.models.TimetableModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.TimetableViewModel
 import com.lawlett.planner.databinding.FragmentTimetableBinding
 import com.lawlett.planner.extensions.*
@@ -26,8 +28,9 @@ import org.koin.android.ext.android.inject
 
 class TimetableFragment :
     BaseFragment<FragmentTimetableBinding>(FragmentTimetableBinding::inflate),
-    CreateTimetableBottomSheetDialog.UpdateRecycler {
+    CreateTimetableBottomSheetDialog.UpdateRecycler, CheckListTimeTable {
     private val viewModel by inject<TimetableViewModel>()
+    private val achievementViewModel by inject<AchievementViewModel>()
     private val adapter = TimetableAdapter()
     private lateinit var listMonday: List<TimetableModel>
     private lateinit var listTuesday: List<TimetableModel>
@@ -65,12 +68,14 @@ class TimetableFragment :
                 val firstSpot = setSpotLightTarget(
                     binding.monday.titleCard,
                     first,
-                    getString(R.string.timetable)+" \n\n\n "+getString(R.string.under_everyday)+" \n "+getString(R.string.cause_see)+" \n "+ getString(R.string.hold_task_action)
+                    getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
+                        R.string.cause_see
+                    ) + " \n " + getString(R.string.hold_task_action)
                 )
                 val secondSpot = setSpotLightTarget(
                     binding.addTimetableButton,
                     first,
-                    getString(R.string.insert_button)+ "\n "+getString(R.string.click_here_button)
+                    getString(R.string.insert_button) + "\n " + getString(R.string.click_here_button)
                 )
                 targets.add(firstSpot)
                 targets.add(secondSpot)
@@ -176,7 +181,6 @@ class TimetableFragment :
                     showActionDialog(binding.tuesdayRecycler, position, listTuesday, 1)
                 }
             }
-
     }
 
     private fun initMondayAdapter() {
@@ -266,7 +270,7 @@ class TimetableFragment :
     }
 
     private fun openSheetDialogForEdit(model: TimetableModel, dayIndex: Int) {
-        val bottomDialog = CreateTimetableBottomSheetDialog(this)
+        val bottomDialog = CreateTimetableBottomSheetDialog(this, this)
         val bundle = Bundle()
         bundle.putSerializable(Constants.UPDATE_MODEL, model)
         bottomDialog.arguments = bundle
@@ -274,7 +278,7 @@ class TimetableFragment :
     }
 
     private fun openSheetDialog(day: Int) {
-        val bottomDialog = CreateTimetableBottomSheetDialog(this)
+        val bottomDialog = CreateTimetableBottomSheetDialog(this, this)
         bottomDialog.show(requireActivity().supportFragmentManager, day.toString())
     }
 
@@ -289,6 +293,10 @@ class TimetableFragment :
     }
 
     override fun needUpdate(dayOfWeek: Int) {
+        updateAdapter(dayOfWeek)
+    }
+
+    private fun updateAdapter(dayOfWeek: Int) {
         when (dayOfWeek) {
             0 -> {
                 initMondayAdapter()
@@ -310,6 +318,39 @@ class TimetableFragment :
             }
             6 -> {
                 initSundayAdapter()
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+
+    override fun check(dayOfWeek: Int) {
+        updateAdapter(dayOfWeek)
+
+        when (dayOfWeek) {
+            0 -> {
+                rewardAnAchievement(listMonday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            1 -> {
+                rewardAnAchievement(listTuesday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            2 -> {
+                rewardAnAchievement(listWednesday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            3 -> {
+                rewardAnAchievement(listThursday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            4 -> {
+                rewardAnAchievement(listFriday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            5 -> {
+                rewardAnAchievement(listSaturday.size,requireActivity(),achievementViewModel,binding.achievementView)
+            }
+            6 -> {
+                rewardAnAchievement(listSunday.size,requireActivity(),achievementViewModel,binding.achievementView)
             }
         }
     }

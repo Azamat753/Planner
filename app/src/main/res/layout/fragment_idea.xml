@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/idea_contain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,4 +33,14 @@
         app:srcCompat="@drawable/ic_add_task"
         tools:targetApi="lollipop" />
 
+    <com.cdev.achievementview.AchievementView
+        android:id="@+id/achievement_view"
+        custom:collapseStartDelay="3500"
+        custom:colorLeft="@color/green_for_achievement"
+        custom:colorRight="@color/dark_green_for_achievement"
+        custom:drawableLeft="@drawable/trophy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

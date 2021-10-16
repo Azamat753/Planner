@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.FinanceModel
 import com.lawlett.planner.data.room.viewmodels.FinanceViewModel
 import com.lawlett.planner.databinding.FinanceBottomSheetDialogBinding
@@ -14,7 +15,10 @@ import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.IntPreference
 import org.koin.android.ext.android.inject
 
-class FinanceBottomSheetDialog(private val updateBalance: UpdateBalance) :
+class FinanceBottomSheetDialog(
+    private val updateBalance: UpdateBalance,
+    var checkListEvent: CheckListEvent
+) :
     BaseBottomSheetDialog<FinanceBottomSheetDialogBinding>
         (FinanceBottomSheetDialogBinding::inflate) {
     val viewModel by inject<FinanceViewModel>()
@@ -53,29 +57,43 @@ class FinanceBottomSheetDialog(private val updateBalance: UpdateBalance) :
     ) {
         val updateAmount = binding.amountEditText.text.toString().trim().toInt() + getModel().amount
         val amount = binding.amountEditText.text.toString().trim().toInt()
-       countExpensiveAndIncome(false,amount)
-        val model = FinanceModel(
-            id = getModel().id,
-            description = argModel.description,
-            date = argModel.description,
-            amount = updateAmount,
-            category = Constants.PATTERN_CATEGORY
-        )
-        viewModel.update(model)
-        findNavController().navigate(R.id.financeFragment)
-        dismiss()
+        countExpensiveAndIncome(false, amount)
+        when {
+            updateAmount.toString().isEmpty() -> {
+                binding.descriptionEditText.error = getString(R.string.fill_field)
+            }
+            amount.toString().isEmpty() -> {
+                binding.amountEditText.error = getString(R.string.fill_field)
+            }
+            else -> {
+                val model = FinanceModel(
+                    id = getModel().id,
+                    description = argModel.description,
+                    date = argModel.description,
+                    amount = updateAmount,
+                    category = Constants.PATTERN_CATEGORY
+                )
+                viewModel.update(model)
+                findNavController().navigate(R.id.financeFragment)
+                dismiss()
+            }
+        }
     }
 
     private fun addPattern() {
         val description = binding.descriptionEditText.text.toString().trim()
-        val model = FinanceModel(
-            description = description,
-            category = Constants.PATTERN_CATEGORY,
-            amount = 0,
-        )
-        viewModel.addModel(model)
-        findNavController().navigate(R.id.financeFragment)
-        dismiss()
+        if (description.isEmpty()) {
+            binding.descriptionEditText.error = getString(R.string.fill_field)
+        } else {
+            val model = FinanceModel(
+                description = description,
+                category = Constants.PATTERN_CATEGORY,
+                amount = 0,
+            )
+            viewModel.addModel(model)
+            checkListEvent.check()
+            dismiss()
+        }
     }
 
     private fun setTitle() {
@@ -107,37 +125,46 @@ class FinanceBottomSheetDialog(private val updateBalance: UpdateBalance) :
         val description = binding.descriptionEditText.text.toString().trim()
         val isIncome = arguments?.getBoolean(Constants.IS_INCOME)
         countExpensiveAndIncome(isIncome, amount)
-
-        val model =
-            FinanceModel(
-                category = tag.toString(),
-                amount = amount,
-                description = description,
-                date = getTodayDate(requireContext()),
-                isIncome = isIncome
-            )
-        viewModel.addModel(model)
-        findNavController().navigate(R.id.financeFragment)
-        dismiss()
-    }
-
-    private fun countExpensiveAndIncome(isIncome: Boolean?, amount: Int) {
-        val previousIncome =
-            IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME) ?: 0
-        val previousExpensive =
-            IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE) ?: 0
-
-        if (isIncome == true) {
-            IntPreference.getInstance(requireContext())
-                ?.saveInt(Constants.INCOME, amount + previousIncome)
-        } else {
-            IntPreference.getInstance(requireContext())
-                ?.saveInt(Constants.EXPENSIVE, amount + previousExpensive)
+        when {
+            description.isEmpty() -> {
+                binding.descriptionEditText.error = getString(R.string.fill_field)
+            }
+            amount.toString().isEmpty() -> {
+                binding.amountEditText.error = getString(R.string.fill_field)
+            }
+            else -> {
+                val model =
+                    FinanceModel(
+                        category = tag.toString(),
+                        amount = amount,
+                        description = description,
+                        date = getTodayDate(requireContext()),
+                        isIncome = isIncome
+                    )
+                viewModel.addModel(model)
+                findNavController().navigate(R.id.financeFragment)
+                dismiss()
+            }
         }
-        updateBalance.needUpdate()
     }
 
-    interface UpdateBalance {
-        fun needUpdate()
+        private fun countExpensiveAndIncome(isIncome: Boolean?, amount: Int) {
+            val previousIncome =
+                IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME) ?: 0
+            val previousExpensive =
+                IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE) ?: 0
+
+            if (isIncome == true) {
+                IntPreference.getInstance(requireContext())
+                    ?.saveInt(Constants.INCOME, amount + previousIncome)
+            } else {
+                IntPreference.getInstance(requireContext())
+                    ?.saveInt(Constants.EXPENSIVE, amount + previousExpensive)
+            }
+            updateBalance.needUpdate()
+        }
+
+        interface UpdateBalance {
+            fun needUpdate()
+        }
     }
-}

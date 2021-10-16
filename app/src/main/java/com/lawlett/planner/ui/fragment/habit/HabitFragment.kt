@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.UpdateAdapter
 import com.lawlett.planner.data.room.models.HabitModel
 import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
@@ -123,15 +124,17 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
     override fun onClick(model: HabitModel, position: Int) {
         showHabitDayUpDialog(
             model,
-            position,
             requireContext(),
-            adapter,
             viewModel,
             requireActivity(),
             achievementViewModel,
-            binding.achievementView
+            binding.achievementView,object :UpdateAdapter{
+                override fun toUpdate() {
+                    adapter.notifyDataSetChanged()
+                }
+
+            }
         )
-        findNavController().navigate(R.id.financeFragment)
     }
 
     private fun getDataFromDataBase(adapter: HabitAdapter) {

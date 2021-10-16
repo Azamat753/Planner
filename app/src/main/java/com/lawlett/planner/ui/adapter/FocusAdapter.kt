@@ -17,10 +17,11 @@ class FocusAdapter : BaseAdapter<SkillModel, FocusItemBinding>(
         val hour = if (model.hour.isNullOrEmpty()) "0" else model.hour
         if (hour.toDouble() < 1) {
             val minute = hour.toDouble() * 60
-            binding.hourAmount.text = "${minute.toDecimal()} Минут"
+            binding.hourAmount.text = "${minute.toDecimal()} "+ binding.createdDate.context.getString(R.string.minut)
         } else {
+
             val decimalHour = model.hour?.toDouble()?.toDecimal()
-            binding.hourAmount.text = "$decimalHour Часов"
+            binding.hourAmount.text = "$decimalHour "+binding.createdDate.context.getString(R.string.hours)
         }
         binding.timerTaskTitle.text = model.skillName
         binding.createdDate.text = model.dateCreated

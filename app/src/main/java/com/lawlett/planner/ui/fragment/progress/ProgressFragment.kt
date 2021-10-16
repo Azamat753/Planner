@@ -11,6 +11,7 @@ import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.UpdateAdapter
 import com.lawlett.planner.data.room.models.CategoryModel
 import com.lawlett.planner.data.room.models.EventModel
 import com.lawlett.planner.data.room.models.HabitModel
@@ -25,6 +26,7 @@ import com.lawlett.planner.ui.adapter.HabitAdapter
 import com.lawlett.planner.ui.adapter.TaskProgressAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.ui.dialog.ChooseThemeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateEventBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateTimetableBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
@@ -55,7 +57,22 @@ class ProgressFragment :
         }, 1)
         initEventProgressAdapter()
         addFalseDataForExample()
-        showSpotlight()
+        spotlightOrThemeDialog()
+    }
+
+    private fun spotlightOrThemeDialog() {
+        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.THEME_SELECTED)==true) {
+            openThemeDialog()
+        } else {
+            showSpotlight()
+        }
+    }
+
+    private fun openThemeDialog() {
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.THEME_SELECTED, false)
+        val bottomDialog = ChooseThemeBottomSheetDialog()
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
     private fun addFalseDataForExample() {
@@ -193,7 +210,7 @@ class ProgressFragment :
 
     private fun initHorizontalCalendar() {
         val startDate = Calendar.getInstance()
-        startDate.add(Calendar.MONTH, -1)
+        startDate.add(Calendar.MONTH,0)
         val endDate = Calendar.getInstance()
         endDate.add(Calendar.MONTH, 3)
         val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
@@ -250,7 +267,7 @@ class ProgressFragment :
             Calendar.SUNDAY -> dayOfWeek = 6
         }
 
-        val bottomDialog = CreateTimetableBottomSheetDialog(null)
+        val bottomDialog = CreateTimetableBottomSheetDialog(null,null)
         bottomDialog.show(
             requireActivity().supportFragmentManager,
             dayOfWeek.toString()
@@ -262,7 +279,7 @@ class ProgressFragment :
         val dayOfWeek = theMonth(date.get(Calendar.MONTH), requireContext())
         val dayOfMonth = date.get(Calendar.DAY_OF_MONTH)
         val chooseDate = "$dayOfWeek $dayOfMonth"
-        val bottomDialog = CreateEventBottomSheetDialog()
+        val bottomDialog = CreateEventBottomSheetDialog(null)
         val bundle = Bundle()
         bundle.putString("date", chooseDate)
         bottomDialog.arguments = bundle
@@ -291,17 +308,19 @@ class ProgressFragment :
             override fun onClick(model: HabitModel, position: Int) {
                 showHabitDayUpDialog(
                     model,
-                    position,
                     requireContext(),
-                    adapter,
                     habitViewModel,
                     requireActivity(),
                     achievementViewModel,
-                    binding.achievementView
+                    binding.achievementView,object :UpdateAdapter{
+                        override fun toUpdate() {
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
                 )
-                findNavController().navigate(R.id.progress_fragment)
             }
         }
+
         habitViewModel.getHabitsLiveData().observe(viewLifecycleOwner, { habits ->
             adapter.setData(habits)
             listHabit = habits

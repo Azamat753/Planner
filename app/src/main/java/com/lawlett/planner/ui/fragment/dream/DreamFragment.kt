@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.DreamModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.DreamViewModel
 import com.lawlett.planner.databinding.FragmentDreamBinding
 import com.lawlett.planner.extensions.*
@@ -23,8 +25,10 @@ import java.util.*
 
 class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::inflate),
     BaseAdapter.IBaseAdapterLongClickListenerWithModel<DreamModel>,
-    BaseAdapter.IBaseAdapterClickListener<DreamModel> {
+    BaseAdapter.IBaseAdapterClickListener<DreamModel>, CheckListEvent {
+    private var listSize: Int = 0
     private val viewModel by inject<DreamViewModel>()
+    private val achievementViewModel by inject<AchievementViewModel>()
     val adapter = DreamAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,13 +81,16 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
                 val firstSpot = setSpotLightTarget(
                     view,
                     first,
-                    getString(R.string.dream) +"\n\n\n "+getString(R.string.list_dream)+"\n "+getString(R.string.up_slept_hour)+" \n "+getString(R.string.next_time_date)+" \n "+getString(
-                                            R.string.course_record_dream)
+                    getString(R.string.dream) + "\n\n\n " + getString(R.string.list_dream) + "\n " + getString(
+                        R.string.up_slept_hour
+                    ) + " \n " + getString(R.string.next_time_date) + " \n " + getString(
+                        R.string.course_record_dream
+                    )
                 )
                 val secondSpot = setSpotLightTarget(
                     binding.addDreamFab,
                     first,
-                    getString(R.string.insert_button)+" \n "+getString(R.string.create_new_record)
+                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_record)
                 )
                 val thirdSpot = setSpotLightTarget(
                     view,
@@ -105,7 +112,7 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
     }
 
     private fun showSheetDialog() {
-        val bottomDialog = CreateDreamBottomSheetDialog()
+        val bottomDialog = CreateDreamBottomSheetDialog(this)
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
@@ -119,6 +126,7 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
     private fun getDataFromDataBase() {
         viewModel.getData().observe(viewLifecycleOwner, { dream ->
             if (dream.isNotEmpty()) {
+                listSize = dream.size
                 adapter.setData(dream)
             }
         })
@@ -128,7 +136,6 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete: Button = dialog.findViewById(R.id.delete_button)
         val edit: Button = dialog.findViewById(R.id.edit_button)
-        edit.gone()
         edit.setOnClickListener {
             showDialogForUpdate(model)
             dialog.dismiss()
@@ -142,7 +149,7 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
     }
 
     private fun showDialogForUpdate(model: DreamModel) {
-        val bottomDialog = CreateDreamBottomSheetDialog()
+        val bottomDialog = CreateDreamBottomSheetDialog(this)
         val bundle = Bundle()
         bundle.putSerializable(Constants.UPDATE_MODEL, model)
         bottomDialog.arguments = bundle
@@ -160,5 +167,13 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
             dream.text = model.dream
         }
         dialog.show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+    override fun check() {
+        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
     }
 }

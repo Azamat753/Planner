@@ -143,8 +143,7 @@ class CreateTasksFragment :
             nowLevel += 1
             val model = AchievementModel(level = nowLevel, id = levelId)
             achievementViewModel.update(model)
-            getString(R.string.level)
-            binding.achievementView.show(getString(R.string.congratulation), getString(R.string.level)+ "$nowLevel")
+            binding.achievementView.show(getString(R.string.congratulation), getString(R.string.level)+ " $nowLevel")
         }
     }
 

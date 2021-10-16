@@ -1,6 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="windowColor">#FFFFFF</item>
@@ -18,6 +19,7 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>"
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -241,8 +243,8 @@
         <item name="android:textColor">?attr/iconColor</item>
     </style>
 
-    <style name="dashboardTextColor">
-        <item name="android:fontFamily">@font/m_light</item>
+    <style name="CommonStyle">
+        <item name="android:fontFamily">@font/scope_one</item>
         <item name="android:textColor">?attr/textColor</item>
     </style>
 

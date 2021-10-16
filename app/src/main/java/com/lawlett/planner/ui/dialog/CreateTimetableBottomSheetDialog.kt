@@ -8,17 +8,16 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListTimeTable
 import com.lawlett.planner.data.room.models.TimetableModel
 import com.lawlett.planner.data.room.viewmodels.TimetableViewModel
 import com.lawlett.planner.databinding.CreateTimetableBottomSheetBinding
-import com.lawlett.planner.ui.adapter.FinanceAdapter
-import com.lawlett.planner.ui.adapter.FinancePatternAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycler?) :
+class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycler?,private val checkList: CheckListTimeTable?) :
     BaseBottomSheetDialog<CreateTimetableBottomSheetBinding>(CreateTimetableBottomSheetBinding::inflate),
     AdapterView.OnItemSelectedListener {
     private val viewModel by inject<TimetableViewModel>()
@@ -72,6 +71,7 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
                     insertModel(startTime, endTime, color, title)
                 }
                 updateRecycler?.needUpdate(binding.dayOfWeekSpinner.selectedItemPosition)
+                checkList?.check(binding.dayOfWeekSpinner.selectedItemPosition)
                 dismiss()
             }
         }
@@ -109,14 +109,14 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
 
     @SuppressLint("SetTextI18n")
     private fun pickTime(isStart: Boolean) {
-        var myHour = ""
-        var myMinute = ""
+        var myHour: String
+        var myMinute: String
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
         val timePicker =
             TimePickerDialog(
                 requireContext(),
-                { date, selectedHour, selectedMinute ->
+                { _, selectedHour, selectedMinute ->
                     myHour = if (selectedHour.toString().count() == 1) {
                         "0$selectedHour"
                     } else {

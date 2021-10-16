@@ -1,17 +1,21 @@
 package com.lawlett.planner.ui.fragment.intro
 
-import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.Interpolator
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.LanguageModel
 import com.lawlett.planner.databinding.FragmentIntroBinding
-import com.lawlett.planner.extensions.visible
+import com.lawlett.planner.extensions.changeLanguage
+import com.lawlett.planner.extensions.getDialog
+import com.lawlett.planner.extensions.getLanguageList
+import com.lawlett.planner.ui.adapter.LanguageAdapter
+import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
@@ -24,26 +28,54 @@ import su.levenetc.android.textsurface.contants.Pivot
 import su.levenetc.android.textsurface.contants.Side
 
 
-class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::inflate) {
+class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::inflate),
+    BaseAdapter.IBaseAdapterClickListener<LanguageModel> {
 
     var isShowed = false
+    var isLanguageSelected = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        isLanguageSelected = BooleanPreference.getInstance(requireContext())
+            ?.getBooleanData(Constants.LANGUAGE_SELECTED)!!
 
-        binding.textSurface.postDelayed({ showTS() }, 1000)
+        if (!isLanguageSelected) {
+            languageDialogShow()
+        }
+        launchTextSurface()
+        openProgressFragment()
+    }
 
-        Handler().postDelayed({
-            binding.textSurface.isClickable = true
-            isShowed = true
-        }, 26000)
+    private fun languageDialogShow() {
+        val adapter = LanguageAdapter()
+        adapter.listener = this
+        adapter.setData(getLanguageList())
+        val dialog = requireContext().getDialog(R.layout.language_dialog)
+        val recyclerView = dialog.findViewById<RecyclerView>(R.id.history_recycler)
+        recyclerView.adapter = adapter
+        dialog.show()
+    }
 
+    private fun launchTextSurface() {
+        if (isLanguageSelected && BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.SPLASH_SCREEN) == false
+        ) {
+            binding.textSurface.postDelayed({ showTS() }, 1000)
+            Handler().postDelayed({
+                binding.textSurface.isClickable = true
+                isShowed = true
+            }, 21000)
+        }
+    }
+
+    private fun openProgressFragment() {
         binding.textSurface.setOnClickListener {
             if (isShowed) {
                 requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
                 findNavController().navigate(R.id.progress_fragment)
-                BooleanPreference.getInstance(requireContext())?.saveBooleanData(Constants.SPLASH_SCREEN,true)
+                BooleanPreference.getInstance(requireContext())
+                    ?.saveBooleanData(Constants.SPLASH_SCREEN, true)
             }
         }
     }
@@ -53,7 +85,14 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
         playFirst(binding.textSurface)
     }
 
+    override fun onClick(model: LanguageModel, position: Int) {
+        requireActivity().changeLanguage(position)
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.LANGUAGE_SELECTED, true)
+    }
+
     private fun playFirst(textSurface: TextSurface) {
+        val animationSpeed = 300
         val textHello: Text = TextBuilder
             .create(getString(R.string.you_are_hello))
             .setSize(30F)
@@ -156,12 +195,19 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
             .setColor(Color.WHITE)
             .setPosition(Align.BOTTOM_OF, createEvent).build()
 
+        val keepDream: Text = TextBuilder
+            .create(getString(R.string.dream_record))
+            .setSize(22F)
+            .setAlpha(0)
+            .setColor(Color.WHITE)
+            .setPosition(Align.BOTTOM_OF, keepIdea).build()
+
         val letsStart: Text = TextBuilder
             .create(getString(R.string.lets_start))
             .setSize(34F)
             .setAlpha(0)
             .setColor(Color.WHITE)
-            .setPosition(Align.BOTTOM_OF, keepIdea).build()
+            .setPosition(Align.BOTTOM_OF, keepDream).build()
 
         val clickOnScreen: Text = TextBuilder
             .create(getString(R.string.click_by_screen))
@@ -184,97 +230,146 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                         )
                     ),
                     Sequential(
-                        TransSurface(500, toolsFor, Pivot.CENTER),
+                        TransSurface(animationSpeed, toolsFor, Pivot.CENTER),
                         ShapeReveal.create(toolsFor, 1300, SideCut.show(Side.LEFT), false)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
 
                     Parallel(
                         TransSurface(
-                            500,
+                            animationSpeed,
                             forReachAim,
                             Pivot.CENTER
                         ),
                         ShapeReveal.create(forReachAim, 1300, SideCut.show(Side.LEFT), false)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Parallel(
-                        TransSurface.toCenter(plannerText, 500),
+                        TransSurface.toCenter(plannerText, animationSpeed),
                         Rotate3D.showFromSide(plannerText, 750, Pivot.TOP)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Parallel(
-                        TransSurface(500, plusText, Pivot.RIGHT),
+                        TransSurface(animationSpeed, plusText, Pivot.RIGHT),
                         ShapeReveal.create(plusText, 1300, SideCut.show(Side.RIGHT), false)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Parallel(
                         TransSurface(1500, whatICanDo, Pivot.RIGHT),
                         ShapeReveal.create(whatICanDo, 1300, SideCut.show(Side.LEFT), false),
                         Rotate3D.showFromSide(whatICanDo, 1750, Pivot.CENTER)
                     ),
                     Sequential(
-                        TransSurface(500, createTaskText, Pivot.CENTER),
-                        ShapeReveal.create(createTaskText, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, createTaskText, Pivot.CENTER),
+                        ShapeReveal.create(
+                            createTaskText,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
 
                     Sequential(
-                        TransSurface(500, habitText, Pivot.CENTER),
-                        ShapeReveal.create(habitText, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, habitText, Pivot.CENTER),
+                        ShapeReveal.create(
+                            habitText,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
                         TransSurface(
-                            500,
+                            animationSpeed,
                             followFinance,
                             Pivot.CENTER
                         ),
-                        ShapeReveal.create(followFinance, 500, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(
+                            followFinance,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
-                        TransSurface.toCenter(keepFocus, 500),
+                        TransSurface.toCenter(keepFocus, animationSpeed),
                         Rotate3D.showFromSide(keepFocus, 750, Pivot.CENTER)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
-                        TransSurface(500, followTimeTable, Pivot.CENTER),
-                        ShapeReveal.create(followTimeTable, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, followTimeTable, Pivot.CENTER),
+                        ShapeReveal.create(
+                            followTimeTable,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
-                        TransSurface(500, followFinance, Pivot.CENTER),
-                        ShapeReveal.create(writeStandUp, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, followFinance, Pivot.CENTER),
+                        ShapeReveal.create(
+                            writeStandUp,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
 
                     Sequential(
-                        TransSurface(500, and, Pivot.CENTER),
-                        ShapeReveal.create(and, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, and, Pivot.CENTER),
+                        ShapeReveal.create(and, animationSpeed, SideCut.show(Side.LEFT), false)
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
                         TransSurface(
-                            500,
+                            animationSpeed,
                             createEvent,
                             Pivot.CENTER
                         ),
-                        ShapeReveal.create(createEvent, 500, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(
+                            createEvent,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
 
                     Sequential(
-                        TransSurface(500, keepIdea, Pivot.CENTER),
-                        ShapeReveal.create(keepIdea, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, keepIdea, Pivot.CENTER),
+                        ShapeReveal.create(keepIdea, animationSpeed, SideCut.show(Side.LEFT), false)
+                    ),
+                    Sequential(
+                        TransSurface(animationSpeed, keepDream, Pivot.CENTER),
+                        ShapeReveal.create(
+                            keepDream,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
 
                     Sequential(
                         TransSurface(700, letsStart, Pivot.CENTER),
-                        ShapeReveal.create(letsStart, 500, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(
+                            letsStart,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
-                    Delay.duration(500),
+                    Delay.duration(animationSpeed),
                     Sequential(
-                        TransSurface(500, clickOnScreen, Pivot.CENTER),
-                        ShapeReveal.create(clickOnScreen, 500, SideCut.show(Side.LEFT), false)
+                        TransSurface(animationSpeed, clickOnScreen, Pivot.CENTER),
+                        ShapeReveal.create(
+                            clickOnScreen,
+                            animationSpeed,
+                            SideCut.show(Side.LEFT),
+                            false
+                        )
                     ),
 
                     Alpha.hide(textHello, 1000),
@@ -293,27 +388,11 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
                     Alpha.hide(and, 1000),
                     Alpha.hide(createEvent, 1000),
                     Alpha.hide(keepIdea, 1000),
+                    Alpha.hide(keepDream, 1000),
                     Alpha.hide(letsStart, 1000),
-                    Alpha.hide(clickOnScreen, 1000),
+                    Alpha.hide(clickOnScreen, 100000),
                 )
             )
         }
-    }
-
-    private fun doBounceAnimation(targetView: View) {
-        targetView.visible()
-        val interpolator = Interpolator { v ->
-            getPowOut(v, 3.0) //Add getPowOut(v,3); for more up animation
-        }
-        val animator = ObjectAnimator.ofFloat(targetView, "translationY", 0f, 25f, 0f)
-        animator.interpolator = interpolator
-        animator.startDelay = 200
-        animator.duration = 800
-        animator.repeatCount = 100
-        animator.start()
-    }
-
-    private fun getPowOut(elapsedTimeRate: Float, pow: Double): Float {
-        return (1.toFloat() - Math.pow((1 - elapsedTimeRate).toDouble(), pow)).toFloat()
     }
 }

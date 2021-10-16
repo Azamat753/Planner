@@ -5,11 +5,11 @@ import android.app.AlertDialog
 import android.content.Context
 import com.cdev.achievementview.AchievementView
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.UpdateAdapter
 import com.lawlett.planner.data.room.models.AchievementModel
 import com.lawlett.planner.data.room.models.HabitModel
 import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.HabitViewModel
-import com.lawlett.planner.ui.adapter.HabitAdapter
 import java.util.*
 
 fun rewardAnAchievement(
@@ -23,7 +23,7 @@ fun rewardAnAchievement(
         currentLevel += 1
         val model = AchievementModel(level = currentLevel, id = 1)
         achievementViewModel.update(model)
-        achievementView.show("Уровень повышен!", "Уровень $currentLevel")
+        achievementView.show(activity.getString(R.string.congratulation), activity.getString(R.string.level) +" $currentLevel")
     }
 }
 
@@ -48,9 +48,9 @@ fun checkDay(habitModel: HabitModel, habitViewModel: HabitViewModel, context: Co
 }
 
 fun showHabitDayUpDialog(
-    model: HabitModel, position: Int, context: Context, habitAdapter: HabitAdapter,
+    model: HabitModel, context: Context,
     habitViewModel: HabitViewModel, activity: Activity, achievementViewModel: AchievementViewModel,
-    achievementView: AchievementView
+    achievementView: AchievementView,updateAdapter: UpdateAdapter
 ) {
     val dialogBuilder = AlertDialog.Builder(context)
     dialogBuilder.setMessage(context.getString(R.string.you_is_done_habit_today))
@@ -58,6 +58,7 @@ fun showHabitDayUpDialog(
         .setPositiveButton(context.getString(R.string.ofCourse)) { _, _ ->
             checkDay(model, habitViewModel, context)
             rewardAnAchievement(model.currentDay, activity, achievementViewModel, achievementView)
+            updateAdapter.toUpdate()
         }
         .setNegativeButton(context.getString(R.string.no)) { dialog, _ ->
             dialog.cancel()

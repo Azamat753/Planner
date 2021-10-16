@@ -67,7 +67,12 @@ object Constants {
     const val DREAM_INSTRUCTION = "dr_instruction"
     const val IDEA_INSTRUCTION = "id_instruction"
     const val FINANCE_INSTRUCTION = "fi_instruction"
-    const val SETTINGS_INSTRUCTION = "se_instruction"
+
+    const val LANGUAGE_SELECTED = "language_sd"
+    const val THEME_SELECTED = "language_sd"
+
+    const val THEME_PREFERENCE="theme pref"
+
 
 
 }

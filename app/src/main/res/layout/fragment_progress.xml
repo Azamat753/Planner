@@ -19,7 +19,7 @@
             android:id="@+id/achievement_view"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:elevation="8dp"
+            android:elevation="12dp"
             app:layout_constraintTop_toTopOf="parent"
             custom:collapseStartDelay="3500"
             custom:colorLeft="@color/green_for_achievement"
@@ -66,7 +66,7 @@
 
                 <TextView
                     android:id="@+id/event_title"
-                    style="@style/dashboardTextColor"
+                    style="@style/CommonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -110,7 +110,7 @@
 
                 <TextView
                     android:id="@+id/task_title"
-                    style="@style/dashboardTextColor"
+                    style="@style/CommonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -154,7 +154,7 @@
 
                 <TextView
                     android:id="@+id/habit_progress"
-                    style="@style/dashboardTextColor"
+                    style="@style/CommonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -177,7 +177,6 @@
                     tools:listitem="@layout/item_habit" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-<!--        </androidx.cardview.widget.CardView>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

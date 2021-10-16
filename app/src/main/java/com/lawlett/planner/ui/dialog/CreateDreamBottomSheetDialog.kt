@@ -7,8 +7,8 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.DreamModel
 import com.lawlett.planner.data.room.viewmodels.DreamViewModel
 import com.lawlett.planner.databinding.CreateDreamBottomSheetBinding
@@ -20,7 +20,7 @@ import java.time.Duration
 import java.time.LocalTime
 import java.util.*
 
-class CreateDreamBottomSheetDialog :
+class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
     BaseBottomSheetDialog<CreateDreamBottomSheetBinding>(CreateDreamBottomSheetBinding::inflate) {
     private val viewModel by inject<DreamViewModel>()
     private val calendar = Calendar.getInstance()
@@ -28,6 +28,7 @@ class CreateDreamBottomSheetDialog :
     var startMinute: Int = 0
     var endHour: Int = 0
     var endMinute: Int = 0
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,9 +56,14 @@ class CreateDreamBottomSheetDialog :
         if (isUpdate()) {
             val model: DreamModel =
                 arguments?.getSerializable(Constants.UPDATE_MODEL) as DreamModel
+            startHour = model.wokeUp.substringBefore(":").trim().toInt()
+            startMinute = model.wokeUp.substringAfter(":").trim().toInt()
+            endHour = model.fellAsleep.substringBefore(":").trim().toInt()
+            endMinute = model.fellAsleep.substringAfter(":").trim().toInt()
+
             binding.titleEditText.setText(model.dream)
             binding.startTimeText.text = model.wokeUp
-            binding.endTimeText.text= model.fellAsleep
+            binding.endTimeText.text = model.fellAsleep
         }
     }
 
@@ -88,8 +94,8 @@ class CreateDreamBottomSheetDialog :
                         getTodayDate(requireContext()),
                         getRemainingTime()
                     )
+                    checkListEvent.check()
                 }
-                findNavController().navigate(R.id.dreamFragment)
                 dismiss()
             }
         }

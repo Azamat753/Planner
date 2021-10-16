@@ -13,8 +13,8 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.EventModel
 import com.lawlett.planner.data.room.viewmodels.EventViewModel
 import com.lawlett.planner.databinding.CreateEventBottomSheetBinding
@@ -25,7 +25,7 @@ import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateEventBottomSheetDialog :
+class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
     BaseBottomSheetDialog<CreateEventBottomSheetBinding>(CreateEventBottomSheetBinding::inflate) {
     private val viewModel by inject<EventViewModel>()
     private val calendar = Calendar.getInstance()
@@ -34,6 +34,7 @@ class CreateEventBottomSheetDialog :
     var choosedYear: Int = 0
     var choosedMonth: Int = 0
     var choosedDay: Int = 0
+    var isClickRemind=false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
@@ -136,8 +137,8 @@ class CreateEventBottomSheetDialog :
 
     @SuppressLint("SetTextI18n")
     private fun pickTime(isRemind: Boolean) {
-        var myHour = ""
-        var myMinute = ""
+        var myHour: String
+        var myMinute: String
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
         val timePicker =
@@ -159,6 +160,7 @@ class CreateEventBottomSheetDialog :
                     }
 
                     if (isRemind) {
+                        isClickRemind=true
                         binding.remindText.text = "$myHour : $myMinute"
                     } else {
                         binding.timeText.text = "$myHour : $myMinute"
@@ -180,7 +182,7 @@ class CreateEventBottomSheetDialog :
         val remind = binding.remindText.text.toString().trim()
         when {
             title.isEmpty() -> {
-                binding.titleEditText.error = getString(R.string.fill_field)
+                    binding.titleEditText.error = getString(R.string.fill_field)
             }
             date.isEmpty() -> {
                 binding.dateButton.error = getString(R.string.fill_field)
@@ -192,10 +194,13 @@ class CreateEventBottomSheetDialog :
                 if (isUpdate()) {
                     updateModel(title, date, time, remind, color)
                 } else {
+                    checkList?.check()
                     insertModel(title, date, time, remind, color)
                 }
-                setNotification(choosedHour, choosedHour, title,choosedYear,choosedMonth,choosedDay)
-                findNavController().navigate(R.id.events_fragment)
+
+                if (isClickRemind){
+                    setNotification(choosedHour, choosedHour, title,choosedYear,choosedMonth,choosedDay)
+                }
                 dismiss()
             }
         }

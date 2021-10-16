@@ -3,8 +3,6 @@ package com.lawlett.planner.ui.fragment.settings
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.LanguageModel
@@ -31,9 +29,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
         adapter.listener= this
         adapter.setData(getLanguageList())
         val dialog = requireContext().getDialog(R.layout.language_dialog)
-        val card = dialog.findViewById<View>(R.id.title_card)
-        val title = dialog.findViewById<TextView>(R.id.title)
-        title.text = getString(R.string.choose_language)
         val recyclerView = dialog.findViewById<RecyclerView>(R.id.history_recycler)
         recyclerView.adapter = adapter
         dialog.show()

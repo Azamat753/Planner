@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.IdeaModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.IdeaViewModel
 import com.lawlett.planner.databinding.FragmentIdeaBinding
 import com.lawlett.planner.extensions.*
@@ -24,9 +26,11 @@ import java.util.*
 
 
 class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::inflate),
-    BaseAdapter.IBaseAdapterLongClickListenerWithModel<IdeaModel>,
+    BaseAdapter.IBaseAdapterLongClickListenerWithModel<IdeaModel>, CheckListEvent,
     BaseAdapter.IBaseAdapterClickListener<IdeaModel> {
+    private var listSize: Int = 0
     private val viewModel by inject<IdeaViewModel>()
+    private val achievementViewModel by inject<AchievementViewModel>()
     val adapter = IdeaAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,12 +53,20 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
                 val firstSpot = setSpotLightTarget(
                     view,
                     first,
-                    "Идеи \n\n\n Ваш список идей \n Визуальный образ хороший путь чтоб закрепить пришедшую идею \n При клике на карточку картинка открывается в полный размер \n Также зажав на карточку вы можете вызвать окно с действиями"
+                    getString(R.string.ideas) + " \n\n\n" +
+                            getString(R.string.list_ideas) +
+                            "\n " +
+                            getString(R.string.vis_im_idea) +
+                            " \n " +
+                            getString(R.string.by_cl_im_sh) +
+                            "\n " +
+                            getString(R.string.hold_card)
                 )
                 val secondSpot = setSpotLightTarget(
                     binding.addIdeaBtn,
                     first,
-                    "Кнопка добавить \n Нажав на эту кнопку вы можете записать идею"
+                    getString(R.string.insert_button) + " \n " +
+                            getString(R.string.cl_ca_re_id)
                 )
                 targets.add(firstSpot)
                 targets.add(secondSpot)
@@ -103,6 +115,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
         viewModel.getIdeasLiveData()
             .observe(viewLifecycleOwner, { ideas ->
                 if (ideas.isNotEmpty()) {
+                    listSize = ideas.size
                     adapter.setData(ideas)
                 }
             })
@@ -116,7 +129,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
     }
 
     private fun initBottomSheetDialog() {
-        val bottomDialog = CreateIdeaBottomSheetDialog()
+        val bottomDialog = CreateIdeaBottomSheetDialog(this)
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
@@ -131,7 +144,7 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
         }
         edit.setOnClickListener {
             val bundle = Bundle()
-            val bottomDialog = CreateIdeaBottomSheetDialog()
+            val bottomDialog = CreateIdeaBottomSheetDialog(this)
             bundle.putSerializable(Constants.UPDATE_MODEL, model)
             bottomDialog.arguments = bundle
             bottomDialog.show(requireActivity().supportFragmentManager, Constants.UPDATE_MODEL)
@@ -146,5 +159,15 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
         image.loadImage(model.image)
         image.setOnClickListener { dialog.dismiss() }
         dialog.show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        clearAnimations(achievementView = binding.achievementView)
+    }
+
+    override fun check() {
+        adapter.notifyDataSetChanged()
+        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
     }
 }

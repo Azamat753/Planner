@@ -83,24 +83,26 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
 
 
             val model = StandUpModel(
-                whatDone = "1.Переписал и перечитал код с урока\n" +
-                        "2.Просмотрел стрим\n" +
-                        "3.Написал верстку для Settings и для Quiz\n" +
-                        "4.в HistoryStorage создал методы для HistoryDao\n" +
-                        "5.в HistoryDao написал метод deleteAll под анотацией @Delete",
-                whatPlan = "1.Перечитаю код QuizApp для большего понимания \n" +
-                        "2.Перейду к реализации пунктов 4 и 5",
-                problems = "Были сложности с заполнением History фейковыми данными",
+                whatDone = getString(R.string.rewrite_code)+"\n" +
+                        getString(R.string.watch_stream)+"\n" +
+                        getString(R.string.write_screen_se_q)+"\n" +
+                        getString(R.string.create_h_st_dao)+"\n" +
+                        getString(R.string.in_dao_delete),
+                whatPlan = getString(R.string.reread_code_q)+"\n" +
+                        getString(R.string.impl_f_fi),
+                problems = getString(R.string.hard_fa_da),
                 dateCreated = getTodayDate(requireContext())
             )
             val model2 = StandUpModel(
-                whatDone = "-Реализовал отображение прогресса\n" +
-                        "-Реализовал отображение категории\n" +
-                        "-Реализовал отработку кнопки back если первая страница закрывает Activity\n" +
-                        "-Реализовал отработку кнопок на ответ\n" +
-                        "-Поставил таймер на onAnswerClick чтоб при нажатии на ответ ждал 1 секунду прежде чем перелистнуть на следующий вопрос\n",
-                whatPlan = "1.Начну верстку QuizResult \n 2.Реализую фунции определения наличия интернета или WI-FI",
-                problems = "С перемешиванием вопросов и вложением в  лист answer",
+                whatDone = getString(R.string.im_sh_pr)+"\n" +
+                        getString(R.string.im_sh_ca)+"\n" +
+                        getString(R.string.im_ba_f_a)+"\n" +
+                        getString(R.string.im_b_an)+"\n" +
+                        getString(R.string.one_sec_pag)+"\n",
+                whatPlan = getString(R.string.st_sc_qr) +
+                        "\n " +
+                        getString(R.string.im_wi_fi),
+                problems = getString(R.string.re_q_l_ans),
                 dateCreated = getTodayDate(requireContext())
             )
             viewModel.insertData(model)
@@ -108,10 +110,6 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
             BooleanPreference.getInstance(requireContext())
                 ?.saveBooleanData(Constants.STANDUP_EXAMPLE_DATA, true)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     private fun getDataFromDataBase() {

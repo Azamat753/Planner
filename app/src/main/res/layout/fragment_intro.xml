@@ -10,8 +10,8 @@
     <su.levenetc.android.textsurface.TextSurface
         android:id="@+id/text_surface"
         android:layout_width="match_parent"
-        android:clickable="false"
         android:layout_height="match_parent"
+        android:clickable="false"
         android:padding="10dp" />
 
 

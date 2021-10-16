@@ -21,6 +21,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.AchievementModel
 import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
@@ -42,13 +45,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val achievementViewModel by inject<AchievementViewModel>()
     private var nowLevel = 0
     private var levelId = 0
-
+    private lateinit var analytics: FirebaseAnalytics
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadLocale(this)
         this.checkedTheme()
+        loadLocale(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        analytics = Firebase.analytics
         initNavigationGraph()
         setupNavigation()
         initNavigationDrawer()
@@ -62,7 +66,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (level.isNotEmpty()) {
                 nowLevel = level[0].level
                 levelId = level[0].id!!
-                headerLevel.text = "Уровень $nowLevel" // TODO: 04.09.2021 Найти другое решение
+                headerLevel.text =
+                    getString(R.string.level) + " $nowLevel" // TODO: 04.09.2021 Найти другое решение
             } else {
                 val model = AchievementModel(level = 0)
                 achievementViewModel.insertData(model)

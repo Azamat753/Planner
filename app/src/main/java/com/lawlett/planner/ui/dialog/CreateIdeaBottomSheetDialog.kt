@@ -1,8 +1,6 @@
 package com.lawlett.planner.ui.dialog
 
 import android.Manifest
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
@@ -11,9 +9,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
-import com.bumptech.glide.Glide
 import com.lawlett.planner.R
+import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.IdeaModel
 import com.lawlett.planner.data.room.viewmodels.IdeaViewModel
 import com.lawlett.planner.databinding.CreateIdeaBottomSheetBinding
@@ -21,11 +18,10 @@ import com.lawlett.planner.extensions.loadImage
 import com.lawlett.planner.ui.adapter.IdeaAdapter
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
-import com.lawlett.planner.utils.StringPreference
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class CreateIdeaBottomSheetDialog :
+class CreateIdeaBottomSheetDialog(var checkListEvent: CheckListEvent) :
     BaseBottomSheetDialog<CreateIdeaBottomSheetBinding>(CreateIdeaBottomSheetBinding::inflate) {
     private var imageUri: String? = null
     private val viewModel by inject<IdeaViewModel>()
@@ -80,6 +76,7 @@ class CreateIdeaBottomSheetDialog :
                     )
                     viewModel.update(updateModel)
                 } else {
+                    checkListEvent.check()
                     val idea = IdeaModel(title = title, image = imageUri.toString(), color = color)
                     viewModel.addIdea(idea)
                 }

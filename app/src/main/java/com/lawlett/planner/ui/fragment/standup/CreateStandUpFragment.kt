@@ -9,7 +9,6 @@ import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.StandUpModel
 import com.lawlett.planner.data.room.viewmodels.StandUpViewModel
 import com.lawlett.planner.databinding.FragmentCreateStandupBinding
-import com.lawlett.planner.extensions.showToast
 import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.utils.Constants
@@ -180,6 +179,7 @@ class CreateStandUpFragment :
         MainCreateStandUpFragment.instance.binding.pagerStandUp.currentItem = page
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setViews() {
         when (arguments?.getInt(Constants.STAND_UP_POS)) {
             0 -> {
@@ -198,7 +198,7 @@ class CreateStandUpFragment :
             }
             3 -> {
                 binding.applyButton.visible()
-                binding.title.text = getString(R.string.important_info)
+                binding.title.text = getString(R.string.important_info) +"\n" +getString(R.string.not_necessary)
                 binding.applyButton.text = getString(R.string.done)
                 fillInfo()
                 checkFieldAndFillModel()

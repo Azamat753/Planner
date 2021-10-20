@@ -359,5 +359,6 @@ glisser vers la droite, vous pouvez supprimer un Élément de la liste des dépe
     <string name="new_event">Nouvel événement</string>
     <string name="diplom_work">Thèse</string>
     <string name="phisology">Psychologie</string>
+    <string name="not_necessary">(Необязательно)</string>
 
 </resources>

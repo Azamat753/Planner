@@ -171,7 +171,7 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
 
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        val arrayDays = resources.getStringArray(R.array.dayOfWeek_array)
+        val arrayDays = resources.getStringArray(R.array.dayOfWeek_keys)
         dayOfWeek = arrayDays[p2]
     }
 

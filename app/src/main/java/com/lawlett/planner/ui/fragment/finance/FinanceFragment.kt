@@ -157,6 +157,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         }
         binding.historyCard.setOnClickListener { showHistoryDialog() }
         binding.patternBtn.setOnClickListener { openSheetDialog(Constants.PATTERN_CATEGORY, false) }
+        binding.balanceCard.setOnClickListener { openSheetDialog(Constants.HISTORY_CATEGORY,true) }
     }
 
     private fun showAdvice() {

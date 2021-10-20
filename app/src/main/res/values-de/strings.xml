@@ -21,7 +21,7 @@
     <string name="yes">Ja</string>
     <string name="record_idea">Geben Sie die Essenz der Idee ein</string>
     <string name="record_description">Geben Sie eine Beschreibung ein</string>
-    <string name="change_theme">Wechsel das Thema</string>
+    <string name="change_theme">Das Thema wechseln</string>
     <string name="begin_time">Der Anfang der Zeit</string>
     <string name="end_time">Ende der Zeit</string>
     <string name="delete">Entfernt</string>
@@ -360,4 +360,5 @@ streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen A
     <string name="new_event">Neue Veranstaltung</string>
     <string name="diplom_work">Diplomarbeit</string>
     <string name="phisology">Psychologie</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

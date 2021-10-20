@@ -70,7 +70,7 @@ fun getLanguageList(): List<LanguageModel> {
     listModel.add(LanguageModel("Беларускі"))
     listModel.add(LanguageModel("Український"))
     listModel.add(LanguageModel("English"))
-    listModel.add(LanguageModel("Deutsche"))
+    listModel.add(LanguageModel("Deutsch"))
     listModel.add(LanguageModel("Português"))
     listModel.add(LanguageModel("Français"))
     listModel.add(LanguageModel("Italiano"))

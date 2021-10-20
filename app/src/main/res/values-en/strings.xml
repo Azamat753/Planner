@@ -360,4 +360,5 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
     <string name="new_event">New event</string>
     <string name="diplom_work">Graduate work</string>
     <string name="phisology">Psychology</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

@@ -5,9 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/scroll_view"
     tools:context=".ui.fragment.progress.ProgressFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_wr"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -48,16 +50,6 @@
 
         </androidx.cardview.widget.CardView>
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/event_card"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="6dp"-->
-<!--            app:cardCornerRadius="8dp"-->
-<!--            app:cardElevation="4dp"-->
-<!--            app:cardUseCompatPadding="true"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/task_card">-->
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/event_card"
                 app:layout_constraintTop_toBottomOf="@id/task_card"
@@ -66,10 +58,11 @@
 
                 <TextView
                     android:id="@+id/event_title"
-                    style="@style/CommonStyle"
+                    style="@style/CommonFontStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
+                    android:textColor="?attr/textColor"
                     android:paddingEnd="15dp"
                     android:text="@string/events"
                     android:textSize="16sp"
@@ -90,18 +83,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/task_card"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="6dp"-->
-<!--            app:cardCornerRadius="8dp"-->
-<!--            app:cardElevation="4dp"-->
-<!--            app:cardUseCompatPadding="true"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/habit_card">-->
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/task_card"
                 app:layout_constraintTop_toBottomOf="@id/habit_card"
@@ -110,11 +91,12 @@
 
                 <TextView
                     android:id="@+id/task_title"
-                    style="@style/CommonStyle"
+                    style="@style/CommonFontStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:paddingRight="15dp"
+                    android:textColor="?attr/textColor"
                     android:text="@string/categories"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -134,17 +116,6 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/habit_card"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="6dp"-->
-<!--            app:cardCornerRadius="8dp"-->
-<!--            app:cardElevation="4dp"-->
-<!--            app:cardUseCompatPadding="true"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/calendar_card">-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/habit_card"
@@ -154,11 +125,12 @@
 
                 <TextView
                     android:id="@+id/habit_progress"
-                    style="@style/CommonStyle"
+                    style="@style/CommonFontStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:paddingRight="15dp"
+                    android:textColor="?attr/textColor"
                     android:text="@string/habit"
                     android:textSize="16sp"
                     android:textStyle="bold"

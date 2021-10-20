@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Planner</string>
-    <string name="events">活动</string>
+    <string name="events">事件</string>
     <string name="tasks">任务</string>
     <string name="ideas">想法</string>
     <string name="january">一月</string>
@@ -137,7 +137,7 @@
 并查看花费的总金额。 此外，通过
 向右滑动，您可以从频繁消费者列表中删除项目。
    </string>
-    <string name="main">主要的事情</string>
+    <string name="main">首页</string>
     <string name="finance">财务</string>
     <string name="you_forgot_habbit">\"你没有忘记习惯\"</string>
     <string name="you_can_edit_profile">您可以编辑您的个人资料</string>
@@ -209,7 +209,7 @@
     <string name="friday">星期五</string>
     <string name="saturday">星期六</string>
     <string name="sunday">星期日</string>
-    <string name="timetable">时间表</string>
+    <string name="timetable">日程表</string>
     <string name="stand_up">站立</string>
     <string name="focus">特技表演</string>
     <string name="expensive">开支</string>
@@ -231,8 +231,8 @@
     <string name="read_by_minutes">阅读15分钟</string>
     <string name="health">健康</string>
     <string name="targets">目标</string>
-    <string name="download_app">下载规划应用程序+</string>
-    <string name="look_how_it_work">看看它是如何运作的</string>
+    <string name="download_app">下载 Planner+ 软件</string>
+    <string name="look_how_it_work">看它如何运作</string>
     <string name="for_next_lesson">下一课</string>
     <string name="implement_new_fun">新函数的实现</string>
     <string name="new_process">新工艺</string>
@@ -252,7 +252,7 @@
     <string name="woke_up">醒了</string>
     <string name="went_to_sleep">上床睡觉了</string>
     <string name="sleep_recording">睡眠记录</string>
-    <string name="dream">睡觉吧</string>
+    <string name="dream">睡眠</string>
     <string name="no_records">没有记录</string>
     <string name="transport">运输业</string>
     <string name="products">产品</string>
@@ -359,4 +359,5 @@
     <string name="new_event">新活动</string>
     <string name="diplom_work">毕业生工作</string>
     <string name="phisology">心理学</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

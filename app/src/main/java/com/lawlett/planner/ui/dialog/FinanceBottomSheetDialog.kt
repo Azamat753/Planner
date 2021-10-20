@@ -55,17 +55,17 @@ class FinanceBottomSheetDialog(
     private fun addUpdateModel(
         argModel: FinanceModel,
     ) {
-        val updateAmount = binding.amountEditText.text.toString().trim().toInt() + getModel().amount
-        val amount = binding.amountEditText.text.toString().trim().toInt()
-        countExpensiveAndIncome(false, amount)
         when {
-            updateAmount.toString().isEmpty() -> {
+            binding.amountEditText.text.toString().isEmpty() -> {
                 binding.descriptionEditText.error = getString(R.string.fill_field)
             }
-            amount.toString().isEmpty() -> {
+            binding.amountEditText.text.toString().isEmpty() -> {
                 binding.amountEditText.error = getString(R.string.fill_field)
             }
             else -> {
+                val updateAmount = binding.amountEditText.text.toString().trim().toInt() + getModel().amount
+                val amount = binding.amountEditText.text.toString().trim().toInt()
+                countExpensiveAndIncome(false, amount)
                 val model = FinanceModel(
                     id = getModel().id,
                     description = argModel.description,
@@ -121,18 +121,18 @@ class FinanceBottomSheetDialog(
     }
 
     private fun addModel() {
-        val amount = binding.amountEditText.text.toString().trim().toInt()
-        val description = binding.descriptionEditText.text.toString().trim()
-        val isIncome = arguments?.getBoolean(Constants.IS_INCOME)
-        countExpensiveAndIncome(isIncome, amount)
         when {
-            description.isEmpty() -> {
+            binding.descriptionEditText.text.toString().isEmpty() -> {
                 binding.descriptionEditText.error = getString(R.string.fill_field)
             }
-            amount.toString().isEmpty() -> {
+            binding.amountEditText.text.toString().isEmpty() -> {
                 binding.amountEditText.error = getString(R.string.fill_field)
             }
             else -> {
+                val amount = binding.amountEditText.text.toString().trim().toInt()
+                val description = binding.descriptionEditText.text.toString().trim()
+                val isIncome = arguments?.getBoolean(Constants.IS_INCOME)
+                countExpensiveAndIncome(isIncome, amount)
                 val model =
                     FinanceModel(
                         category = tag.toString(),
@@ -148,23 +148,23 @@ class FinanceBottomSheetDialog(
         }
     }
 
-        private fun countExpensiveAndIncome(isIncome: Boolean?, amount: Int) {
-            val previousIncome =
-                IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME) ?: 0
-            val previousExpensive =
-                IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE) ?: 0
+    private fun countExpensiveAndIncome(isIncome: Boolean?, amount: Int) {
+        val previousIncome =
+            IntPreference.getInstance(requireContext())?.getInt(Constants.INCOME) ?: 0
+        val previousExpensive =
+            IntPreference.getInstance(requireContext())?.getInt(Constants.EXPENSIVE) ?: 0
 
-            if (isIncome == true) {
-                IntPreference.getInstance(requireContext())
-                    ?.saveInt(Constants.INCOME, amount + previousIncome)
-            } else {
-                IntPreference.getInstance(requireContext())
-                    ?.saveInt(Constants.EXPENSIVE, amount + previousExpensive)
-            }
-            updateBalance.needUpdate()
+        if (isIncome == true) {
+            IntPreference.getInstance(requireContext())
+                ?.saveInt(Constants.INCOME, amount + previousIncome)
+        } else {
+            IntPreference.getInstance(requireContext())
+                ?.saveInt(Constants.EXPENSIVE, amount + previousExpensive)
         }
-
-        interface UpdateBalance {
-            fun needUpdate()
-        }
+        updateBalance.needUpdate()
     }
+
+    interface UpdateBalance {
+        fun needUpdate()
+    }
+}

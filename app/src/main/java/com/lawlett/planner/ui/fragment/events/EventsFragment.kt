@@ -46,10 +46,12 @@ class EventsFragment : BaseFragment<FragmentEventsBinding>(FragmentEventsBinding
             val targets = ArrayList<Target>()
             val root = FrameLayout(requireContext())
             val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view = View(requireContext())
+
             Handler().postDelayed({
 
                 val firstSpot = setSpotLightTarget(
-                    binding.eventRecycler,
+                    view,
                     first,
                     "\n\n\n\n " + getString(R.string.events) + "\n\n\n " + getString(R.string.planning_events) + "\n " + getString(
                         R.string.set_remind_by_wish

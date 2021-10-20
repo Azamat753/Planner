@@ -360,4 +360,5 @@
     <string name="new_event">Жаңа оқиға</string>
     <string name="diplom_work">Дипломдық жұмыс</string>
     <string name="phisology">Психология</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

@@ -360,4 +360,5 @@
     <string name="new_event">नई घटना</string>
     <string name="diplom_work">ग्रेजुएट काम</string>
     <string name="phisology">मनोविज्ञान</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

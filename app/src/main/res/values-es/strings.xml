@@ -359,4 +359,5 @@ al deslizar hacia la derecha, puede eliminar un Elemento de la lista de gastos f
     <string name="new_event">Nuevo evento</string>
     <string name="diplom_work">Tesina</string>
     <string name="phisology">Psicología</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

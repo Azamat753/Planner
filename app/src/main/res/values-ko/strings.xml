@@ -360,4 +360,5 @@
     <string name="new_event">새로운 이벤트</string>
     <string name="diplom_work">대학원 작품</string>
     <string name="phisology">심리학</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

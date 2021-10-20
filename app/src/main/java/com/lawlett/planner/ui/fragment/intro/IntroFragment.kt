@@ -65,7 +65,7 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
             Handler().postDelayed({
                 binding.textSurface.isClickable = true
                 isShowed = true
-            }, 21000)
+            }, 15000)
         }
     }
 
@@ -219,19 +219,24 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             textSurface.play(
                 Sequential(
-                    ShapeReveal.create(textHello, 750, SideCut.show(Side.LEFT), false),
+                    ShapeReveal.create(textHello, animationSpeed, SideCut.show(Side.LEFT), false),
                     Parallel(
-                        ShapeReveal.create(textHello, 600, SideCut.hide(Side.LEFT), false),
+                        ShapeReveal.create(
+                            textHello,
+                            animationSpeed,
+                            SideCut.hide(Side.LEFT),
+                            false
+                        ),
                         Sequential(
                             Delay.duration(300), ShapeReveal.create(
-                                textHello, 600, SideCut.show(Side.LEFT),
+                                textHello, animationSpeed, SideCut.show(Side.LEFT),
                                 false
                             )
                         )
                     ),
                     Sequential(
                         TransSurface(animationSpeed, toolsFor, Pivot.CENTER),
-                        ShapeReveal.create(toolsFor, 1300, SideCut.show(Side.LEFT), false)
+                        ShapeReveal.create(toolsFor, animationSpeed, SideCut.show(Side.LEFT), false)
                     ),
                     Delay.duration(animationSpeed),
 

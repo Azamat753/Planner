@@ -359,5 +359,6 @@
     <string name="new_event">新しいイベント</string>
     <string name="diplom_work">大学院の仕事</string>
     <string name="phisology">心理学</string>
+    <string name="not_necessary">(Необязательно)</string>
 
 </resources>

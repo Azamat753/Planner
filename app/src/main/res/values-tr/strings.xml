@@ -359,5 +359,6 @@ sağa kaydırarak, sık harcama listesinden bir öğeyi kaldırabilirsiniz.
     <string name="new_event">Yeni etkinlik</string>
     <string name="diplom_work">Tez çalışması</string>
     <string name="phisology">Psikoloji</string>
+    <string name="not_necessary">(Необязательно)</string>
 
 </resources>

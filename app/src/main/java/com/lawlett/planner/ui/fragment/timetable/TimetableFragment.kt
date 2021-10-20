@@ -63,10 +63,11 @@ class TimetableFragment :
             val targets = ArrayList<Target>()
             val root = FrameLayout(requireContext())
             val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view = View(requireContext())
 
             Handler().postDelayed({
                 val firstSpot = setSpotLightTarget(
-                    binding.monday.titleCard,
+                    view,
                     first,
                     getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
                         R.string.cause_see
@@ -89,7 +90,7 @@ class TimetableFragment :
     private fun initSundayAdapter() {
         val adapter = TimetableAdapter()
         binding.sundayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.sunday))
+        viewModel.getDataOfDayOfWeek(Constants.SUNDAY_KEY)
             .observe(viewLifecycleOwner, { sunday ->
                 adapter.setData(sunday)
                 listSunday = sunday
@@ -97,7 +98,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.sundayRecycler, position, listSunday, 6)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
@@ -105,7 +106,7 @@ class TimetableFragment :
     private fun initSaturdayAdapter() {
         val adapter = TimetableAdapter()
         binding.saturdayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.saturday))
+        viewModel.getDataOfDayOfWeek(Constants.SATURDAY_KEY)
             .observe(viewLifecycleOwner, { saturday ->
                 adapter.setData(saturday)
                 listSaturday = saturday
@@ -113,7 +114,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.saturdayRecycler, position, listSaturday, 5)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
@@ -121,7 +122,7 @@ class TimetableFragment :
     private fun initFridayAdapter() {
         val adapter = TimetableAdapter()
         binding.fridayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.friday))
+        viewModel.getDataOfDayOfWeek(Constants.FRIDAY_KEY)
             .observe(viewLifecycleOwner, { friday ->
                 adapter.setData(friday)
                 listFriday = friday
@@ -129,7 +130,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.fridayRecycler, position, listFriday, 4)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
@@ -137,7 +138,7 @@ class TimetableFragment :
     private fun initThursdayAdapter() {
         val adapter = TimetableAdapter()
         binding.thursdayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.thursday))
+        viewModel.getDataOfDayOfWeek(Constants.THURSDAY_KEY)
             .observe(viewLifecycleOwner, { thursday ->
                 adapter.setData(thursday)
                 listThursday = thursday
@@ -145,7 +146,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.thursdayRecycler, position, listThursday, 3)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
@@ -153,7 +154,7 @@ class TimetableFragment :
     private fun initWednesdayAdapter() {
         val adapter = TimetableAdapter()
         binding.wednesdayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.wednesday))
+        viewModel.getDataOfDayOfWeek(Constants.WEDNESDAY_KEY)
             .observe(viewLifecycleOwner, { wednesday ->
                 adapter.setData(wednesday)
                 listWednesday = wednesday
@@ -162,7 +163,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.wednesdayRecycler, position, listWednesday, 2)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
@@ -170,7 +171,7 @@ class TimetableFragment :
     private fun initTuesdayAdapter() {
         val adapter = TimetableAdapter()
         binding.tuesdayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.tuesday))
+        viewModel.getDataOfDayOfWeek(Constants.TUESDAY_KEY)
             .observe(viewLifecycleOwner, { tuesday ->
                 adapter.setData(tuesday)
                 listTuesday = tuesday
@@ -178,14 +179,14 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.tuesdayRecycler, position, listTuesday, 1)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
 
     private fun initMondayAdapter() {
         binding.mondayRecycler.adapter = adapter
-        viewModel.getDataOfDayOfWeek(getString(R.string.monday))
+        viewModel.getDataOfDayOfWeek(Constants.MONDAY_KEY)
             .observe(viewLifecycleOwner, { monday ->
                 adapter.setData(monday)
                 listMonday = monday
@@ -193,23 +194,23 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(binding.mondayRecycler, position, listMonday, 0)
+                    showActionDialog(itemView, position, listMonday, 0,model)
                 }
             }
     }
 
     fun showActionDialog(
-        recyclerView: RecyclerView,
+        itemView: View,
         position: Int,
         list: List<TimetableModel>,
-        dayIndex: Int
+        dayIndex: Int,model: TimetableModel
     ) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete = dialog.findViewById<Button>(R.id.delete_button)
         val edit = dialog.findViewById<Button>(R.id.edit_button)
         edit.text = getString(R.string.edit)
         delete.setOnClickListener {
-            deleteItem(recyclerView, position, list)
+            deleteItem(itemView, position, model)
             dialog.dismiss()
         }
         edit.setOnClickListener {
@@ -220,15 +221,12 @@ class TimetableFragment :
     }
 
     private fun deleteItem(
-        recyclerView: RecyclerView,
+        itemView: View,
         position: Int,
-        list: List<TimetableModel>
+        model: TimetableModel
     ) {
-        recyclerView.findViewHolderForAdapterPosition(
-            position
-        )?.itemView?.explosionView(explosionField)
-
-        list[position].let { viewModel.delete(it) }
+        itemView.explosionView(explosionField)
+        viewModel.delete(model)
         if (position == 0) {
             findNavController().navigate(R.id.timetableFragment)
         } else {
@@ -332,25 +330,60 @@ class TimetableFragment :
 
         when (dayOfWeek) {
             0 -> {
-                rewardAnAchievement(listMonday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listMonday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             1 -> {
-                rewardAnAchievement(listTuesday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listTuesday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             2 -> {
-                rewardAnAchievement(listWednesday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listWednesday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             3 -> {
-                rewardAnAchievement(listThursday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listThursday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             4 -> {
-                rewardAnAchievement(listFriday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listFriday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             5 -> {
-                rewardAnAchievement(listSaturday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listSaturday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
             6 -> {
-                rewardAnAchievement(listSunday.size,requireActivity(),achievementViewModel,binding.achievementView)
+                rewardAnAchievement(
+                    listSunday.size,
+                    requireActivity(),
+                    achievementViewModel,
+                    binding.achievementView
+                )
             }
         }
     }

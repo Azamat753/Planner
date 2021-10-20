@@ -14,7 +14,7 @@
         <item name="plusBackground">#0365C4</item>
         <item name="android:navigationBarColor">#0365C4</item>
         <item name="create_event_editText">#FFF</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
 
@@ -36,7 +36,7 @@
         <item name="iconColor">#075E54</item>
         <item name="plusBackground">#075E54</item>
         <item name="android:navigationBarColor">#075E54</item>
-        <item name="settings_text_color">#FFFFFF</item>
+        <item name="white_text_color">#FFFFFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -51,7 +51,7 @@
         <item name="iconColor">#FC9885</item>
         <item name="plusBackground">#FC9885</item>
         <item name="android:navigationBarColor">#FC9885</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -66,7 +66,7 @@
         <item name="iconColor">#FF5722</item>
         <item name="plusBackground">#FF5722</item>
         <item name="android:navigationBarColor">#FF5722</item>
-        <item name="settings_text_color">#FFFFFF</item>
+        <item name="white_text_color">#FFFFFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -81,7 +81,7 @@
         <item name="iconColor">@color/dark_blue_theme</item>
         <item name="plusBackground">@color/dark_blue_theme</item>
         <item name="android:navigationBarColor">@color/dark_blue_theme</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -96,7 +96,7 @@
         <item name="iconColor">@color/yellow_theme</item>
         <item name="plusBackground">@color/yellow_theme</item>
         <item name="android:navigationBarColor">@color/yellow_theme</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -112,7 +112,7 @@
         <item name="plusBackground">@color/red_theme</item>
         <item name="android:navigationBarColor">@color/red_theme</item>
         <item name="create_event_editText">#FFF</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
 
@@ -127,7 +127,7 @@
         <item name="plusBackground">#0365C4</item>
         <item name="android:navigationBarColor">#0365C4</item>
         <item name="create_event_editText">#FFF</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
 
@@ -141,7 +141,7 @@
         <item name="iconColor">#673AB7</item>
         <item name="plusBackground">#673AB7</item>
         <item name="android:navigationBarColor">#673AB7</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -156,7 +156,7 @@
         <item name="iconColor">@color/light_blue_theme</item>
         <item name="plusBackground">@color/light_blue_theme</item>
         <item name="android:navigationBarColor">@color/light_blue_theme</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -171,7 +171,7 @@
         <item name="iconColor">#99DE9F</item>
         <item name="plusBackground">#99DE9F</item>
         <item name="android:navigationBarColor">#99DE9F</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -186,7 +186,7 @@
         <item name="iconColor">#323232</item>
         <item name="plusBackground">#323232</item>
         <item name="android:navigationBarColor">#323232</item>
-        <item name="settings_text_color">#FFF</item>
+        <item name="white_text_color">#FFF</item>
         <item name="create_event_editText">#FFF</item>
         <item name="hint_color">#aaa</item>
     </style>
@@ -243,9 +243,8 @@
         <item name="android:textColor">?attr/iconColor</item>
     </style>
 
-    <style name="CommonStyle">
+    <style name="CommonFontStyle">
         <item name="android:fontFamily">@font/scope_one</item>
-        <item name="android:textColor">?attr/textColor</item>
     </style>
 
     <style name="backgroundApp">

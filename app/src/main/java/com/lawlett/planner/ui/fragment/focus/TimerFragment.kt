@@ -1,5 +1,7 @@
 package com.lawlett.planner.ui.fragment.focus
 
+import android.media.Ringtone
+import android.media.RingtoneManager
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -19,6 +21,7 @@ import com.lawlett.planner.utils.SimpleCountDownTimer
 import org.koin.android.ext.android.inject
 import java.lang.reflect.InvocationTargetException
 
+
 class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::inflate) {
     private var timeLeftInMilliseconds: Long = 0
     var myTask: String? = null
@@ -31,6 +34,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
     private var modelId: Int = 0
     private var previousTime: Double = 0.0
     private lateinit var previousDateCreated: String
+    lateinit var track: Ringtone
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,10 +83,11 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
             }
         }
         binding.applyButton.setOnClickListener {
-            if (binding.countTime.text.toString().trim() == "" || binding.countTime.text.toString().trim()
+            if (binding.countTime.text.toString().trim() == "" || binding.countTime.text.toString()
+                    .trim()
                     .toInt() < 1
             ) {
-                requireContext().showToast("not translated")
+                binding.countTime.error = getString(R.string.fill_field)
             } else {
                 timeLeftInMilliseconds =
                     (binding.countTime.text.toString().trim().toInt() * 60000).toLong()
@@ -104,6 +109,9 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
         }
 
         binding.exitButton.setOnClickListener {
+            if (track.isPlaying) {
+                track.stop()
+            }
             if (isUpdate()) {
                 val hour = calculateRemainingTime().toDouble() + previousTime
                 val model = SkillModel(
@@ -123,6 +131,17 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
             }
 
             findNavController().navigate(R.id.timing_fragment)
+        }
+    }
+
+
+    fun playRingtone() {
+        try {
+            val notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+            track = RingtoneManager.getRingtone(requireContext(), notification)
+            track.play()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -155,6 +174,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding>(FragmentTimerBinding::i
 
             override fun onFinish() {
                 super.onFinish()
+                playRingtone()
                 binding.countdownButton.visible()
             }
         }.start()

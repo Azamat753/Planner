@@ -9,7 +9,7 @@
     <attr name="editTextStrokeColor" format="color" />
     <attr name="iconColor" format="color" />
     <attr name="plusBackground" format="color" />
-    <attr name="settings_text_color" format="color" />
+    <attr name="white_text_color" format="color" />
     <attr name="windowColor" format="color" />
     <attr name="create_event_editText" format="color"/>
     <attr name="alert_color" format="color"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.finance.FinanceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,6 +39,7 @@
 
                 <TextView
                     android:id="@+id/advice_title"
+                    style="@style/CommonFontStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -50,6 +51,7 @@
                     android:id="@+id/advice_sub"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/CommonFontStyle"
                     android:textAlignment="center"
                     android:textColor="?attr/textColor"
                     android:textSize="14sp"
@@ -83,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="@string/balance"
+                    style="@style/CommonFontStyle"
                     android:textColor="?attr/textColor"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -95,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
                     android:text="0"
+                    style="@style/CommonFontStyle"
                     android:textColor="?attr/textColor"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -119,13 +123,14 @@
             app:layout_constraintTop_toBottomOf="@id/balance_card">
 
             <Button
-                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/income_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/iconColor"
+                android:foreground="?attr/selectableItemBackground"
                 android:text="@string/income"
-                android:textColor="?attr/settings_text_color"
+                style="@style/CommonFontStyle"
+                android:textColor="?attr/white_text_color"
                 tools:ignore="UnusedAttribute" />
 
         </androidx.cardview.widget.CardView>
@@ -146,67 +151,61 @@
                 android:id="@+id/expenses_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:foreground="?attr/selectableItemBackground"
                 android:background="?attr/iconColor"
+                style="@style/CommonFontStyle"
+                android:foreground="?attr/selectableItemBackground"
                 android:text="@string/expensive"
-                android:textColor="?attr/settings_text_color"
+                android:textColor="?attr/white_text_color"
                 tools:ignore="UnusedAttribute" />
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/template_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:padding="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
+            android:layout_height="match_parent"
+            android:padding="12dp"
             app:layout_constraintTop_toBottomOf="@id/income_card">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <Button
+                android:id="@+id/pattern_btn"
+                android:layout_width="30dp"
+                style="@style/CommonFontStyle"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_background"
+                android:text="+"
+                android:textColor="?attr/white_text_color"
+                app:layout_constraintEnd_toEndOf="@id/pattern_recycler"
+                app:layout_constraintTop_toTopOf="@id/frequent_spending_text_tv" />
+
+            <TextView
+                android:id="@+id/frequent_spending_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/template_expensive"
+                style="@style/CommonFontStyle"
+                android:textColor="?attr/textColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pattern_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="12dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frequent_spending_text_tv"
+                app:spanCount="2"
+                tools:listitem="@layout/item_finance" />
 
-                <Button
-                    android:id="@+id/pattern_btn"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/circle_background"
-                    android:text="+"
-                    android:textColor="?attr/settings_text_color"
-                    app:layout_constraintEnd_toEndOf="@id/pattern_recycler"
-                    app:layout_constraintTop_toTopOf="@id/frequent_spending_text_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/frequent_spending_text_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/template_expensive"
-                    android:textColor="?attr/textColor"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/pattern_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:listitem="@layout/item_finance"
-                    app:layout_constraintTop_toBottomOf="@id/frequent_spending_text_tv"
-                    app:spanCount="2" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/history_card"
@@ -244,7 +243,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/history"
-                    android:textColor="?attr/settings_text_color"
+                    style="@style/CommonFontStyle"
+                    android:textColor="?attr/white_text_color"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -254,7 +254,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

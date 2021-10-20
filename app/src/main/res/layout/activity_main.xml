@@ -22,7 +22,7 @@
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/settings_text_color"
+                android:background="?attr/white_text_color"
                 app:navigationIconTint="?attr/toolbarColor"
                 app:subtitleTextColor="?attr/toolbarColor"
                 app:title="@string/main"

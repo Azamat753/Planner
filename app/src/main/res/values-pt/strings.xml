@@ -360,4 +360,5 @@ deslizando para a direita, você pode remover um item da lista de gastos frequen
     <string name="new_event">Novo evento</string>
     <string name="diplom_work">Tese</string>
     <string name="phisology">Psicologia</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

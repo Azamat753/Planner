@@ -71,8 +71,14 @@ object Constants {
     const val LANGUAGE_SELECTED = "language_sd"
     const val THEME_SELECTED = "language_sd"
 
-    const val THEME_PREFERENCE="theme pref"
+    const val THEME_PREFERENCE = "theme pref"
 
-
+    const val MONDAY_KEY = "monday_key"
+    const val TUESDAY_KEY = "tuesday_key"
+    const val WEDNESDAY_KEY = "wednesday_key"
+    const val THURSDAY_KEY = "thursday_key"
+    const val FRIDAY_KEY = "friday_key"
+    const val SATURDAY_KEY = "saturday_key"
+    const val SUNDAY_KEY = "sunday_key"
 
 }

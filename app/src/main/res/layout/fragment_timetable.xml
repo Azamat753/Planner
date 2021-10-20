@@ -34,7 +34,7 @@
 
             <include
                 android:id="@+id/monday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/monday_recycler"
@@ -45,7 +45,7 @@
 
             <include
                 android:id="@+id/tuesday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tuesday_recycler"
@@ -56,7 +56,7 @@
 
             <include
                 android:id="@+id/wednesday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/wednesday_recycler"
@@ -67,7 +67,7 @@
 
             <include
                 android:id="@+id/thursday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/thursday_recycler"
@@ -78,7 +78,7 @@
 
             <include
                 android:id="@+id/friday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/friday_recycler"
@@ -89,7 +89,7 @@
 
             <include
                 android:id="@+id/saturday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/saturday_recycler"
@@ -100,7 +100,7 @@
 
             <include
                 android:id="@+id/sunday"
-                layout="@layout/title_layout" />
+                layout="@layout/timetable_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sunday_recycler"

@@ -58,10 +58,13 @@ class ProgressFragment :
         initEventProgressAdapter()
         addFalseDataForExample()
         spotlightOrThemeDialog()
+
     }
 
     private fun spotlightOrThemeDialog() {
-        if (BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.THEME_SELECTED)==true) {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.THEME_SELECTED) == true
+        ) {
             openThemeDialog()
         } else {
             showSpotlight()
@@ -210,7 +213,7 @@ class ProgressFragment :
 
     private fun initHorizontalCalendar() {
         val startDate = Calendar.getInstance()
-        startDate.add(Calendar.MONTH,0)
+        startDate.add(Calendar.MONTH, 0)
         val endDate = Calendar.getInstance()
         endDate.add(Calendar.MONTH, 3)
         val horizontalCalendar = devs.mulham.horizontalcalendar.HorizontalCalendar.Builder(
@@ -267,7 +270,7 @@ class ProgressFragment :
             Calendar.SUNDAY -> dayOfWeek = 6
         }
 
-        val bottomDialog = CreateTimetableBottomSheetDialog(null,null)
+        val bottomDialog = CreateTimetableBottomSheetDialog(null, null)
         bottomDialog.show(
             requireActivity().supportFragmentManager,
             dayOfWeek.toString()
@@ -312,7 +315,7 @@ class ProgressFragment :
                     habitViewModel,
                     requireActivity(),
                     achievementViewModel,
-                    binding.achievementView,object :UpdateAdapter{
+                    binding.achievementView, object : UpdateAdapter {
                         override fun toUpdate() {
                             adapter.notifyDataSetChanged()
                         }

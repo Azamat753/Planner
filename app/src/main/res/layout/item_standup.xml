@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
     android:padding="12dp"
     app:cardCornerRadius="10dp"
-    android:foreground="?attr/selectableItemBackground"
     app:cardElevation="8dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/what_done_yesterday_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Что было выполнено за вчерашний лень"
+            android:text="@string/what_done_yesterday"
             android:textColor="?attr/textColor"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Что запланировано на сегодня"
+            android:text="@string/what_plan_today"
             android:textColor="?attr/textColor"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="С какими проблемами столкнулся"
+            android:text="@string/problems"
             android:textColor="?attr/textColor"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Важная информация"
+            android:text="@string/important_info"
             android:textColor="?attr/textColor"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -111,10 +111,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="20.02.2021"
+            tools:text="20.02.2021"
             android:textColor="?attr/textColor"
-            app:layout_constraintStart_toStartOf="parent"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/important_info_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

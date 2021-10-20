@@ -223,6 +223,15 @@
         <item>@string/saturday</item>
         <item>@string/sunday</item>
     </string-array>
+    <string-array name="dayOfWeek_keys">
+        <item>monday_key</item>
+        <item>tuesday_key</item>
+        <item>wednesday_key</item>
+        <item>thursday_key</item>
+        <item>friday_key</item>
+        <item>saturday_key</item>
+        <item>sunday_key</item>
+    </string-array>
     <string name="ofCourse">Конечно</string>
     <string name="enter_password">Введите пароль</string>
     <string name="wrong_password">Не верный пароль</string>
@@ -370,4 +379,5 @@
     <string name="new_event">Новое событие</string>
     <string name="diplom_work">Дипломная работа</string>
     <string name="phisology">Психология</string>
+    <string name="not_necessary">(Необязательно)</string>
 </resources>

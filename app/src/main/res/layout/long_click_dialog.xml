@@ -39,7 +39,7 @@
                     android:layout_margin="20dp"
                     android:text="@string/choose_action"
                     android:textAlignment="center"
-                    android:textColor="?attr/settings_text_color"
+                    android:textColor="?attr/white_text_color"
                     android:textSize="20sp" />
 
             </androidx.cardview.widget.CardView>

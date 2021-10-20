@@ -49,17 +49,20 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
             val targets = ArrayList<Target>()
             val root = FrameLayout(requireContext())
             val first = layoutInflater.inflate(R.layout.layout_target, root)
+            val view = View(requireContext())
 
             Handler().postDelayed({
                 val firstSpot = setSpotLightTarget(
-                    binding.categoryRecycler,
+                    view,
                     first,
-                    "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(R.string.inside_cards_record) + " \n "+getString(R.string.hold_card)
+                    "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(R.string.inside_cards_record) + " \n " + getString(
+                        R.string.hold_card
+                    )
                 )
                 val secondSpot = setSpotLightTarget(
                     binding.addCategoryFab,
                     first,
-                    getString(R.string.insert_button)+" \n "+getString(R.string.create_new_category_click)
+                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_category_click)
                 )
                 targets.add(firstSpot)
                 targets.add(secondSpot)

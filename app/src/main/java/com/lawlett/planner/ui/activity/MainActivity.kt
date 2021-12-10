@@ -225,6 +225,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.settingsFragment -> {
                     binding.toolbarMain.title = getString(R.string.settings)
                 }
+                R.id.instructionFragment->{
+                    binding.toolbarMain.title = getString(R.string.instruction)
+                }
             }
         }
     }
@@ -252,7 +255,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     R.id.timing_fragment,
                     R.id.standUpFragment,
                     R.id.financeFragment,
-                    R.id.dreamFragment
+                    R.id.dreamFragment,
+                    R.id.instructionFragment
                 )
             ) {
                 binding.bottomNavigation.gone()

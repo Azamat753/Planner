@@ -360,5 +360,42 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
     <string name="new_event">New event</string>
     <string name="diplom_work">Graduate work</string>
     <string name="phisology">Psychology</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Not obligatory)</string>
+    <string name="hour">Watch</string>
+    <string name="minute">Minutes</string>
+    <string name="choose_app">Select an application</string>
+    <string name="in_main_screen">- Here you can mark that you have completed your task from habits, view events and go to the desired category.\n
+- Long press on the date in the calendar that is at the top of the window will allow you to add a new event or task for that day to your schedule.</string>
+    <string name="in_categories">- To create a new category, click on +.\n
+- A long press on the category will open a window where you can edit, delete or block it, as well as change your password.</string>
+    <string name="in_timetable">- To create a new entry, click on +. You can choose one or several days at once.\n
+- By clicking on the day of the week, you can view all entries for that day. \n
+- A long press on the record will allow you to delete or edit it.</string>
+    <string name="in_event">- To create a new event, click on +. You can also set a reminder for the time you need.\n
+- A long press on the event will allow you to delete or edit it.</string>
+    <string name="in_habit">A window that will allow you to develop the desired habit.\n
+- To create a new habit, click on +.\n
+- By clicking on the habit, you can note that you have completed the task today.\n
+- A long press will allow you to delete or edit it. Button in the upper left corner will open the menu. Here you can find out your level, choose an avatar and add a name.</string>
+    <string name="in_focus">The window was created based on the theory of 10,000 hours, which states that this is how much time you need to spend to achieve professionalism in your chosen field.\n
+- By clicking on + you can add a new action, as well as open a timer or stopwatch.\n
+- By clicking on an action in the list, you can specify how many minutes you spent on it. The time will be summed up.\n
+- A long press will open the timer or stopwatch from where the time will be added to your record. If you wish, you can immediately delete it.</string>
+    <string name="in_standup">The practice used in large companies to optimize the process. Every employee writes a daily report on the work done and the problems encountered.\n
+- - The + button will allow you to create a new standup.\n
+- A long press on the record will open a window where you can delete, edit or share the standup.</string>
+    <string name="in_dream">A window where you can track the time spent sleeping.\n
+- By clicking on + you can create a new record.\n
+- By clicking on the entry you can read what you dreamed.\n
+- A long press will allow you to edit or delete an entry.</string>
+    <string name="in_idea">- By clicking on + you can add a new idea.\n
+- By clicking on the record you can view the picture, a long press will allow you to delete or edit the record.</string>
+    <string name="in_finance">A window for tracking your finances.\n
+- At the top is a card with tips that will allow you to manage your money more productively.\n
+- The \'Income\' and \'Expense\' buttons will allow you to add a record of how much money you received and how much you spent, respectively.\n
+- There are template costs here, if you wish, you can create your own template by clicking on +.\n
+- A long press on the template will allow you to delete it.\n
+- History will allow you to track all your financial changes.</string>
+    <string name="in_setting">- Here you can change the theme and language of the application.</string>
+    <string name="instruction">Instructions</string>
 </resources>

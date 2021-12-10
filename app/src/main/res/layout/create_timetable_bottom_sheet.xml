@@ -48,9 +48,76 @@
         <Spinner
             android:id="@+id/dayOfWeek_spinner"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_wrapper" />
+
+        <HorizontalScrollView
+            android:id="@+id/days_list"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/title_wrapper"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layout_dayOfWeek"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/monday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/monday" />
+
+            <CheckBox
+                android:id="@+id/tuesday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/tuesday" />
+
+            <CheckBox
+                android:id="@+id/wednesday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/wednesday" />
+
+            <CheckBox
+                android:id="@+id/thursday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/thursday" />
+
+            <CheckBox
+                android:id="@+id/friday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/friday" />
+
+            <CheckBox
+                android:id="@+id/saturday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/saturday" />
+
+            <CheckBox
+                android:id="@+id/sunday_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/sunday" />
+
+        </LinearLayout>
+
+        </HorizontalScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/start_time_button"
@@ -64,7 +131,7 @@
             android:textAllCaps="false"
             app:backgroundTint="?attr/toolbarColor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dayOfWeek_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/days_list" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/start_time_text"

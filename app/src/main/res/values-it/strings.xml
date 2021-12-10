@@ -359,5 +359,42 @@ scorri verso destra, puoi rimuovere un elemento dall\'elenco delle spese frequen
     <string name="new_event">Nuovo evento</string>
     <string name="diplom_work">Tesi di laurea</string>
     <string name="phisology">Psicologia</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Non necessariamente.)</string>
+    <string name="hour">Orologio</string>
+    <string name="minute">Minuti</string>
+    <string name="choose_app">Selezionare l\'applicazione</string>
+    <string name="in_main_screen">- Qui puoi notare che hai completato il tuo compito dalle abitudini, visualizzare gli eventi e passare alla categoria desiderata.\n
+        - Premere a lungo su una data nel calendario che si trova nella parte superiore della finestra vi permetterà di aggiungere un nuovo evento o attività per quel giorno al vostro programma.</string>
+    <string name="in_categories">- Per creare una nuova categoria, fare clic su +.\n
+        - Premendo a lungo su una categoria si aprirà una finestra in cui è possibile modificare, eliminare o bloccare e cambiare la password.</string>
+    <string name="in_timetable">- Per creare una nuova voce, fare clic su +. Puoi scegliere uno o più giorni contemporaneamente.\n
+        - Cliccando sul giorno della settimana è possibile visualizzare tutte le voci di un dato giorno. \n
+        - Premere a lungo su una voce ti permetterà di cancellarla o modificarla.</string>
+    <string name="in_event">- Per creare un nuovo evento, Fare clic su +. Inoltre è possibile impostare un promemoria al momento giusto.\n
+        - Premere a lungo su un evento vi permetterà di eliminare o modificare.</string>
+    <string name="in_habit">Una finestra che ti permetterà di sviluppare l\'abitudine desiderata.\n
+        - Per creare una nuova abitudine toccare +.\n
+        - Cliccando sull\'abitudine, puoi notare che oggi hai completato il compito.\n
+        - Premere a lungo per eliminare o modificare. Pulsante nell\'angolo in alto a sinistra si aprirà un menu. Qui puoi scoprire il tuo livello, scegliere un avatar e aggiungere un nome.</string>
+    <string name="in_focus">La finestra è stata creata sulla base di una teoria di circa 10.000 ore che afferma che è esattamente così tanto tempo da spendere per raggiungere la professionalità nel campo scelto.\n
+        - Cliccando sul + È possibile aggiungere una nuova azione e anche aprire un timer o un cronometro.\n
+        - Cliccando sull\'azione nella lista è possibile specificare quanti minuti hanno speso su di esso. Il tempo si sommerà.\n
+        - Premere a lungo per aprire il timer o cronometro da dove il tempo viene aggiunto alla registrazione. Se lo si desidera, è possibile rimuoverlo immediatamente.</string>
+    <string name="in_standup">Pratica utilizzata nelle grandi aziende per ottimizzare il processo. Ogni dipendente scrive ogni giorno un rapporto sul lavoro svolto e sui problemi che si sono verificati.\n
+        - - Pulsante + creerà un nuovo stand up.\n
+        - Premere a lungo sulla voce si aprirà una finestra in cui è possibile eliminare, modificare o condividere stand-up.</string>
+    <string name="in_dream">Una finestra dove potete tenere la carreggiata il tempo speso su sonno.\n
+        - Cliccando sul + È possibile creare una nuova voce.\n
+        - Cliccando sulla voce si può leggere quello che hai sognato.\n
+        - Premere a lungo per modificare o eliminare la registrazione.</string>
+    <string name="in_idea">- Cliccando sul + È possibile aggiungere una nuova idea.\n
+- Cliccando sulla voce è possibile visualizzare l\'immagine, premendo a lungo si elimina o modificare la registrazione.</string>
+    <string name="in_finance">Una finestra per tenere traccia delle vostre finanze.\n
+        - In alto una scheda con suggerimenti che ti permetteranno di gestire i tuoi soldi in modo più produttivo.\n
+        - I pulsanti \'reddito \' e  \'spesa \' ti permetteranno di aggiungere una voce su quanto hai ricevuto denaro e quanto hai speso di conseguenza.\n
+        - Qui ci sono le spese del modello, se lo si desidera, è possibile creare il modello cliccando sul +.\n
+        - Premere a lungo su un modello consentirà di eliminarlo.\n
+        - La storia vi permetterà di tracciare tutti i vostri cambiamenti finanziari.</string>
+    <string name="in_setting">- Qui è possibile modificare il tema e la lingua dell\'applicazione.</string>
+    <string name="instruction">Istruzione</string>
 </resources>

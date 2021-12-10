@@ -359,6 +359,43 @@ sağa kaydırarak, sık harcama listesinden bir öğeyi kaldırabilirsiniz.
     <string name="new_event">Yeni etkinlik</string>
     <string name="diplom_work">Tez çalışması</string>
     <string name="phisology">Psikoloji</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Buna gerek yok)</string>
+    <string name="hour">Saat</string>
+    <string name="minute">Dakikalar</string>
+    <string name="choose_app">Uygulamayı seçin</string>
+    <string name="in_main_screen">- Burada görevinizi alışkanlıklarınızdan tamamladığınızı, olayları görüntülediğinizi ve istediğiniz kategoriye girdiğinizi not edebilirsiniz.\n
+        - Pencerenin üst kısmında bulunan takvimdeki bir tarihe uzun süre basmak, o gün için programınıza yeni bir etkinlik veya görev eklemenize izin verecektir.</string>
+    <string name="in_categories">- Yeni bir kategori oluşturmak için + \'ya tıklayın.\n
+        - Bir kategoriye uzun süre basmak, bir kategoriyi düzenleyebileceğiniz, silebileceğiniz veya kilitleyebileceğiniz ve şifreyi değiştirebileceğiniz bir pencereyi açacaktır.</string>
+    <string name="in_timetable">- Yeni bir kayıt oluşturmak için + \'ya tıklayın. Birini veya aynı anda birkaç günü seçebilirsiniz.\n
+        - Haftanın gününe dokunarak, belirli bir günün tüm kayıtlarını görüntüleyebilirsiniz. \n
+        - Bir girdiye uzun süre basmak, onu silmenize veya düzenlemenize izin verecektir.</string>
+    <string name="in_event">- Yeni bir etkinlik oluşturmak için + \'ya tıklayın. Ayrıca istediğiniz zamana bir hatırlatma ayarlayabilirsiniz.\n
+        - Bir etkinliğe uzun süre basmak, onu silmenize veya düzenlemenize izin verecektir.</string>
+    <string name="in_habit">İstediğiniz alışkanlığı geliştirmenize izin verecek bir pencere.\n
+        - Yeni bir alışkanlık oluşturmak için + \'ya tıklayın.\n
+        - Alışkanlığa tıklayarak, bugün görevi tamamladığınızı not edebilirsiniz.\n
+        - Uzun basış, onu silecek veya düzenleyecektir. Sol üst köşedeki düğme menüyü getirecektir. Burada seviyenizi öğrenebilir, bir avatar seçebilir ve bir isim ekleyebilirsiniz.</string>
+    <string name="in_focus">Pencere, seçilen alanda profesyonelliğe ulaşmak için tam olarak ne kadar zaman harcanması gerektiğini belirten 10.000 saatlik bir teoriye dayanılarak oluşturulmuştur.\n
+        - + \'ya dokunarak yeni bir eylem ekleyebilir ve zamanlayıcı veya kronometreyi açabilirsiniz.\n
+        - Listedeki bir etkinliğe tıklayarak, bunun için kaç dakika harcadığınızı belirtebilirsiniz. Zaman toplanacak.\n
+        - Uzun basın, kayıtlarınıza zaman ekleneceği zamanlayıcıyı veya kronometreyi açacaktır. İsterseniz hemen silebilirsiniz.</string>
+    <string name="in_standup">Süreci kolaylaştırmak için büyük şirketlerde kullanılan uygulamalar. Her çalışan günlük olarak ilerleme çalışmaları ve ortaya çıkan sorunlar hakkında bir rapor yazar.\n
+        - - + düğmesi yeni bir ap standı oluşturacaktır.\n
+        - Kayda uzun süre basıldığında, standı silebileceğiniz, düzenleyebileceğiniz veya paylaşabileceğiniz bir pencere açılır.</string>
+    <string name="in_dream">Uyku için harcadığınız zamanı izleyebileceğiniz bir pencere.\n
+        - + \'ya tıklayarak yeni bir kayıt oluşturabilirsiniz.\n
+        - Rekora tıklayarak rüyalarınızı okuyabilirsiniz.\n
+        - Uzun basış, kaydı düzenlemenize veya silmenize izin verecektir.</string>
+    <string name="in_idea">- + \'ya tıklayarak yeni bir fikir ekleyebilirsiniz.\n
+        - Kayıt üzerine tıklayarak resmi inceleyebilir, uzun süre bastığınızda kaydı silebilir veya düzenleyebilirsiniz.</string>
+    <string name="in_finance">Mali durumunuzu takip etmek için bir pencere.\n
+        - En üstte, paranızı daha verimli bir şekilde yönetmenizi sağlayacak ipuçları içeren bir kart var.\n
+        - \'Gelir\' ve \'Gider \' düğmeleri, buna göre ne kadar para aldığınızı ve ne kadar harcadığınızı gösteren bir kayıt eklemenize izin verir.\n
+        - Burada şablon masrafları vardır, isterseniz şablonunuzu + \'ya tıklayarak oluşturabilirsiniz.\n
+        - Şablona uzun süre basmak onu kaldıracaktır.\n
+        - Tarih, tüm finansal değişikliklerinizi izlemenize izin verecektir.</string>
+    <string name="in_setting">- Burada uygulamanın temasını ve dilini değiştirebilirsiniz.</string>
+    <string name="instruction">Talimatlar</string>
 
 </resources>

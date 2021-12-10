@@ -98,7 +98,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 6,model)
                 }
             }
     }
@@ -114,7 +114,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 5,model)
                 }
             }
     }
@@ -130,7 +130,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 4,model)
                 }
             }
     }
@@ -146,7 +146,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 3,model)
                 }
             }
     }
@@ -163,7 +163,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 2,model)
                 }
             }
     }
@@ -179,7 +179,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 1,model)
                 }
             }
     }
@@ -194,7 +194,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, listMonday, 0,model)
+                    showActionDialog(itemView, position, 0,model)
                 }
             }
     }
@@ -202,7 +202,6 @@ class TimetableFragment :
     fun showActionDialog(
         itemView: View,
         position: Int,
-        list: List<TimetableModel>,
         dayIndex: Int,model: TimetableModel
     ) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
@@ -214,7 +213,7 @@ class TimetableFragment :
             dialog.dismiss()
         }
         edit.setOnClickListener {
-            openSheetDialogForEdit(list[position], dayIndex)
+            openSheetDialogForEdit(model, dayIndex)
             dialog.dismiss()
         }
         dialog.show()
@@ -249,23 +248,23 @@ class TimetableFragment :
         binding.sunday.titleCard.setOnClickListener { setVisibility(binding.sundayRecycler) }
     }
 
-    private fun setVisibility(recyclerView: RecyclerView) {
-        if (recyclerView.isVisible) {
-            recyclerView.gone()
-        } else {
-            val lac = LayoutAnimationController(
-                AnimationUtils.loadAnimation(
-                    requireContext(),
-                    R.anim.item_anim
+        private fun setVisibility(recyclerView: RecyclerView) {
+            if (recyclerView.isVisible) {
+                recyclerView.gone()
+            } else {
+                val lac = LayoutAnimationController(
+                    AnimationUtils.loadAnimation(
+                        requireContext(),
+                        R.anim.item_anim
+                    )
                 )
-            )
-            lac.delay = 0.20f
-            lac.order = LayoutAnimationController.ORDER_NORMAL
-            recyclerView.layoutAnimation = lac
-            recyclerView.startLayoutAnimation()
-            recyclerView.visible()
+                lac.delay = 0.20f
+                lac.order = LayoutAnimationController.ORDER_NORMAL
+                recyclerView.layoutAnimation = lac
+                recyclerView.startLayoutAnimation()
+                recyclerView.visible()
+            }
         }
-    }
 
     private fun openSheetDialogForEdit(model: TimetableModel, dayIndex: Int) {
         val bottomDialog = CreateTimetableBottomSheetDialog(this, this)

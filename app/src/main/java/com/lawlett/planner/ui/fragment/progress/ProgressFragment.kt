@@ -9,7 +9,10 @@ import android.widget.Button
 import android.widget.FrameLayout
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.UpdateAdapter
 import com.lawlett.planner.data.room.models.CategoryModel
@@ -29,8 +32,10 @@ import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.ChooseThemeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateEventBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateTimetableBottomSheetDialog
+import com.lawlett.planner.ui.dialog.SetPasswordBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.StringPreference
 import com.takusemba.spotlight.Target
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import org.koin.android.ext.android.inject
@@ -299,8 +304,13 @@ class ProgressFragment :
         val adapter = EventAdapter()
         binding.eventProgressRecycler.adapter = adapter
         eventViewModel.getData().observe(viewLifecycleOwner, { events ->
-            adapter.setData(events)
-            listEvent = events
+            if (events.isEmpty()){
+                binding.eventTitle.gone()
+            }else{
+                binding.eventTitle.visible()
+                adapter.setData(events)
+                listEvent = events
+            }
         })
     }
 
@@ -325,9 +335,91 @@ class ProgressFragment :
         }
 
         habitViewModel.getHabitsLiveData().observe(viewLifecycleOwner, { habits ->
-            adapter.setData(habits)
-            listHabit = habits
+            if (habits.isEmpty()){
+                binding.habitProgress.gone()
+            }else{
+                binding.habitProgress.visible()
+                adapter.setData(habits)
+                listHabit = habits
+            }
         })
+    }
+
+    private fun passPassword(action: String, model: CategoryModel) {
+        val dialog = requireContext().getDialog(R.layout.password_layout)
+        val editText = dialog.findViewById<TextInputEditText>(R.id.editText_password)
+        val wordEditText = dialog.findViewById<TextInputEditText>(R.id.editText_word)
+        val wordWrapper = dialog.findViewById<TextInputLayout>(R.id.word_wrapper)
+        val apply: Button = dialog.findViewById(R.id.apply_btn)
+        val forgotPassword: Button = dialog.findViewById(R.id.forgot_password)
+
+        val secretWord =
+            StringPreference.getInstance(requireContext())?.getStringData(Constants.SECRET_WORD)
+
+        val password = StringPreference.getInstance(requireContext())
+            ?.getStringData(Constants.CATEGORY_PASSWORD)
+
+        forgotPassword.setOnClickListener {
+            wordWrapper.visible()
+        }
+
+        apply.setOnClickListener {
+            val passwordInputUser = editText.text.toString().trim()
+            val secretWordInputUser = wordEditText.text.toString().trim()
+
+            if (wordWrapper.isVisible) {
+                if (secretWordInputUser == secretWord) {
+                    doByAction(action, model)
+                    dialog.dismiss()
+                } else {
+                    wordEditText.error = getString(R.string.not_correct)
+                }
+            } else {
+                if (passwordInputUser == password) {
+                    doByAction(action, model)
+                    dialog.dismiss()
+                } else {
+                    editText.error = getString(R.string.wrong_password)
+                }
+            }
+        }
+        dialog.show()
+    }
+
+    private fun doByAction(
+        action: String,
+        model: CategoryModel
+    ) {
+        when (action) {
+            Constants.OPEN_CATEGORY -> {
+                openCategory(model)
+            }
+            Constants.UNBLOCK_CATEGORY -> {
+                setCategoryUnblock(model)
+            }
+            Constants.CHANGE_PASSWORD_CATEGORY -> {
+                openPasswordSheetDialog(model)
+            }
+        }
+    }
+
+    private fun openPasswordSheetDialog(model: CategoryModel) {
+        val bottomDialog = SetPasswordBottomSheetDialog()
+        val bundle = Bundle()
+        bundle.putSerializable(Constants.UPDATE_MODEL, model)
+        bottomDialog.arguments = bundle
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+    }
+
+    private fun setCategoryUnblock(model: CategoryModel) {
+        val updateModel = CategoryModel(
+            id = model.id,
+            categoryIcon = model.categoryIcon,
+            categoryName = model.categoryName,
+            taskAmount = model.taskAmount,
+            isBlock = false
+        )
+        categoryViewModel.update(updateModel)
     }
 
     private fun initCategoryAdapter() {
@@ -335,7 +427,11 @@ class ProgressFragment :
         binding.categoryRecycler.adapter = adapter
         adapter.listener = object : BaseAdapter.IBaseAdapterClickListener<CategoryModel> {
             override fun onClick(model: CategoryModel, position: Int) {
-                openCategory(model)
+                if (model.isBlock) {
+                    passPassword(Constants.OPEN_CATEGORY, model)
+                } else {
+                    openCategory(model)
+                }
             }
         }
         categoryViewModel.getCategoryLiveData().observe(viewLifecycleOwner, { category ->

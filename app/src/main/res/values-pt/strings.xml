@@ -360,5 +360,42 @@ deslizando para a direita, você pode remover um item da lista de gastos frequen
     <string name="new_event">Novo evento</string>
     <string name="diplom_work">Tese</string>
     <string name="phisology">Psicologia</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Não necessariamente)</string>
+    <string name="hour">Relógio</string>
+    <string name="minute">Minuto</string>
+    <string name="choose_app">Escolha um aplicativo</string>
+    <string name="in_main_screen">- Aqui você pode marcar que você completou sua tarefa de hábitos, visualizar eventos e ir para a categoria desejada.\n
+        - Um toque longo em uma data no calendário que está na parte superior da janela permitirá que você adicione um novo evento ou tarefa para esse dia em sua programação.</string>
+    <string name="in_categories">- Para criar uma nova categoria, clique em +.\n
+        - Pressione e segure uma categoria irá abrir uma janela onde você pode editar, excluir ou bloqueá-lo, bem como alterar a senha.</string>
+    <string name="in_timetable">- Para criar um novo registro, clique em +. Você pode escolher um ou vários dias de uma só vez.\n
+        - Clicando no dia da semana você pode ver todas as entradas para um determinado dia. \n
+        - Um toque longo em uma entrada permitirá que você a exclua ou edite.</string>
+    <string name="in_event">- Para criar um novo evento, clique em +. Além disso, você pode definir um lembrete para o horário desejado.\n
+        - Um toque longo em um evento permitirá que você o exclua ou edite.</string>
+    <string name="in_habit">Uma janela que permitirá que você desenvolva o hábito desejado.\n
+        - Para criar um novo hábito, clique em +.\n
+        - Ao clicar no hábito, você pode marcar que concluiu a tarefa hoje.\n
+        - Um toque longo permitirá que você exclua ou edite-o. O botão no canto superior esquerdo exibirá um menu. Aqui você pode descobrir o seu nível, escolher um avatar e adicionar um nome.</string>
+    <string name="in_focus">A janela é criada com base em uma teoria de cerca de 10.000 horas que afirma que é quanto tempo você precisa gastar para alcançar o profissionalismo no campo escolhido.\n
+        - Ao clicar em +, você pode adicionar uma nova ação e também abrir um cronômetro ou cronômetro.\n
+        - Ao clicar em uma ação na lista, você pode especificar quantos minutos gastaram nela. O tempo será somado.\n
+        - Pressione e segure irá abrir um temporizador ou cronômetro de onde o tempo será adicionado à sua gravação. Se desejar, você pode removê-lo imediatamente.</string>
+    <string name="in_standup">Prática usada em grandes empresas para otimizar o processo. Cada funcionário escreve diariamente um relatório sobre o trabalho realizado e os problemas encontrados.\n
+        - - Botão + irá criar um novo stand up.\n
+        - Pressione e segure a entrada irá abrir uma janela onde você pode excluir, editar ou compartilhar o suporte.</string>
+    <string name="in_dream">Uma janela onde você pode acompanhar o tempo gasto dormindo.\n
+        - Ao clicar em +, você pode criar um novo registro.\n
+        - Clicando na entrada você pode ler o que você sonhou.\n
+        - Um toque longo permitirá editar ou excluir uma entrada.</string>
+    <string name="in_idea">- Ao clicar em +, você pode adicionar uma nova ideia.\n
+        - Ao clicar no registro, você pode visualizar a imagem, enquanto um toque longo permitirá excluir ou editar o registro.</string>
+    <string name="in_finance">Uma janela para acompanhar suas finanças.\n
+        - No topo do cartão com dicas que lhe permitirão gerenciar seu dinheiro de forma mais produtiva.\n
+        - Os botões  \'receita \' e \'despesa \' permitem adicionar um registro de quanto dinheiro você recebeu e quanto gastou, respectivamente.\n
+        - Há custos de modelo, se desejar, você pode criar seu modelo clicando em +.\n
+        - Pressione e segure o modelo permitirá que ele seja removido.\n
+        - A história permitirá que você acompanhe todas as suas mudanças financeiras.</string>
+    <string name="in_setting">- Aqui você pode alterar o tema e o idioma do aplicativo.</string>
+    <string name="instruction">Instrução</string>
 </resources>

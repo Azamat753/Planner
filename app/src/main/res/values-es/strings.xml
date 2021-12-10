@@ -359,5 +359,42 @@ al deslizar hacia la derecha, puede eliminar un Elemento de la lista de gastos f
     <string name="new_event">Nuevo evento</string>
     <string name="diplom_work">Tesina</string>
     <string name="phisology">Psicología</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(No necesariamente)</string>
+    <string name="hour">Horas</string>
+    <string name="minute">Minutos</string>
+    <string name="choose_app">Seleccione la aplicación</string>
+    <string name="in_main_screen">- Aquí puede marcar que ha completado su tarea de hábitos, ver eventos e ir a la categoría deseada.\n
+        - Pulsación larga en la fecha en el calendario que se encuentra en la parte superior de la ventana le permitirá añadir un nuevo evento o tarea para ese día a su horario.</string>
+    <string name="in_categories">- Para crear una nueva categoría, haga clic en +.\n
+        - Pulsación larga en la categoría se abrirá una ventana donde se puede editar, eliminar o bloquear, así como cambiar la contraseña.</string>
+    <string name="in_timetable">- Para crear una nueva grabación, haga clic en +. Puede elegir uno o varios días a la vez.\n
+        - Al hacer clic en el día de la semana se puede ver todas las entradas para un día determinado. \n
+        - Una pulsación larga en un registro le permitirá eliminarlo o editarlo.</string>
+    <string name="in_event">- Para crear un nuevo evento, haga clic en +. También puede establecer un recordatorio en el momento que desee.\n
+        - Pulsación larga en un evento le permitirá eliminarlo o editarlo.</string>
+    <string name="in_habit">Una ventana que le permitirá desarrollar el hábito deseado.\n
+        - Para crear un nuevo hábito, haga clic en +.\n
+        - Al hacer clic en el hábito, puede marcar que ha completado la tarea hoy.\n
+        - Pulsación larga le permitirá eliminar o editar. Botón en la esquina superior izquierda se abrirá el menú. Aquí puedes averiguar tu nivel, elegir un avatar y agregar un nombre.</string>
+    <string name="in_focus">La ventana se crea sobre la base de la teoría de 10000 horas que dice que es la cantidad de tiempo que se necesita gastar para alcanzar el profesionalismo en el campo elegido.\n
+        - Al hacer clic en + se puede añadir una nueva acción, así como abrir un temporizador o cronómetro.\n
+        - Al hacer clic en la acción en la lista, puede especificar Cuántos minutos pasaron en ella. El tiempo se sumará.\n
+        - Pulsación larga le permitirá abrir un temporizador o cronómetro desde donde el tiempo se añade a su registro. Si lo desea, puede eliminarlo inmediatamente.</string>
+    <string name="in_standup">Práctica utilizada en grandes empresas para optimizar el proceso. Cada empleado escribe diariamente un informe sobre el trabajo realizado y los problemas encontrados.\n
+        - - El botón + creará un nuevo soporte AP.\n
+        - Pulsación larga en la grabación se abrirá una ventana donde se puede eliminar, editar o compartir Standup.</string>
+    <string name="in_dream">Una ventana donde usted puede seguir el tiempo pasado durmiendo.\n
+        - Haciendo clic en + puede crear una nueva entrada.\n
+        - Al hacer clic en la entrada se puede Leer lo que soñó.\n
+        - Pulsación larga permitirá editar o eliminar la grabación.</string>
+    <string name="in_idea">- Al hacer clic en + se puede añadir una nueva idea.\n
+        - Al hacer clic en la grabación, puede ver la imagen, la misma pulsación larga eliminará o editará la grabación.</string>
+    <string name="in_finance">Una ventana para realizar un seguimiento de sus finanzas.\n
+        - En la parte superior de la tarjeta con consejos que le permitirán administrar su dinero de manera más productiva.\n
+        - Los botones Ingresos y Gastos le permitirán agregar un registro de cuánto dinero recibió y cuánto gastó, respectivamente.\n
+        - Aquí hay gastos de plantilla, si lo desea, puede crear su plantilla haciendo clic en +.\n
+        - Pulsación larga en el patrón permitirá que se elimine.\n
+        - La historia le permitirá rastrear todos sus cambios financieros.</string>
+    <string name="in_setting">- Aquí puede cambiar el tema y el idioma de la aplicación.</string>
+    <string name="instruction">Instrucción</string>
 </resources>

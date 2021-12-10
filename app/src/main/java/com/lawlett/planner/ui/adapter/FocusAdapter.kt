@@ -19,7 +19,6 @@ class FocusAdapter : BaseAdapter<SkillModel, FocusItemBinding>(
             val minute = hour.toDouble() * 60
             binding.hourAmount.text = "${minute.toDecimal()} "+ binding.createdDate.context.getString(R.string.minut)
         } else {
-
             val decimalHour = model.hour?.toDouble()?.toDecimal()
             binding.hourAmount.text = "$decimalHour "+binding.createdDate.context.getString(R.string.hours)
         }

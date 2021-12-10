@@ -20,13 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/theme_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
+        android:foreground="?attr/selectableItemBackground"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
         android:backgroundTint="?attr/iconColor"
@@ -57,6 +57,7 @@
         android:id="@+id/language_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_marginHorizontal="20dp"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
@@ -88,12 +89,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/share_card"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
+        android:foreground="?attr/selectableItemBackground"
         android:backgroundTint="?attr/iconColor"
         app:cardCornerRadius="8dp"
         app:layout_constraintTop_toBottomOf="@id/language_card">
@@ -112,6 +113,72 @@
                 android:layout_marginStart="40dp"
                 android:drawablePadding="15dp"
                 android:text="@string/share"
+                android:textColor="?attr/white_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rate_card"
+        android:layout_width="match_parent"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="?attr/iconColor"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/share_card">
+
+        <LinearLayout
+            android:id="@+id/rate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawablePadding="15dp"
+                android:text="@string/rate_app"
+                android:textColor="?attr/white_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/instruction_card"
+        android:layout_width="match_parent"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="?attr/iconColor"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/rate_card">
+
+        <LinearLayout
+            android:id="@+id/instruction_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:drawablePadding="15dp"
+                android:text="@string/instruction"
                 android:textColor="?attr/white_text_color"
                 android:textSize="15sp"
                 android:textStyle="bold" />

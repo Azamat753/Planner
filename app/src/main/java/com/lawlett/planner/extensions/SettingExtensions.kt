@@ -49,15 +49,18 @@ fun Activity.changeLanguage(position: Int) {
             setLocale("tr", this)
         }
         12 -> {
-            setLocale("ko", this)
+            setLocale("uz", this)
         }
         13 -> {
-            setLocale("zh", this)
+            setLocale("ko", this)
         }
         14 -> {
-            setLocale("ja", this)
+            setLocale("zh", this)
         }
         15 -> {
+            setLocale("ja", this)
+        }
+        16 -> {
             setLocale("hi", this)
         }
     }
@@ -78,6 +81,7 @@ fun getLanguageList(): List<LanguageModel> {
     listModel.add(LanguageModel("Кыргызча"))
     listModel.add(LanguageModel("Қазақ тілі"))
     listModel.add(LanguageModel("Türk"))
+    listModel.add(LanguageModel("O'zbek tili"))
     listModel.add(LanguageModel("한국어"))
     listModel.add(LanguageModel("中文"))
     listModel.add(LanguageModel("日本語"))

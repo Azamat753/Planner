@@ -110,7 +110,7 @@
     <string name="your_habit_is_done">今天，你已经标志着这个任务的完成</string>
     <string name="you_is_done_habit_today">你今天真的完成任务了吗？</string>
     <string name="edit">编辑</string>
-    <string name="helper_finance_dialog" >
+    <string name="helper_finance_dialog">
         资产负债表.\n
 在这里，您可以看到您当前的余额。
 当您添加收入时，您的余额会增加。
@@ -359,5 +359,42 @@
     <string name="new_event">新活动</string>
     <string name="diplom_work">毕业生工作</string>
     <string name="phisology">心理学</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(不是强制性的)</string>
+    <string name="hour">手表</string>
+    <string name="minute">分钟</string>
+    <string name="choose_app">选择应用程序</string>
+    <string name="in_main_screen">-在这里，您可以标记您已从习惯中完成任务，查看事件并转到所需的类别。\n
+-长按日期在日历是在窗口的顶部将允许您添加一个新的事件或任务的那一天到您的日程安排。</string>
+    <string name="in_categories">-要创建一个新的类别，点击+。\n
+-长按类别将打开一个窗口，您可以在其中编辑，删除或阻止它，以及更改密码。</string>
+    <string name="in_timetable">-要创建新条目，请单击+。 您可以一次选择一天或几天。\n
+-通过点击星期几，您可以查看当天的所有条目。 \n
+-长按记录将允许您删除或编辑它。</string>
+    <string name="in_event">-要创建一个新的事件，点击+。 您还可以为您需要的时间设置提醒。\n
+-长按事件将允许您删除或编辑它。</string>
+    <string name="in_habit">一个窗口，可以让你养成所需的习惯。\n
+-要创建一个新的习惯，点击+。\n
+-通过点击习惯，你可以注意到你今天已经完成了任务。\n
+-长按将允许您删除或编辑它。 左上角的按钮将打开菜单。 在这里你可以找到你的水平，选择一个化身和添加一个名字。</string>
+    <string name="in_focus">该窗口是基于10,000小时的理论创建的，该理论指出，这是您需要花费多少时间才能在您选择的领域实现专业性。\n
+-通过点击+你可以添加一个新的动作，以及打开一个计时器或秒表。\n
+-通过点击列表中的一个动作，你可以指定你花了多少分钟就可以了。 的时间来总结。\n
+-长按将打开计时器或秒表，从那里的时间将被添加到您的记录。 如果你愿意，你可以立即删除它。</string>
+    <string name="in_standup">大公司用于优化流程的做法。 每个员工每天都要写一份关于所做的工作和遇到的问题的报告.\n
+--+按钮将允许您创建一个新的站立。\n
+-长按记录将打开一个窗口，您可以在其中删除，编辑或共享站立。</string>
+    <string name="in_dream">一个窗口，您可以跟踪睡眠时间。\n
+-通过点击+你可以创建一个新的记录。\n
+-通过点击条目，你可以阅读你的梦想。\n
+-长按将允许您编辑或删除条目。</string>
+    <string name="in_idea">-通过点击+你可以添加一个新的想法。\n
+-通过点击记录，您可以查看图片，长按将允许您删除或编辑记录。</string>
+    <string name="in_finance">一个跟踪你财务状况的窗口。\n
+-顶部是一张卡片，上面有提示，可以让你更有效地管理你的钱。\n
+-"收入"和"费用"按钮可以让你分别记录你收到的钱和你花了多少钱。\n
+-这里有模板成本，如果您愿意，您可以通过点击+创建自己的模板。\n
+-长按模板将允许您删除它。\n
+-历史将允许您跟踪您的所有财务变化。</string>
+    <string name="in_setting">-在这里，您可以更改应用程序的主题和语言。</string>
+    <string name="instruction">指示说明</string>
 </resources>

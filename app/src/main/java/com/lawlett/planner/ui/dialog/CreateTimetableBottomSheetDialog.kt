@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.CheckBox
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.CheckListTimeTable
 import com.lawlett.planner.data.room.models.TimetableModel
@@ -16,13 +17,18 @@ import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.util.*
+import kotlin.collections.ArrayList
 
-class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycler?,private val checkList: CheckListTimeTable?) :
+class CreateTimetableBottomSheetDialog(
+    private val updateRecycler: UpdateRecycler?,
+    private val checkList: CheckListTimeTable?
+) :
     BaseBottomSheetDialog<CreateTimetableBottomSheetBinding>(CreateTimetableBottomSheetBinding::inflate),
     AdapterView.OnItemSelectedListener {
     private val viewModel by inject<TimetableViewModel>()
     private val calendar = Calendar.getInstance()
     lateinit var dayOfWeek: String
+    private var listDayOfWeek = ArrayList<String>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
@@ -33,6 +39,11 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
 
     private fun setTitle() {
         binding.titleCard.title.text = getString(R.string.to_the_schedule)
+        if (isUpdate()) {
+            binding.applyButton.text = getString(R.string.apply)
+        } else {
+            binding.applyButton.text = getString(R.string.create)
+        }
     }
 
     private fun fillSpinner() {
@@ -43,9 +54,27 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
     }
 
     private fun initListener() {
+
         binding.startTimeButton.setOnClickListener { pickTime(true) }
         binding.endTimeButton.setOnClickListener { pickTime(false) }
         binding.applyButton.setOnClickListener { insertDataToDataBase() }
+        binding.mondayBtn.setOnClickListener { addDayToList(binding.mondayBtn,0) }
+        binding.tuesdayBtn.setOnClickListener { addDayToList(binding.tuesdayBtn,1) }
+        binding.wednesdayBtn.setOnClickListener { addDayToList(binding.wednesdayBtn,2) }
+        binding.thursdayBtn.setOnClickListener { addDayToList(binding.thursdayBtn,3) }
+        binding.fridayBtn.setOnClickListener { addDayToList(binding.fridayBtn,4) }
+        binding.saturdayBtn.setOnClickListener { addDayToList(binding.saturdayBtn,5) }
+        binding.sundayBtn.setOnClickListener { addDayToList(binding.sundayBtn,6) }
+    }
+
+    private fun addDayToList(checkBox: CheckBox,day: Int) {
+        val arrayDays = resources.getStringArray(R.array.dayOfWeek_keys)
+
+        if (checkBox.isChecked) {
+            listDayOfWeek.add(arrayDays[day])
+        } else {
+            listDayOfWeek.remove(arrayDays[day])
+        }
     }
 
     private fun insertDataToDataBase() {
@@ -68,7 +97,10 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
                 if (isUpdate()) {
                     updateModel(startTime, endTime, title)
                 } else {
-                    insertModel(startTime, endTime, color, title)
+//                    insertModel(startTime, endTime, color, title,dayOfWeek)
+                    for (i in 0 until listDayOfWeek.size) {
+                        insertModel(startTime, endTime, color, title, listDayOfWeek[i])
+                    }
                 }
                 updateRecycler?.needUpdate(binding.dayOfWeekSpinner.selectedItemPosition)
                 checkList?.check(binding.dayOfWeekSpinner.selectedItemPosition)
@@ -81,10 +113,10 @@ class CreateTimetableBottomSheetDialog(private val updateRecycler: UpdateRecycle
         startTime: String,
         endTime: String,
         color: Int,
-        title: String
+        title: String, choosedDayOfWeek: String
     ) {
         val model = TimetableModel(
-            dayOfWeek = dayOfWeek,
+            dayOfWeek = choosedDayOfWeek,
             startTime = startTime,
             endTime = endTime,
             color = color,

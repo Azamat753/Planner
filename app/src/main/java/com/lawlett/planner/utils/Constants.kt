@@ -81,4 +81,6 @@ object Constants {
     const val SATURDAY_KEY = "saturday_key"
     const val SUNDAY_KEY = "sunday_key"
 
+    const val APP_LINK = "https://play.google.com/store/apps/details?id=com.lawlett.planner"
+
 }

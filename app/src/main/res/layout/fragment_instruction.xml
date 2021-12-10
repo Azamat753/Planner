@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    tools:context=".ui.fragment.instruction.InstructionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/main_screen_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/main_screen_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_main_screen"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/category_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/category_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_categories"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/timetable_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/timetable_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_timetable"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/event_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/event_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_event"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/habit_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/habit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_habit"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/focus_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/focus_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_focus"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/standup_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/standup_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_standup"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/dream_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/dream_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_dream"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/idea_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/idea_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_idea"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/finance_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/finance_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_finance"
+            style="@style/instructionTextStyle" />
+
+        <include
+            android:id="@+id/setting_btn"
+            layout="@layout/timetable_layout" />
+
+        <TextView
+            android:id="@+id/setting_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_setting"
+            style="@style/instructionTextStyle" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -360,5 +360,42 @@ streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen A
     <string name="new_event">Neue Veranstaltung</string>
     <string name="diplom_work">Diplomarbeit</string>
     <string name="phisology">Psychologie</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Nicht unbedingt)</string>
+    <string name="hour">Uhr</string>
+    <string name="minute">Minuten</string>
+    <string name="choose_app">Wählen Sie eine Anwendung</string>
+    <string name="in_main_screen">- Hier können Sie feststellen, dass Sie Ihre Aufgabe aus Gewohnheiten abgeschlossen haben, sehen Sie die Ereignisse und gehen Sie in die gewünschte Kategorie.\n
+        - Langes Drücken auf das Datum im Kalender, die am oberen Rand des Fensters befindet können Sie ein neues Ereignis oder eine Aufgabe für diesen Tag zu Ihrem Zeitplan hinzufügen.</string>
+    <string name="in_categories">- Um eine neue Kategorie zu erstellen, klicken Sie auf +.\n
+        - Langes Drücken der Kategorie öffnet ein Fenster, in dem Sie es bearbeiten, löschen oder sperren sowie das Passwort ändern können.</string>
+    <string name="in_timetable">- Um einen neuen Eintrag zu erstellen, klicken Sie auf +. Sie können einen oder mehrere Tage gleichzeitig auswählen.\n
+        - Mit einem Klick auf den Tag der Woche können Sie alle Einträge für einen bestimmten Tag anzuzeigen. \n
+        - Langes Drücken auf einen Eintrag ermöglicht es Ihnen, ihn zu löschen oder zu bearbeiten.</string>
+    <string name="in_event">- Um ein neues Ereignis zu erstellen, tippen Sie auf +. Sie können auch eine Erinnerung für die gewünschte Zeit einstellen.\n
+        - Langes Drücken auf ein Ereignis können Sie es löschen oder bearbeiten.</string>
+    <string name="in_habit">Ein Fenster, mit dem Sie die gewünschte Gewohnheit entwickeln können.\n
+        - Um eine neue Gewohnheit zu erstellen, tippen Sie auf +.\n
+        - Mit einem Klick auf die Gewohnheit können Sie feststellen, dass heute die Aufgabe abgeschlossen.\n
+        - Langes Drücken ermöglicht es Ihnen, zu löschen oder zu bearbeiten. Schaltfläche in der oberen linken Ecke wird das Menü aufrufen. Hier kannst du dein Level herausfinden, deinen Avatar auswählen und einen Namen hinzufügen.</string>
+    <string name="in_focus">Das Fenster basiert auf einer Theorie von 10.000 Stunden, die besagt, dass es so viel Zeit, die Sie verbringen müssen, um Professionalität in Ihrem gewählten Bereich zu erreichen.\n
+        - Mit einem Klick auf + können Sie eine neue Aktion hinzufügen und auch einen Timer oder eine Stoppuhr öffnen.\n
+        - Mit einem Klick auf eine Aktion in der Liste können Sie angeben, wie viele Minuten damit verbracht haben. Die Zeit wird sich summieren.\n
+        - Langes Drücken öffnet einen Timer oder eine Stoppuhr, von wo aus die Zeit zu Ihrer Aufnahme hinzugefügt wird. Wenn Sie möchten, können Sie es sofort entfernen.</string>
+    <string name="in_standup">Die Praxis wird in großen Unternehmen verwendet, um den Prozess zu optimieren. Jeder Mitarbeiter schreibt täglich einen Bericht über die geleistete Arbeit und die entstandenen Probleme.\n
+        - - Taste + wird eine neue Stand up erstellen.\n
+        - Langes Drücken auf den Eintrag öffnet ein Fenster, in dem Sie den Stand löschen, bearbeiten oder teilen können.</string>
+    <string name="in_dream">Ein Fenster, in dem Sie die Zeit auf dem Schlaf verbracht verfolgen können.\n
+        - Mit einem Klick auf + können Sie einen neuen Eintrag erstellen.\n
+        - Durch Klicken auf den Eintrag können Sie lesen, was Sie geträumt haben.\n
+        - Langes Drücken können Sie bearbeiten oder löschen Sie den Eintrag.</string>
+    <string name="in_idea">- Mit einem Klick auf + können Sie eine neue Idee hinzufügen.\n
+        - Klicken Sie auf den Eintrag können Sie das Bild anzuzeigen, langes Drücken ermöglicht es Ihnen, den Eintrag zu löschen oder zu bearbeiten.</string>
+    <string name="in_finance">Fenster, um Ihre Finanzen zu verfolgen.\n
+        - An der Spitze der Karte mit Tipps, die Ihnen erlauben, produktiver zu verwalten Ihr Geld.\n
+        - Die Schaltflächen \'Umsatz\' und \'Verbrauch\' ermöglichen es Ihnen, eine Aufzeichnung darüber hinzuzufügen, wie viel Geld Sie erhalten haben und wie viel Sie entsprechend ausgegeben haben.\n
+        - Hier gibt es Musterkosten, falls gewünscht, können Sie Ihre Vorlage erstellen, indem Sie auf + klicken.\n
+        - Langes Drücken der Vorlage wird es zu entfernen.\n
+        - Geschichte ermöglicht es Ihnen, alle Ihre finanziellen Veränderungen zu verfolgen.</string>
+    <string name="in_setting">- Hier können Sie das Thema und die Sprache der Anwendung ändern.</string>
+    <string name="instruction">Anweisungen</string>
 </resources>

@@ -76,7 +76,11 @@
         android:id="@+id/settingsFragment"
         android:name="com.lawlett.planner.ui.fragment.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createTasksFragment"
         android:name="com.lawlett.planner.ui.fragment.tasks.CreateTasksFragment"
@@ -161,5 +165,10 @@
         android:name="com.lawlett.planner.ui.fragment.dream.DreamFragment"
         android:label="fragment_dream"
         tools:layout="@layout/fragment_dream" />
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.lawlett.planner.ui.fragment.instruction.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction" />
 
 </navigation>

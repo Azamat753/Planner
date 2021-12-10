@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planner+</string>
+    <string name="events">Tadbirlar</string>
+    <string name="tasks">Vazifalar</string>
+    <string name="ideas">Fikrlar</string>
+    <string name="january">Yanvar</string>
+    <string name="february">Fevral</string>
+    <string name="march">Mart</string>
+    <string name="april">Aprel</string>
+    <string name="may">May</string>
+    <string name="june">Iyun</string>
+    <string name="july">Iyul</string>
+    <string name="august">Avgust</string>
+    <string name="september">Sentyabr</string>
+    <string name="october">Oktyabr</string>
+    <string name="november">Noyabr</string>
+    <string name="december">Dekabr</string>
+    <string name="are_you_sure">Ishonchingiz komilmi?</string>
+    <string name="no">Yo\'q</string>
+    <string name="yes">Ha</string>
+    <string name="record_idea">Fikrning mohiyatini kiriting</string>
+    <string name="record_description">Tavsif kiriting</string>
+    <string name="change_theme">Mavzuni o\'zgartirish</string>
+    <string name="begin_time">Vaqt boshlanishi</string>
+    <string name="end_time">Vaqtning oxiri</string>
+    <string name="delete">Olib tashlandi</string>
+    <string name="empty">Bo\'sh</string>
+    <string name="stopwatch">Sekundomer</string>
+    <string name="image">Rasm</string>
+    <string name="timer">Taymer</string>
+    <string name="what_are_doing">Nima qilasiz?</string>
+    <string name="apply">Qabul qiling</string>
+    <string name="time">Vaqt</string>
+    <string name="toStart">Boshlash</string>
+    <string name="complete">Tugatish</string>
+    <string name="choose_language">Tilni Tanlang</string>
+    <string name="change_language">Tilni o\'zgartirish</string>
+    <string name="task">Vazifa</string>
+    <string name="ready">Tayyor ?</string>
+    <string name="plan_own_day">Kunni rejalashtirish</string>
+    <string name="to_delete">Olib tashlash</string>
+    <string name="share">Share</string>
+    <string name="add_title">Matnni kiriting</string>
+    <string name="choose_image">Rasmni tanlang</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="what_to_do">Nima qilishni xohlaysiz?</string>
+    <string name="help_idea_add">Yangi fikr qo\'shish uchun +ni bosing</string>
+    <string name="help_calendar_add">Yangi tadbir qo\'shish uchun bosing + </string>
+    <string name="changing_theme">Mavzuni o\'zgartirish</string>
+    <string name="new_aim">Yangi maqsadlarni belgilash vaqti keldi!</string>
+    <string name="achievement_app">Yutuqlar</string>
+    <string name="write_reviews">Написать отзыв</string>
+    <string name="review_on_app">Planner ilovasini ko\'rib chiqish</string>
+    <string name="done">Tayyor</string>
+    <string name="nav_open" translatable="false">Open</string>
+    <string name="nav_close" translatable="false">Close</string>
+    <string name="you_name">Sizning ismingiz ✍</string>
+    <string name="rate_app">Baho qo\'ying</string>
+    <string name="not_enough_balanсe">Balansda etarli mablag \' yo\'q !</string>
+    <string name="attention_alert">Diqqat!</string>
+    <string name="advice1_1">\"Hurmat bilan pul muomala\"</string>
+    <string name="advice1_2">Sizning pulingiz sizning" ajratilgan " vaqtingiz va ularni topish uchun sarflagan energiya.</string>
+    <string name="advice2">\"Daromad va xarajatlarni elektron yoki yozma ravishda saqlash odatiga ega bo\'ling.\"</string>
+    <string name="advice3_1">Kredit kartalari, iste\'mol kreditlari va boshqa qarzlardan xalos bo\'ling.</string>
+    <string name="advice3_2">\" Qarzlar psixologik jihatdan bosim o\'tkazadi, odamlarni stressga soladi va ertangi kun haqida qayg\'uradi. Natijada, boshqalarning pullaridan foydalanish uchun siz nafaqat pulingizni, balki sog\'lig\'ingizni va energiyangizni ham to\'laysiz.\"</string>
+    <string name="advice4_1">O\'z mablag\'ingiz bilan yashang.</string>
+    <string name="advice4_2">\" Ushbu qoidani buzsangiz, o\'z hayotingizda uyg\'unlikni yo\'qotasiz. Siz pul ishlamagan pulni sarflayapsiz, aslida siz egalik qilmaydigan narsalardan foydalanib, uni istalgan vaqtda yo\'qotishingiz mumkin! Sizning ehtiyojlaringiz o\'rtasidagi farqni bilib oling — siz, albatta, kerak bo\'lgan narsalar va istaklaringiz - "yaxshi bo\'lardi". Birinchi navbatda barcha ehtiyojlarni qoplash uchun ustuvorliklarni belgilang va istak va o\'yin-kulgiga ruxsat berish kerak.\"</string>
+    <string name="advice5_1">Dürtüsel sotib olish va ixtiyoriy xarajatlarni rad eting.</string>
+    <string name="advice5_2">\" Do\'konga borishdan oldin xaridlar ro\'yxatini tuzing va unga yopishib oling.\"</string>
+    <string name="advice6_1">Daromadingizni oshirish ustida ishlash.</string>
+    <string name="advice6_2">\" Siz uchun pul to\'layotganingizni bilib oling va bu sohada rivojlaning. Tor makonda chuqur bilim olish, vakolatlaringiz va mas\'uliyatingiz ko\'lamini kengaytirish, bajarilgan ishlar sifatini oshirish, shuningdek, ishni tezroq bajarish daromadingizni oshirish uchun kalit bo\'lishi mumkin.\"</string>
+    <string name="advice7_2">\" Daromadni oshirish uzoq va muntazam ishlarning natijasidir, shuning uchun sabr-toqatli bo\'ling va maqsadga kichik qadamlar bilan harakat qiling.\"</string>
+    <string name="advice7_1">Tez natijalarni kutmang.</string>
+    <string name="advice8_1">Qo\'shimcha daromad manbalarini yaratish va sotib olish.</string>
+    <string name="advice8_2">\" Ko\'plab muvaffaqiyatli odamlarning moliyaviy barqarorligi sirlari ko\'p daromad manbalarida yotadi.\"</string>
+    <string name="advice9">Pulga e\'tibor bering-ularni qimor, moliyaviy piramidalar, shubhali biznes va bitimlarga sarflamang.</string>
+    <string name="advice10_1">Pul qarz bermang</string>
+    <string name="advice10_2">\" Katta xavf va odamlar bilan munosabatlarni buzish va pulni yo\'qotish. Banklarga o\'z ishlarini qoldiring\"</string>
+    <string name="advice11_1">Hatto ozgina pul tashlamang.</string>
+    <string name="advice11_2">\" Bir tin nafaqat rublni, balki dollar va evroni ham himoya qiladi!\"</string>
+    <string name="advice12_1">Yomon moliyaviy odatlardan voz keching,</string>
+    <string name="advice12_2">\" Muntazam ravishda sizning hamyoningizdan pul tortadi, lekin eski zavq keltirmaydi. Ba\'zi his-tuyg\'ularni olish uchun pul sarflaymiz. Xuddi shu narxda turli xil narsalar turli xil his-tuyg\'ularni keltirib chiqarishi mumkin. Misol uchun, siz kechki ovqatdan keyin ichish uchun ishlatiladigan 200 rubl uchun kafeda qahva, endi zavq va mamnuniyat sabab, lekin hali ham haftasiga 1000 rubl sizning byudjetini turadi. Xuddi shu ming kishi uchun massaj yoki kinoga borib, ko\'proq his-tuyg\'ularga ega bo\'lishingiz mumkin.\"</string>
+    <string name="advice13_1">Chegirma haqida so\'rash va maxsus takliflardan foydalaning.</string>
+    <string name="advice13_2">\" Sotuvchi, albatta, chegirmadan voz kechishdan va hech narsa sotishdan ko\'ra, sizga chegirma taklif qilish va mahsulotni sotish uchun ko\'proq foydali bo\'ladi.\"</string>
+    <string name="advice14_1">Moliyaviy savodxonlik bo\'yicha adabiyotlarni o\'rganing.</string>
+    <string name="advice14_2">\" Sizning farovonligi bevosita moliyaviy savodxonlik darajasiga bog\'liq!\"</string>
+    <string name="advice15">O\'zingizning shaxsiy moliyaviy rejangizni oling va unga rioya qiling.</string>
+    <string name="advice16_1">Avval o\'zingizni to\'laysiz-ularni sarflaganingizdan keyin pulni kechiktirishga harakat qilish juda kech.</string>
+    <string name="advice16_2">\" Moliyaviy maqsadlarga erishish uchun pulning bir qismini siz ularni qabul qilgandan so\'ng darhol kechiktirishingiz kerak.\"</string>
+    <string name="advice17_1">Investitsiya oson va sizning fikringizdan ko\'ra qulayroq.</string>
+    <string name="advice17_2">\" Bundan tashqari, ayrim moliyaviy vositalar bu jarayonni ko\'p jihatdan avtomatlashtirishga imkon beradi. Eng muhimi, bu siz uchun juda muhimmi, siz harakat qilishni boshlashga tayyormisiz?\"</string>
+    <string name="advice18_1">Kerakli sifatli narsalarni sotib oling.</string>
+    <string name="advice18_2">\" Yuqori sifatli mahsulotlar, odatda, qimmatroq, ammo ulardan foydalanish arzonroq.\"</string>
+    <string name="advice19_1">Sizning daromadingiz har doim xarajatlaringizdan tezroq o\'sib borishiga ishonch hosil qiling.</string>
+    <string name="advice19_2">\" Shunday qilib, sizning daromad har doim sizning xarajatlar ko\'proq bo\'lishi kerak. Bu moliyaviy farovonlikning asosiy tamoyillaridan biridir.\"</string>
+    <string name="advice20_1">Kichik bo\'lsa ham, har doim pulni hisoblang.</string>
+    <string name="advice20_2">\"Kichkina kundalik xarajatlar yillar davomida katta miqdorda va hatto o\'nlab yillar davomida katta miqdorda bo\'lishi mumkin. Har safar o\'zingizga "1000 rubl pul emas, afsuslanmang va yo\'qotmang" kabi bir narsa aytsangiz, kelajakda o\'nlab va yuz minglab odamlarni tanlab olasiz, agar siz uni to\'g\'ri investitsiya qilsangiz, bu ming kishiga aylanadi.\"</string>
+    <string name="advice21_1">Biror narsa sotib olishdan oldin turli joylarda narxlarni Solishtiring.</string>
+    <string name="advice21_2">\" Sizning hayotingizdagi narxni o\'lchash eng yaxshisidir — bu xarid uchun to\'g\'ri miqdorni olish uchun qancha vaqt ishlashingiz kerak. Shunday qilib, siz uchun uning qiymati bilan to\'layotgan tovarlar narxini solishtirish osonroq bo\'ladi. Bir chashka qahva uchun bir soatlik hayot berishga tayyormisiz? Va yangi telefon uchun hayot oyi?\"</string>
+    <string name="advice22">\"Boshqa odamlarga hasad qilmang, balki sizdan yaxshiroq tushunadigan narsalardan o\'rganing.\"</string>
+    <string name="advice23">Sizning moliyaviy farovonligingiz butunlay sizga va harakatlaringizga bog\'liqligini tushunib oling.</string>
+    <string name="advice24_1">Hozir "pul dietasi" ga o\'tiring!</string>
+    <string name="advice24_2">\" Sizning turmush tarzingizni hozir kechiktirmasdan o\'zgartiring. Bu sizga bir yil ming dollar tejash imkonini beradi.\"</string>
+    <string name="costs">Xarajatlar</string>
+    <string name="income">Daromad</string>
+    <string name="balance">Balans</string>
+    <string name="enter_amount">Jami</string>
+    <string name="habit">Odatlar</string>
+    <string name="your_habit_is_done">Bugungi kunda siz allaqachon ushbu vazifani bajarayotganingizni qayd etdingiz</string>
+    <string name="you_is_done_habit_today">Bugungi ishni chindan ham bajardingizmi?</string>
+    <string name="edit">Tartibga solish</string>
+    <string name="helper_finance_dialog">
+     Balans.\n
+Bu erda siz joriy balansingizni ko\'rishingiz mumkin.
+Daromad qo\'shganda balansingiz oshadi.
+Iste\'mol yoki tez-tez sarf-xarajatlarni qo\'shganda kamayadi.\n
+        \psbrasch.\n
+Bu erda siz hozirgi holatingizni yozib olishingiz mumkin
+omonat Plus tugmasini bosish orqali hisoblanadi.  (Shuningdek) siz emas
+siz joriy tejash sarflash mumkin . Qarz bilan
+tugmasini bosing omonat butun miqdorini olib tashlash mumkin.\n
+\dindorlar.\n
+Ortiqcha tugmani bosish orqali daromadingizni qo\'shishingiz mumkin .
+Har bir qo\'shimcha daromad bilan balansingiz oshadi.\n
+\kirish.\n
+Minus tugmasini bosish orqali siz qo\'shishingiz mumkin
+sizning xarajatlar. Miqdori va tavsifini kiritishingiz kerak
+iste\'mol (afzal). Sizning qulayligingiz uchun biz yaratdik
+bo\'lim: xarajatlar tarixi,"xarajatlar"
+sizning xarajatlaringizni kuzatib borishingiz mumkin.\n
+\tez-tez sarf (andozalar) .\n
+Ortiqcha tugmani bosish orqali siz o\'zingizni qo\'shishingiz mumkin
+tez-tez sarf (element). Bu uchun foydali bo\'ladi
+siz tez-tez pul sarflayotganingizni kuzata oldingiz.
+Elementni bosish orqali siz sarflangan mablag\'ni qo\'shishingiz mumkin
+va sarflangan pulning umumiy miqdorini ko\'ring. Shuningdek,
+o\'ng tomonga burilib, elementni tez-tez sarflash ro\'yxatidan olib tashlashingiz mumkin.
+   </string>
+    <string name="main">Asosiy narsa</string>
+    <string name="finance">Moliya</string>
+    <string name="you_forgot_habbit">Siz odat haqida unutmagansiz</string>
+    <string name="you_can_edit_profile">Profilingizni o\'zgartirishingiz mumkin</string>
+    <string name="advice25_1">Eng yaqin tekshiruvda omad faqat katta ish va puxta tayyorgarlik natijasidir.</string>
+    <string name="advice26_1">Agar biror narsa qilishga qaror qilsangiz, lekin buni 72 soat ichida boshlamagan bo\'lsangiz-85% hollarda buni hech qachon qilolmaysiz.</string>
+    <string name="advice27_1">\"Kim qilsa, muvaffaqiyat kutadi. "Harakat qiladigan" kishi unga biror narsa to\'sqinlik qilishini kutadi.\"</string>
+    <string name="advice27_2">Yarim kuch natijaning yarmini emas, balki nol natijani beradi.</string>
+    <string name="advice28_1">Kim butun kun ishlaydi-pul topish uchun vaqt yo\'q.</string>
+    <string name="advice29_1">Eng katta iste\'dod - o\'z harakatlari uchun turtki topish.</string>
+    <string name="advice30_1">Moliyaviy farovonlik moliyaviy cheklovlarsiz va ularning xarajatlarini rejalashtirmasdan mumkin emas. Moliyaviy erkinlik moliyaviy cheklovlar orqali ketadi.</string>
+    <string name="advice_31_1">Yaxshi harakatsizlikdan ko\'ra yomon boshlash yaxshidir.</string>
+    <string name="advice32_1">Sog\'ligingiz haqida o\'ylab ko\'ring. Yaxshi Sog\'liksiz muvaffaqiyatga erishish mumkin emas.</string>
+    <string name="advice_32_2">\" Sog\'liksiz boylik quvonch keltirmaydi.\"</string>
+    <string name="advice_33_1">Nima uchun siz hali ham turishingizni bahona qilish uchun yorug\'lik tezligidan ko\'ra, kaplumbağa tezligi bilan maqsadga erishish yaxshiroqdir.</string>
+    <string name="advice_34_1">Sevimli sevimli mashg\'ulotingizni oling va u erda martaba yarating.</string>
+    <string name="advice35_1">\"Yaxshi daromad uchun yaxshi bilim kerak.\"</string>
+    <string name="advice_35_2">Har doim o\'rganish, o\'qish, ufqlarni kengaytirishga harakat qiling. Ahmoqlar faqat kazinoda baxtli, keyin kamdan-kam hollarda.</string>
+    <string name="advice_36_1">Boylik kazino, restoran, kurort yoki do\'konda qancha pul sarflaganingiz emas.</string>
+    <string name="advice36_2">\" Boylik sizni chetga surib, qutqargan narsadir.\"</string>
+    <string name="advice37_1">Bir marta faqat ahmoqlar baxtli. Har doim aqlli omadli.</string>
+    <string name="advice38_1">Siz barcha voqealar uchun javobgar emassiz</string>
+    <string name="advice38_2">Lekin siz har doim voqealarni talqin qilish va ularga bo\'lgan munosabatingiz uchun javobgarsiz.</string>
+    <string name="advice39_1">\"O\'tirish va mo" jiza kutish, sportchining televizor oldida uyda o\'tirgani kabi ahmoqdir,\"</string>
+    <string name="advice39_2">Olimpiya o\'yinlarini tomosha qiling va ularga oltin medalni olishga umid qiling.</string>
+    <string name="advice40_1">Pul har doim ularga beradigan ma\'noga ega.</string>
+    <string name="advice41_1">Pulning o\'zi hech kimni baxtli yoki baxtsiz qilmaydi. Ular yaxshi emas va yomon emas.</string>
+    <string name="advice_41_2">Pul bilan baxtli odam baxtli bo\'ladi. Har bir narsadan muammo tug\'diradigan pessimist pul bilan yanada ko\'proq muammolarga duch keladi. Pul egasining xarakterini ochib beradi. Ular kattalashtiruvchi oynaga o\'xshaydi.</string>
+    <string name="advice42_1">\"Hech kim boy emas, chunki u juda ko\'p ishlaydi.\"</string>
+    <string name="advice42_2">Ishlash uchun muhtoj holda sizning qimmatli qog\'ozlar foiz yashash mumkin, faqat boy siz: pul siz uchun ishlaydi.</string>
+    <string name="advice43_1">Asosiy holat: hech qachon o\'zingiz xohlagan odam emas, balki insonning maslahatini qabul qilmang.</string>
+    <string name="advice44_1">Mas\'uliyatsiz yashash, kuchsiz qurbonlik holatiga tushib qolish demakdir.</string>
+    <string name="advice44_2">\" Bu boshqalar siz uchun yozgan qoidalarga muvofiq yashashni anglatadi.\"</string>
+    <string name="advice45_1">Aksariyat odamlar bir yil ichida nima qilishlari mumkinligini baholaydilar va o\'n yil ichida nima qilishlari mumkinligini kam baholaydilar.</string>
+    <string name="advice46_1">\"Biz gullarni ko\'ramiz, lekin tikonlarni sezmaysiz. Biz muvaffaqiyatga erishamiz, lekin unga tayyorgarlik ko\'rmayapmiz.\"</string>
+    <string name="advice46_2">Va biz boshqalarning muvaffaqiyatsizliklarini ko\'rmayapmiz. Omadingizni "omadli odamlar"ni qanday qilib ehtiyotkorlik bilan tayyorlashni o\'rganishdan hayratga tushamiz.</string>
+    <string name="advice47_1">Yo\'qotmaslik uchun olib boradigan o\'yin va siz g\'alaba qozonmoqchi bo\'lgan o\'yin o\'rtasida asosiy farq bor.</string>
+    <string name="advice48_1">Siz qancha turasiz? Yo\'q, agar siz ushbu pul uchun ishlasangiz –</string>
+    <string name="advice48_2">\" shunday qilib, siz juda ko\'p turasiz. Agar biror narsa qoniqtirmasa, ishni, turmush tarzini o\'zgartiring, o\'zingizni o\'zgartiring.\"</string>
+    <string name="notification_for_habit">Odatlar uchun xabarnoma</string>
+    <string name="you_can_set_notification">Siz uchun to\'g\'ri vaqtda o\'rnatishingiz mumkin</string>
+    <string name="amount">Miqdori:</string>
+    <string name="description">Tavsif:</string>
+    <string name="enter_name">Nomini kiriting</string>
+    <string name="description_about_app">Ilova tavsifi</string>
+    <string name="blue">Moviy</string>
+    <string name="red">Qizil</string>
+    <string name="orange">To\'q sariq</string>
+    <string name="yellow">Sariq</string>
+    <string name="black">Qora</string>
+    <string name="green">Yashil</string>
+    <string name="white">Oq</string>
+    <string name="remind">Eslatib o\'tamiz</string>
+    <string name="fill_field">Maydonni to\'ldiring</string>
+    <string name="new_idea">Yangi g\'oya</string>
+    <string name="new_category">Yangi turkum</string>
+    <string name="category_name">Turkum nomi</string>
+    <string name="new_habit">Yangi odat</string>
+    <string name="what_done_yesterday">Kecha nima bo\'ldi?</string>
+    <string name="what_plan_today">Bugungi kunda nima rejalashtirilgan?</string>
+    <string name="problems">Muammolar yoki blokerlar</string>
+    <string name="important_info">Muhim ma\'lumotlar</string>
+    <string name="next">Keyingi</string>
+    <string name="pink">Pushti</string>
+    <string name="violet">Binafsha rang</string>
+    <string name="monday">Dushanba</string>
+    <string name="tuesday">Seshanba</string>
+    <string name="wednesday">Chorshanba</string>
+    <string name="thursday">Payshanba</string>
+    <string name="friday">Juma</string>
+    <string name="saturday">Shanba</string>
+    <string name="sunday">Yakshanba</string>
+    <string name="timetable">Jadval</string>
+    <string name="stand_up">Stendap</string>
+    <string name="focus">Fokus</string>
+    <string name="expensive">Iste\'mol</string>
+    <string name="history">Tarix</string>
+    <string name="choose_action">Harakatni tanlang</string>
+    <string name="ofCourse">Albatta</string>
+    <string name="enter_password">Parolni kiriting</string>
+    <string name="wrong_password">Noto\'g\'ri parol</string>
+    <string name="block">Bloklash</string>
+    <string name="set_password">Parolni o\'rnating</string>
+    <string name="in_case_lost_password">Parolni yo\'qotish uchun</string>
+    <string name="forgot_password">Parolni unutgan</string>
+    <string name="not_correct">Bu to\'g\'ri emas</string>
+    <string name="changePassword">Parolni o\'zgartirish</string>
+    <string name="unblock">Qulfni ochish</string>
+    <string name="heavenly">Samoviy</string>
+    <string name="bilberry">Черничный</string>
+    <string name="wake_up_morning">Ertalab 6da turing</string>
+    <string name="read_by_minutes">15 daqiqa davomida o\'qing</string>
+    <string name="health">Sog\'liqni saqlash</string>
+    <string name="targets">Maqsadlar</string>
+    <string name="download_app">Planner + ilovasini yuklab olish</string>
+    <string name="look_how_it_work">U qanday ishlashini ko\'ring</string>
+    <string name="for_next_lesson">Keyingi dars uchun</string>
+    <string name="implement_new_fun">Yangi funktsiyani amalga oshirish</string>
+    <string name="new_process">Yangi jarayon</string>
+    <string name="set_amount_day">Kunlar sonini ko\'rsating</string>
+    <string name="add_some_event">Muayyan hodisani kiriting</string>
+    <string name="icon">Belgilar</string>
+    <string name="minutes_amount">Icon Soni</string>
+    <string name="enter_secret_word">Yashirin so\'zni kiriting</string>
+    <string name="set_notification_on">"Xabarnoma o\'rnatildi "</string>
+    <string name="create">Yaratish</string>
+    <string name="add_pattern">Shablonni qo\'shing</string>
+    <string name="name">Ismni kiritish</string>
+    <string name="categories">Turkum</string>
+    <string name="begins">Boshlanadi</string>
+    <string name="ends">Tugaydi</string>
+    <string name="to_the_schedule">Vaqt jadvalida</string>
+    <string name="woke_up">Uyg\'ondi</string>
+    <string name="went_to_sleep">Yotish</string>
+    <string name="sleep_recording">Kutish yozuvi</string>
+    <string name="dream">Kutish</string>
+    <string name="no_records">Hech qanday yozuv yo\'q</string>
+    <string name="transport">Transport</string>
+    <string name="products">Mahsulotlar</string>
+    <string name="flight_over_city">Uning shahar ustidan uchib</string>
+    <string name="my_dream_in_dream">Men tush ko\'rgan tushimda tush ko\'rdim</string>
+    <string name="congratulation">Tabriklaymiz!</string>
+    <string name="level">Darajasi </string>
+    <string name="you_are_hello">Sizni kutib oladi</string>
+    <string name="tool">Asbob</string>
+    <string name="got_you_aim">Maqsadlaringizga erishish</string>
+    <string name="what_can_i_do">Nima qilishim kerak ?</string>
+    <string name="create_notes">Eslatmalar yaratish</string>
+    <string name="follow_finance">Moliyaviy nazorat</string>
+    <string name="keep_focus">Fokusni saqlab qolish</string>
+    <string name="keep_schedule">Jadvalni saqlash</string>
+    <string name="create_standup">Stendni yaratish</string>
+    <string name="also">Va shuningdek</string>
+    <string name="to_create_event">Voqealar yaratish</string>
+    <string name="fix_idea">Fikrlarni tuzatish</string>
+    <string name="lets_start">Keling, boshlang !</string>
+    <string name="click_by_screen">Ekranni bosing</string>
+    <string name="before_start">Boshlashdan oldin dastur bilan tanishishingizni tavsiya qilamiz</string>
+    <string name="two_tools">Ikkita navigatsiya vositasi mavjud</string>
+    <string name="bottom_and_side">Pastki va yon</string>
+    <string name="side_open_by_click">Yuqori chap burchakda joylashgan Burger-ni bosish orqali yon ochiladi</string>
+    <string name="after_instruction">Derazalarning har biriga o\'tishdan so\'ng, brifingni ishga tushirishni kuting</string>
+    <string name="go">Keling !</string>
+    <string name="you_calendar">Taqvimingiz</string>
+    <string name="show_day">Keyingi 3 oylik yangilanish bilan kunlarni ko\'rsatadi</string>
+    <string name="set_event_new_task">Sana bilan siz haftaning ma\'lum bir kunida voqea yoki yangi vazifani belgilashingiz mumkin</string>
+    <string name="next_you_cards">Keyingi sizning kartalari borish</string>
+    <string name="here_show">Bu erda barcha kartangiz odatlarni,toifalarni,voqealarni ko\'rsatadi</string>
+    <string name="click_cards_ha_ca">Odatlar yoki toifadagi kartalarni bosish orqali siz ma\'lum bir harakatni amalga oshirishingiz mumkin</string>
+    <string name="show_profile">Yon panelni ochib, profilingizni ko\'rishingiz mumkin</string>
+    <string name="avater_name">Avatar,ism va joriy daraja, avatar va nomni o\'rnatish uchun ularga bosing</string>
+    <string name="lvlup_some_action">Bu daraja muayyan harakatlar uchun odatlar,vazifalar va shunga o\'xshash narsalarni bajarish uchun ko\'tariladi</string>
+    <string name="inside_cards_record">Eslatmalar yoki vazifalarni yozishingiz mumkin bo\'lgan kartalar</string>
+    <string name="hold_card">Harakatlar bilan oyna ochish uchun ro\'yxatdan karta ustiga bosing</string>
+    <string name="insert_button">Qo\'shish tugmasi</string>
+    <string name="create_new_category_click">Ushbu tugmani bosish kategoriya nomini va belgini ko\'rsatib,yangi kartani yaratishingiz mumkin</string>
+    <string name="under_everyday">Har kuni to\'ldirilishi mumkin bo\'lgan ro\'yxatni yashiradi</string>
+    <string name="cause_see">Bir kun uchun rejalashtirilgan narsani ko\'rish uchun unga bosing</string>
+    <string name="hold_task_action">Ro\'yxatdan rejalashtirilgan vazifani belgilashingiz mumkin harakatlar bilan oyna ochish uchun</string>
+    <string name="click_here_button">Ushbu tugmani bosish haftaning ma\'lum bir kuni uchun biznesni yaratishingiz mumkin</string>
+    <string name="planning_events">Rejalashtirilgan tadbirlar ro\'yxati</string>
+    <string name="set_remind_by_wish">Majburiy emas, siz eslatmani o\'rnatishingiz mumkin</string>
+    <string name="create_ev_date">Ushbu tugmani bosish ma\'lum bir tarixda voqealarni yaratishingiz mumkin</string>
+    <string name="list_habit">O\'zingiz uchun payvand qilishni istagan odatlar ro\'yxati</string>
+    <string name="in_left_day">Chapda siz allaqachon odat tusiga kirgan necha kun ko\'rsatiladi</string>
+    <string name="in_right_hold">O\'ngda qancha kun kerak</string>
+    <string name="click_by_habit">Kartani bosish orqali siz joriy kun uchun odatning bajarilishini belgilashingiz va kartani ushlab turishingiz mumkin.</string>
+    <string name="create_new_habit">Ushbu tugmani bosish orqali siz yangi odat yaratishingiz mumkin</string>
+    <string name="list_process">Konsentratsiyani talab qiladigan jarayonlar ro\'yxati</string>
+    <string name="theroy_thousand_hour">Ushbu oyna 10 000 soat nazariyasi asosida yaratilgan</string>
+    <string name="profession_thousand_hour">Ma\'lum bir sohada professional bo\'lish uchun uni o\'rganish uchun 10 ming soat sarflash kerak</string>
+    <string name="work_stopwatch_timer">Ushbu tugmani bosish orqali siz yangi jarayonni yaratishingiz,taymer bilan ishlashingiz yoki Sekundomer bilan ishlashingiz mumkin</string>
+    <string name="list_standup">Sizning stendlaringiz ro\'yxati</string>
+    <string name="team_work">Ushbu oyna buyruq ishi tizimi asosida yaratilgan</string>
+    <string name="plan_and_problem_share">Jamoa a\'zolari har kuni amalga oshirilgan ishlar haqida hisobot tuzadilar va o\'z rejalari va muammolari bilan bo\'lishadilar</string>
+    <string name="good_system">Bu o\'zingizni yaxshi shaklda saqlash uchun juda yaxshi tizim</string>
+    <string name="good_friend_standup">Yaxshi do\'stingizdan stendlarni tayyorlashga amal qilishini so\'rashingiz mumkin</string>
+    <string name="share_fun_send">Va faqat siz uni yuborishingiz mumkin, shunday qilib, almashish uchun bir vazifasi bor</string>
+    <string name="create_new_standup">Ushbu tugmani bosish orqali siz yangi stend yaratishingiz mumkin</string>
+    <string name="list_dream">Sizning yozuvlar uyqu bilan bog\'liq boryapmiz qaerda ro\'yxati</string>
+    <string name="up_slept_hour"> Вверху указано сколько часов вы проспали за указанный день\"</string>
+    <string name="next_time_date">Bundan tashqari, qancha va qancha sana</string>
+    <string name="course_record_dream">Kartani bosish orqali siz o\'sha kuni orzu qilgan narsani ko\'rishingiz mumkin, albatta, agar siz uni yozsangiz</string>
+    <string name="create_new_record">Ushbu tugmani bosish orqali siz yangi yozuv yaratishingiz mumkin</string>
+    <string name="folow_finance_window">Sizning moliyaviy kuzatib borish uchun oyna</string>
+    <string name="new_appear_open">Yuqorida, moliyaviy maslahatlar bilan bog\'liq karta, har safar ushbu Oynani ochganingizda yangi paydo bo\'ladi</string>
+    <string name="main_fun_in_ex">Asosiy vazifalar daromad va oqim tugmalari bilan amalga oshiriladi\"</string>
+    <string name="template_work">Bundan tashqari, siz u bilan ishlashingiz mumkin bo\'lgan elementni bosish orqali shablon xarajatlari ro\'yxati mavjud\"</string>
+    <string name="history_button_ex_te">Va, albatta, hikoya tugmasi bu erda hamma narsa shablon xarajatlaridan tashqari hisobga olinadi</string>
+    <string name="template_expensive">Andoza xarajatlari</string>
+    <string name="choose_icon">Tanlash belgilar</string>
+    <string name="hours"> Soat</string>
+    <string name="minut"> Daqiqa</string>
+    <string name="rewrite_code">1.Kodni qayta yozib, darsdan qayta o\'qing</string>
+    <string name="watch_stream">2.Oqim tomonidan ko\'rib chiqildi</string>
+    <string name="write_screen_se_q">3.Settings va Quiz uchun tartib yozgan</string>
+    <string name="create_h_st_dao">4.HistoryStorage HistoryDao uchun usullarni yaratdi</string>
+    <string name="in_dao_delete">5.egaligingizni tasdiqlang qo\'shimcha imkoniyatlar uchun</string>
+    <string name="reread_code_q">1.Ko\'proq tushunish uchun QuizApp kodini qayta o\'qing\"</string>
+    <string name="impl_f_fi">2.4 va 5-bandlarni amalga oshirishga o\'taman</string>
+    <string name="hard_fa_da">Tarixni soxta ma\'lumotlar bilan to\'ldirish qiyin bo\'lgan</string>
+    <string name="im_sh_pr">- Taraqqiyot ekranini amalga oshirdi</string>
+    <string name="im_sh_ca">- Kategoriyani namoyish qildi</string>
+    <string name="im_ba_f_a">-Agar birinchi sahifa activityni yopsa, orqaga tugmachasini ishlab chiqdi</string>
+    <string name="im_b_an">- Javob uchun tugmachalarni ishlab chiqdi</string>
+    <string name="one_sec_pag">- Taymerni onAnswerClick-ga qo\'ying, shuning uchun javobni bosganingizda keyingi savolga o\'tishdan oldin 1 soniya kutib turing</string>
+    <string name="st_sc_qr">1.Quizresult tartibini boshlayman</string>
+    <string name="im_wi_fi">2.Internet yoki WI-FI mavjudligini aniqlashning amaliy funktsiyalari</string>
+    <string name="re_q_l_ans">Savollar aralashtirish va varaq javob ilova bilan</string>
+    <string name="since">Boshlash </string>
+    <string name="before"> Oldin </string>
+    <string name="gone_to_dream">U uyquga ketdi</string>
+    <string name="wh_dr_q">Nima tush ko\'rdi ? (Majburiy emas)</string>
+    <string name="list_ideas">Fikrlar ro\'yxati</string>
+    <string name="vis_im_idea">Vizual tasvir - bu fikrni tuzatishning yaxshi usuli</string>
+    <string name="by_cl_im_sh">Kartani bosganingizda, rasm to\'liq hajmda ochiladi</string>
+    <string name="cl_ca_re_id">Ushbu tugmani bosish orqali fikrni yozib olishingiz mumkin</string>
+    <string name="dream_record">Kutish yozuvlarini saqlash</string>
+    <string name="history_empty">Tarix bo\'sh</string>
+    <string name="read">O\'qish</string>
+    <string name="date">Tarix</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="new_event">Yangi tadbir</string>
+    <string name="diplom_work">Tezis ishi</string>
+    <string name="phisology">Psixologiya</string>
+    <string name="not_necessary">(Majburiy emas)</string>
+    <string name="hour">Soat</string>
+    <string name="minute">Daqiqa</string>
+    <string name="choose_app">Ilovani tanlang</string>
+    <string name="in_main_screen">- Bu erda siz o\'zingizning vazifangizni odatlardan bajarganingizni, voqealarni ko\'rib chiqishni va kerakli toifaga o\'tishni qayd etishingiz mumkin.\n
+        - Oynaning yuqori qismida joylashgan taqvimdagi sana bo\'yicha uzoq vaqt bosish sizning jadvalingizga ushbu kun uchun yangi voqea yoki vazifani qo\'shish imkonini beradi.</string>
+    <string name="in_categories">- Yangi toifani yaratish uchun +tugmasini bosing.\n
+        - Kategoriyani uzoq vaqt bosib, uni tahrirlashingiz, o\'chirishingiz yoki bloklashingiz va parolni o\'zgartirishingiz mumkin bo\'lgan oyna paydo bo\'ladi.</string>
+    <string name="in_timetable">- Yangi yozuvni yaratish uchun +tugmasini bosing. Bir yoki bir necha kun tanlashingiz mumkin.\n
+- Haftaning kunini bosish orqali siz ushbu kunning barcha yozuvlarini ko\'rishingiz mumkin. \n
+- Yozuvni uzoq vaqt bosib, uni o\'chirish yoki tahrir qilish imkonini beradi.</string>
+    <string name="in_event">- Yangi tadbir yaratish uchun + ni bosing. Bundan tashqari, kerakli vaqtda eslatmani o\'rnatishingiz mumkin.\n
+        - Voqeani uzoq vaqt bosib, uni o\'chirish yoki tahrir qilish imkonini beradi.</string>
+    <string name="in_habit">Kerakli odatni rivojlantirishga imkon beruvchi oyna.\n
+        - Yangi odat yaratish uchun + ni bosing.\n
+        - Odatni bosish orqali siz bugungi kunda topshiriqni bajarganingizni ta\'kidlashingiz mumkin.\n
+        - Uzoq bosish uni olib tashlash yoki tahrir qilish imkonini beradi. Yuqori chap burchakdagi tugma menyuni chaqiradi. Bu erda siz o\'z darajangizni bilib olishingiz, avatarni tanlashingiz va ismingizni qo\'shishingiz mumkin.</string>
+    <string name="in_focus">Oyna haqida nazariyasi asosida yaratilgan 10000 soat qaysi u qancha vaqt tanlangan sohada professionallik erishish uchun sarflash kerak, deb o\'qiydi.\n
+        - +Ni bosish orqali siz yangi harakatni qo\'shishingiz va taymer yoki sekundomerni ochishingiz mumkin.\n
+        - Ro\'yxatdagi harakatni bosish orqali siz qancha vaqt sarflaganingizni belgilashingiz mumkin. Vaqt qo\'shiladi.\n
+        - Uzoq bosing vaqt sizning yozuvingizga qo\'shilgan taymer yoki sekundomerni ochishga imkon beradi. Agar xohlasangiz, darhol uni olib tashlashingiz mumkin.</string>
+    <string name="in_standup">Amaliyot jarayonni optimallashtirish uchun yirik kompaniyalarda qo\'llaniladi. Har bir xodim har kuni amalga oshirilgan ishlar va yuzaga kelgan muammolar haqida hisobot yozadi.\n
+        - - Tugma + yangi stendni yaratishga imkon beradi.\n
+        - Yozuvni uzoq vaqt bosib, uni o\'chirib tashlashingiz, tahrirlashingiz yoki stendni almashishingiz mumkin bo\'lgan oyna paydo bo\'ladi.</string>
+    <string name="in_dream">Uyquga sarflangan vaqtni kuzatib borishingiz mumkin bo\'lgan oyna.\n
+        - Bosish orqali + yangi rekord yaratishingiz mumkin.\n
+        - Yozuvni bosish orqali siz nimani orzu qilganingizni o\'qishingiz mumkin.\n
+        - Uzoq bosish yozuvni tahrir qilish yoki o\'chirish imkonini beradi.</string>
+    <string name="in_idea">- Bosish orqali + yangi fikr qo\'shishingiz mumkin.\n
+        - Yozuvni bosish orqali siz rasmni ko\'rishingiz mumkin, uzoq vaqt bosib, yozuvni o\'chirish yoki tahrir qilish imkonini beradi.</string>
+    <string name="in_finance">Moliyangizni kuzatish uchun oyna.\n
+        - Yuqorida, pulingizni yanada samarali boshqarish imkonini beradigan maslahatlar bilan karta.\n
+        - "Daromad \" va "xarajat\" tugmalari sizga qancha pul olganingiz va shunga mos ravishda qancha mablag \' sarflaganingizni yozib qo\'yishga imkon beradi.\n
+        - Agar xohlasangiz, shablon xarajatlari mavjud shablonni +ga bosish orqali yaratishingiz mumkin.\n
+        - Shablonni uzoq vaqt bosib, uni olib tashlash imkonini beradi.\n
+        - Tarix sizning barcha moliyaviy o\'zgarishlarni kuzatib boradi.</string>
+    <string name="in_setting">- Bu erda siz ilovaning mavzusini va tilini o\'zgartirishingiz mumkin.</string>
+    <string name="instruction">Ko\'rsatmalar</string>
+</resources>

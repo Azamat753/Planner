@@ -37,11 +37,11 @@ class App : Application() {
             val channel = NotificationChannel(
                 Constants.CHANNEL_ID, "Example Channel",
                 NotificationManager.IMPORTANCE_HIGH
-            )
+            ).apply { setShowBadge(true) }
             val channel2 = NotificationChannel(
                 Constants.CHANNEL_ID_HOURS, "Example Channel2",
                 NotificationManager.IMPORTANCE_HIGH
-            )
+            ).apply { setShowBadge(true) }
             val manager = getSystemService(
                 NotificationManager::class.java
             )

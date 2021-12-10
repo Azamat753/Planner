@@ -359,6 +359,43 @@ glisser vers la droite, vous pouvez supprimer un Élément de la liste des dépe
     <string name="new_event">Nouvel événement</string>
     <string name="diplom_work">Thèse</string>
     <string name="phisology">Psychologie</string>
-    <string name="not_necessary">(Необязательно)</string>
+    <string name="not_necessary">(Pas forcé)</string>
+    <string name="hour">Montre</string>
+    <string name="minute">Min</string>
+    <string name="choose_app">Sélectionnez une application</string>
+    <string name="in_main_screen">- Ici, vous pouvez noter que vous avez terminé votre tâche à partir des habitudes, voir les événements et aller à la catégorie souhaitée.\n
+        - Un appui long sur une date dans le calendrier qui est en haut de la fenêtre vous permettra d\'ajouter un nouvel événement ou une tâche pour ce jour à votre emploi du temps.</string>
+    <string name="in_categories">- Pour créer une nouvelle catégorie, appuyez sur +.\n
+        - Appuyez longuement sur une catégorie pour ouvrir une fenêtre où vous pouvez modifier, supprimer ou verrouiller, ainsi que changer le mot de passe.</string>
+    <string name="in_timetable">- Pour créer un nouvel enregistrement, cliquez sur +. Vous pouvez choisir un ou plusieurs jours à la fois.\n
+        - En cliquant sur le jour de la semaine, vous pouvez voir toutes les entrées pour un jour donné. \n
+        - Un appui long sur une entrée vous permettra de la supprimer ou de la modifier.</string>
+    <string name="in_event">- Pour créer un nouvel événement, appuyez sur le +. Vous pouvez également définir un rappel à l\'heure souhaitée.\n
+        - Un appui long sur un événement vous permettra de le supprimer ou de le modifier.</string>
+    <string name="in_habit">Une fenêtre qui vous permettra de développer l\'habitude souhaitée.\n
+        - Pour créer une nouvelle habitude, appuyez sur le +.\n
+        - En cliquant sur l\'habitude, vous pouvez noter que aujourd\'hui terminé la tâche.\n
+        - Appuyez longuement pour supprimer ou modifier. Bouton dans le coin supérieur gauche fera apparaître le menu. Ici, vous pouvez trouver votre niveau, choisir un avatar et ajouter un nom.</string>
+    <string name="in_focus">La fenêtre est créée sur la base de la théorie de 10 000 heures qui dit que c\'est le temps que vous devez passer pour atteindre le professionnalisme dans le domaine choisi.\n
+        - En cliquant sur + , vous pouvez ajouter une nouvelle action et ouvrir la minuterie ou le chronomètre.\n
+        - En cliquant sur l\'action dans la liste, vous pouvez spécifier combien de minutes ont passé sur elle. Le temps sera additionné.\n
+        - Appuyez longuement pour ouvrir la minuterie ou le chronomètre où le temps sera Ajouté à votre enregistrement. Si vous le souhaitez, vous pouvez immédiatement le supprimer.</string>
+    <string name="in_standup">Pratique utilisée dans les grandes entreprises pour optimiser le processus. Chaque employé écrit quotidiennement un rapport sur le travail accompli et les problèmes rencontrés.\n
+        - - Bouton + va créer un nouveau stand up.\n
+        - Un appui long sur l\'enregistrement fera apparaître une fenêtre où vous pouvez supprimer, modifier ou partager le standup.</string>
+    <string name="in_dream">Une fenêtre où vous pouvez suivre le temps passé sur le sommeil.\n
+        - En cliquant sur + vous pouvez créer une nouvelle entrée.\n
+        - En cliquant sur l\'entrée, vous pouvez lire ce que vous avez rêvé.\n
+        - Appuyez longuement pour modifier ou supprimer un enregistrement.</string>
+    <string name="in_idea">- En cliquant sur + vous pouvez ajouter une nouvelle idée.\n
+        - En cliquant sur l\'enregistrement, vous pouvez voir l\'image, un appui long vous permettra de supprimer ou de modifier l\'enregistrement.</string>
+    <string name="in_finance">Une fenêtre pour suivre vos Finances.\n
+        - En haut de la carte avec des conseils qui vous permettront de gérer votre argent plus efficacement.\n
+        - Les boutons  \'Revenu \' et  \'Dépense \' vous permettent d\'ajouter un enregistrement de combien vous avez reçu de l\'argent et combien vous avez dépensé en conséquence.\n
+        - Il y a des frais de modèle ici, si vous le souhaitez, vous pouvez créer votre modèle en cliquant sur le +.\n
+        - Appuyez longuement sur le motif pour le supprimer.\n
+        - L\'histoire vous permettra de retracer tous vos changements financiers.</string>
+    <string name="in_setting">- Ici, vous pouvez changer le thème et la langue de l\'application.</string>
+    <string name="instruction">Prescription</string>
 
 </resources>

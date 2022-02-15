@@ -5,5 +5,5 @@
 ### Link to the app in Google Play
 ### https://play.google.com/store/apps/details?id=com.lawlett.planner
 
-###Time Management Application
-###It works on the basis of the Room database and Services
+### Time Management Application
+### It works on the basis of the Room database and Services

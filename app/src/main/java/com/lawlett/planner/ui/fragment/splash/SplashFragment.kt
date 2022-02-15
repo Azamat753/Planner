@@ -1,5 +1,6 @@
 package com.lawlett.planner.ui.fragment.splash
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -20,7 +21,11 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             if (isShown) {
                 findNavController().navigate(R.id.progress_fragment)
             } else {
-                findNavController().navigate(R.id.introFragment)
+                if (Build.VERSION.SDK_INT < 28){
+                    findNavController().navigate(R.id.progress_fragment)
+                }else{
+                    findNavController().navigate(R.id.introFragment)
+                }
             }
         }, 2000)
     }

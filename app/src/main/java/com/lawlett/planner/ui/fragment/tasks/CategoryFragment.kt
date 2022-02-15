@@ -177,9 +177,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     }
 
     private fun openCategory(model: CategoryModel) {
-        val pAction: CategoryFragmentDirections.ActionCategoryFragmentToCreateTasksFragment =
-            CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment(model, false)
-        findNavController().navigate(pAction)
+        val p = CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment(model, false)
+        findNavController().navigate(p)
     }
 
     override fun onLongClick(model: CategoryModel, itemView: View, position: Int) {

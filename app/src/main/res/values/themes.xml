@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="AppTheme.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+
+    </style>
+
+    <style name="AppTheme.AppWidgetContainer" parent="AppTheme.AppWidgetContainerParent" >
+        <item name="appWidgetBackgroundColor">@color/light_blue_200</item>
+        <item name="appWidgetTextColor">?attr/white_text_color</item>
+    </style>
+</resources>

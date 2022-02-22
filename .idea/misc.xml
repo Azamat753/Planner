@@ -7,10 +7,14 @@
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.221875" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/drawable/home_selector.xml" value="0.287962962962963" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/collection_widget.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/collection_widget_list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/create_category_bottom_sheet_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/fragment_category.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/long_click_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/tasks_widget.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/widget_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/layout/widget_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/99670/StudioProjects/Planner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2861111111111111" />
       </map>
     </option>

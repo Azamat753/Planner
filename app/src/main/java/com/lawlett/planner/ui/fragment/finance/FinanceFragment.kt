@@ -46,46 +46,46 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.FINANCE_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.history) + " \n\n\n " + getString(R.string.folow_finance_window) + " \n" + getString(
-                        R.string.new_appear_open
-                    )
-                )
-                val secondSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.main_fun_in_ex)+" \n "+getString(R.string.template_work)
-                )
-                val thirdSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.history_button_ex_te)
-                )
-                val fourSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.hold_card)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                targets.add(thirdSpot)
-                targets.add(fourSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.FINANCE_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.FINANCE_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view = View(requireContext())
+//
+//            Handler().postDelayed({
+//                val firstSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.history) + " \n\n\n " + getString(R.string.folow_finance_window) + " \n" + getString(
+//                        R.string.new_appear_open
+//                    )
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.main_fun_in_ex)+" \n "+getString(R.string.template_work)
+//                )
+//                val thirdSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.history_button_ex_te)
+//                )
+//                val fourSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.hold_card)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                targets.add(thirdSpot)
+//                targets.add(fourSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.FINANCE_INSTRUCTION, true)
+//        }
     }
 
     private fun addFalsePatternDataForExample() {

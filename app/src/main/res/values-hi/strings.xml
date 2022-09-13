@@ -398,4 +398,6 @@
 - इतिहास आपको अपने सभी वित्तीय परिवर्तनों को ट्रैक करने की अनुमति देगा । </string>
     <string name="in_setting">- यहां आप एप्लिकेशन की थीम और भाषा बदल सकते हैं । </string>
     <string name="instruction">निर्देश</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

@@ -397,4 +397,6 @@ al deslizar hacia la derecha, puede eliminar un Elemento de la lista de gastos f
         - La historia le permitirá rastrear todos sus cambios financieros.</string>
     <string name="in_setting">- Aquí puede cambiar el tema y el idioma de la aplicación.</string>
     <string name="instruction">Instrucción</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

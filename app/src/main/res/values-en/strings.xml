@@ -398,4 +398,6 @@ swiping to the right, you can remove an Item from the list of frequent spenders.
 - History will allow you to track all your financial changes.</string>
     <string name="in_setting">- Here you can change the theme and language of the application.</string>
     <string name="instruction">Instructions</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

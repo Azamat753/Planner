@@ -397,4 +397,6 @@ scorri verso destra, puoi rimuovere un elemento dall\'elenco delle spese frequen
         - La storia vi permetterà di tracciare tutti i vostri cambiamenti finanziari.</string>
     <string name="in_setting">- Qui è possibile modificare il tema e la lingua dell\'applicazione.</string>
     <string name="instruction">Istruzione</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

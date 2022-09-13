@@ -37,44 +37,45 @@ class StandUpFragment : BaseFragment<FragmentStandUpBinding>(FragmentStandUpBind
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.STANDUP_INSTRUCTION) == false
-        ) {
-        val targets = ArrayList<Target>()
-        val root = FrameLayout(requireContext())
-        val first = layoutInflater.inflate(R.layout.layout_target, root)
-        val view = View(requireContext())
-        Handler().postDelayed({
-            val firstSpot = setSpotLightTarget(
-                view,
-                first,
-                getString(R.string.stand_up)+" \n\n\n "+getString(R.string.list_standup)+"\n "+ getString(R.string.team_work)+" \n"+getString(
-                                    R.string.plan_and_problem_share)
-            )
-            val secondSpot = setSpotLightTarget(
-                view,
-                first,
-                getString(R.string.good_system)+" \n"+getString(R.string.good_friend_standup)
-            )
-            val thirdSpot = setSpotLightTarget(
-                view,
-                first,
-               getString(R.string.hold_card)+"\n"+getString(R.string.share_fun_send)
-            )
-            val fourSpot = setSpotLightTarget(
-                binding.addStandUpButton,
-                first,
-                getString(R.string.insert_button) + " \n" + getString(R.string.create_new_standup)
-            )
-            targets.add(firstSpot)
-            targets.add(secondSpot)
-            targets.add(thirdSpot)
-            targets.add(fourSpot)
-            setSpotLightBuilder(requireActivity(), targets, first)
-        }, 100)
-        BooleanPreference.getInstance(requireContext())
-            ?.saveBooleanData(Constants.STANDUP_INSTRUCTION, true)
-    }}
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.STANDUP_INSTRUCTION) == false
+//        ) {
+//        val targets = ArrayList<Target>()
+//        val root = FrameLayout(requireContext())
+//        val first = layoutInflater.inflate(R.layout.layout_target, root)
+//        val view = View(requireContext())
+//        Handler().postDelayed({
+//            val firstSpot = setSpotLightTarget(
+//                view,
+//                first,
+//                getString(R.string.stand_up)+" \n\n\n "+getString(R.string.list_standup)+"\n "+ getString(R.string.team_work)+" \n"+getString(
+//                                    R.string.plan_and_problem_share)
+//            )
+//            val secondSpot = setSpotLightTarget(
+//                view,
+//                first,
+//                getString(R.string.good_system)+" \n"+getString(R.string.good_friend_standup)
+//            )
+//            val thirdSpot = setSpotLightTarget(
+//                view,
+//                first,
+//               getString(R.string.hold_card)+"\n"+getString(R.string.share_fun_send)
+//            )
+//            val fourSpot = setSpotLightTarget(
+//                binding.addStandUpButton,
+//                first,
+//                getString(R.string.insert_button) + " \n" + getString(R.string.create_new_standup)
+//            )
+//            targets.add(firstSpot)
+//            targets.add(secondSpot)
+//            targets.add(thirdSpot)
+//            targets.add(fourSpot)
+//            setSpotLightBuilder(requireActivity(), targets, first)
+//        }, 100)
+//        BooleanPreference.getInstance(requireContext())
+//            ?.saveBooleanData(Constants.STANDUP_INSTRUCTION, true)
+//    }
+    }
 
     private fun addFalseDataForExample() {
         if (BooleanPreference.getInstance(requireContext())

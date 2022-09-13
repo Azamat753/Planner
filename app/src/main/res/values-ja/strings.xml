@@ -397,5 +397,7 @@
 -歴史は、あなたがすべてのあなたの財政の変化を追跡することができます。</string>
     <string name="in_setting">-ここでは、アプリケーションのテーマと言語を変更することができます。</string>
     <string name="instruction">指示</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 
 </resources>

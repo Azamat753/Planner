@@ -69,42 +69,42 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
 
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.DREAM_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.dream) + "\n\n\n " + getString(R.string.list_dream) + "\n " + getString(
-                        R.string.up_slept_hour
-                    ) + " \n " + getString(R.string.next_time_date) + " \n " + getString(
-                        R.string.course_record_dream
-                    )
-                )
-                val secondSpot = setSpotLightTarget(
-                    binding.addDreamFab,
-                    first,
-                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_record)
-                )
-                val thirdSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.hold_card)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                targets.add(thirdSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.DREAM_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.DREAM_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view = View(requireContext())
+//
+//            Handler().postDelayed({
+//                val firstSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.dream) + "\n\n\n " + getString(R.string.list_dream) + "\n " + getString(
+//                        R.string.up_slept_hour
+//                    ) + " \n " + getString(R.string.next_time_date) + " \n " + getString(
+//                        R.string.course_record_dream
+//                    )
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    binding.addDreamFab,
+//                    first,
+//                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_record)
+//                )
+//                val thirdSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.hold_card)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                targets.add(thirdSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.DREAM_INSTRUCTION, true)
+//        }
     }
 
     private fun initClickers() {

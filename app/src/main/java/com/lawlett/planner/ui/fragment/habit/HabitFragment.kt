@@ -50,39 +50,39 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.HABIT_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            Handler().postDelayed({
-
-                val firstSpot = setSpotLightTarget(
-                    binding.habitRecycler,
-                    first,
-                    " \n\n\n\n\n\n\n\n " + getString(R.string.habit) + " \n\n\n " + getString(R.string.list_habit) + "\n " + getString(
-                        R.string.in_left_day
-                    ) + "\n " + getString(R.string.in_right_hold)
-                )
-                val secondSpot = setSpotLightTarget(
-                    binding.habitRecycler,
-                    first,
-                    "\n\n\n\n"+getString(R.string.click_by_habit)
-                )
-                val thirdSpot = setSpotLightTarget(
-                    binding.addHabitFab,
-                    first,
-                    getString(R.string.insert_button)+" \n"+getString(R.string.create_new_habit)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                targets.add(thirdSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-                BooleanPreference.getInstance(requireContext())
-                    ?.saveBooleanData(Constants.HABIT_INSTRUCTION, true)
-            }, 100)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.HABIT_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            Handler().postDelayed({
+//
+//                val firstSpot = setSpotLightTarget(
+//                    binding.habitRecycler,
+//                    first,
+//                    " \n\n\n\n\n\n\n\n " + getString(R.string.habit) + " \n\n\n " + getString(R.string.list_habit) + "\n " + getString(
+//                        R.string.in_left_day
+//                    ) + "\n " + getString(R.string.in_right_hold)
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    binding.habitRecycler,
+//                    first,
+//                    "\n\n\n\n"+getString(R.string.click_by_habit)
+//                )
+//                val thirdSpot = setSpotLightTarget(
+//                    binding.addHabitFab,
+//                    first,
+//                    getString(R.string.insert_button)+" \n"+getString(R.string.create_new_habit)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                targets.add(thirdSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//                BooleanPreference.getInstance(requireContext())
+//                    ?.saveBooleanData(Constants.HABIT_INSTRUCTION, true)
+//            }, 100)
+//        }
     }
 
 

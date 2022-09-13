@@ -397,5 +397,7 @@ sağa kaydırarak, sık harcama listesinden bir öğeyi kaldırabilirsiniz.
         - Tarih, tüm finansal değişikliklerinizi izlemenize izin verecektir.</string>
     <string name="in_setting">- Burada uygulamanın temasını ve dilini değiştirebilirsiniz.</string>
     <string name="instruction">Talimatlar</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 
 </resources>

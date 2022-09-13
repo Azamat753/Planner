@@ -3,9 +3,13 @@ package com.lawlett.planner.ui.fragment.settings
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.LanguageModel
 import com.lawlett.planner.databinding.FragmentSettingsBinding
@@ -21,12 +25,15 @@ import com.lawlett.planner.utils.Constants
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<LanguageModel> {
+    lateinit var reviewInfo: ReviewInfo
+    lateinit var manager: ReviewManager
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         backToProgress()
         changeTheme()
         showLanguageDialog()
         initClickers()
+        activateReview()
     }
 
     private fun initClickers() {
@@ -76,10 +83,29 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(Constants.APP_LINK)
         startActivity(i)
+//        startReviewFlow()
     }
-
 
     override fun onClick(model: LanguageModel, position: Int) {
         requireActivity().changeLanguage(position)
+    }
+
+    fun startReviewFlow(){
+        val flow = manager.launchReviewFlow(requireActivity(),reviewInfo)
+        flow.addOnCompleteListener { task->
+            Log.e("ololo", "startReviewFlow: rate complete", )
+        }
+    }
+
+    fun activateReview(){
+        manager = ReviewManagerFactory.create(requireContext())
+        val managerInfoTask = manager.requestReviewFlow()
+        managerInfoTask.addOnCompleteListener {task->
+            if (task.isSuccessful){
+                reviewInfo = task.result
+            }else{
+                Log.e("ololo", "activateReview: review failed", )
+            }
+        }
     }
 }

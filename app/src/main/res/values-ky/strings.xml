@@ -398,4 +398,6 @@
         - Тарыхы мүмкүндүк берет көзөмөл жүргүзүүгө сиздердин бардык финансылык өзгөртүүлөрдү.</string>
     <string name="in_setting">- Бул жерде сиз колдонмонун теманы жана тилин өзгөртө аласыз.</string>
     <string name="instruction">Мүнөздөмөлөрү</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

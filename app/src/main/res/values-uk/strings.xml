@@ -398,4 +398,6 @@
         - Історія дозволить простежити всі ваші фінансові зміни.</string>
     <string name="in_setting">- Тут ви можете змінити тему і мову програми.</string>
     <string name="instruction">Інструкція</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

@@ -397,5 +397,7 @@ glisser vers la droite, vous pouvez supprimer un Élément de la liste des dépe
         - L\'histoire vous permettra de retracer tous vos changements financiers.</string>
     <string name="in_setting">- Ici, vous pouvez changer le thème et la langue de l\'application.</string>
     <string name="instruction">Prescription</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 
 </resources>

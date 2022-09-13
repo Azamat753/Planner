@@ -397,4 +397,6 @@
 -历史将允许您跟踪您的所有财务变化。</string>
     <string name="in_setting">-在这里，您可以更改应用程序的主题和语言。</string>
     <string name="instruction">指示说明</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

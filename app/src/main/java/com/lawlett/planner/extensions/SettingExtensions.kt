@@ -10,62 +10,62 @@ import com.lawlett.planner.utils.IntPreference
 import com.lawlett.planner.utils.LanguagePreference
 import java.util.*
 
-fun Activity.changeLanguage(position: Int) {
-    when (position) {
-        0 -> {
-            setLocale("ru", this)
+    fun Activity.changeLanguage(position: Int) {
+        when (position) {
+            0 -> {
+                setLocale("ru", this)
+            }
+            1 -> {
+                setLocale("be", this)
+            }
+            2 -> {
+                setLocale("uk", this)
+            }
+            3 -> {
+                setLocale("en", this)
+            }
+            4 -> {
+                setLocale("de", this)
+            }
+            5 -> {
+                setLocale("pt", this)
+            }
+            6 -> {
+                setLocale("fr", this)
+            }
+            7 -> {
+                setLocale("it", this)
+            }
+            8 -> {
+                setLocale("es", this)
+            }
+            9 -> {
+                setLocale("ky", this)
+            }
+            10 -> {
+                setLocale("kk", this)
+            }
+            11 -> {
+                setLocale("tr", this)
+            }
+            12 -> {
+                setLocale("uz", this)
+            }
+            13 -> {
+                setLocale("ko", this)
+            }
+            14 -> {
+                setLocale("zh", this)
+            }
+            15 -> {
+                setLocale("ja", this)
+            }
+            16 -> {
+                setLocale("hi", this)
+            }
         }
-        1 -> {
-            setLocale("be", this)
-        }
-        2 -> {
-            setLocale("uk", this)
-        }
-        3 -> {
-            setLocale("en", this)
-        }
-        4 -> {
-            setLocale("de", this)
-        }
-        5 -> {
-            setLocale("pt", this)
-        }
-        6 -> {
-            setLocale("fr", this)
-        }
-        7 -> {
-            setLocale("it", this)
-        }
-        8 -> {
-            setLocale("es", this)
-        }
-        9 -> {
-            setLocale("ky", this)
-        }
-        10 -> {
-            setLocale("kk", this)
-        }
-        11 -> {
-            setLocale("tr", this)
-        }
-        12 -> {
-            setLocale("uz", this)
-        }
-        13 -> {
-            setLocale("ko", this)
-        }
-        14 -> {
-            setLocale("zh", this)
-        }
-        15 -> {
-            setLocale("ja", this)
-        }
-        16 -> {
-            setLocale("hi", this)
-        }
+        this.recreate()
     }
-    this.recreate()
-}
 
 fun getLanguageList(): List<LanguageModel> {
     val listModel: ArrayList<LanguageModel> = arrayListOf()

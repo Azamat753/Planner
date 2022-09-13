@@ -19,10 +19,10 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         Handler().postDelayed({
             val isShown: Boolean = BooleanPreference.getInstance(requireContext())?.getBooleanData(Constants.SPLASH_SCREEN)!!
             if (isShown) {
-                findNavController().navigate(R.id.progress_fragment)
+                findNavController().navigate(R.id.category_fragment)
             } else {
                 if (Build.VERSION.SDK_INT < 28){
-                    findNavController().navigate(R.id.progress_fragment)
+                    findNavController().navigate(R.id.category_fragment)
                 }else{
                     findNavController().navigate(R.id.introFragment)
                 }

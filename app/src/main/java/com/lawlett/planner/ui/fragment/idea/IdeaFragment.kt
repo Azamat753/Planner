@@ -42,39 +42,39 @@ class IdeaFragment : BaseFragment<FragmentIdeaBinding>(FragmentIdeaBinding::infl
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.IDEA_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view: View = View(requireContext())
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.ideas) + " \n\n\n" +
-                            getString(R.string.list_ideas) +
-                            "\n " +
-                            getString(R.string.vis_im_idea) +
-                            " \n " +
-                            getString(R.string.by_cl_im_sh) +
-                            "\n " +
-                            getString(R.string.hold_card)
-                )
-                val secondSpot = setSpotLightTarget(
-                    binding.addIdeaBtn,
-                    first,
-                    getString(R.string.insert_button) + " \n " +
-                            getString(R.string.cl_ca_re_id)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.IDEA_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.IDEA_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view: View = View(requireContext())
+//            Handler().postDelayed({
+//                val firstSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.ideas) + " \n\n\n" +
+//                            getString(R.string.list_ideas) +
+//                            "\n " +
+//                            getString(R.string.vis_im_idea) +
+//                            " \n " +
+//                            getString(R.string.by_cl_im_sh) +
+//                            "\n " +
+//                            getString(R.string.hold_card)
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    binding.addIdeaBtn,
+//                    first,
+//                    getString(R.string.insert_button) + " \n " +
+//                            getString(R.string.cl_ca_re_id)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.IDEA_INSTRUCTION, true)
+//        }
     }
 
     private fun addFalseDataForExample() {

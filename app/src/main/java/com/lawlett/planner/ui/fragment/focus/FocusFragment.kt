@@ -43,42 +43,42 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.FOCUS_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    "\n\n\n\n " + getString(R.string.focus) + " \n\n\n " + getString(R.string.list_process) + " \n " + getString(
-                        R.string.theroy_thousand_hour
-                    ) + " \n" + getString(
-                        R.string.profession_thousand_hour
-                    )
-                )
-                val secondSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.insert_button) + " \n " + getString(R.string.work_stopwatch_timer)
-                )
-                val thirdSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.hold_card)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                targets.add(thirdSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.FOCUS_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view = View(requireContext())
+//
+//            Handler().postDelayed({
+//                val firstSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    "\n\n\n\n " + getString(R.string.focus) + " \n\n\n " + getString(R.string.list_process) + " \n " + getString(
+//                        R.string.theroy_thousand_hour
+//                    ) + " \n" + getString(
+//                        R.string.profession_thousand_hour
+//                    )
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.insert_button) + " \n " + getString(R.string.work_stopwatch_timer)
+//                )
+//                val thirdSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.hold_card)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                targets.add(thirdSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
+//        }
     }
 
     private fun addFalseDataForExample() {

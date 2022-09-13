@@ -91,6 +91,7 @@ fun theMonth(month: Int, context: Context): String {
 fun Double.toDecimal(): String {
     return DecimalFormat("##.#").format(this)
 }
+fun String.removeBrackets() = this.replace("[", "").replace("]", "")
 
 fun Context.getDialog(layout: Int): Dialog {
     val inflater: LayoutInflater = LayoutInflater.from(this)

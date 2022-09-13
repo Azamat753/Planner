@@ -398,4 +398,6 @@
         - Тарих сіздің барлық қаржылық өзгерістеріңізді бақылауға мүмкіндік береді.</string>
     <string name="in_setting">- Мұнда сіз бағдарламаның тақырыбы мен тілін өзгерте аласыз.</string>
     <string name="instruction">Нұсқаулық</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

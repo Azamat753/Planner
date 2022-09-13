@@ -56,35 +56,35 @@ class TimetableFragment :
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.TIMETABLE_INSTRUCTION) == false
-        ) {
-
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
-                        R.string.cause_see
-                    ) + " \n " + getString(R.string.hold_task_action)
-                )
-                val secondSpot = setSpotLightTarget(
-                    binding.addTimetableButton,
-                    first,
-                    getString(R.string.insert_button) + "\n " + getString(R.string.click_here_button)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.TIMETABLE_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.TIMETABLE_INSTRUCTION) == false
+//        ) {
+//
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view = View(requireContext())
+//
+//            Handler().postDelayed({
+//                val firstSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
+//                        R.string.cause_see
+//                    ) + " \n " + getString(R.string.hold_task_action)
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    binding.addTimetableButton,
+//                    first,
+//                    getString(R.string.insert_button) + "\n " + getString(R.string.click_here_button)
+//                )
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.TIMETABLE_INSTRUCTION, true)
+//        }
     }
 
     private fun initSundayAdapter() {

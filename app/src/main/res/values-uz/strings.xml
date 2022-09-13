@@ -400,4 +400,6 @@ o\'ng tomonga burilib, elementni tez-tez sarflash ro\'yxatidan olib tashlashingi
         - Tarix sizning barcha moliyaviy o\'zgarishlarni kuzatib boradi.</string>
     <string name="in_setting">- Bu erda siz ilovaning mavzusini va tilini o\'zgartirishingiz mumkin.</string>
     <string name="instruction">Ko\'rsatmalar</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

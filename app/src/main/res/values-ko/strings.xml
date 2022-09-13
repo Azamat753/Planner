@@ -398,4 +398,6 @@
 -역사는 당신이 당신의 모든 재정적 인 변화를 추적 할 수있게합니다.</string>
     <string name="in_setting">-여기서 당신은 응용 프로그램의 테마와 언어를 변경할 수 있습니다.</string>
     <string name="instruction">지침</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

@@ -161,54 +161,54 @@ class ProgressFragment :
     }
 
     private fun showSpotlight() {
-        if (BooleanPreference.getInstance(requireContext())
-                ?.getBooleanData(Constants.PROGRESS_INSTRUCTION) == false
-        ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-            Handler().postDelayed({
-
-                val zeroSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.before_start) + "\n " + getString(R.string.two_tools) + "\n " + getString(
-                        R.string.bottom_and_side
-                    ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(R.string.after_instruction) + "\n " + getString(
-                        R.string.go
-                    )
-                )
-                val firstSpot = setSpotLightTarget(
-                    binding.calendarCard,
-                    first,
-                    getString(R.string.you_calendar) + " \n " + getString(R.string.show_day) + " \n " + getString(
-                        R.string.set_event_new_task
-                    )
-                )
-                val secondSpot = setSpotLightTarget(
-                    binding.categoryRecycler,
-                    first,
-                    getString(R.string.next_you_cards) + " \n " + getString(R.string.here_show)
-                            + " \n " + getString(R.string.click_cards_ha_ca)
-                )
-
-                val thirdSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    getString(R.string.show_profile) + " \n " + getString(R.string.avater_name) + " \n " + getString(
-                        R.string.lvlup_some_action
-                    )
-                )
-                targets.add(zeroSpot)
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                targets.add(thirdSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.PROGRESS_INSTRUCTION, true)
-        }
+//        if (BooleanPreference.getInstance(requireContext())
+//                ?.getBooleanData(Constants.PROGRESS_INSTRUCTION) == false
+//        ) {
+//            val targets = ArrayList<Target>()
+//            val root = FrameLayout(requireContext())
+//            val first = layoutInflater.inflate(R.layout.layout_target, root)
+//            val view = View(requireContext())
+//            Handler().postDelayed({
+//
+//                val zeroSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.before_start) + "\n " + getString(R.string.two_tools) + "\n " + getString(
+//                        R.string.bottom_and_side
+//                    ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(R.string.after_instruction) + "\n " + getString(
+//                        R.string.go
+//                    )
+//                )
+//                val firstSpot = setSpotLightTarget(
+//                    binding.calendarCard,
+//                    first,
+//                    getString(R.string.you_calendar) + " \n " + getString(R.string.show_day) + " \n " + getString(
+//                        R.string.set_event_new_task
+//                    )
+//                )
+//                val secondSpot = setSpotLightTarget(
+//                    binding.categoryRecycler,
+//                    first,
+//                    getString(R.string.next_you_cards) + " \n " + getString(R.string.here_show)
+//                            + " \n " + getString(R.string.click_cards_ha_ca)
+//                )
+//
+//                val thirdSpot = setSpotLightTarget(
+//                    view,
+//                    first,
+//                    getString(R.string.show_profile) + " \n " + getString(R.string.avater_name) + " \n " + getString(
+//                        R.string.lvlup_some_action
+//                    )
+//                )
+//                targets.add(zeroSpot)
+//                targets.add(firstSpot)
+//                targets.add(secondSpot)
+//                targets.add(thirdSpot)
+//                setSpotLightBuilder(requireActivity(), targets, first)
+//            }, 100)
+//            BooleanPreference.getInstance(requireContext())
+//                ?.saveBooleanData(Constants.PROGRESS_INSTRUCTION, true)
+//        }
     }
 
     override fun onStop() {

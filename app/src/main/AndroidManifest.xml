@@ -23,34 +23,30 @@
         android:name=".utils.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_planner_last"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_planner_last_round"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
-            android:name=".widget.TasksWidget"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
+<!--        <receiver-->
+<!--            android:name=".widget.TasksWidget"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+<!--        <receiver-->
+<!--            android:name=".service.MessageService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
 
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/tasks_widget_info" />
-        </receiver>
-        <receiver
-            android:name=".service.MessageService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
         <activity
             android:name=".ui.activity.MainActivity"

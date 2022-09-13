@@ -9,7 +9,9 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.lawlett.planner.R
@@ -20,12 +22,15 @@ import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.CategoryAdapter
 import com.lawlett.planner.ui.base.BaseAdapter
 import com.lawlett.planner.ui.base.BaseFragment
+import com.lawlett.planner.ui.dialog.ChooseThemeBottomSheetDialog
 import com.lawlett.planner.ui.dialog.CreateCategoryBottomSheetDialog
 import com.lawlett.planner.ui.dialog.SetPasswordBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.lawlett.planner.utils.StringPreference
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate),
@@ -39,37 +44,93 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
-        showSpotlight()
+        spotlightOrThemeDialog()
+    }
+
+    private fun showPassDialog() {
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.PASS_INSTRUCTION_SHOWED, true)
+        val dialog = requireContext().getDialog(R.layout.pass_instruction_dialog)
+        val title = dialog.findViewById<TextView>(R.id.title)
+        title.text = getString(R.string.pass_instruction)
+        val continueBtn = dialog.findViewById<MaterialButton>(R.id.continue_button)
+        val passBtn = dialog.findViewById<MaterialButton>(R.id.pass_button)
+        continueBtn.setOnClickListener {
+            showSpotlight()
+            dialog.dismiss()
+        }
+        passBtn.setOnClickListener {
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.PASS_INSTRUCTION_SKIP, true)
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun spotlightOrThemeDialog() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.THEME_SELECTED) == false
+        ) {
+            openThemeDialog()
+        } else {
+            if (BooleanPreference.getInstance(requireContext())
+                    ?.getBooleanData(Constants.PASS_INSTRUCTION_SHOWED) == false
+            ) {
+                showPassDialog()
+            }
+        }
+    }
+
+    private fun openThemeDialog() {
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.THEME_SELECTED, true)
+        val bottomDialog = ChooseThemeBottomSheetDialog()
+        bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
     }
 
     private fun showSpotlight() {
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.CATEGORY_INSTRUCTION) == false
         ) {
-            val targets = ArrayList<Target>()
-            val root = FrameLayout(requireContext())
-            val first = layoutInflater.inflate(R.layout.layout_target, root)
-            val view = View(requireContext())
-
-            Handler().postDelayed({
-                val firstSpot = setSpotLightTarget(
-                    view,
-                    first,
-                    "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(R.string.inside_cards_record) + " \n " + getString(
+        val view = View(requireContext())
+        lifecycleScope.launch {
+            delay(1000)
+            requireActivity().showSpotlight(
+                lifecycleScope,
+                mapOf(
+                    view to getString(R.string.before_start) + "\n " + getString(
+                        R.string.two_tools
+                    ) + "\n " + getString(
+                        R.string.bottom_and_side
+                    ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(
+                        R.string.after_instruction
+                    ) + "\n " + getString(
+                        R.string.go
+                    )
+                ),
+                mapOf(
+                    view to "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(
+                        R.string.inside_cards_record
+                    ) + " \n " + getString(
                         R.string.hold_card
                     )
+                ),
+                mapOf(
+                    view to getString(R.string.show_profile) + " \n " + getString(
+                        R.string.avater_name
+                    ) + " \n " + getString(
+                        R.string.lvlup_some_action
+                    )
+                ),
+                mapOf(
+                    binding.addCategoryFab to getString(R.string.insert_button) + " \n " + getString(
+                        R.string.create_new_category_click
+                    )
                 )
-                val secondSpot = setSpotLightTarget(
-                    binding.addCategoryFab,
-                    first,
-                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_category_click)
-                )
-                targets.add(firstSpot)
-                targets.add(secondSpot)
-                setSpotLightBuilder(requireActivity(), targets, first)
-            }, 100)
-            BooleanPreference.getInstance(requireContext())
-                ?.saveBooleanData(Constants.CATEGORY_INSTRUCTION, true)
+            )
+        }
+        BooleanPreference.getInstance(requireContext())
+            ?.saveBooleanData(Constants.CATEGORY_INSTRUCTION, true)
         }
     }
 
@@ -79,12 +140,12 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     }
 
     private fun getDataFromDataBase() {
-        viewModel.getCategoryLiveData().observe(viewLifecycleOwner, { category ->
+        viewModel.getCategoryLiveData().observe(viewLifecycleOwner) { category ->
             if (category.isNotEmpty()) {
                 adapter.setData(category)
                 listModel = category
             }
-        })
+        }
     }
 
     private fun initBottomSheet() {
@@ -177,7 +238,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     }
 
     private fun openCategory(model: CategoryModel) {
-        val p = CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment(model, false)
+        val p =
+            CategoryFragmentDirections.actionCategoryFragmentToCreateTasksFragment(model, false)
         findNavController().navigate(p)
     }
 

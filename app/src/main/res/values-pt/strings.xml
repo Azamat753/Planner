@@ -398,4 +398,6 @@ deslizando para a direita, você pode remover um item da lista de gastos frequen
         - A história permitirá que você acompanhe todas as suas mudanças financeiras.</string>
     <string name="in_setting">- Aqui você pode alterar o tema e o idioma do aplicativo.</string>
     <string name="instruction">Instrução</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

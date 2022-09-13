@@ -1,80 +1,118 @@
 package com.lawlett.planner.extensions
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
+import android.graphics.PointF
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import com.lawlett.planner.R
+import com.lawlett.planner.utils.BooleanPreference
+import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.OnSpotlightListener
 import com.takusemba.spotlight.OnTargetListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.effet.RippleEffect
 import com.takusemba.spotlight.shape.RoundedRectangle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-fun setSpotLightTarget(targetView: View, backLayoutView: View, discription: String ):Target{
-//    android.os.Handler().postDelayed({
-        val target1 = Target.Builder()
-            .setAnchor(targetView)
-            .setShape(RoundedRectangle(targetView.height.toFloat(), targetView.width.toFloat(), 30F))
-            .setEffect(RippleEffect(100f, 200f, Color.argb(30, 124, 255, 90)))
-            .setOverlay(backLayoutView)
-            .setOnTargetListener(object : OnTargetListener {
-                override fun onStarted() {
-                    backLayoutView.findViewById<TextView>(R.id.text_target).text = discription
-                }
+private fun setSpotLightTarget(
+    targetView: View,
+    backLayoutView: View,
+    description: String,
+    counterPair: Pair<Int, Int>
+): Target {
+    val target = Target.Builder()
+        .setAnchor(targetView)
+        .setShape(
+            RoundedRectangle(
+                targetView.height.toFloat() + 20,
+                targetView.width.toFloat() + 20,
+                30F
+            )
+        )
+        .setOverlay(backLayoutView)
+        .setOnTargetListener(object : OnTargetListener {
+            val descriptionView = backLayoutView.findViewById<TextView>(R.id.textTarget)
 
-                override fun onEnded() {
+            @SuppressLint("SetTextI18n")
+            override fun onStarted() {
+                if (descriptionView != null) {
+
+                    descriptionView.text =
+                        description.removeBrackets()
+                    backLayoutView.findViewById<TextView>(R.id.counterTv).text =
+                        "${counterPair.first}/${counterPair.second}"
                 }
-            })
-            .build()
-    return target1
-//    }, 1000)
+            }
+
+            override fun onEnded() {}
+        })
+        .build()
+    return target
 }
 
+fun Activity.showSpotlight(scope: CoroutineScope, vararg map: Map<View, String>) {
+    if (BooleanPreference.getInstance(this)
+            ?.getBooleanData(Constants.SKIP_ALL_INSTRUCTION) == false
+    ) {
+        scope.launch {
+            delay(1000)
+            val mapList = ArrayList<Map<View, String>>()
+            map.forEach {
+                mapList.add(it)
+            }
+            setSpotLightBuilder(
+                this@showSpotlight,
+                mapList
+            )
+        }
+    }
+}
 
+private fun setSpotLightBuilder(
+    activity: Activity,
+    targets: ArrayList<Map<View, String>>,
+) {
+    val root = FrameLayout(activity)
+    val layout = activity.layoutInflater.inflate(R.layout.layout_target, root)
+    val targetList: ArrayList<Target> = arrayListOf()
+    val viewsSize = targets.size
+    targets.forEachIndexed { index, target ->
+        targetList.add(
+            setSpotLightTarget(
+                target.keys.first(),
+                layout,
+                target.values.toString(),
+                counterPair = Pair(index + 1, viewsSize)
+            )
+        )
+    }
 
-fun setSpotLightBuilder(activity: Activity, targets: ArrayList<Target>, backLayoutView: View){
-    android.os.Handler().postDelayed({
+    targetList.let {
         val spotlight = Spotlight.Builder(activity)
-            .setTargets(targets)
-            .setBackgroundColor(R.color.background)
+            .setTargets(it)
             .setDuration(1000L)
-            .setAnimation(DecelerateInterpolator(2f))
+            .setAnimation(DecelerateInterpolator(14f))
             .setOnSpotlightListener(object : OnSpotlightListener {
-                override fun onStarted() {
-
-                }
-
-                override fun onEnded() {
-
-                }
-            })
-            .build()
-
+                override fun onStarted() {}
+                override fun onEnded() {}
+            }).build()
         spotlight.start()
-
-        backLayoutView.findViewById<TextView>(R.id.next).setOnClickListener { spotlight.next() }
-//        backLayoutView.findViewById<TextView>(R.id.finish).setOnClickListener { spotlight.finish() }
-
-    }, 1000)
-}
-
-fun changeBubbleView(parentLayout: ConstraintLayout, firstView: Int, secondView: Int){
-    val parent = parentLayout
-    val mConstraintSet = ConstraintSet()
-    mConstraintSet.clone(parent)
-//    mConstraintSet.clear(R.id.bubbleTriangle, ConstraintSet.BOTTOM)
-//    mConstraintSet.clear(R.id.bubbleTriangle, ConstraintSet.END)
-//    mConstraintSet.clear(R.id.bubbleTriangle, ConstraintSet.START)
-    mConstraintSet.connect(firstView, ConstraintSet.BOTTOM,
-        secondView, ConstraintSet.TOP)
-    mConstraintSet.connect(firstView, ConstraintSet.START,
-        secondView, ConstraintSet.START)
-    mConstraintSet.connect(firstView, ConstraintSet.END,
-        secondView, ConstraintSet.END)
-    mConstraintSet.applyTo(parent)
+        layout.findViewById<TextView>(R.id.next).setOnClickListener { spotlight.next() }
+        layout.findViewById<TextView>(R.id.skipButton).setOnClickListener {
+            BooleanPreference.getInstance(activity)
+                ?.saveBooleanData(Constants.SKIP_ALL_INSTRUCTION, true)
+            spotlight.finish()
+        }
+    }
 }

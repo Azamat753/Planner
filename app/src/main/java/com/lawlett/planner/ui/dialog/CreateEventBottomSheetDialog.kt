@@ -34,7 +34,8 @@ class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
     var choosedYear: Int = 0
     var choosedMonth: Int = 0
     var choosedDay: Int = 0
-    var isClickRemind=false
+    var isClickRemind = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
@@ -160,7 +161,7 @@ class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
                     }
 
                     if (isRemind) {
-                        isClickRemind=true
+                        isClickRemind = true
                         binding.remindText.text = "$myHour : $myMinute"
                     } else {
                         binding.timeText.text = "$myHour : $myMinute"
@@ -182,7 +183,7 @@ class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
         val remind = binding.remindText.text.toString().trim()
         when {
             title.isEmpty() -> {
-                    binding.titleEditText.error = getString(R.string.fill_field)
+                binding.titleEditText.error = getString(R.string.fill_field)
             }
             date.isEmpty() -> {
                 binding.dateButton.error = getString(R.string.fill_field)
@@ -198,8 +199,15 @@ class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
                     insertModel(title, date, time, remind, color)
                 }
 
-                if (isClickRemind){
-                    setNotification(choosedHour, choosedHour, title,choosedYear,choosedMonth,choosedDay)
+                if (isClickRemind) {
+                    setNotification(
+                        choosedHour,
+                        choosedHour,
+                        title,
+                        choosedYear,
+                        choosedMonth,
+                        choosedDay
+                    )
                 }
                 dismiss()
             }

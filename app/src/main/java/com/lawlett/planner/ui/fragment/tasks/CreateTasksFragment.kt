@@ -90,42 +90,29 @@ class CreateTasksFragment :
             .streamFor(300, 5000L)
     }
 
-    private fun initViewModel() {
-        insertDataToDataBase(categoryName)
-        viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner, { tasks ->
-            if (tasks.isNotEmpty()) {
-                adapter.update(tasks)
-                listTasks = tasks
-                taskAmount = tasks.size
-                doneTaskAmount = 0
-                tasks.forEach { if (it.isDone) doneTaskAmount++ }
-            }
-        })
-    }
-
     private fun initViewModel2() {
         insertDataToDataBase(categoryName)
-        viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner, { tasks ->
+        viewModel.getCategoryLiveData(categoryName).observe(viewLifecycleOwner) { tasks ->
             if (tasks.isNotEmpty()) {
                 listTasks = tasks
-                    Collections.sort(listTasks, object : Comparator<TasksModel> {
-                        override fun compare(p0: TasksModel?, p1: TasksModel?): Int {
-                            return java.lang.Boolean.compare(p0?.isDone == true, p1?.isDone == true)
-                        }
-                    })
-                    isSorted = true
-                    adapter.update(listTasks as List<TasksModel>)
+                listTasks?.let {
+                    Collections.sort(
+                        it
+                    ) { p0, p1 -> java.lang.Boolean.compare(p0?.isDone == true, p1?.isDone == true) }
+                }
+                isSorted = true
+                adapter.update(listTasks as List<TasksModel>)
                 taskAmount = tasks.size
                 doneTaskAmount = 0
                 tasks.forEach {
                     if (it.isDone) doneTaskAmount++
                 }
             }
-        })
+        }
     }
 
     private fun getCurrentLevel() {
-        achievementViewModel.getData().observe(viewLifecycleOwner, { level ->
+        achievementViewModel.getData().observe(viewLifecycleOwner) { level ->
             if (level.isNotEmpty()) {
                 nowLevel = level[0].level
                 levelId = level[0].id!!
@@ -133,7 +120,7 @@ class CreateTasksFragment :
                 val model = AchievementModel(level = 0)
                 achievementViewModel.insertData(model)
             }
-        })
+        }
     }
 
     private fun rewardAnAchievement(completeTask: Int) {

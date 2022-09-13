@@ -417,7 +417,9 @@
         - История позволит проследить все ваши финансовые изменения.</string>
     <string name="in_setting">- Тут вы можете изменить тему и язык приложения.</string>
     <string name="instruction">Инструкции</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
-    <string name="app_widget_description">This is an app widget description</string>
+<!--    <string name="appwidget_text">EXAMPLE</string>-->
+<!--    <string name="add_widget">Add widget</string>-->
+<!--    <string name="app_widget_description">This is an app widget description</string>-->
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

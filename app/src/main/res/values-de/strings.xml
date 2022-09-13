@@ -398,4 +398,6 @@ streichen Sie nach rechts, können Sie ein Element aus der Liste der häufigen A
         - Geschichte ermöglicht es Ihnen, alle Ihre finanziellen Veränderungen zu verfolgen.</string>
     <string name="in_setting">- Hier können Sie das Thema und die Sprache der Anwendung ändern.</string>
     <string name="instruction">Anweisungen</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

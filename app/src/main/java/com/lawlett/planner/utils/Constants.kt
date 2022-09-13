@@ -69,7 +69,10 @@ object Constants {
     const val FINANCE_INSTRUCTION = "fi_instruction"
 
     const val LANGUAGE_SELECTED = "language_sd"
-    const val THEME_SELECTED = "language_sd"
+    const val THEME_SELECTED = "theme_sd"
+    const val PASS_INSTRUCTION_SHOWED = "pass_instruction_showed"
+    const val PASS_INSTRUCTION_SKIP = "pass_instruction_skip"
+    const val SKIP_ALL_INSTRUCTION = "pass_instruction_skip"
 
     const val THEME_PREFERENCE = "theme pref"
 

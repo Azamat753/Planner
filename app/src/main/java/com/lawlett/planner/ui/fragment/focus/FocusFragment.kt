@@ -5,6 +5,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.CheckListEvent
@@ -21,6 +22,8 @@ import com.lawlett.planner.ui.dialog.CreateSkillBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
@@ -43,42 +46,32 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     }
 
     private fun showSpotlight() {
-//        if (BooleanPreference.getInstance(requireContext())
-//                ?.getBooleanData(Constants.FOCUS_INSTRUCTION) == false
-//        ) {
-//            val targets = ArrayList<Target>()
-//            val root = FrameLayout(requireContext())
-//            val first = layoutInflater.inflate(R.layout.layout_target, root)
-//            val view = View(requireContext())
-//
-//            Handler().postDelayed({
-//                val firstSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    "\n\n\n\n " + getString(R.string.focus) + " \n\n\n " + getString(R.string.list_process) + " \n " + getString(
-//                        R.string.theroy_thousand_hour
-//                    ) + " \n" + getString(
-//                        R.string.profession_thousand_hour
-//                    )
-//                )
-//                val secondSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.insert_button) + " \n " + getString(R.string.work_stopwatch_timer)
-//                )
-//                val thirdSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.hold_card)
-//                )
-//                targets.add(firstSpot)
-//                targets.add(secondSpot)
-//                targets.add(thirdSpot)
-//                setSpotLightBuilder(requireActivity(), targets, first)
-//            }, 100)
-//            BooleanPreference.getInstance(requireContext())
-//                ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
-//        }
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.FOCUS_INSTRUCTION) == false
+        ) {
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to "\n\n\n\n " + getString(R.string.focus) + " \n\n\n " + getString(R.string.list_process) + " \n " + getString(
+                            R.string.theroy_thousand_hour
+                        ) + " \n" + getString(
+                            R.string.profession_thousand_hour
+                        )
+                    ),
+                    mapOf(
+                        view to getString(R.string.insert_button) + " \n " + getString(R.string.work_stopwatch_timer)
+                    ),
+                    mapOf(
+                        view to getString(R.string.hold_card)
+                    )
+                )
+            }
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.FOCUS_INSTRUCTION, true)
+        }
     }
 
     private fun addFalseDataForExample() {
@@ -106,7 +99,7 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     private fun getData() {
         viewModel.getData().observe(viewLifecycleOwner, { skills ->
             if (skills.isNotEmpty()) {
-                listSize=skills.size
+                listSize = skills.size
                 adapter.setData(skills)
             }
         })
@@ -191,6 +184,11 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
 
     override fun check() {
         adapter.notifyDataSetChanged()
-        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
+        rewardAnAchievement(
+            listSize,
+            requireActivity(),
+            achievementViewModel,
+            binding.achievementView
+        )
     }
 }

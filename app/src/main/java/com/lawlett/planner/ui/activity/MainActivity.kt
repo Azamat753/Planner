@@ -225,7 +225,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.settingsFragment -> {
                     binding.toolbarMain.title = getString(R.string.settings)
                 }
-                R.id.instructionFragment->{
+                R.id.instructionFragment -> {
                     binding.toolbarMain.title = getString(R.string.instruction)
                 }
             }
@@ -273,10 +273,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
             R.id.nav_timing -> navController.navigate(R.id.timing_fragment)
-            R.id.nav_main -> navController.navigate(R.id.progress_fragment)
+            R.id.nav_category -> navController.navigate(R.id.category_fragment)
             R.id.nav_standup -> navController.navigate(R.id.standUpFragment)
             R.id.nav_finance -> navController.navigate(R.id.financeFragment)
-            R.id.nav_idea -> navController.navigate(R.id.idea_fragment)
             R.id.nav_dream -> navController.navigate(R.id.dreamFragment)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

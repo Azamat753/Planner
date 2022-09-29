@@ -4,10 +4,12 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_main"
-            android:icon="@drawable/ic_home_colored"
-            android:title="@string/main" />
+            android:id="@+id/nav_category"
+            android:icon="@drawable/category_selector"
+            android:title="@string/categories" />
+
         <item
             android:id="@+id/nav_timing"
             android:icon="@drawable/ic_timer"
@@ -23,11 +25,10 @@
             android:icon="@drawable/ic_dream"
             android:title="@string/dream" />
 
-
-        <item
-            android:id="@+id/nav_idea"
-            android:icon="@drawable/ic_idea"
-            android:title="@string/ideas" />
+        <!--        <item-->
+        <!--            android:id="@+id/nav_idea"-->
+        <!--            android:icon="@drawable/ic_idea"-->
+        <!--            android:title="@string/ideas" />-->
 
         <item
             android:id="@+id/nav_finance"

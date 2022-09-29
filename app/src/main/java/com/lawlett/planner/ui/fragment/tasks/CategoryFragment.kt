@@ -16,7 +16,12 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.lawlett.planner.R
 import com.lawlett.planner.data.room.models.CategoryModel
+import com.lawlett.planner.data.room.models.EventModel
+import com.lawlett.planner.data.room.models.HabitModel
+import com.lawlett.planner.data.room.viewmodels.AchievementViewModel
 import com.lawlett.planner.data.room.viewmodels.CategoryViewModel
+import com.lawlett.planner.data.room.viewmodels.EventViewModel
+import com.lawlett.planner.data.room.viewmodels.HabitViewModel
 import com.lawlett.planner.databinding.FragmentCategoryBinding
 import com.lawlett.planner.extensions.*
 import com.lawlett.planner.ui.adapter.CategoryAdapter
@@ -32,6 +37,7 @@ import com.takusemba.spotlight.Target
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
+import java.util.*
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<CategoryModel>,
@@ -39,12 +45,15 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     private val viewModel by inject<CategoryViewModel>()
     private val adapter = CategoryAdapter()
     private var listModel: List<CategoryModel>? = null
+    private val habitViewModel by inject<HabitViewModel>()
+    private val categoryViewModel by inject<CategoryViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
         initAdapter()
         spotlightOrThemeDialog()
+        addFalseDataForExample()
     }
 
     private fun showPassDialog() {
@@ -55,6 +64,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         title.text = getString(R.string.pass_instruction)
         val continueBtn = dialog.findViewById<MaterialButton>(R.id.continue_button)
         val passBtn = dialog.findViewById<MaterialButton>(R.id.pass_button)
+        continueBtn.text = getString(R.string.yes)
         continueBtn.setOnClickListener {
             showSpotlight()
             dialog.dismiss()
@@ -71,6 +81,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.THEME_SELECTED) == false
         ) {
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.THEME_SELECTED, true)
             openThemeDialog()
         } else {
             if (BooleanPreference.getInstance(requireContext())
@@ -82,55 +94,93 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     }
 
     private fun openThemeDialog() {
-        BooleanPreference.getInstance(requireContext())
-            ?.saveBooleanData(Constants.THEME_SELECTED, true)
         val bottomDialog = ChooseThemeBottomSheetDialog()
         bottomDialog.show(requireActivity().supportFragmentManager, "TAG")
+    }
+
+    private fun addFalseDataForExample() {
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.PROGRESS_EXAMPLE_DATA) == false
+        ) {
+            val habitModel = HabitModel(
+                title = getString(R.string.wake_up_morning),
+                currentDay = 0,
+                allDays = "21",
+                icon = "\uD83D\uDE06"
+            )
+            val habitModel2 =
+                HabitModel(
+                    title = getString(R.string.read_by_minutes),
+                    currentDay = 0,
+                    allDays = "30",
+                    icon = "⏳"
+                )
+
+            val categoryModel = CategoryModel(
+                categoryName = getString(R.string.health),
+                categoryIcon = "\uD83C\uDF4E",
+                taskAmount = 0,
+                doneTaskAmount = 0
+            )
+            val categoryModel2 = CategoryModel(
+                categoryName = getString(R.string.targets),
+                categoryIcon = "\uD83C\uDFAF",
+                taskAmount = 0,
+                doneTaskAmount = 0
+            )
+
+            habitViewModel.insertData(habitModel)
+            habitViewModel.insertData(habitModel2)
+            categoryViewModel.addCategory(categoryModel)
+            categoryViewModel.addCategory(categoryModel2)
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.PROGRESS_EXAMPLE_DATA, true)
+        }
     }
 
     private fun showSpotlight() {
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.CATEGORY_INSTRUCTION) == false
         ) {
-        val view = View(requireContext())
-        lifecycleScope.launch {
-            delay(1000)
-            requireActivity().showSpotlight(
-                lifecycleScope,
-                mapOf(
-                    view to getString(R.string.before_start) + "\n " + getString(
-                        R.string.two_tools
-                    ) + "\n " + getString(
-                        R.string.bottom_and_side
-                    ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(
-                        R.string.after_instruction
-                    ) + "\n " + getString(
-                        R.string.go
-                    )
-                ),
-                mapOf(
-                    view to "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(
-                        R.string.inside_cards_record
-                    ) + " \n " + getString(
-                        R.string.hold_card
-                    )
-                ),
-                mapOf(
-                    view to getString(R.string.show_profile) + " \n " + getString(
-                        R.string.avater_name
-                    ) + " \n " + getString(
-                        R.string.lvlup_some_action
-                    )
-                ),
-                mapOf(
-                    binding.addCategoryFab to getString(R.string.insert_button) + " \n " + getString(
-                        R.string.create_new_category_click
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to getString(R.string.before_start) + "\n " + getString(
+                            R.string.two_tools
+                        ) + "\n " + getString(
+                            R.string.bottom_and_side
+                        ) + " \n " + getString(R.string.side_open_by_click) + "\n " + getString(
+                            R.string.after_instruction
+                        ) + "\n " + getString(
+                            R.string.go
+                        )
+                    ),
+                    mapOf(
+                        view to "\n\n\n " + getString(R.string.categories) + "\n\n\n " + getString(
+                            R.string.inside_cards_record
+                        ) + " \n " + getString(
+                            R.string.hold_card
+                        )
+                    ),
+                    mapOf(
+                        view to getString(R.string.show_profile) + " \n " + getString(
+                            R.string.avater_name
+                        ) + " \n " + getString(
+                            R.string.lvlup_some_action
+                        )
+                    ),
+                    mapOf(
+                        binding.addCategoryFab to getString(R.string.insert_button) + " \n " + getString(
+                            R.string.create_new_category_click
+                        )
                     )
                 )
-            )
-        }
-        BooleanPreference.getInstance(requireContext())
-            ?.saveBooleanData(Constants.CATEGORY_INSTRUCTION, true)
+            }
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.CATEGORY_INSTRUCTION, true)
         }
     }
 

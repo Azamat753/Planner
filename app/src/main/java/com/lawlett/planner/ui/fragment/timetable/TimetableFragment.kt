@@ -8,6 +8,7 @@ import android.view.animation.LayoutAnimationController
 import android.widget.Button
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
@@ -24,6 +25,8 @@ import com.lawlett.planner.ui.dialog.CreateTimetableBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class TimetableFragment :
@@ -56,35 +59,28 @@ class TimetableFragment :
     }
 
     private fun showSpotlight() {
-//        if (BooleanPreference.getInstance(requireContext())
-//                ?.getBooleanData(Constants.TIMETABLE_INSTRUCTION) == false
-//        ) {
-//
-//            val targets = ArrayList<Target>()
-//            val root = FrameLayout(requireContext())
-//            val first = layoutInflater.inflate(R.layout.layout_target, root)
-//            val view = View(requireContext())
-//
-//            Handler().postDelayed({
-//                val firstSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
-//                        R.string.cause_see
-//                    ) + " \n " + getString(R.string.hold_task_action)
-//                )
-//                val secondSpot = setSpotLightTarget(
-//                    binding.addTimetableButton,
-//                    first,
-//                    getString(R.string.insert_button) + "\n " + getString(R.string.click_here_button)
-//                )
-//                targets.add(firstSpot)
-//                targets.add(secondSpot)
-//                setSpotLightBuilder(requireActivity(), targets, first)
-//            }, 100)
-//            BooleanPreference.getInstance(requireContext())
-//                ?.saveBooleanData(Constants.TIMETABLE_INSTRUCTION, true)
-//        }
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.TIMETABLE_INSTRUCTION) == false
+        ) {
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to getString(R.string.timetable) + " \n\n\n " + getString(R.string.under_everyday) + " \n " + getString(
+                            R.string.cause_see
+                        ) + " \n " + getString(R.string.hold_task_action)
+                    ),
+                    mapOf(
+                        view to getString(R.string.insert_button) + "\n " + getString(R.string.click_here_button)
+                    ),
+                )
+            }
+
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.TIMETABLE_INSTRUCTION, true)
+        }
     }
 
     private fun initSundayAdapter() {
@@ -98,7 +94,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 6,model)
+                    showActionDialog(itemView, position, 6, model)
                 }
             }
     }
@@ -114,7 +110,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 5,model)
+                    showActionDialog(itemView, position, 5, model)
                 }
             }
     }
@@ -130,7 +126,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 4,model)
+                    showActionDialog(itemView, position, 4, model)
                 }
             }
     }
@@ -146,7 +142,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 3,model)
+                    showActionDialog(itemView, position, 3, model)
                 }
             }
     }
@@ -163,7 +159,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 2,model)
+                    showActionDialog(itemView, position, 2, model)
                 }
             }
     }
@@ -179,7 +175,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 1,model)
+                    showActionDialog(itemView, position, 1, model)
                 }
             }
     }
@@ -194,7 +190,7 @@ class TimetableFragment :
         adapter.longListenerWithModel =
             object : IBaseAdapterLongClickListenerWithModel<TimetableModel> {
                 override fun onLongClick(model: TimetableModel, itemView: View, position: Int) {
-                    showActionDialog(itemView, position, 0,model)
+                    showActionDialog(itemView, position, 0, model)
                 }
             }
     }
@@ -202,7 +198,7 @@ class TimetableFragment :
     fun showActionDialog(
         itemView: View,
         position: Int,
-        dayIndex: Int,model: TimetableModel
+        dayIndex: Int, model: TimetableModel
     ) {
         val dialog = requireContext().getDialog(R.layout.long_click_dialog)
         val delete = dialog.findViewById<Button>(R.id.delete_button)
@@ -248,23 +244,23 @@ class TimetableFragment :
         binding.sunday.titleCard.setOnClickListener { setVisibility(binding.sundayRecycler) }
     }
 
-        private fun setVisibility(recyclerView: RecyclerView) {
-            if (recyclerView.isVisible) {
-                recyclerView.gone()
-            } else {
-                val lac = LayoutAnimationController(
-                    AnimationUtils.loadAnimation(
-                        requireContext(),
-                        R.anim.item_anim
-                    )
+    private fun setVisibility(recyclerView: RecyclerView) {
+        if (recyclerView.isVisible) {
+            recyclerView.gone()
+        } else {
+            val lac = LayoutAnimationController(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.item_anim
                 )
-                lac.delay = 0.20f
-                lac.order = LayoutAnimationController.ORDER_NORMAL
-                recyclerView.layoutAnimation = lac
-                recyclerView.startLayoutAnimation()
-                recyclerView.visible()
-            }
+            )
+            lac.delay = 0.20f
+            lac.order = LayoutAnimationController.ORDER_NORMAL
+            recyclerView.layoutAnimation = lac
+            recyclerView.startLayoutAnimation()
+            recyclerView.visible()
         }
+    }
 
     private fun openSheetDialogForEdit(model: TimetableModel, dayIndex: Int) {
         val bottomDialog = CreateTimetableBottomSheetDialog(this, this)

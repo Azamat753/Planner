@@ -44,16 +44,6 @@
             android:text="@string/in_timetable"
             style="@style/instructionTextStyle" />
 
-        <include
-            android:id="@+id/event_btn"
-            layout="@layout/timetable_layout" />
-
-        <TextView
-            android:id="@+id/event_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/in_event"
-            style="@style/instructionTextStyle" />
 
         <include
             android:id="@+id/habit_btn"
@@ -97,17 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/in_dream"
-            style="@style/instructionTextStyle" />
-
-        <include
-            android:id="@+id/idea_btn"
-            layout="@layout/timetable_layout" />
-
-        <TextView
-            android:id="@+id/idea_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/in_idea"
             style="@style/instructionTextStyle" />
 
         <include

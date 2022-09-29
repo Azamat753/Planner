@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.DreamModel
@@ -20,6 +21,8 @@ import com.lawlett.planner.ui.dialog.CreateDreamBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
@@ -69,42 +72,29 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
 
 
     private fun showSpotlight() {
-//        if (BooleanPreference.getInstance(requireContext())
-//                ?.getBooleanData(Constants.DREAM_INSTRUCTION) == false
-//        ) {
-//            val targets = ArrayList<Target>()
-//            val root = FrameLayout(requireContext())
-//            val first = layoutInflater.inflate(R.layout.layout_target, root)
-//            val view = View(requireContext())
-//
-//            Handler().postDelayed({
-//                val firstSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.dream) + "\n\n\n " + getString(R.string.list_dream) + "\n " + getString(
-//                        R.string.up_slept_hour
-//                    ) + " \n " + getString(R.string.next_time_date) + " \n " + getString(
-//                        R.string.course_record_dream
-//                    )
-//                )
-//                val secondSpot = setSpotLightTarget(
-//                    binding.addDreamFab,
-//                    first,
-//                    getString(R.string.insert_button) + " \n " + getString(R.string.create_new_record)
-//                )
-//                val thirdSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.hold_card)
-//                )
-//                targets.add(firstSpot)
-//                targets.add(secondSpot)
-//                targets.add(thirdSpot)
-//                setSpotLightBuilder(requireActivity(), targets, first)
-//            }, 100)
-//            BooleanPreference.getInstance(requireContext())
-//                ?.saveBooleanData(Constants.DREAM_INSTRUCTION, true)
-//        }
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.DREAM_INSTRUCTION) == false
+        ) {
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to getString(R.string.dream) + "\n\n\n " + getString(R.string.list_dream) + "\n " + getString(
+                            R.string.up_slept_hour
+                        ) + " \n " + getString(R.string.next_time_date) + " \n " + getString(
+                            R.string.course_record_dream
+                        )
+                    ),
+                    mapOf(
+                        view to getString(R.string.hold_card)
+                    ),
+                )
+            }
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.DREAM_INSTRUCTION, true)
+        }
     }
 
     private fun initClickers() {
@@ -173,7 +163,13 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
         super.onStop()
         clearAnimations(achievementView = binding.achievementView)
     }
+
     override fun check() {
-        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
+        rewardAnAchievement(
+            listSize,
+            requireActivity(),
+            achievementViewModel,
+            binding.achievementView
+        )
     }
 }

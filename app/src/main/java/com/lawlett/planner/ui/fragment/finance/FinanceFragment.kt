@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.lawlett.planner.R
@@ -22,13 +23,15 @@ import com.lawlett.planner.ui.base.BaseFragment
 import com.lawlett.planner.ui.dialog.FinanceBottomSheetDialog
 import com.lawlett.planner.utils.*
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
 class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBinding::inflate),
     BaseAdapter.IBaseAdapterClickListener<FinanceModel>,
-    FinanceBottomSheetDialog.UpdateBalance ,CheckListEvent{
-    private var listSize: Int=0
+    FinanceBottomSheetDialog.UpdateBalance, CheckListEvent {
+    private var listSize: Int = 0
     val adapter = FinanceAdapter()
     private val adapterPattern = FinancePatternAdapter()
     val viewModel by inject<FinanceViewModel>()
@@ -46,46 +49,35 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
     }
 
     private fun showSpotlight() {
-//        if (BooleanPreference.getInstance(requireContext())
-//                ?.getBooleanData(Constants.FINANCE_INSTRUCTION) == false
-//        ) {
-//            val targets = ArrayList<Target>()
-//            val root = FrameLayout(requireContext())
-//            val first = layoutInflater.inflate(R.layout.layout_target, root)
-//            val view = View(requireContext())
-//
-//            Handler().postDelayed({
-//                val firstSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.history) + " \n\n\n " + getString(R.string.folow_finance_window) + " \n" + getString(
-//                        R.string.new_appear_open
-//                    )
-//                )
-//                val secondSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.main_fun_in_ex)+" \n "+getString(R.string.template_work)
-//                )
-//                val thirdSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.history_button_ex_te)
-//                )
-//                val fourSpot = setSpotLightTarget(
-//                    view,
-//                    first,
-//                    getString(R.string.hold_card)
-//                )
-//                targets.add(firstSpot)
-//                targets.add(secondSpot)
-//                targets.add(thirdSpot)
-//                targets.add(fourSpot)
-//                setSpotLightBuilder(requireActivity(), targets, first)
-//            }, 100)
-//            BooleanPreference.getInstance(requireContext())
-//                ?.saveBooleanData(Constants.FINANCE_INSTRUCTION, true)
-//        }
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.FINANCE_INSTRUCTION) == false
+        ) {
+
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to getString(R.string.history) + " \n\n\n " + getString(R.string.folow_finance_window) + " \n" + getString(
+                            R.string.new_appear_open
+                        )
+                    ),
+                    mapOf(
+                        view to getString(R.string.main_fun_in_ex) + " \n " + getString(R.string.template_work)
+                    ),
+                    mapOf(
+                        view to getString(R.string.history_button_ex_te)
+                    ),
+                    mapOf(
+                        view to getString(R.string.hold_card)
+                    ),
+                )
+            }
+
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.FINANCE_INSTRUCTION, true)
+        }
     }
 
     private fun addFalsePatternDataForExample() {
@@ -121,7 +113,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         viewModel.getCategory(Constants.PATTERN_CATEGORY)
             .observe(viewLifecycleOwner, { list ->
                 if (list.isNotEmpty()) {
-                    listSize=list.size
+                    listSize = list.size
                     adapterPattern.setData(list)
                     listModel = list
                 }
@@ -157,7 +149,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         }
         binding.historyCard.setOnClickListener { showHistoryDialog() }
         binding.patternBtn.setOnClickListener { openSheetDialog(Constants.PATTERN_CATEGORY, false) }
-        binding.balanceCard.setOnClickListener { openSheetDialog(Constants.HISTORY_CATEGORY,true) }
+        binding.balanceCard.setOnClickListener { openSheetDialog(Constants.HISTORY_CATEGORY, true) }
     }
 
     private fun showAdvice() {
@@ -208,7 +200,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
     }
 
     private fun openSheetDialog(category: String, isIncome: Boolean, model: FinanceModel? = null) {
-        val bottomDialog = FinanceBottomSheetDialog(this,this)
+        val bottomDialog = FinanceBottomSheetDialog(this, this)
         val bundle = Bundle()
         bundle.putBoolean(Constants.IS_INCOME, isIncome)
         bundle.putSerializable(Constants.WORK_WITH_PATTERN, model)
@@ -231,6 +223,11 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
 
     override fun check() {
         adapterPattern.notifyDataSetChanged()
-        rewardAnAchievement(listSize,requireActivity(),achievementViewModel,binding.achievementView)
+        rewardAnAchievement(
+            listSize,
+            requireActivity(),
+            achievementViewModel,
+            binding.achievementView
+        )
     }
 }

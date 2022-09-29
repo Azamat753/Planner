@@ -6,9 +6,9 @@
         android:width="2dp"
         android:color="?attr/iconColor" />
     <padding
-        android:bottom="15dp"
-        android:left="15dp"
-        android:right="15dp"
-        android:top="15dp" />
+        android:bottom="7dp"
+        android:left="7dp"
+        android:right="7dp"
+        android:top="7dp" />
 
 </shape>

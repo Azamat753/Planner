@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.UpdateAdapter
@@ -29,6 +30,8 @@ import com.lawlett.planner.ui.dialog.CreateHabitBottomSheetDialog
 import com.lawlett.planner.utils.BooleanPreference
 import com.lawlett.planner.utils.Constants
 import com.takusemba.spotlight.Target
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
@@ -50,39 +53,32 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
     }
 
     private fun showSpotlight() {
-//        if (BooleanPreference.getInstance(requireContext())
-//                ?.getBooleanData(Constants.HABIT_INSTRUCTION) == false
-//        ) {
-//            val targets = ArrayList<Target>()
-//            val root = FrameLayout(requireContext())
-//            val first = layoutInflater.inflate(R.layout.layout_target, root)
-//            Handler().postDelayed({
-//
-//                val firstSpot = setSpotLightTarget(
-//                    binding.habitRecycler,
-//                    first,
-//                    " \n\n\n\n\n\n\n\n " + getString(R.string.habit) + " \n\n\n " + getString(R.string.list_habit) + "\n " + getString(
-//                        R.string.in_left_day
-//                    ) + "\n " + getString(R.string.in_right_hold)
-//                )
-//                val secondSpot = setSpotLightTarget(
-//                    binding.habitRecycler,
-//                    first,
-//                    "\n\n\n\n"+getString(R.string.click_by_habit)
-//                )
-//                val thirdSpot = setSpotLightTarget(
-//                    binding.addHabitFab,
-//                    first,
-//                    getString(R.string.insert_button)+" \n"+getString(R.string.create_new_habit)
-//                )
-//                targets.add(firstSpot)
-//                targets.add(secondSpot)
-//                targets.add(thirdSpot)
-//                setSpotLightBuilder(requireActivity(), targets, first)
-//                BooleanPreference.getInstance(requireContext())
-//                    ?.saveBooleanData(Constants.HABIT_INSTRUCTION, true)
-//            }, 100)
-//        }
+        if (BooleanPreference.getInstance(requireContext())
+                ?.getBooleanData(Constants.HABIT_INSTRUCTION) == false
+        ) {
+            val view = View(requireContext())
+            lifecycleScope.launch {
+                delay(1000)
+                requireActivity().showSpotlight(
+                    lifecycleScope,
+                    mapOf(
+                        view to " \n\n\n\n\n\n\n\n " + getString(R.string.habit) + " \n\n\n " + getString(
+                            R.string.list_habit
+                        ) + "\n " + getString(
+                            R.string.in_left_day
+                        ) + "\n " + getString(R.string.in_right_hold)
+                    ),
+                    mapOf(
+                        view to "\n\n\n\n" + getString(R.string.click_by_habit)
+                    ),
+                    mapOf(
+                        view to getString(R.string.insert_button) + " \n" + getString(R.string.create_new_habit)
+                    )
+                )
+            }
+            BooleanPreference.getInstance(requireContext())
+                ?.saveBooleanData(Constants.HABIT_INSTRUCTION, true)
+        }
     }
 
 
@@ -128,7 +124,7 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
             viewModel,
             requireActivity(),
             achievementViewModel,
-            binding.achievementView,object :UpdateAdapter{
+            binding.achievementView, object : UpdateAdapter {
                 override fun toUpdate() {
                     adapter.notifyDataSetChanged()
                 }

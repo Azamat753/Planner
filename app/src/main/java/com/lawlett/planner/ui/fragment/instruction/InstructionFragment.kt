@@ -25,12 +25,10 @@ class InstructionFragment :
         binding.mainScreenBtn.title.text = getString(R.string.main)
         binding.categoryBtn.title.text = getString(R.string.categories)
         binding.timetableBtn.title.text = getString(R.string.timetable)
-        binding.eventBtn.title.text = getString(R.string.events)
         binding.habitBtn.title.text = getString(R.string.habit)
         binding.focusBtn.title.text = getString(R.string.focus)
         binding.standupBtn.title.text = getString(R.string.stand_up)
         binding.dreamBtn.title.text = getString(R.string.dream)
-        binding.ideaBtn.title.text = getString(R.string.ideas)
         binding.financeBtn.title.text = getString(R.string.finance)
         binding.settingBtn.title.text = getString(R.string.settings)
     }
@@ -39,12 +37,10 @@ class InstructionFragment :
         binding.mainScreenBtn.titleCard.setOnClickListener { setVisibility(binding.mainScreenTv) }
         binding.categoryBtn.titleCard.setOnClickListener { setVisibility(binding.categoryTv) }
         binding.timetableBtn.titleCard.setOnClickListener { setVisibility(binding.timetableTv) }
-        binding.eventBtn.titleCard.setOnClickListener { setVisibility(binding.eventTv) }
         binding.habitBtn.titleCard.setOnClickListener { setVisibility(binding.habitTv) }
         binding.focusBtn.titleCard.setOnClickListener { setVisibility(binding.focusTv) }
         binding.standupBtn.titleCard.setOnClickListener { setVisibility(binding.standupTv) }
         binding.dreamBtn.titleCard.setOnClickListener { setVisibility(binding.dreamTv) }
-        binding.ideaBtn.titleCard.setOnClickListener { setVisibility(binding.ideaTv) }
         binding.financeBtn.titleCard.setOnClickListener { setVisibility(binding.financeTv) }
         binding.settingBtn.titleCard.setOnClickListener { setVisibility(binding.settingTv) }
     }

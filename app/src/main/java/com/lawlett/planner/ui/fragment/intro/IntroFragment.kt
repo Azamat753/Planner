@@ -73,7 +73,7 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(FragmentIntroBinding::i
         binding.textSurface.setOnClickListener {
             if (isShowed) {
                 requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-                findNavController().navigate(R.id.progress_fragment)
+                findNavController().navigate(R.id.category_fragment)
                 BooleanPreference.getInstance(requireContext())
                     ?.saveBooleanData(Constants.SPLASH_SCREEN, true)
             }

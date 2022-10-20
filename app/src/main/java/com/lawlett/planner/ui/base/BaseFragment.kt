@@ -37,9 +37,9 @@ abstract class BaseFragment<T : ViewBinding>(private val inflate: (LayoutInflate
     }
 
     fun backToProgress() {
-        requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigate(R.id.progress_fragment)
-        }
+//        requireActivity().onBackPressedDispatcher.addCallback {
+//            findNavController().navigate(R.id.progress_fragment)
+//        }
     }
     fun onBackPressOverride(id:Int) {
         requireActivity().onBackPressedDispatcher.addCallback {

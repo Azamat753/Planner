@@ -1,10 +1,14 @@
 package com.lawlett.planner.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.IntentSender
 import android.content.res.Configuration
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
@@ -21,6 +25,13 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.InstallStateUpdatedListener
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -46,6 +57,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var nowLevel = 0
     private var levelId = 0
     private lateinit var analytics: FirebaseAnalytics
+    var appUpdateManager: AppUpdateManager? = null
+    private val UPDATE_CODE = 22
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.checkedTheme()
@@ -59,6 +73,60 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initListeners()
         getCurrentLevel()
         changeTitleToolbar()
+    }
+
+    val listener = InstallStateUpdatedListener { installState ->
+        if (installState.installStatus() == InstallStatus.DOWNLOADED) {
+            popUp()
+        }
+    }
+
+    private fun checkUpdate() {
+        appUpdateManager = AppUpdateManagerFactory.create(this)
+
+        val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
+        appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                try {
+                    appUpdateManager?.startUpdateFlowForResult(
+                        appUpdateInfo,
+                        AppUpdateType.FLEXIBLE,
+                        this@MainActivity,
+                        UPDATE_CODE
+                    )
+                } catch (e: IntentSender.SendIntentException) {
+                    e.printStackTrace()
+                    Log.e("ololo", "onSuccess:$e ")
+                }
+            }
+        }?.addOnFailureListener {
+            Log.e("ololo", "onFailure: ${it.toString()}")
+        }
+        appUpdateManager?.registerListener(listener)
+    }
+
+    private fun popUp() {
+        val snackbar = Snackbar.make(
+            findViewById(R.id.content),
+            "App Update Almost Done.",
+            Snackbar.LENGTH_INDEFINITE
+        )
+        snackbar.setAction(
+            "Reload"
+        ) { appUpdateManager?.completeUpdate() }
+        snackbar.setTextColor(Color.parseColor("#FF0000"))
+        snackbar.show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == UPDATE_CODE) {
+            if (resultCode != RESULT_OK) {
+                Log.e("ololo", "onActivityResult: RESULT_OK")
+            }
+        }
     }
 
     private fun getCurrentLevel() {
@@ -197,6 +265,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 R.id.category_fragment -> {
                     binding.toolbarMain.title = getString(R.string.categories)
+                    checkUpdate()
                 }
                 R.id.timing_fragment -> {
                     binding.toolbarMain.title = getString(R.string.focus)

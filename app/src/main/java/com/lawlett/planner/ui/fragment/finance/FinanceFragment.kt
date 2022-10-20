@@ -37,6 +37,7 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
     val viewModel by inject<FinanceViewModel>()
     val achievementViewModel by inject<AchievementViewModel>()
     var listModel: List<FinanceModel>? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClickers()
@@ -52,7 +53,6 @@ class FinanceFragment : BaseFragment<FragmentFinanceBinding>(FragmentFinanceBind
         if (BooleanPreference.getInstance(requireContext())
                 ?.getBooleanData(Constants.FINANCE_INSTRUCTION) == false
         ) {
-
             val view = View(requireContext())
             lifecycleScope.launch {
                 delay(1000)

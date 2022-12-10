@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="events">आयोजन</string>
+    <string name="tasks">कार्य</string>
+    <string name="ideas">विचारों</string>
+    <string name="january">जनवरी</string>
+    <string name="february">फ़रवरी</string>
+    <string name="march">जुलूस</string>
+    <string name="april">अप्रैल</string>
+    <string name="may">मई</string>
+    <string name="june">जून</string>
+    <string name="july">जुलाई</string>
+    <string name="august">अगस्त</string>
+    <string name="september">सितंबर</string>
+    <string name="october">अक्टूबर</string>
+    <string name="november">नवंबर</string>
+    <string name="december">दिसंबर</string>
+    <string name="are_you_sure">क्या आपको यकीन है ?</string>
+    <string name="no">नहीं न</string>
+    <string name="yes">हाँ</string>
+    <string name="record_idea">विचार का सार दर्ज करें</string>
+    <string name="record_description">एक विवरण दर्ज करें</string>
+    <string name="settings">समायोजन</string>
+    <string name="change_theme">विषय बदलो</string>
+    <string name="begin_time">समय की शुरुआत</string>
+    <string name="end_time">समय पूरा होना</string>
+    <string name="delete">हटा दिया</string>
+    <string name="empty">खाली</string>
+    <string name="stopwatch">स्टॉपवॉच देखनी</string>
+    <string name="image">चित्र</string>
+    <string name="timer">घड़ी</string>
+    <string name="what_are_doing">आप क्या करने जा रहे हैं?</string>
+    <string name="apply">मंजूर करना</string>
+    <string name="time">समय</string>
+    <string name="toStart">शुरू करने के लिए</string>
+    <string name="complete">पूरा करना</string>
+    <string name="choose_language">भाषा चुनें…</string>
+    <string name="change_language">भाषा बदलो</string>
+    <string name="task">टास्क</string>
+    <string name="ready">तैयार ?</string>
+    <string name="plan_own_day">Распланируй свой день</string>
+    <string name="to_delete">हटाएं</string>
+    <string name="share">इसे साझा करें</string>
+    <string name="achievement_app">प्रगति</string>
+    <string name="add_title">लिखना प्रारम्भ करें</string>
+    <string name="choose_image">एक तस्वीर का चयन करें:</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="what_to_do">आप क्या करना पसंद करेंगे?</string>
+    <string name="help_idea_add">एक नया विचार जोड़ने के लिए, + पर क्लिक करें</string>
+    <string name="help_calendar_add">एक नई घटना जोड़ने के लिए, + पर क्लिक करें</string>
+    <string name="changing_theme">विषय को परिवर्तित करें</string>
+    <string name="new_aim">यह नए लक्ष्य निर्धारित करने का समय है!</string>
+    <string name="write_reviews">एक समीक्षा लिखे</string>
+    <string name="review_on_app">आवेदन पर प्रतिक्रिया Planner</string>
+    <string name="read">पढ़ें</string>
+    <string name="done">हो गया।</string>
+    <string name="date">तारीख</string>
+    <string name="you_name">आपका नाम</string>
+    <string name="rate_app">एक रेटिंग रखो</string>
+    <string name="not_enough_balanсe">बैलेंस शीट पर पर्याप्त धन नहीं !</string>
+    <string name="attention_alert">सावधान!</string>
+    <string name="advice1_1">\"सम्मान के साथ पैसे का इलाज करें\"</string>
+    <string name="advice1_2">आपका पैसा आपका "डिब्बाबंद" समय और ऊर्जा है जिसे आपने इसे कमाने के लिए खर्च किया है । </string>
+    <string name="advice2">\"आय और व्यय के रिकॉर्ड को इलेक्ट्रॉनिक रूप से या लिखित रूप में रखने की आदत डालें । \"</string>
+    <string name="advice3_1">क्रेडिट कार्ड, उपभोक्ता ऋण और अन्य ऋण से छुटकारा पाएं । </string>
+    <string name="advice3_2">\" ऋण एक मनोवैज्ञानिक बोझ है, लोगों को तनाव में डाल रहा है और उन्हें भविष्य की चिंता कर रहा है ।  नतीजतन, आप न केवल अपने पैसे से, बल्कि अपने स्वास्थ्य और ऊर्जा के साथ अन्य लोगों के पैसे का उपयोग करने के लिए भुगतान करेंगे । \"</string>
+    <string name="advice4_1">अपने मतलब के भीतर रहते हैं । </string>
+    <string name="advice4_2">\" जब आप इस नियम को तोड़ते हैं, तो आप अपने जीवन में सद्भाव खो देते हैं ।  आप पैसा खर्च कर रहे हैं जो आपने अर्जित नहीं किया है, वास्तव में, जो आपके पास नहीं है उसका उपयोग करके, आप इसे किसी भी समय खो सकते हैं! अपनी आवश्यकताओं के बीच अंतर का एहसास करें — आपको वास्तव में क्या चाहिए, और आपकी इच्छाएं — क्या "यह अच्छा होगा" ।  अपनी प्राथमिकताएं निर्धारित करें ताकि आप पहले सभी जरूरतों को बंद कर दें, और फिर विशलिस्ट और मनोरंजन के लिए क्या अनुमति दी जाए । \"</string>
+    <string name="advice5_1">आवेगी खरीद और अनावश्यक खर्च से बचें । </string>
+    <string name="advice5_2">\" स्टोर पर जाने से पहले खरीदारी की सूची बनाएं और उससे चिपके रहें ।\"</string>
+    <string name="advice6_1">अपनी आय बढ़ाने पर काम करें । </string>
+    <string name="advice6_2">\" पता करें कि वास्तव में आपको क्या भुगतान किया गया है, और इस क्षेत्र में विकसित करें ।  एक संकीर्ण जगह में गहन ज्ञान प्राप्त करना, अपनी दक्षताओं और जिम्मेदारियों का विस्तार करना, किए गए काम की गुणवत्ता में सुधार करना और तेजी से काम करना आपकी आय बढ़ाने की कुंजी हो सकती है । \"</string>
+    <string name="advice7_2">\" आय में वृद्धि लंबे और नियमित काम का परिणाम है, इसलिए धैर्य रखें और छोटे चरणों में लक्ष्य की ओर बढ़ना शुरू करें । \"</string>
+    <string name="advice7_1">त्वरित परिणाम की उम्मीद मत करो । </string>
+    <string name="advice8_1">आय के अतिरिक्त स्रोत बनाएं और खरीदें । </string>
+    <string name="advice8_2">\" कई सफल लोगों की वित्तीय स्थिरता का रहस्य आय के कई स्रोतों में निहित है । \"</string>
+    <string name="advice9">अपने पैसे का ख्याल रखें — इसे जुआ, वित्तीय पिरामिड, संदिग्ध उद्यमों और लेनदेन पर खर्च न करें । </string>
+    <string name="advice10_1">पैसे उधार न दें</string>
+    <string name="advice10_2">\" लोगों के साथ संबंध खराब करने और पैसे खोने के लिए बहुत जोखिम हैं ।  बैंकों को उनके काम पर छोड़ दें\"</string>
+    <string name="advice11_1">थोड़ी सी रकम भी फेंक न दें । </string>
+    <string name="advice11_2">\" एक पैसा न केवल रूबल, बल्कि डॉलर और यूरो भी बचाता है!\"</string>
+    <string name="advice12_1">खराब वित्तीय आदतों को छोड़ दें,</string>
+    <string name="advice12_2">\" नियमित रूप से अपने बटुए से पैसा खींचना, लेकिन पुरानी खुशी नहीं लाना ।  हम कुछ भावनाओं को पाने के लिए पैसा खर्च करते हैं ।  एक ही कीमत पर, अलग-अलग चीजें अलग-अलग मात्रा में भावनाएं ला सकती हैं ।  उदाहरण के लिए, 200 रूबल के लिए एक कैफे में कॉफी, जिसे आप दोपहर के भोजन के बाद पीते थे, अब खुशी और संतुष्टि का कारण नहीं बनता है, लेकिन फिर भी आपके बजट में एक सप्ताह में 1000 रूबल खर्च होते हैं ।  एक ही हजार के लिए, आप मालिश या फिल्म में जाकर बहुत अधिक भावनाएं प्राप्त कर सकते हैं । \"</string>
+    <string name="advice13_1">बेझिझक छूट मांगें और विशेष प्रस्तावों का लाभ उठाएं । </string>
+    <string name="advice13_2">\" विक्रेता शायद आपको छूट देने और उत्पाद को बेचने से इनकार करने और कुछ भी नहीं बेचने के लिए अधिक लाभदायक होगा । \"</string>
+    <string name="advice14_1">वित्तीय साक्षरता पर साहित्य का अध्ययन करें । </string>
+    <string name="advice14_2">\" आपकी भलाई सीधे आपके वित्तीय साक्षरता के स्तर पर निर्भर करती है!\"</string>
+    <string name="advice15">एक व्यक्तिगत वित्तीय योजना बनाएं और उसका पालन करें । </string>
+    <string name="advice16_1">पहले खुद को भुगतान करें-आपके द्वारा पहले ही खर्च करने के बाद पैसे बचाने की कोशिश करने में बहुत देर हो चुकी है । </string>
+    <string name="advice16_2">\" जैसे ही आप उन्हें प्राप्त करते हैं, अपने वित्तीय लक्ष्यों को प्राप्त करने के लिए कुछ पैसे बचाएं । \"</string>
+    <string name="advice17_1">निवेश आपके विचार से आसान और अधिक किफायती है । </string>
+    <string name="advice17_2">\" इसके अलावा, कुछ वित्तीय साधन आपको इस प्रक्रिया को कई तरीकों से स्वचालित करने की अनुमति देते हैं ।  मुख्य बात यह समझना है कि क्या यह आपके लिए इतना महत्वपूर्ण है कि आप अभिनय शुरू करने के लिए तैयार हैं?\"</string>
+    <string name="advice18_1">आवश्यक उच्च गुणवत्ता वाली चीजें खरीदें।</string>
+    <string name="advice18_2">\" उच्च गुणवत्ता वाले उत्पाद आमतौर पर अधिक महंगे हैं, लेकिन इसका उपयोग सस्ता है । \"</string>
+    <string name="advice19_1">सुनिश्चित करें कि आपकी आय हमेशा आपके खर्चों की तुलना में तेजी से बढ़ती है । </string>
+    <string name="advice19_2">\" साथ ही, आपकी आय हमेशा आपके खर्चों से अधिक होनी चाहिए ।  यह वित्तीय कल्याण के मूल सिद्धांतों में से एक है । \"</string>
+    <string name="advice20_1">हमेशा पैसे गिनें, भले ही वह छोटा हो । </string>
+    <string name="advice20_2">\" छोटे दैनिक खर्च वर्षों में भारी मात्रा में जोड़ सकते हैं और दशकों से भी अधिक ।  हर बार जब आप अपने आप से कुछ कहते हैं जैसे "1000 रूबल पैसा नहीं है, यह खोने के लिए दया नहीं है", तो आप भविष्य के दसियों और सैकड़ों हजारों में खुद से दूर ले जाते हैं, जो कि यह हजार बदल जाएगा यदि आपने इसे सही तरीके से निवेश किया है । \"</string>
+    <string name="advice21_1">कुछ खरीदने से पहले विभिन्न स्थानों में कीमतों की तुलना करें । </string>
+    <string name="advice21_2">\" अपने जीवन के घंटों में कीमत को मापना सबसे अच्छा है — इस खरीद के लिए सही राशि प्राप्त करने के लिए आपको कितने समय तक काम करना होगा ।  इससे आपके लिए उस उत्पाद की कीमत की तुलना करना आसान हो जाएगा जो आप इसके मूल्य के साथ भुगतान कर रहे हैं ।  क्या आप एक कप कॉफी के लिए अपने जीवन का एक घंटा देने के लिए तैयार हैं? और एक नए फोन के लिए जीवन का एक महीना?\"</string>
+    <string name="advice22">\"अन्य लोगों से ईर्ष्या न करें, लेकिन उनसे सीखें कि वे आपसे बेहतर क्या समझते हैं । \"</string>
+    <string name="advice23">एहसास करें कि आपकी वित्तीय भलाई पूरी तरह से आप और आपके कार्यों पर निर्भर करती है । </string>
+    <string name="advice24_1">अभी "मनी डाइट" पर जाएं!</string>
+    <string name="advice24_2">\" बिना देरी किए, अभी अपनी जीवनशैली बदलें ।  यह आपको एक वर्ष के दौरान हजारों डॉलर बचाएगा।\"</string>
+    <string name="costs">व्यय</string>
+    <string name="income">आय</string>
+    <string name="balance">बैलेंस शीट</string>
+    <string name="enter_amount">राशि दर्ज करें</string>
+    <string name="habit">आदतें</string>
+    <string name="your_habit_is_done">आज आप पहले ही इस कार्य को पूरा कर चुके हैं</string>
+    <string name="you_is_done_habit_today">क्या आपने आज वास्तव में कार्य पूरा किया है?</string>
+    <string name="edit">संपादित करें</string>
+    <string name="helper_finance_dialog" >
+        बैलेंस शीट.\n
+यहां आप अपना वर्तमान संतुलन देख सकते हैं ।
+जब आप आय जोड़ते हैं तो आपका संतुलन बढ़ता है ।
+जब आप एक व्यय या लगातार खर्च जोड़ते हैं तो घट जाती है । \n
+        \nबचत.\n
+यहां आप अपना वर्तमान रिकॉर्ड कर सकते हैं
+प्लस बटन पर क्लिक करके बचत की स्थिति।  (यह भी देखें) आप
+अपनी वर्तमान बचत से बाहर खर्च नहीं कर सकते ।  एक लंबे समय के साथ
+बटन पर क्लिक करें, आप बचत की पूरी राशि को हटा सकते हैं.\n
+\nराजस्व.\n
+प्लस बटन पर क्लिक करके, आप अपनी आय जोड़ सकते हैं ।
+हर बार जब आप आय जोड़ते हैं, तो आपका संतुलन बढ़ता है.\n
+\nव्यय.\n
+माइनस बटन पर क्लिक करके, आप जोड़ सकते हैं
+अपने खर्च. आपको राशि और विवरण दर्ज करना होगा
+व्यय (अधिमानतः) ।  आपकी सुविधा के लिए, हमने एक बनाया है
+अनुभाग: व्यय इतिहास," व्यय " अनुभाग में शीर्ष पर
+आप अपने खर्चों को ट्रैक कर सकते हैं.\n
+\nलगातार खर्च.\n
+प्लस बटन पर क्लिक करके, आप अपने जोड़ सकते हैं
+बार-बार खर्च (आइटम)। यह उपयोगी है ताकि
+आप ट्रैक कर सकते हैं कि आप अक्सर क्या पैसा खर्च करते हैं ।
+आइटम पर क्लिक करके, आप खर्च की गई राशि जोड़ सकते हैं
+और खर्च की गई कुल राशि देखें। इसके अलावा, द्वारा
+दाईं ओर स्वाइप करते हुए, आप लगातार खर्च करने वालों की सूची से किसी आइटम को हटा सकते हैं ।
+   </string>
+    <string name="main">मुख्य बात</string>
+    <string name="finance">वित्त</string>
+    <string name="you_forgot_habbit">\"आप आदत नहीं भूल गए हैं\"</string>
+    <string name="you_can_edit_profile">आप अपनी प्रोफ़ाइल संपादित कर सकते हैं</string>
+    <string name="advice25_1">करीब से निरीक्षण पर भाग्य बहुत काम और सावधानीपूर्वक तैयारी का परिणाम है । </string>
+    <string name="advice26_1">यदि आप कुछ करने का निर्णय लेते हैं, लेकिन 72 घंटों के भीतर इसे करना शुरू न करें-85% मामलों में, आप ऐसा कभी नहीं करेंगे । </string>
+    <string name="advice27_1">\"जो करता है, वह सफलता की उम्मीद करता है ।  जो" कोशिश " करता है वह उम्मीद करता है कि कुछ उसके साथ हस्तक्षेप करेगा । \"</string>
+    <string name="advice27_2">आधा प्रयास आधा परिणाम नहीं देता है, लेकिन एक शून्य परिणाम है । </string>
+    <string name="advice28_1">जो लोग पूरे दिन काम करते हैं उनके पास पैसा कमाने का समय नहीं होता है । </string>
+    <string name="advice29_1">सबसे बड़ी प्रतिभा अपने कार्यों के लिए प्रेरणा खोजने में सक्षम होना है । </string>
+    <string name="advice30_1">वित्तीय बाधाओं और अपने खर्च की योजना के बिना वित्तीय कल्याण असंभव है ।  वित्तीय स्वतंत्रता वित्तीय बाधाओं से गुजरती है । </string>
+    <string name="advice_31_1">कुछ भी अच्छा नहीं करने से बुरी तरह से शुरू करना बेहतर है । </string>
+    <string name="advice32_1">अपने स्वास्थ्य के बारे में सोचें ।  अच्छे स्वास्थ्य के बिना सफलता असंभव है । </string>
+    <string name="advice_32_2">\" स्वास्थ्य के बिना धन खुशी नहीं लाएगा । \"</string>
+    <string name="advice_33_1">कछुए की गति से लक्ष्य पर जाना बेहतर है कि प्रकाश की गति से बहाने के साथ क्यों आप अभी भी खड़े हैं । </string>
+    <string name="advice_34_1">अपना पसंदीदा शौक लें और उस पर करियर बनाएं । </string>
+    <string name="advice35_1">\"अच्छी कमाई के लिए, आपको अच्छे ज्ञान की आवश्यकता है । \"</string>
+    <string name="advice_35_2">अपने क्षितिज को लगातार सीखने, पढ़ने, विस्तारित करने का प्रयास करें ।  मूर्ख केवल कैसीनो में भाग्यशाली हैं, और फिर शायद ही कभी । </string>
+    <string name="advice_36_1">धन आप एक कैसीनो, रेस्तरां, रिसॉर्ट, या दुकान में खर्च कितना नहीं है । </string>
+    <string name="advice36_2">\" धन वह है जिसे आपने अलग रखा है और बचाया है । \"</string>
+    <string name="advice37_1">केवल मूर्ख एक बार भाग्यशाली हो जाते हैं ।  स्मार्ट लोग हमेशा भाग्यशाली होते हैं । </string>
+    <string name="advice38_1">आप सभी घटनाओं के लिए जिम्मेदार नहीं हैं</string>
+    <string name="advice38_2">लेकिन आप हमेशा घटनाओं की अपनी व्याख्या और उन पर आपकी प्रतिक्रिया के लिए जिम्मेदार होते हैं । </string>
+    <string name="advice39_1">\"एक चमत्कार के लिए बैठना और इंतजार करना उतना ही बेवकूफी है जितना कि टीवी के सामने घर बैठे एथलीट,\"</string>
+    <string name="advice39_2">ओलंपिक खेलों को देखें और उन पर स्वर्ण पदक पाने की उम्मीद करें । </string>
+    <string name="advice40_1">पैसे का हमेशा यही अर्थ होता है कि हम इसे संलग्न करते हैं । </string>
+    <string name="advice41_1">अकेले पैसा किसी को खुश या दुखी नहीं करता है ।  वे न तो अच्छे हैं और न ही बुरे । </string>
+    <string name="advice_41_2">पैसे से खुश व्यक्ति और भी खुश हो जाएगा। निराशावादी जो हर चीज से एक समस्या बनाता है, उसे पैसे के साथ और भी अधिक समस्याएं मिलेंगी ।  धन से मालिक के चरित्र का पता चलता है ।  वे एक आवर्धक कांच की तरह हैं । </string>
+    <string name="advice42_1">\"कोई भी सिर्फ इसलिए अमीर नहीं होता क्योंकि वे बहुत कमाते हैं । \"</string>
+    <string name="advice42_2">आप तभी अमीर होते हैं जब आप काम किए बिना अपनी पूंजी के हित पर रह सकते हैं: पैसा आपके लिए काम करता है । </string>
+    <string name="advice43_1">सिद्धांत कथन: कभी भी उस व्यक्ति की सलाह न लें जो वह नहीं है जो आप बनना चाहते हैं । </string>
+    <string name="advice44_1">जिम्मेदारी के बिना जीने के लिए नपुंसक बलिदान की स्थिति को नीचा दिखाना है । </string>
+    <string name="advice44_2">\" इसका अर्थ है उन नियमों से जीना जो दूसरों ने आपके लिए लिखे हैं । \"</string>
+    <string name="advice45_1">ज्यादातर लोग एक साल में क्या कर सकते हैं और दस साल में वे क्या कर सकते हैं, इसे कम आंकते हैं । </string>
+    <string name="advice46_1">\"हम गुलाब देखते हैं, लेकिन हम कांटे नहीं देखते हैं ।  हम सफलता देखते हैं, लेकिन इसके लिए तैयारी नहीं । \"</string>
+    <string name="advice46_2">और हम अन्य लोगों की विफलताओं को नहीं देखते हैं ।  हम यह जानकर चकित होंगे कि "भाग्यशाली लोग" अपनी किस्मत को कितनी सावधानी से तैयार करते हैं । </string>
+    <string name="advice47_1">हारने से बचने के लिए आप जिस खेल को खेलते हैं और जिसे आप जीतना चाहते हैं, उसके बीच एक बुनियादी अंतर है । </string>
+    <string name="advice48_1">क्या आपको भुगतान नहीं मिलता है जो आप लायक हैं? यदि आप उस पैसे के लिए काम नहीं करते हैं ।  –</string>
+    <string name="advice48_2">\" तो यही आप लायक हैं ।  अगर कुछ आपको शोभा नहीं देता है-अपनी नौकरी, जीवनशैली बदलें, खुद को बदलें । \"</string>
+    <string name="notification_for_habit">आदतों के लिए अधिसूचना</string>
+    <string name="you_can_set_notification">आप इसे अपनी ज़रूरत के समय पर सेट कर सकते हैं</string>
+    <string name="amount">राशि:</string>
+    <string name="description">विवरण:</string>
+    <string name="enter_name">एक नाम दर्ज करें</string>
+    <string name="description_about_app">आवेदन विवरण</string>
+    <string name="blue">नीला</string>
+    <string name="red">लाल</string>
+    <string name="orange">नारंगी</string>
+    <string name="yellow">पीला</string>
+    <string name="black">ब्लैक</string>
+    <string name="green">हरा</string>
+    <string name="white">सफेद</string>
+    <string name="remind">याद दिलाना</string>
+    <string name="fill_field">फ़ील्ड भरें</string>
+    <string name="new_idea">एक नया विचार</string>
+    <string name="new_category">नई श्रेणी</string>
+    <string name="category_name">श्रेणी का नाम</string>
+    <string name="new_habit">एक नई आदत</string>
+    <string name="what_done_yesterday">कल क्या पूरा हुआ?</string>
+    <string name="what_plan_today">What \'s आज के लिए योजना बनाई ?</string>
+    <string name="problems">समस्याएं या अवरोधक</string>
+    <string name="important_info">महत्वपूर्ण जानकारी</string>
+    <string name="next">आगे</string>
+    <string name="pink">गुलाबी</string>
+    <string name="violet">वायलेट</string>
+    <string name="monday">सोमवार</string>
+    <string name="tuesday">मंगलवार</string>
+    <string name="wednesday">बुधवार</string>
+    <string name="thursday">गुरुवार</string>
+    <string name="friday">शुक्रवार</string>
+    <string name="saturday">शनिवार</string>
+    <string name="sunday">रविवार</string>
+    <string name="timetable">अनुसूची</string>
+    <string name="stand_up">स्टैंड-अप</string>
+    <string name="focus">स्टंट</string>
+    <string name="expensive">व्यय</string>
+    <string name="history">इतिहास</string>
+    <string name="choose_action">एक क्रिया का चयन करें</string>
+    <string name="ofCourse">बेशक</string>
+    <string name="enter_password">पासवर्ड दर्ज करें</string>
+    <string name="wrong_password">अमान्य पासवर्ड</string>
+    <string name="block">ब्लॉक</string>
+    <string name="set_password">एक पासवर्ड सेट करें</string>
+    <string name="in_case_lost_password">पासवर्ड हानि के मामले में</string>
+    <string name="forgot_password">मेरा पासवर्ड भूल गए</string>
+    <string name="not_correct">गलत</string>
+    <string name="changePassword">पासवर्ड बदलें</string>
+    <string name="unblock">अनलॉक करें</string>
+    <string name="heavenly">आसमानी नीला</string>
+    <string name="bilberry">ब्लूबेरी</string>
+    <string name="wake_up_morning">सुबह 6 बजे उठें</string>
+    <string name="read_by_minutes">15 मिनट के लिए पढ़ें</string>
+    <string name="health">स्वास्थ्य</string>
+    <string name="targets">लक्ष्य</string>
+    <string name="download_app">प्लानर ऐप डाउनलोड Planner+</string>
+    <string name="look_how_it_work">देखें कि यह कैसे काम करता है</string>
+    <string name="for_next_lesson">अगले पाठ के लिए</string>
+    <string name="implement_new_fun">नए फ़ंक्शन के कार्यान्वयन</string>
+    <string name="new_process">नई प्रक्रिया</string>
+    <string name="set_amount_day">दिनों की संख्या निर्दिष्ट करें</string>
+    <string name="add_some_event">एक विशिष्ट घटना दर्ज करें</string>
+    <string name="icon">चिह्न</string>
+    <string name="minutes_amount">मिनटों की संख्या</string>
+    <string name="enter_secret_word">गुप्त शब्द दर्ज करें</string>
+    <string name="set_notification_on">"अधिसूचना पर सेट करें "</string>
+    <string name="create">बनाने के लिए</string>
+    <string name="add_pattern">एक टेम्पलेट जोड़ें</string>
+    <string name="name">नाम</string>
+    <string name="categories">श्रेणियाँ</string>
+    <string name="begins">शुरू होता है</string>
+    <string name="ends">बंद करें</string>
+    <string name="to_the_schedule">अनुसूची के लिए</string>
+    <string name="woke_up">v</string>
+    <string name="went_to_sleep">बिस्तर पर चला गया</string>
+    <string name="sleep_recording">नींद रिकॉर्डिंग</string>
+    <string name="dream">नींद</string>
+    <string name="no_records">कोई रिकॉर्ड नहीं</string>
+    <string name="transport">परिवहन</string>
+    <string name="products">उत्पाद</string>
+    <string name="flight_over_city">अपने शहर के ऊपर उड़ान</string>
+    <string name="my_dream_in_dream">मेरे पास एक सपने में एक सपना था जो एक सपना था</string>
+    <string name="congratulation">मुबारक हो!</string>
+    <string name="level">स्तर </string>
+    <string name="you_are_hello">आपका स्वागत है</string>
+    <string name="tool">उपकरण</string>
+    <string name="got_you_aim">अपने लक्ष्यों को प्राप्त करना</string>
+    <string name="what_can_i_do">मैं क्या कर सकता हूँ ?</string>
+    <string name="create_notes">नोट्स बनाएं</string>
+    <string name="follow_finance">वित्त का ट्रैक रखें</string>
+    <string name="keep_focus">ध्यान रखें</string>
+    <string name="keep_schedule">एक शेड्यूल रखें</string>
+    <string name="create_standup">एक स्टैंड बनाएं</string>
+    <string name="also">और भी</string>
+    <string name="to_create_event">ईवेंट बनाएं</string>
+    <string name="fix_idea">विचारों को ठीक करें</string>
+    <string name="lets_start">चलो शुरू हो जाओ !</string>
+    <string name="click_by_screen">स्क्रीन पर क्लिक करें</string>
+    <string name="before_start">शुरू करने से पहले, हम आपको आवेदन से परिचित होने का सुझाव देते हैं</string>
+    <string name="two_tools">यहां दो नेविगेशन टूल उपलब्ध हैं</string>
+    <string name="bottom_and_side">लोअर और साइड</string>
+    <string name="side_open_by_click">साइड एक बर्गर पर क्लिक करके खुलता है जो ऊपरी बाएं कोने में स्थित है</string>
+    <string name="after_instruction">प्रत्येक विंडो पर स्विच करने के बाद, ब्रीफिंग शुरू होने की प्रतीक्षा करें</string>
+    <string name="go">जा। !</string>
+    <string name="you_calendar">\"आपका कैलेंडर\"</string>
+    <string name="show_day">अगले 3 महीनों के लिए अपडेट किए गए दिनों को प्रदर्शित करता है</string>
+    <string name="set_event_new_task">तिथि को दबाकर, आप सप्ताह के एक निश्चित दिन पर एक घटना या एक नया कार्य निर्धारित कर सकते हैं</string>
+    <string name="next_you_cards">अगला आपके कार्ड आते हैं</string>
+    <string name="here_show">आदतों,श्रेणियों,घटनाओं खिड़कियों से अपने सभी कार्ड यहाँ प्रदर्शित कर रहे हैं</string>
+    <string name="click_cards_ha_ca">आदत कार्ड या श्रेणियों पर क्लिक करके, आप एक निश्चित कार्रवाई कर सकते हैं</string>
+    <string name="show_profile">साइडबार खोलकर आप अपनी प्रोफ़ाइल देख सकते हैं</string>
+    <string name="avater_name">अवतार, नाम और वर्तमान स्तर, अवतार और नाम सेट करने के लिए, उन पर क्लिक करें</string>
+    <string name="lvlup_some_action">कुछ कार्यों के लिए स्तर बढ़ता है जैसे कि प्रदर्शन करने वाली आदतें, कार्य और पसंद</string>
+    <string name="inside_cards_record">कार्ड जिसके अंदर आप नोट्स या कार्य लिख सकते हैं</string>
+    <string name="hold_card">कार्यों के साथ एक विंडो खोलने के लिए सूची से एक कार्ड पर क्लिक करें</string>
+    <string name="insert_button">बटन जोड़ें </string>
+    <string name="create_new_category_click">इस बटन पर क्लिक करके, आप श्रेणी का नाम और आइकन निर्दिष्ट करके एक नया कार्ड बना सकते हैं</string>
+    <string name="under_everyday"> हर दिन के नीचे एक सूची छिपी होती है जिसे भरा जा सकता है</string>
+    <string name="cause_see">यह देखने के लिए कि किसी विशेष दिन के लिए क्या योजना है, उस पर क्लिक करें</string>
+    <string name="hold_task_action">आप कार्यों के साथ एक विंडो खोलने के लिए सूची से एक निर्धारित कार्य सेट कर सकते हैं</string>
+    <string name="click_here_button">इस बटन पर क्लिक करके आप सप्ताह के एक विशिष्ट दिन के लिए मामले बना सकते हैं</string>
+    <string name="planning_events">अनुसूचित घटनाओं की अपनी सूची</string>
+    <string name="set_remind_by_wish"> वैकल्पिक रूप से, आप एक अनुस्मारक सेट कर सकते हैं</string>
+    <string name="create_ev_date">इस बटन पर क्लिक करके आप एक विशिष्ट तिथि के लिए ईवेंट बना सकते हैं</string>
+    <string name="list_habit">आदतों है कि आप अपने आप में टपकाना चाहते हैं की अपनी सूची</string>
+    <string name="in_left_day">बाईं ओर संकेत दिया गया है कि आपने कितने दिन पहले ही आदत तय कर ली है</string>
+    <string name="in_right_hold">दाईं ओर, आपको कितने दिनों तक पकड़ना है</string>
+    <string name="click_by_habit">कार्ड पर क्लिक करके आप वर्तमान दिन के लिए आदत के पूरा होने को चिह्नित कर सकते हैं और कार्ड पर दबाकर आप कार्यों के साथ एक विंडो खोल सकते हैं</string>
+    <string name="create_new_habit"> इस बटन पर क्लिक करके आप एक नई आदत बना सकते हैं</string>
+    <string name="list_process">एकाग्रता की आवश्यकता होती है कि प्रक्रियाओं की अपनी सूची</string>
+    <string name="theroy_thousand_hour"> यह विंडो 10,000 घंटे के सिद्धांतों के आधार पर बनाई गई है</string>
+    <string name="profession_thousand_hour"> जो एक निश्चित क्षेत्र में एक पेशेवर बनने के लिए कहता है, आपको इसका अध्ययन करने में लगभग 10 हजार घंटे खर्च करने की आवश्यकता है</string>
+    <string name="work_stopwatch_timer">इस बटन पर क्लिक करके, आप एक नई प्रक्रिया बना सकते हैं, टाइमर के साथ या स्टॉपवॉच के साथ काम कर सकते हैं</string>
+    <string name="list_standup"> अपनी सूची के standups</string>
+    <string name="team_work">यह विंडो एक टीम वर्क सिस्टम पर आधारित है</string>
+    <string name="plan_and_problem_share"> जहां टीम के सदस्य दैनिक प्रगति रिपोर्ट बनाते हैं और अपनी योजनाओं और समस्याओं को साझा करते हैं</string>
+    <string name="good_system">अपने आप को अच्छे आकार में रखने के लिए यह एक बहुत अच्छी प्रणाली है</string>
+    <string name="good_friend_standup"> आप एक अच्छे दोस्त से स्टैंडअप के संकलन का पालन करने के लिए कह सकते हैं\"</string>
+    <string name="share_fun_send"> और सिर्फ एक शेयर फ़ंक्शन है ताकि आप इसे भेज सकें\"</string>
+    <string name="create_new_standup"> Нажав на эту кнопку вы можете создать новый стэндап</string>
+    <string name="list_dream">आपकी सूची जहां आपके नींद से संबंधित रिकॉर्ड एकत्र किए जाते हैं</string>
+    <string name="up_slept_hour"> शीर्ष पर यह दिखाता है कि आप निर्दिष्ट दिन के दौरान कितने घंटे सोते थे</string>
+    <string name="next_time_date">फिर कितने से कितने और तारीख</string>
+    <string name="course_record_dream">कार्ड पर क्लिक करके , आप देख सकते हैं कि आपने उस दिन क्या सपना देखा था , ज़ाहिर है , अगर आपने इसे रिकॉर्ड किया है</string>
+    <string name="create_new_record">इस बटन पर क्लिक करके आप एक नई प्रविष्टि बना सकते हैं</string>
+    <string name="folow_finance_window"> अपने वित्त पर नज़र रखने के लिए एक खिड़की</string>
+    <string name="new_appear_open"> शीर्ष पर वित्तीय-संबंधित युक्तियों वाला एक कार्ड है, हर बार जब आप इस विंडो को खोलते हैं तो एक नया दिखाई देता है</string>
+    <string name="main_fun_in_ex">मुख्य कार्य आय और व्यय बटन द्वारा किया जाता है\"</string>
+    <string name="template_work">एक आइटम पर क्लिक करके टेम्पलेट खर्चों की एक सूची भी है जिसे आप इसके साथ काम कर सकते हैं</string>
+    <string name="history_button_ex_te">और हां, इतिहास बटन जहां टेम्पलेट खर्चों के अलावा सब कुछ ध्यान में रखा जाता है</string>
+    <string name="template_expensive">टेम्पलेट खर्च</string>
+    <string name="choose_icon">चिह्न चयन</string>
+    <string name="hours"> घंटे</string>
+    <string name="minut"> मिनट</string>
+    <string name="rewrite_code">1. पाठ से कोड को फिर से लिखना और फिर से पढ़ना</string>
+    <string name="watch_stream">2. धारा देखी</string>
+    <string name="write_screen_se_q">3. सेटिंग्स के लिए और प्रश्नोत्तरी के लिए लेआउट लिखा था</string>
+    <string name="create_h_st_dao">4.in हिस्टोरस्टोरेज ने हिस्टोरीडाओ के लिए तरीके बनाए</string>
+    <string name="in_dao_delete">5. इतिहास डेटा में, मैंने @डिलीट एनोटेशन के तहत सभी विधि को हटा दिया</string>
+    <string name="reread_code_q">\"1. मैं अधिक समझ के लिए क्विजैप कोड को फिर से पढ़ूंगा\"</string>
+    <string name="impl_f_fi">2. मैं पैराग्राफ 4 और 5 के कार्यान्वयन के लिए आगे बढ़ूंगा</string>
+    <string name="hard_fa_da">फर्जी डेटा के साथ इतिहास भरने में कठिनाइयां थीं</string>
+    <string name="im_sh_pr">- कार्यान्वित प्रगति प्रदर्शन</string>
+    <string name="im_sh_ca">- कार्यान्वित श्रेणी मानचित्रण</string>
+    <string name="im_ba_f_a">- पहला पृष्ठ गतिविधि बंद कर देता है, तो वापस बटन के कार्यान्वित परीक्षण</string>
+    <string name="im_b_an">- प्रतिक्रिया बटन के परीक्षण को लागू किया</string>
+    <string name="one_sec_pag">- टाइमर को ऑनस्वरक्लिक पर सेट करें ताकि जब आप उत्तर पर क्लिक करें, तो आप अगले प्रश्न पर फ़्लिप करने से पहले 1 सेकंड प्रतीक्षा करें</string>
+    <string name="st_sc_qr">1.मैं क्विजरेसल्ट का लेआउट शुरू करूंगा</string>
+    <string name="im_wi_fi">2.मैं इंटरनेट या वाई-फाई की उपलब्धता निर्धारित करने के कार्यों को लागू करता हूं</string>
+    <string name="re_q_l_ans">प्रश्नों के मिश्रण और उत्तर पत्रक में एम्बेड करने के साथ</string>
+    <string name="since">साथ </string>
+    <string name="before"> इससे पहले </string>
+    <string name="gone_to_dream">सो गया</string>
+    <string name="wh_dr_q">आपने क्या सपना देखा था ? (वैकल्पिक)</string>
+    <string name="list_ideas"> विचारों की अपनी सूची</string>
+    <string name="vis_im_idea">एक दृश्य छवि उस विचार को मजबूत करने का एक अच्छा तरीका है जो आया है</string>
+    <string name="by_cl_im_sh">जब आप कार्ड पर क्लिक करते हैं, तो चित्र पूर्ण आकार में खुलता है</string>
+    <string name="cl_ca_re_id">इस बटन पर क्लिक करके आप एक विचार लिख सकते हैं</string>
+    <string name="dream_record">नींद का रिकॉर्ड रखें</string>
+    <string name="history_empty">इतिहास खाली है</string>
+    <string name="new_event">नई घटना</string>
+    <string name="diplom_work">ग्रेजुएट काम</string>
+    <string name="phisology">मनोविज्ञान</string>
+    <string name="not_necessary">(अनिवार्य नहीं)</string>
+    <string name="hour">देखो</string>
+    <string name="minute">मिनट</string>
+    <string name="choose_app">एक आवेदन का चयन करें</string>
+    <string name="in_main_screen">- यहां आप यह चिह्नित कर सकते हैं कि आपने आदतों से अपना कार्य पूरा कर लिया है, घटनाओं को देखें और वांछित श्रेणी में जाएं । \n
+- खिड़की के शीर्ष पर है कि कैलेंडर में तारीख पर लांग प्रेस आप अपने कार्यक्रम के लिए उस दिन के लिए एक नई घटना या कार्य को जोड़ने के लिए अनुमति देगा.</string>
+    <string name="in_categories">- एक नई श्रेणी बनाने के लिए, +पर क्लिक करें । \n
+- श्रेणी पर एक लंबी प्रेस एक विंडो खोलेगी जहां आप इसे संपादित, हटा या ब्लॉक कर सकते हैं, साथ ही अपना पासवर्ड भी बदल सकते हैं । </string>
+    <string name="in_timetable">- एक नई प्रविष्टि बनाने के लिए, +पर क्लिक करें ।  आप एक बार में एक या कई दिन चुन सकते हैं । \n
+- सप्ताह के दिन पर क्लिक करके, आप उस दिन के लिए सभी प्रविष्टियों को देख सकते हैं. \n
+- रिकॉर्ड पर एक लंबी प्रेस आपको इसे हटाने या संपादित करने की अनुमति देगा । </string>
+    <string name="in_event">- एक नई घटना बनाने के लिए, +पर क्लिक करें ।  आप अपनी ज़रूरत के समय के लिए एक अनुस्मारक भी सेट कर सकते हैं । \n
+- घटना पर एक लंबी प्रेस आपको इसे हटाने या संपादित करने की अनुमति देगा । </string>
+    <string name="in_habit">एक खिड़की जो आपको वांछित आदत विकसित करने की अनुमति देगी । \n
+- एक नई आदत बनाने के लिए, +पर क्लिक करें । \n
+- आदत पर क्लिक करके, आप नोट कर सकते हैं कि आपने आज कार्य पूरा कर लिया है । \n
+- एक लंबी प्रेस आपको इसे हटाने या संपादित करने की अनुमति देगा ।  बटन ऊपरी बाएँ कोने में मेनू खुल जाएगा ।  यहां आप अपने स्तर का पता लगा सकते हैं, एक अवतार चुन सकते हैं और एक नाम जोड़ सकते हैं । </string>
+    <string name="in_focus">खिड़की 10,000 घंटे के सिद्धांत के आधार पर बनाई गई थी, जिसमें कहा गया है कि यह आपके चुने हुए क्षेत्र में व्यावसायिकता प्राप्त करने के लिए आपको कितना समय बिताने की आवश्यकता है । \n
+- +पर क्लिक करके आप एक नई कार्रवाई जोड़ सकते हैं, साथ ही एक टाइमर या स्टॉपवॉच खोल सकते हैं । \n
+- सूची में एक कार्रवाई पर क्लिक करके, आप निर्दिष्ट कर सकते हैं कि आपने उस पर कितने मिनट बिताए ।  समय को अभिव्यक्त किया जाएगा । \n
+- एक लंबी प्रेस टाइमर या स्टॉपवॉच खोलेगी जहां से आपके रिकॉर्ड में समय जोड़ा जाएगा ।  आप चाहें तो इसे तुरंत हटा सकते हैं । </string>
+    <string name="in_standup">प्रक्रिया को अनुकूलित करने के लिए बड़ी कंपनियों में उपयोग किया जाने वाला अभ्यास ।  प्रत्येक कर्मचारी किए गए कार्यों और सामने आई समस्याओं पर एक दैनिक रिपोर्ट लिखता है । \n
+- - +बटन आपको एक नया स्टैंडअप बनाने की अनुमति देगा । \n
+- रिकॉर्ड पर एक लंबी प्रेस एक विंडो खोलेगी जहां आप स्टैंडअप को हटा सकते हैं, संपादित कर सकते हैं या साझा कर सकते हैं । </string>
+    <string name="in_dream">एक खिड़की जहां आप सोने में बिताए समय को ट्रैक कर सकते हैं । \n
+- +पर क्लिक करके आप एक नया रिकॉर्ड बना सकते हैं । \n
+- प्रविष्टि पर क्लिक करके आप पढ़ सकते हैं कि आपने क्या सपना देखा था । \n
+- एक लंबी प्रेस आपको एक प्रविष्टि को संपादित करने या हटाने की अनुमति देगा । </string>
+    <string name="in_idea">- +पर क्लिक करके आप एक नया विचार जोड़ सकते हैं । \n
+- रिकॉर्ड पर क्लिक करके आप तस्वीर देख सकते हैं, एक लंबी प्रेस आपको रिकॉर्ड को हटाने या संपादित करने की अनुमति देगा । </string>
+    <string name="in_finance">अपने वित्त पर नज़र रखने के लिए एक खिड़की । \n
+- शीर्ष पर युक्तियों वाला एक कार्ड है जो आपको अपने पैसे को अधिक उत्पादक रूप से प्रबंधित करने की अनुमति देगा । \n
+- \'आय\' और \'व्यय\' बटन आप क्रमशः, आप प्राप्त कितना पैसा और कितना खर्च का एक रिकॉर्ड जोड़ने के लिए अनुमति देगा.\n
+- यहां टेम्पलेट लागतें हैं, यदि आप चाहें, तो आप +पर क्लिक करके अपना टेम्पलेट बना सकते हैं । \n
+- टेम्पलेट पर एक लंबा प्रेस आपको इसे हटाने की अनुमति देगा । \n
+- इतिहास आपको अपने सभी वित्तीय परिवर्तनों को ट्रैक करने की अनुमति देगा । </string>
+    <string name="in_setting">- यहां आप एप्लिकेशन की थीम और भाषा बदल सकते हैं । </string>
+    <string name="instruction">निर्देश</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
+</resources>

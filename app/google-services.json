@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058180826213",
+    "project_id": "plannerplus-cde2d",
+    "storage_bucket": "plannerplus-cde2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058180826213:android:91a2eb2eb29b3eaf17b28c",
+        "android_client_info": {
+          "package_name": "com.lawlett.planner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058180826213-jq3hagllifrrrquencuumcf14ksha3lb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDadI74TCNumJAuncZ0oaHpFGqkUBtSp20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058180826213-jq3hagllifrrrquencuumcf14ksha3lb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

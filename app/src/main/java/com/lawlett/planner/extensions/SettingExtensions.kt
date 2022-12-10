@@ -3,62 +3,142 @@ package com.lawlett.planner.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDelegate
 import com.lawlett.planner.R
+import com.lawlett.planner.data.room.models.LanguageModel
+import com.lawlett.planner.utils.Constants
+import com.lawlett.planner.utils.IntPreference
 import com.lawlett.planner.utils.LanguagePreference
-import com.lawlett.planner.utils.ThemePreference
 import java.util.*
 
-fun Activity.changeLanguage() {
-    val listItems = arrayOf("English","Кыргызский","Русский")
-    val mBuilder = AlertDialog.Builder(this)
-    mBuilder.setTitle(R.string.choose_language)
-    mBuilder.setSingleChoiceItems(listItems, -1) { dialog, which ->
-        when (which) {
+    fun Activity.changeLanguage(position: Int) {
+        when (position) {
             0 -> {
-                setLocale("en",this)
+                setLocale("ru", this)
             }
             1 -> {
-                setLocale("ky",this)
+                setLocale("be", this)
             }
             2 -> {
-                setLocale("ru", this)
+                setLocale("uk", this)
+            }
+            3 -> {
+                setLocale("en", this)
+            }
+            4 -> {
+                setLocale("de", this)
+            }
+            5 -> {
+                setLocale("pt", this)
+            }
+            6 -> {
+                setLocale("fr", this)
+            }
+            7 -> {
+                setLocale("it", this)
+            }
+            8 -> {
+                setLocale("es", this)
+            }
+            9 -> {
+                setLocale("ky", this)
+            }
+            10 -> {
+                setLocale("kk", this)
+            }
+            11 -> {
+                setLocale("tr", this)
+            }
+            12 -> {
+                setLocale("uz", this)
+            }
+            13 -> {
+                setLocale("ko", this)
+            }
+            14 -> {
+                setLocale("zh", this)
+            }
+            15 -> {
+                setLocale("ja", this)
+            }
+            16 -> {
+                setLocale("hi", this)
             }
         }
         this.recreate()
-        dialog.dismiss()
     }
-    val mDialog = mBuilder.create()
-    mDialog.show()
+
+fun getLanguageList(): List<LanguageModel> {
+    val listModel: ArrayList<LanguageModel> = arrayListOf()
+    listModel.add(LanguageModel("Русский"))
+    listModel.add(LanguageModel("Беларускі"))
+    listModel.add(LanguageModel("Український"))
+    listModel.add(LanguageModel("English"))
+    listModel.add(LanguageModel("Deutsch"))
+    listModel.add(LanguageModel("Português"))
+    listModel.add(LanguageModel("Français"))
+    listModel.add(LanguageModel("Italiano"))
+    listModel.add(LanguageModel("Español"))
+    listModel.add(LanguageModel("Кыргызча"))
+    listModel.add(LanguageModel("Қазақ тілі"))
+    listModel.add(LanguageModel("Türk"))
+    listModel.add(LanguageModel("O'zbek tili"))
+    listModel.add(LanguageModel("한국어"))
+    listModel.add(LanguageModel("中文"))
+    listModel.add(LanguageModel("日本語"))
+    listModel.add(LanguageModel("हिंदी"))
+    return listModel
 }
 
-private fun setLocale(s: String, context:Context) {
+private fun setLocale(s: String, context: Context) {
     val locale = Locale(s)
     Locale.setDefault(locale)
     val config = Configuration()
     config.locale = locale
     context.resources.updateConfiguration(
         config,
-        context.resources.displayMetrics)
+        context.resources.displayMetrics
+    )
     LanguagePreference.getInstance(context)?.saveLanguage(s)
-
-    //TODO: this in ViewModel
 }
- fun loadLocale(context: Context) {
-    var language: String? = LanguagePreference.getInstance(context)?.getLanguage
+
+fun loadLocale(context: Context) {
+    val language: String? = LanguagePreference.getInstance(context)?.getLanguage
     if (language != null) {
-        setLocale(language,context)
+        setLocale(language, context)
     }
-
 }
+
 fun Context.checkedTheme() {
-    when (ThemePreference.getInstance(this)?.getLightTheme) {
-        true -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    when (IntPreference.getInstance(this)?.getInt(Constants.THEME_PREFERENCE)) {
+        4 -> {
+            this.setTheme(R.style.AppTheme_Red)
         }
-        false -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        1 -> {
+            this.setTheme(R.style.AppTheme_Orange)
+        }
+        2 -> {
+            this.setTheme(R.style.AppTheme_Yellow)
+        }
+        3 -> {
+            this.setTheme(R.style.AppTheme_LightBlue)
+        }
+        0 -> {
+            this.setTheme(R.style.AppTheme_BlueLight)
+        }
+        5 -> {
+            this.setTheme(R.style.AppTheme_GreenLight)
+        }
+        6 -> {
+            this.setTheme(R.style.AppTheme_Pink)
+        }
+        7 -> {
+            this.setTheme(R.style.AppTheme_Black)
+        }
+        8 -> {
+            this.setTheme(R.style.AppTheme_Bilberry)
+        }
+        9 -> {
+            this.setTheme(R.style.AppTheme_Violet)
         }
     }
 }

@@ -5,14 +5,14 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDex
 import com.lawlett.planner.di.viewModelModule
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID_HOURS
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import java.util.*
+
 
 class App : Application() {
 
@@ -28,21 +28,24 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         MultiDex.install(this)
     }
+
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID, "Example Channel",
+                Constants.CHANNEL_ID, "Example Channel",
                 NotificationManager.IMPORTANCE_HIGH
-            )
+            ).apply { setShowBadge(true) }
             val channel2 = NotificationChannel(
-                CHANNEL_ID_HOURS, "Example Channel2",
+                Constants.CHANNEL_ID_HOURS, "Example Channel2",
                 NotificationManager.IMPORTANCE_HIGH
-            )
+            ).apply { setShowBadge(true) }
             val manager = getSystemService(
                 NotificationManager::class.java
             )
+
             val notificationChannels: MutableList<NotificationChannel> = ArrayList()
             notificationChannels.add(channel)
             notificationChannels.add(channel2)

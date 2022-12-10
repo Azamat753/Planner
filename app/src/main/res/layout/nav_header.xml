@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/toolbarColor"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/nav_header_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="26dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:src="@drawable/ic_person_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/nav_header_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:maxLength="16"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:text="@string/you_name"
+        android:textColor="?attr/white_text_color"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_iv"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/nav_header_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:maxLength="16"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:text="@string/level"
+        android:textColor="?attr/white_text_color"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_tv"
+        tools:ignore="UnusedAttribute" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

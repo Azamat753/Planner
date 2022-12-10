@@ -1,24 +1,26 @@
 package com.lawlett.planner.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import com.lawlett.planner.R
 
 
-class ThemePreference(context: Context) {
+class ThemePreference(var context: Context) {
+
     private val preferences: SharedPreferences
 
-    val getLightTheme: Boolean
-        get() = preferences.getBoolean("theme_mode", false)
+    val getTheme: String?
+        get() {
+            return preferences.getString("theme",context.getString(R.string.blue))
+        }
 
-    fun saveLightTrue() {
-        preferences.edit().putBoolean("theme_mode", true).apply()
-    }
-
-    fun saveLightFalse() {
-        preferences.edit().putBoolean("theme_mode", false).apply()
+    fun saveTheme(theme:String) {
+        preferences.edit().putString("theme", theme).apply()
     }
 
     companion object {
+        @SuppressLint("StaticFieldLeak")
         @Volatile
         var instance: ThemePreference? = null
         fun getInstance(context: Context): ThemePreference? {

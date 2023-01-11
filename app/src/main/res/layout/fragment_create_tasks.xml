@@ -83,4 +83,28 @@
         custom:colorLeft="@color/green_for_achievement"
         custom:colorRight="@color/dark_green_for_achievement"
         custom:drawableLeft="@drawable/trophy"/>
+  <!--  <TextView
+        android:id="@+id/text_nooruz"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="88dp"
+        android:text="Создайте свою первую задачу"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"/>
+    <ImageView
+        android:id="@+id/image_nooruz"
+        android:layout_width="360dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/image_task"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/text_nooruz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

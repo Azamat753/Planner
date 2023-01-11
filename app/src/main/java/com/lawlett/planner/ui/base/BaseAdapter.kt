@@ -54,6 +54,11 @@ abstract class BaseAdapter<T, Binding : ViewBinding>(
         }
     }
 
+    @JvmName("getData1")
+    fun getData(): List<T> {
+        return data
+    }
+
     inner class BaseViewHolder(binding: Binding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: T) {
             onBind(binding, model)

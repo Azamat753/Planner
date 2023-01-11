@@ -98,7 +98,12 @@ class CreateTasksFragment :
                 listTasks?.let {
                     Collections.sort(
                         it
-                    ) { p0, p1 -> java.lang.Boolean.compare(p0?.isDone == true, p1?.isDone == true) }
+                    ) { p0, p1 ->
+                        java.lang.Boolean.compare(
+                            p0?.isDone == true,
+                            p1?.isDone == true
+                        )
+                    }
                 }
                 isSorted = true
                 adapter.update(listTasks as List<TasksModel>)
@@ -108,122 +113,135 @@ class CreateTasksFragment :
                     if (it.isDone) doneTaskAmount++
                 }
             }
-        }
-    }
-
-    private fun getCurrentLevel() {
-        achievementViewModel.getData().observe(viewLifecycleOwner) { level ->
-            if (level.isNotEmpty()) {
-                nowLevel = level[0].level
-                levelId = level[0].id!!
+           /* if (tasks.isNotEmpty()) {
+                binding.textNooruz.visibility = View.GONE
+                binding.imageNooruz.visibility = View.GONE
             } else {
-                val model = AchievementModel(level = 0)
-                achievementViewModel.insertData(model)
+                binding.textNooruz.visibility = View.VISIBLE
+                binding.imageNooruz.visibility = View.VISIBLE
+
+
+            }*/
+        }
+    }
+
+        private fun getCurrentLevel() {
+            achievementViewModel.getData().observe(viewLifecycleOwner) { level ->
+                if (level.isNotEmpty()) {
+                    nowLevel = level[0].level
+                    levelId = level[0].id!!
+                } else {
+                    val model = AchievementModel(level = 0)
+                    achievementViewModel.insertData(model)
+                }
             }
         }
-    }
 
-    private fun rewardAnAchievement(completeTask: Int) {
-        if (completeTask % 5 == 0) {
-            StringPreference.getInstance(requireContext())
-                ?.saveStringData(Constants.COMPLETE_TASK, completeTask.toString())
-            nowLevel += 1
-            val model = AchievementModel(level = nowLevel, id = levelId)
-            achievementViewModel.update(model)
-            binding.achievementView.show(getString(R.string.congratulation), getString(R.string.level)+ " $nowLevel")
-        }
-    }
-
-    private fun updateCategoryTaskAmount() {
-        Handler().postDelayed({
-            val getModel: CategoryModel = args.model
-            val model = CategoryModel(
-                taskAmount = taskAmount,
-                categoryIcon = getModel.categoryIcon,
-                id = getModel.id,
-                categoryName = getModel.categoryName,
-                doneTaskAmount = doneTaskAmount
-            )
-            categoryViewModel.update(model)
-        }, 100)
-    }
-
-    private fun initRecycler() {
-        adapter = SimpleTaskAdapter(this)
-        binding.crRecycler.adapter = adapter
-    }
-
-    private fun insertDataToDataBase(category: String) {
-        binding.addTaskPersonal.setOnClickListener {
-            val taskValues = binding.crEditText.text.toString().trim()
-            if (taskValues.isNotEmpty()) {
-                val tasks = TasksModel(
-                    category = category,
-                    task = taskValues,
-                    isDone = false
+        private fun rewardAnAchievement(completeTask: Int) {
+            if (completeTask % 5 == 0) {
+                StringPreference.getInstance(requireContext())
+                    ?.saveStringData(Constants.COMPLETE_TASK, completeTask.toString())
+                nowLevel += 1
+                val model = AchievementModel(level = nowLevel, id = levelId)
+                achievementViewModel.update(model)
+                binding.achievementView.show(
+                    getString(R.string.congratulation),
+                    getString(R.string.level) + " $nowLevel"
                 )
-                viewModel.addTask(tasks)
-                binding.crEditText.clearField()
-                burstKonfetti()
             }
-            updateCategoryTaskAmount()
+        }
+
+        private fun updateCategoryTaskAmount() {
+            Handler().postDelayed({
+                val getModel: CategoryModel = args.model
+                val model = CategoryModel(
+                    taskAmount = taskAmount,
+                    categoryIcon = getModel.categoryIcon,
+                    id = getModel.id,
+                    categoryName = getModel.categoryName,
+                    doneTaskAmount = doneTaskAmount
+                )
+                categoryViewModel.update(model)
+            }, 100)
+        }
+
+        private fun initRecycler() {
+            adapter = SimpleTaskAdapter(this)
+            binding.crRecycler.adapter = adapter
+        }
+
+        private fun insertDataToDataBase(category: String) {
+            binding.addTaskPersonal.setOnClickListener {
+                val taskValues = binding.crEditText.text.toString().trim()
+                if (taskValues.isNotEmpty()) {
+                    val tasks = TasksModel(
+                        category = category,
+                        task = taskValues,
+                        isDone = false
+                    )
+                    viewModel.addTask(tasks)
+                    binding.crEditText.clearField()
+                    burstKonfetti()
+                }
+                updateCategoryTaskAmount()
+            }
+        }
+
+        private fun decrementDone(model: TasksModel) {
+            doneTaskAmount--
+            model.doneAmount = doneTaskAmount
+            viewModel.update(model)
+        }
+
+        private fun incrementDone(model: TasksModel) {
+            rainKonfetti()
+            doneTaskAmount++
+            model.doneAmount = doneTaskAmount
+            viewModel.update(model)
+
+            val amount =
+                StringPreference.getInstance(requireContext())
+                    ?.getStringData(Constants.COMPLETE_TASK)
+            if (!amount.equals(doneTaskAmount.toString())) {
+                rewardAnAchievement(doneTaskAmount)
+            }
+        }
+
+        private fun isFromProgress(): Boolean {
+            return arguments?.getBoolean(Constants.IS_PROGRESS) == true
+        }
+
+        private fun overrideBackClick() {
+            if (isFromProgress()) {
+                backToProgress()
+            } else {
+                onBackPressOverride(R.id.category_fragment)
+            }
+        }
+
+        override fun checkClick(model: TasksModel, position: Int) {
+            if (!model.isDone) {
+                model.isDone = true
+                incrementDone(model)
+            } else {
+                model.isDone = false
+                decrementDone(model)
+            }
+            adapter.notifyItemMoved(position, binding.crRecycler.adapter?.itemCount!! - 1)
+            binding.crRecycler.itemAnimator = DefaultItemAnimator()
+        }
+
+        override fun longClick(model: TasksModel, itemView: View) {
+            val dialog = requireContext().getDialog(R.layout.long_click_dialog)
+            val delete = dialog.findViewById<Button>(R.id.delete_button)
+            val edit: Button = dialog.findViewById(R.id.edit_button)
+            edit.gone()
+            delete.setOnClickListener {
+                explosionField.explode(itemView)
+                viewModel.delete(model)
+                updateCategoryTaskAmount()
+                dialog.dismiss()
+            }
+            dialog.show()
         }
     }
-
-    private fun decrementDone(model: TasksModel) {
-        doneTaskAmount--
-        model.doneAmount = doneTaskAmount
-        viewModel.update(model)
-    }
-
-    private fun incrementDone(model: TasksModel) {
-        rainKonfetti()
-        doneTaskAmount++
-        model.doneAmount = doneTaskAmount
-        viewModel.update(model)
-
-        val amount =
-            StringPreference.getInstance(requireContext())?.getStringData(Constants.COMPLETE_TASK)
-        if (!amount.equals(doneTaskAmount.toString())) {
-            rewardAnAchievement(doneTaskAmount)
-        }
-    }
-
-    private fun isFromProgress(): Boolean {
-        return arguments?.getBoolean(Constants.IS_PROGRESS) == true
-    }
-
-    private fun overrideBackClick() {
-        if (isFromProgress()) {
-            backToProgress()
-        } else {
-            onBackPressOverride(R.id.category_fragment)
-        }
-    }
-
-    override fun checkClick(model: TasksModel, position: Int) {
-        if (!model.isDone) {
-            model.isDone = true
-            incrementDone(model)
-        } else {
-            model.isDone = false
-            decrementDone(model)
-        }
-        adapter.notifyItemMoved(position, binding.crRecycler.adapter?.itemCount!! - 1)
-        binding.crRecycler.itemAnimator=DefaultItemAnimator()
-    }
-
-    override fun longClick(model: TasksModel, itemView: View) {
-        val dialog = requireContext().getDialog(R.layout.long_click_dialog)
-        val delete = dialog.findViewById<Button>(R.id.delete_button)
-        val edit: Button = dialog.findViewById(R.id.edit_button)
-        edit.gone()
-        delete.setOnClickListener {
-            explosionField.explode(itemView)
-            viewModel.delete(model)
-            updateCategoryTaskAmount()
-            dialog.dismiss()
-        }
-        dialog.show()
-    }
-}

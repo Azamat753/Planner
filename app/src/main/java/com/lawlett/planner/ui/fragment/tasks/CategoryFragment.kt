@@ -195,6 +195,14 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
                 adapter.setData(category)
                 listModel = category
             }
+            val list = adapter.getData()
+            if (list.isNotEmpty()) {
+                binding.textNooruz.visibility = View.GONE
+                binding.imageNooruz.visibility = View.GONE
+            } else {
+                binding.textNooruz.visibility = View.VISIBLE
+                binding.imageNooruz.visibility = View.VISIBLE
+            }
         }
     }
 

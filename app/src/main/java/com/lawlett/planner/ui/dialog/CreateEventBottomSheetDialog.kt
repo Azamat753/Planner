@@ -144,7 +144,7 @@ class CreateEventBottomSheetDialog(var checkList: CheckListEvent?) :
         val minute = calendar.get(Calendar.MINUTE)
         val timePicker =
             TimePickerDialog(
-                requireContext(),
+                requireContext(),R.style.TimePickerSpinner,
                 { _, selectedHour, selectedMinute ->
                     choosedHour = selectedHour
                     choosedMinute = selectedMinute

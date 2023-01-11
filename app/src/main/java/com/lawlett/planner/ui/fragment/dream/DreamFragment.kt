@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::inflate),
+class   DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::inflate),
     BaseAdapter.IBaseAdapterLongClickListenerWithModel<DreamModel>,
     BaseAdapter.IBaseAdapterClickListener<DreamModel>, CheckListEvent {
     private var listSize: Int = 0
@@ -111,15 +111,25 @@ class DreamFragment : BaseFragment<FragmentDreamBinding>(FragmentDreamBinding::i
         adapter.listener = this
         adapter.longListenerWithModel = this
         getDataFromDataBase()
+
     }
 
     private fun getDataFromDataBase() {
-        viewModel.getData().observe(viewLifecycleOwner, { dream ->
+        viewModel.getData().observe(viewLifecycleOwner) { dream ->
             if (dream.isNotEmpty()) {
                 listSize = dream.size
                 adapter.setData(dream)
+                binding.textNooruz.visibility = View.GONE
+                binding.imageNooruz.visibility = View.GONE
+            } else {
+                binding.textNooruz.visibility = View.VISIBLE
+                binding.imageNooruz.visibility = View.VISIBLE
             }
-        })
+
+
+
+        }
+
     }
 
     override fun onLongClick(model: DreamModel, itemView: View, position: Int) {

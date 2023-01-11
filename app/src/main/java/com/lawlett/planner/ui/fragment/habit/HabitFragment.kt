@@ -135,12 +135,22 @@ class HabitFragment : BaseFragment<FragmentHabitBinding>(FragmentHabitBinding::i
 
     private fun getDataFromDataBase(adapter: HabitAdapter) {
         viewModel.getHabitsLiveData()
-            .observe(viewLifecycleOwner, { habits ->
+            .observe(viewLifecycleOwner) { habits ->
                 if (habits.isNotEmpty()) {
                     adapter.setData(habits)
                     listModel = habits
                 }
-            })
+                val list=adapter.getData()
+                if (list.isNotEmpty()) {
+                    binding.textNooruz.visibility = View.GONE
+                    binding.imageNooruz.visibility = View.GONE
+                } else {
+                    binding.textNooruz.visibility = View.VISIBLE
+                    binding.imageNooruz.visibility = View.VISIBLE
+
+
+                }
+            }
     }
 
     override fun onLongClick(model: HabitModel, itemView: View, position: Int) {

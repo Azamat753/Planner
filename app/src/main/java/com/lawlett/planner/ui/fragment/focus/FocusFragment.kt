@@ -43,6 +43,8 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
         addFalseDataForExample()
         showSpotlight()
         backToProgress()
+
+
     }
 
     private fun showSpotlight() {
@@ -97,12 +99,21 @@ class FocusFragment : BaseFragment<FragmentFocusBinding>(FragmentFocusBinding::i
     }
 
     private fun getData() {
-        viewModel.getData().observe(viewLifecycleOwner, { skills ->
+        viewModel.getData().observe(viewLifecycleOwner) { skills ->
             if (skills.isNotEmpty()) {
                 listSize = skills.size
                 adapter.setData(skills)
             }
-        })
+            val list = adapter.getData()
+            if (list.isNotEmpty()) {
+                binding.textNooruz.visibility = View.GONE
+                binding.imageNooruz.visibility = View.GONE
+            } else {
+                binding.textNooruz.visibility = View.VISIBLE
+                binding.imageNooruz.visibility = View.VISIBLE
+            }
+
+        }
     }
 
     private fun openTimerFragmentAndSendModel(model: SkillModel) {

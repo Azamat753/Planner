@@ -2,23 +2,30 @@ package com.lawlett.planner.ui.dialog
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
+import android.databinding.tool.ext.T
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
+import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import com.google.android.material.timepicker.MaterialTimePicker
 import com.lawlett.planner.R
 import com.lawlett.planner.callback.CheckListEvent
 import com.lawlett.planner.data.room.models.DreamModel
 import com.lawlett.planner.data.room.viewmodels.DreamViewModel
 import com.lawlett.planner.databinding.CreateDreamBottomSheetBinding
 import com.lawlett.planner.extensions.getTodayDate
+import com.lawlett.planner.extensions.visible
 import com.lawlett.planner.ui.base.BaseBottomSheetDialog
 import com.lawlett.planner.utils.Constants
 import org.koin.android.ext.android.inject
 import java.time.Duration
 import java.time.LocalTime
 import java.util.*
+import kotlin.concurrent.fixedRateTimer
+
 
 class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
     BaseBottomSheetDialog<CreateDreamBottomSheetBinding>(CreateDreamBottomSheetBinding::inflate) {
@@ -44,6 +51,7 @@ class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
         binding.endTimeButton.setOnClickListener { pickTime(false) }
     }
 
+
     private fun setTitle() {
         binding.titleCard.title.text = getString(R.string.sleep_recording)
     }
@@ -54,8 +62,7 @@ class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
 
     private fun setDataForUpdate() {
         if (isUpdate()) {
-            val model: DreamModel =
-                arguments?.getSerializable(Constants.UPDATE_MODEL) as DreamModel
+            val model: DreamModel = arguments?.getSerializable(Constants.UPDATE_MODEL) as DreamModel
             startHour = model.wokeUp.substringBefore(":").trim().toInt()
             startMinute = model.wokeUp.substringAfter(":").trim().toInt()
             endHour = model.fellAsleep.substringBefore(":").trim().toInt()
@@ -122,8 +129,7 @@ class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateModel(startTime: String, endTime: String, title: String) {
-        val model: DreamModel =
-            arguments?.getSerializable(Constants.UPDATE_MODEL) as DreamModel
+        val model: DreamModel = arguments?.getSerializable(Constants.UPDATE_MODEL) as DreamModel
         val updateModel = DreamModel(
             id = model.id,
             wokeUp = startTime,
@@ -149,42 +155,51 @@ class CreateDreamBottomSheetDialog(val checkListEvent: CheckListEvent) :
         var myMinute = ""
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
-        val timePicker =
-            TimePickerDialog(
-                requireContext(),
-                { _, selectedHour, selectedMinute ->
-                    if (isStart) {
-                        startHour = selectedHour
-                        startMinute = selectedMinute
-                    } else {
-                        endHour = selectedHour
-                        endMinute = selectedMinute
-                    }
-//                    if (startHour==0 && startMinute==0 ){
-//                todo
-//                    }
-                    myHour = if (selectedHour.toString().count() == 1) {
-                        "0$selectedHour"
-                    } else {
-                        selectedHour.toString()
-                    }
+        val myTimeListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+            if (view.isShown ) {
+                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                calendar.set(Calendar.MINUTE, minute)
+            }
+        }
+        val timePicker = TimePickerDialog(
+            requireContext(),R.style.TimePickerSpinner,{ _, selectedHour, selectedMinute ->
+              if (isStart) {
+                    startHour = selectedHour
+                    startMinute = selectedMinute
 
-                    myMinute = if (selectedMinute.toString().count() == 1) {
-                        "0$selectedMinute"
-                    } else {
-                        selectedMinute.toString()
-                    }
+                } else {
+                    endHour = selectedHour
+                    endMinute = selectedMinute
+                }
+                //                    if (startHour==0 && startMinute==0 ){
+                //                todo
+                //                    }
+                myHour = if (selectedHour.toString()
+                        .count() == 1
+                ) { // сетит текст для времени
+                    "0$selectedHour"
+                } else {
+                    selectedHour.toString()
+                }
 
-                    if (isStart) {
-                        binding.startTimeText.text = "$myHour : $myMinute"
-                    } else {
-                        binding.endTimeText.text = "$myHour : $myMinute"
-                    }
-                },
-                hour,
-                minute,
-                true
-            )
+                myMinute = if (selectedMinute.toString().count() == 1) {
+                    "0$selectedMinute"
+                } else {
+                    selectedMinute.toString()
+                }
+
+                if (isStart) {
+                    binding.startTimeText.text = "$myHour : $myMinute"  //сохранение времени
+
+                } else {
+                    binding.endTimeText.text = "$myHour : $myMinute"
+
+                }
+         }, hour, minute, true
+        )
+
         timePicker.show()
+
+
     }
 }

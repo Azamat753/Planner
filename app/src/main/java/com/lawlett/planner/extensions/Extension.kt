@@ -18,7 +18,6 @@ import com.lawlett.planner.R
 import com.lawlett.planner.ui.activity.MainActivity
 import tyrantgit.explosionfield.ExplosionField
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -66,7 +65,7 @@ fun getTodayDate(context: Context): String {
     val calendar = Calendar.getInstance()
     val currentMonth = calendar[Calendar.MONTH]
     val currentDay = calendar[Calendar.DAY_OF_MONTH]
-    val todayDate = theMonth(currentMonth,context) + " $currentDay"
+    val todayDate = theMonth(currentMonth, context) + " $currentDay"
     return todayDate
 }
 
@@ -91,6 +90,7 @@ fun theMonth(month: Int, context: Context): String {
 fun Double.toDecimal(): String {
     return DecimalFormat("##.#").format(this)
 }
+
 fun String.removeBrackets() = this.replace("[", "").replace("]", "")
 
 fun Context.getDialog(layout: Int): Dialog {

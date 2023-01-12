@@ -13,6 +13,7 @@ import android.widget.Toast
 class TasksWidget : AppWidgetProvider() {
     val TOAST_ACTION = "com.example.android.stackwidget.TOAST_ACTION"
     val EXTRA_ITEM = "com.example.android.stackwidget.EXTRA_ITEM"
+
     override fun onDeleted(context: Context?, appWidgetIds: IntArray?) {
         super.onDeleted(context, appWidgetIds)
     }
@@ -44,14 +45,11 @@ class TasksWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (i in appWidgetIds.indices) {
-
             val intent = Intent(context, MyWidgetRemoteViewsService::class.java)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i])
-
             intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
             val rv = RemoteViews(context.packageName, com.lawlett.planner.R.layout.widget_layout)
             rv.setRemoteAdapter(appWidgetIds[i], com.lawlett.planner.R.id.stack_view, intent)
-
             rv.setEmptyView(com.lawlett.planner.R.id.stack_view, com.lawlett.planner.R.id.empty_view)
             val toastIntent = Intent(context, TasksWidget::class.java)
             toastIntent.action = TOAST_ACTION

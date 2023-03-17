@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.EventsFragment">
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.events.EventsFragment">
 
-    <com.oscarvera.calendarhorizontal.HorizontalCalendarView
-        android:id="@+id/calendar_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/event_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/royalStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_event" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_quick_btn"
+        android:id="@+id/add_event_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/plus_background"
+        android:backgroundTint="?attr/windowColor"
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,4 +30,14 @@
         app:srcCompat="@drawable/ic_add_task"
         tools:targetApi="lollipop" />
 
+    <com.cdev.achievementview.AchievementView
+        android:id="@+id/achievement_view"
+        custom:collapseStartDelay="3500"
+        custom:colorLeft="@color/green_for_achievement"
+        custom:colorRight="@color/dark_green_for_achievement"
+        custom:drawableLeft="@drawable/trophy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

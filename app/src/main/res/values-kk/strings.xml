@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="events">Оқиғалар</string>
+    <string name="tasks">Міндеттері</string>
+    <string name="ideas">Идеялар</string>
+    <string name="january">Қаңтар</string>
+    <string name="february">Ақпан</string>
+    <string name="march">Наурыз</string>
+    <string name="april">Сәуір</string>
+    <string name="may">Мамыр</string>
+    <string name="june">Маусым</string>
+    <string name="july">Шілде</string>
+    <string name="august">Тамыз</string>
+    <string name="september">Қыркүйек</string>
+    <string name="october">Қазан</string>
+    <string name="november">Қараша</string>
+    <string name="december">Желтоқсан</string>
+    <string name="are_you_sure">Сіз сенімдіміз ?</string>
+    <string name="no">Жоқ</string>
+    <string name="yes">Иә</string>
+    <string name="record_idea">Идеяның мәнін енгізіңіз</string>
+    <string name="record_description">Сипаттаманы енгізіңіз</string>
+    <string name="settings">Баптаулар</string>
+    <string name="change_theme">Тақырыпты өзгерту</string>
+    <string name="begin_time">Уақыттың басталуы</string>
+    <string name="end_time">Уақыттың соңы</string>
+    <string name="delete">Шығарылуы</string>
+    <string name="empty">Бос</string>
+    <string name="stopwatch">Секундомер</string>
+    <string name="image">Сурет</string>
+    <string name="timer">Таймер</string>
+    <string name="what_are_doing">Сен не істейсің?</string>
+    <string name="apply">Қабылдау</string>
+    <string name="time">Уақыты</string>
+    <string name="toStart">Бастау</string>
+    <string name="complete">Аяқтау</string>
+    <string name="choose_language">Тілді Таңдаңыз…</string>
+    <string name="change_language">Тілді өзгерту</string>
+    <string name="task">Міндет</string>
+    <string name="ready">Дайын ?</string>
+    <string name="plan_own_day">Күніңізді жоспарлаңыз</string>
+    <string name="to_delete">Өшіру</string>
+    <string name="share">Бөлісу</string>
+    <string name="achievement_app">Жетістіктер</string>
+    <string name="add_title">Мәтінді енгізіңіз</string>
+    <string name="choose_image">Суретті таңдаңыз: </string>
+    <string name="cancel">Болдырмау</string>
+    <string name="what_to_do">Сіз не істегіңіз келеді?</string>
+    <string name="help_idea_add">Жаңа идеяны қосу үшін +түймесін басыңыз</string>
+    <string name="help_calendar_add">Жаңа оқиғаны қосу үшін + түймесін басыңыз</string>
+    <string name="changing_theme">Смена темы</string>
+    <string name="new_aim">Жаңа мақсаттар қоятын кез келді!</string>
+    <string name="write_reviews">Пікір жазу</string>
+    <string name="review_on_app">Отзыв на приложение Planner</string>
+    <string name="read">Әрі қарай</string>
+    <string name="done">Жасалған</string>
+    <string name="date">Күні</string>
+    <string name="you_name">Сіздің атыңыз</string>
+    <string name="rate_app">Баға қою</string>
+    <string name="not_enough_balanсe">Баланста қаражат жеткіліксіз !</string>
+    <string name="attention_alert">Назар аударыңыз!</string>
+    <string name="advice1_1">\"Ақшаға құрметпен қараңыз\"</string>
+    <string name="advice1_2">Сіздің ақшаңыз - сіз оны табуға жұмсаған "сақталған" уақытыңыз бен энергияңыз.</string>
+    <string name="advice2">\"Кірістер мен шығыстардың есебін электрондық немесе жазбаша түрде жүргізуді әдетке айналдырыңыз.\"</string>
+    <string name="advice3_1">Несиелік карталардан, тұтынушылық несиелерден және басқа қарыздардан арылыңыз.</string>
+    <string name="advice3_2">\" Қарыздар психологиялық тұрғыдан қысым жасайды, адамдарды күйзеліске ұшыратады және ертеңгі күн туралы алаңдатады. Нәтижесінде, басқа адамдардың ақшасын пайдалану үшін сіз өзіңіздің ақшаңызбен ғана емес, денсаулығыңыз бен энергияңызбен де төлейсіз.\"</string>
+    <string name="advice4_1">Қаражатпен өмір сүріңіз.</string>
+    <string name="advice4_2">\" Сіз бұл ережені бұзған кезде, сіз өз өміріңізде үйлесімділікті жоғалтасыз. Сіз таппаған ақшаны жұмсайсыз, іс жүзінде сізге тиесілі емес нәрсені пайдаланып, кез-келген уақытта оны жоғалтуыңыз мүмкін! Сіздің қажеттіліктеріңіздің арасындағы айырмашылықты біліңіз — сізге шынымен қажет нәрсе және сіздің қалауыңыз — "болу жақсы болар еді". Алдымен барлық қажеттіліктерді жабу үшін басымдықтарды белгілеңіз және қалаулар мен ойын-сауықтарға не қалдыру керек.\"</string>
+    <string name="advice5_1">Импульсивті сатып алулардан және қосымша шығындардан бас тартыңыз.</string>
+    <string name="advice5_2">\" Дүкенге барар алдында сауда тізімін жасаңыз және оған жабысыңыз.\"</string>
+    <string name="advice6_1">Кірістеріңізді арттыру бойынша жұмыс жасаңыз.</string>
+    <string name="advice6_2">\" Сізге нақты не үшін ақша төленетінін біліп, осы салада дамыңыз. Тар тауашада терең білім алу, сіздің құзыреттілігіңіз бен жауапкершілігіңіздің аясын кеңейту, орындалған жұмыстың сапасын жақсарту, сондай-ақ жұмысты тезірек орындау сіздің кірістеріңізді арттырудың кілті бола алады.\"</string>
+    <string name="advice7_2">\" Табысты көбейту-бұл ұзақ және тұрақты жұмыстың нәтижесі, сондықтан шыдамды болыңыз және мақсатқа кішкене қадамдармен қарай бастаңыз.\"</string>
+    <string name="advice7_1">Жылдам нәтиже күтпеңіз.</string>
+    <string name="advice8_1">Қосымша табыс көздерін жасаңыз және сатып алыңыз.</string>
+    <string name="advice8_2">\" Көптеген табысты адамдардың қаржылық тұрақтылығының құпиясы көптеген табыс көздерінде жатыр.\"</string>
+    <string name="advice9">Ақшаны үнемдеңіз-оны құмар ойындарға, қаржы пирамидаларына, күмәнді кәсіпорындар мен мәмілелерге жұмсамаңыз.</string>
+    <string name="advice10_1">Ақшаны қарызға бермеңіз</string>
+    <string name="advice10_2">\" Үлкен тәуекелдер және адамдармен қарым-қатынасты бұзу және ақшаны жоғалту. Банктерге олардың жұмысын қалдырыңыз\"</string>
+    <string name="advice11_1">Аз ақшаға да шашпаңыз.</string>
+    <string name="advice11_2">\" Пенни тек рубльді ғана емес, доллар мен еуроны да үнемдейді!\"</string>
+    <string name="advice12_1">Жаман қаржылық әдеттерден бас тартыңыз,</string>
+    <string name="advice12_2">\" Үнемі әмияннан ақша тартып, бірақ бұрынғы рахат әкелмейді. Біз эмоцияны алу үшін ақша жұмсаймыз. Бірдей бағамен әр түрлі заттар әр түрлі эмоциялар әкелуі мүмкін. Мысалы, кафеде кешкі астан кейін ішуге дағдыланған 200 рубльге арналған кофе енді қуаныш пен қанағат әкелмейді, бірақ сіздің бюджетіңізге аптасына 1000 рубль қажет. Сол мың үшін Сіз массажға немесе киноға бару арқылы әлдеқайда көп эмоциялар ала аласыз.\"</string>
+    <string name="advice13_1">Жеңілдік туралы сұрауға және арнайы ұсыныстарды пайдалануға болады.</string>
+    <string name="advice13_2">\" Сатушы сізге жеңілдіктен бас тартқаннан және ештеңе сатпағаннан гөрі сізге жеңілдік ұсынып, өнімді сатқаны тиімдірек болады.\"</string>
+    <string name="advice14_1">Қаржылық сауаттылық бойынша әдебиеттерді оқыңыз.</string>
+    <string name="advice14_2">\" Сіздің әл-ауқатыңыз сіздің қаржылық сауаттылық деңгейіңізге тікелей байланысты!\"</string>
+    <string name="advice15">Өзіңізге жеке қаржылық жоспар құрыңыз және оны орындаңыз.</string>
+    <string name="advice16_1">Алдымен өзіңізге төлеңіз-ақшаны жұмсағаннан кейін оны үнемдеуге тырысу кеш.</string>
+    <string name="advice16_2">\" Сіз өзіңіздің қаржылық мақсаттарыңызға жету үшін ақшаның бір бөлігін оларды алғаннан кейін дереу жинауыңыз керек.\"</string>
+    <string name="advice17_1">Инвестициялау сіз ойлағаннан да оңай және қол жетімді.</string>
+    <string name="advice17_2">\" Сонымен қатар, кейбір қаржы құралдары бұл процесті автоматтандыруға мүмкіндік береді. Ең бастысы, бұл сіз үшін соншалықты маңызды, сондықтан сіз әрекет етуге дайынсыз ба?\"</string>
+    <string name="advice18_1">Қажетті сапалы заттарды сатып алыңыз.</string>
+    <string name="advice18_2">\" Жоғары сапалы өнімдер, әдетте, қымбатырақ, бірақ оны пайдалану арзанырақ.\"</string>
+    <string name="advice19_1">Сіздің кірістеріңіз әрқашан шығындарыңыздан тез өсетініне көз жеткізіңіз.</string>
+    <string name="advice19_2">\" Бұл жағдайда сіздің кірістеріңіз әрқашан шығындарыңыздан көп болуы керек. Бұл қаржылық әл-ауқаттың негізгі қағидаларының бірі.\"</string>
+    <string name="advice20_1">Кішкентай болса да, әрқашан ақшаны санаңыз.</string>
+    <string name="advice20_2">\" Күнделікті шағын шығындар жылдар бойы үлкен мөлшерде және ондаған жылдар ішінде одан да көп мөлшерде жиналуы мүмкін. Сіз өзіңізге "1000 рубль ақша емес, өкінішті емес және жоғалту" сияқты бірдеңе айтқан сайын, сіз болашақта ондаған және жүздеген мыңдарды таңдайсыз, егер сіз оны дұрыс инвестицияласаңыз, осы мыңға айналады.\"</string>
+    <string name="advice21_1">Бір нәрсе сатып алмас бұрын әртүрлі жерлерде бағаларды салыстырыңыз.</string>
+    <string name="advice21_2">\" Сіздің өміріңіздің сағаттарында бағаны өлшеген дұрыс-бұл сатып алуға қажетті соманы жинау үшін қанша уақыт жұмыс істеу керек. Сондықтан сіз төлейтін тауардың бағасын сіз үшін оның құндылығымен салыстыру оңайырақ болады. Сіз бір кесе кофе үшін бір сағат өмір беруге дайынсыз ба? Ал жаңа телефон үшін өмір айы?\"</string>
+    <string name="advice22">\"Басқа адамдарға қызғаныш білдірмеңіз, бірақ олардан сізден жақсы түсінетін нәрсені үйреніңіз.\"</string>
+    <string name="advice23">Сіздің қаржылық әл-ауқатыңыз толығымен сізге және сіздің әрекеттеріңізге байланысты екенін түсініңіз.</string>
+    <string name="advice24_1">Дәл қазір "ақша диетасына" отырыңыз!</string>
+    <string name="advice24_2">\" Қазір өмір салтыңызды кейінге қалдырмай өзгертіңіз. Бұл Сізге жыл бойы мыңдаған доллар үнемдеуге мүмкіндік береді.\"</string>
+    <string name="costs">Шығыстар</string>
+    <string name="income">Табыс</string>
+    <string name="balance">Теңгерім</string>
+    <string name="enter_amount">Соманы енгізіңіз</string>
+    <string name="habit">Әдеттер</string>
+    <string name="your_habit_is_done">Бүгін сіз осы міндеттің орындалуын атап өттіңіз</string>
+    <string name="you_is_done_habit_today">Сіз бүгін тапсырманы шынымен аяқтадыңыз ба?</string>
+    <string name="edit">Редакциялау</string>
+    <string name="helper_finance_dialog" >
+        Теңгерім.\n
+Мұнда сіз ағымдағы балансты көре аласыз.
+Табыс қосылған кезде сіздің балансыңыз артады.
+Ағын немесе жиі шығындар қосылған кезде азаяды.\n
+        \nЖинақ.\n
+Мұнда сіз ағымдағы күйіңізді жаза аласыз
+жинақ қосу түймесін басу арқылы.  (Сондай-ақ) Сіз емессіз
+сіз ағымдағы жинақтан жұмсай аласыз . Қарыз кезінде
+түймені басу арқылы барлық жинақ сомасын жоюға болады.\n
+\nКірістер.\n
+Плюс түймесін басу арқылы сіз өз кірістеріңізді қоса аласыз .
+Әрбір кіріс қосылған сайын сіздің балансыңыз артады.\n
+\nШығыстар.\n
+Минус түймесін басу арқылы сіз қосуға болады
+сіздің шығындарыңыз. Сома мен сипаттаманы енгізу керек
+шығын (мүмкіндігінше). Сізге ыңғайлы болу үшін біз
+бөлім: шығыстар тарихы, жоғарыда "Шығыстар" бөлімінде"
+сіз шығындарыңызды қадағалай аласыз.\n
+\nЖиі шығындар.\n
+Қосу түймесін басу арқылы сіз өзіңізді қоса аласыз
+жиі жұмсау (Элемент). Бұл үшін пайдалы
+сіз ақшаны жиі жұмсайтын нәрсені бақылай алдыңыз.
+Элементті басу арқылы сіз жұмсалған соманы қоса аласыз
+және жұмсалған ақшаның жалпы сомасын қараңыз. Сондай-ақ,,
+оңға сырғыту арқылы сіз элементті жиі шығындар тізімінен алып тастай аласыз.
+   </string>
+    <string name="main">Ең бастысы</string>
+    <string name="finance">Қаржы</string>
+    <string name="you_forgot_habbit">\"Сіз әдетті ұмытқан жоқсыз\"</string>
+    <string name="you_can_edit_profile">Профильді өңдеуге болады</string>
+    <string name="advice25_1">Жақын тексерудегі сәттілік-бұл үлкен жұмыс пен Мұқият дайындықтың нәтижесі.</string>
+    <string name="advice26_1">Егер сіз бірдеңе жасауды шешсеңіз, бірақ оны 72 сағат ішінде бастамасаңыз – 85% жағдайда сіз оны ешқашан жасай алмайсыз.</string>
+    <string name="advice27_1">\"Кім істесе, сәттілік күтеді. Кім" тырысса", оған бір нәрсе кедергі болады деп күтеді.\"</string>
+    <string name="advice27_2">Жарты күш нәтиженің жартысын емес, нөлдік нәтижені береді.</string>
+    <string name="advice28_1">Күні бойы жұмыс істейтін адамның ақша табуға уақыты жоқ.</string>
+    <string name="advice29_1">Ең үлкен талант-өз іс-әрекеттері үшін мотивацияны таба білу.</string>
+    <string name="advice30_1">Қаржылық шектеусіз және шығындарды жоспарлаусыз қаржылық әл-ауқат мүмкін емес. Қаржылық еркіндік қаржылық шектеулерден өтеді.</string>
+    <string name="advice_31_1">Жақсы ұйықтаудан гөрі жаман бастаған дұрыс.</string>
+    <string name="advice32_1">Өз денсаулығыңыз туралы ойланыңыз. Жақсы денсаулықсыз сәттілік мүмкін емес.</string>
+    <string name="advice_32_2">\" Денсаулықсыз байлық қуаныш әкелмейді.\"</string>
+    <string name="advice_33_1">Мақсатқа жарық жылдамдығымен емес, тасбақа жылдамдығымен барған дұрыс, неге тұрғаныңызды ақтаңыз.</string>
+    <string name="advice_34_1">Өзіңіздің сүйікті хоббиіңізді алыңыз және оған мансап құрыңыз.</string>
+    <string name="advice35_1">\"Жақсы табыс табу үшін жақсы білім қажет.\"</string>
+    <string name="advice_35_2">Үнемі оқуға, оқуға, көкжиегіңізді кеңейтуге тырысыңыз. Дуракам әкеле тек казино, және онда сирек.</string>
+    <string name="advice_36_1">Байлық-бұл Казинода, мейрамханада, курортта немесе дүкенде қанша ақша жұмсағаныңыз емес.</string>
+    <string name="advice36_2">\" Байлық – бұл сіз кейінге қалдырған және сақтаған нәрсе.\"</string>
+    <string name="advice37_1">Бір рет тек ақымақтарға сәттілік. Ақылды әрқашан бақытты.</string>
+    <string name="advice38_1">Сіз барлық оқиғаларға жауап бермейсіз</string>
+    <string name="advice38_2">Бірақ сіз әрқашан оқиғаларды түсіндіруге және оларға жауап беруге жауаптысыз.</string>
+    <string name="advice39_1">\"Отыру және ғажайыпты күту спортшыны теледидар алдында үйде отыру сияқты ақымақтық,\"</string>
+    <string name="advice39_2">Олимпиада ойындарын көріңіз және оларға алтын медаль алуға үміттеніңіз.</string>
+    <string name="advice40_1">Ақша әрқашан біз оларға беретін мағынаға ие.</string>
+    <string name="advice41_1">Ақшаның өзі ешкімді бақытты немесе бақытсыз етпейді. Олар жақсы және кемшіліктері.</string>
+    <string name="advice_41_2">Ақшасы бар бақытты адам одан да бақытты болады. Бәрінен проблема жасайтын Пессимист ақшамен одан да көп проблемалар алады. Ақша иесінің мінезін анықтайды. Олар үлкейту әйнегі сияқты.</string>
+    <string name="advice42_1">\"Ешкім көп ақша табатындықтан ғана бай болмайды.\"</string>
+    <string name="advice42_2">Сіз өзіңіздің капиталыңыздың пайызымен жұмыс жасамай өмір сүре алатын кезде ғана байсыз: ақша сіз үшін жұмыс істейді.</string>
+    <string name="advice43_1">Қағидаттық ұстаным: ешқашан сіз өзіңіз болуға дайын емес адамның кеңесін қабылдамаңыз.</string>
+    <string name="advice44_1">Жауапкершіліксіз өмір сүру дегеніміз-әлсіз құрбанның жағдайына нұқсан келтіру.</string>
+    <string name="advice44_2">\" Бұл басқалар сіз үшін жазған ережелерге сәйкес өмір сүруді білдіреді.\"</string>
+    <string name="advice45_1">Көптеген адамдар бір жылда не істей алатындығын асыра бағалайды және он жылда не істей алатындығын бағаламайды.</string>
+    <string name="advice46_1">\"Біз раушандарды көреміз, бірақ тікенектерді байқамаймыз. Біз жетістікке жетеміз, бірақ оған дайындық емес.\"</string>
+    <string name="advice46_2">Және біз бөтен, сәтсіздіктер. Біз қатысу, естіп, мұқият дайындайды, өз сәттілік "счастливчики".</string>
+    <string name="advice47_1">Сіз жоғалтпау үшін ойнайтын ойын мен сіз жеңгіңіз келетін ойын арасында түбегейлі айырмашылық бар.</string>
+    <string name="advice48_1">Сізге төлеуге емес, сонша, қанша тұр? Жоқ, егер сіз осы ақшаға жұмыс жасасаңыз –</string>
+    <string name="advice48_2">\" Сонымен, сіз сонша тұрсыз. Егер бір нәрсе ұнамайды – ауыстырыңыз жұмысы, өмір сүру салты, ауыстырыңыз өзіне.\"</string>
+    <string name="notification_for_habit">Әдеттерге арналған хабарлама</string>
+    <string name="you_can_set_notification">Сіз өзіңізге қажетті уақытты орната аласыз</string>
+    <string name="amount">Сомасы:</string>
+    <string name="description">Сипаттамасы:</string>
+    <string name="enter_name">Атын енгізіңіз</string>
+    <string name="description_about_app">Қолданба сипаттамасы</string>
+    <string name="blue">Көк</string>
+    <string name="red">Қызыл</string>
+    <string name="orange">Қызғылт сары</string>
+    <string name="yellow">Сары</string>
+    <string name="black">Қара</string>
+    <string name="green">Жасыл</string>
+    <string name="white">Ақ</string>
+    <string name="remind">Еске салу</string>
+    <string name="fill_field">Өрісті толтырыңыз</string>
+    <string name="new_idea">Жаңа идея</string>
+    <string name="new_category">Жаңа санат</string>
+    <string name="category_name">Санат атауы</string>
+    <string name="new_habit">Жаңа әдет</string>
+    <string name="what_done_yesterday">Кешегі күні не орындалды?</string>
+    <string name="what_plan_today">Бүгін не жоспарланған ?</string>
+    <string name="problems">Мәселелер немесе блокаторлар</string>
+    <string name="important_info">Маңызды ақпарат</string>
+    <string name="next">Оқу</string>
+    <string name="pink">Қызғылт</string>
+    <string name="violet">Күлгін</string>
+    <string name="monday">Дүйсенбі</string>
+    <string name="tuesday">Сейсенбі</string>
+    <string name="wednesday">Сәрсенбі</string>
+    <string name="thursday">Бейсенбі</string>
+    <string name="friday">Жұма</string>
+    <string name="saturday">Сенбі</string>
+    <string name="sunday">Жексенбі</string>
+    <string name="timetable">Кестесі</string>
+    <string name="stand_up">Стендап</string>
+    <string name="focus">Фокус</string>
+    <string name="expensive">Шығыны</string>
+    <string name="history">Тарихы</string>
+    <string name="choose_action">Әрекетті таңдаңыз</string>
+    <string name="ofCourse">Әрине</string>
+    <string name="enter_password">Құпия сөзді енгізіңіз</string>
+    <string name="wrong_password">Пароль дұрыс емес</string>
+    <string name="block">Бұғаттау</string>
+    <string name="set_password">Пароль қойыңыз</string>
+    <string name="in_case_lost_password">Құпиясөз жоғалған жағдайда</string>
+    <string name="forgot_password">Құпия сөзді ұмыттыңыз ба</string>
+    <string name="not_correct">Қате</string>
+    <string name="changePassword">м</string>
+    <string name="unblock">Бұғаттан шығару</string>
+    <string name="heavenly">Көктегі</string>
+    <string name="bilberry">Қарақат</string>
+    <string name="wake_up_morning">Таңғы 6-да тұру</string>
+    <string name="read_by_minutes">15 минуттан оқыңыз</string>
+    <string name="health">Денсаулық</string>
+    <string name="targets">Мақсаты</string>
+    <string name="download_app">Planner + қосымшасын жүктеу</string>
+    <string name="look_how_it_work">Көру ол қалай жұмыс істейді</string>
+    <string name="for_next_lesson">Келесі сабақ үшін</string>
+    <string name="implement_new_fun">Жаңа функцияны іске асыру</string>
+    <string name="new_process">Жаңа процесс</string>
+    <string name="set_amount_day">Күндер санын көрсетіңіз</string>
+    <string name="add_some_event">Белгілі бір оқиғаны енгізіңіз</string>
+    <string name="icon">Белгіше</string>
+    <string name="minutes_amount">Минут саны</string>
+    <string name="enter_secret_word">Құпия сөзді енгізіңіз</string>
+    <string name="set_notification_on">"Хабарлама орнатылды "</string>
+    <string name="create">Құру</string>
+    <string name="add_pattern">Үлгі қосу</string>
+    <string name="name">Аты</string>
+    <string name="categories">Санаттар</string>
+    <string name="begins">Басталады</string>
+    <string name="ends">Аяқталады</string>
+    <string name="to_the_schedule">Кестеге</string>
+    <string name="woke_up">Оянды</string>
+    <string name="went_to_sleep">Лег ұйықтау</string>
+    <string name="sleep_recording">Ұйқы туралы жазба</string>
+    <string name="dream">Ұйқы</string>
+    <string name="no_records">Жазбалар жоқ</string>
+    <string name="transport">Көлік</string>
+    <string name="products">Азық-түлік</string>
+    <string name="flight_over_city">Өз қалаңның үстінен ұшу</string>
+    <string name="my_dream_in_dream">Маған, мәртебесі екенін ұғындыру сон во сне ол ұйықтар</string>
+    <string name="congratulation">Құттықтаймыз!</string>
+    <string name="level">Деңгейі </string>
+    <string name="you_are_hello">Қош келдіңіз</string>
+    <string name="tool">Құрал</string>
+    <string name="got_you_aim">Сіздің мақсаттарыңызға жету</string>
+    <string name="what_can_i_do">Менің қолымнан не келеді не істеу керек ?</string>
+    <string name="create_notes">Жазбалар жасау</string>
+    <string name="follow_finance">Қаржыны бақылау</string>
+    <string name="keep_focus">Фокусты ұстаңыз</string>
+    <string name="keep_schedule">Кестені сақтау</string>
+    <string name="create_standup">Ап стендін құру</string>
+    <string name="also">Сондай-ақ</string>
+    <string name="to_create_event">Оқиғалар жасау</string>
+    <string name="fix_idea">Идеяларды бекіту</string>
+    <string name="lets_start">Көрейік бастау керек !</string>
+    <string name="click_by_screen">Экранды басыңыз</string>
+    <string name="before_start">Бастамас бұрын қосымшамен танысуды ұсынамыз</string>
+    <string name="two_tools">Мұнда екі навигациялық құрал бар</string>
+    <string name="bottom_and_side">Төменгі және бүйірлік</string>
+    <string name="side_open_by_click">Бүйір жағы сол жақ жоғарғы бұрышта орналасқан бургерді басу арқылы ашылады</string>
+    <string name="after_instruction">Әр терезеге ауысқаннан кейін, Нұсқаулықтың басталуын күтіңіз</string>
+    <string name="go">Кеттік !</string>
+    <string name="you_calendar">Сіздің күнтізбеңіз</string>
+    <string name="show_day">Келесі 3 айға жаңартумен күндерді көрсетеді</string>
+    <string name="set_event_new_task">Күнді басу арқылы сіз аптаның белгілі бір күнінде оқиғаны немесе жаңа тапсырманы орната аласыз</string>
+    <string name="next_you_cards">Әрі қарай сіздің карталарыңыз келеді</string>
+    <string name="here_show">Мұнда сіздің барлық карталарыңыз әдеттер,Санаттар,оқиғалар терезелерінен көрсетіледі</string>
+    <string name="click_cards_ha_ca">Кликнув на карточки привычек или же категории вы можете проделать определенное действие</string>
+    <string name="show_profile">Бүйірлік тақтаны ашып, профиліңізді көре аласыз</string>
+    <string name="avater_name">Аватар, атау және ағымдағы деңгей, Аватар мен атауды орнату үшін оларды нұқыңыз</string>
+    <string name="lvlup_some_action">Белгілі бір іс-әрекеттер үшін деңгей әдеттерді,тапсырмаларды және т. б. орындау үшін жоғарылайды</string>
+    <string name="inside_cards_record">Ішінде жазбалар немесе тапсырмалар жазуға болатын карталар</string>
+    <string name="hold_card">Әрекеттер терезесін шақыру үшін тізімнен картаны қысыңыз</string>
+    <string name="insert_button">Қосу түймесі</string>
+    <string name="create_new_category_click">Осы батырманы басу арқылы санат атауын және белгішені көрсету арқылы жаңа карта жасауға болады</string>
+    <string name="under_everyday"> Күн сайын толтыруға болатын тізімді жасырады</string>
+    <string name="cause_see">Бір күнге не жоспарланғанын көру үшін оны нұқыңыз</string>
+    <string name="hold_task_action">Әрекеттер терезесін шақыру үшін тізімнен жоспарланған тапсырманы қоюға болады</string>
+    <string name="click_here_button">Осы батырманы басу арқылы сіз аптаның белгілі бір күніне жағдай жасай аласыз</string>
+    <string name="planning_events">Жоспарланған іс-шаралар тізімі</string>
+    <string name="set_remind_by_wish"> Қалауыңыз бойынша сіз белгіленсін ескерту</string>
+    <string name="create_ev_date">Осы батырманы басу арқылы сіз белгілі бір күнге оқиғалар жасай аласыз</string>
+    <string name="list_habit">Өзіңізге сіңіргіңіз келетін әдеттердің тізімі</string>
+    <string name="in_left_day">Сол жақта сіз әдетті қанша күн бекітесіз</string>
+    <string name="in_right_hold">\"Оң жақта қанша күн тұру керек\"</string>
+    <string name="click_by_habit">Карточканы нұқу арқылы сіз осы күнгі әдеттің орындалуын белгілей аласыз және карточкаға басып, әрекеттер терезесін шақыра аласыз</string>
+    <string name="create_new_habit">Осы батырманы басу арқылы сіз жаңа әдетті жасай аласыз</string>
+    <string name="list_process">Шоғырлануды қажет ететін процестердің тізімі</string>
+    <string name="theroy_thousand_hour"> Бұл терезе 10 000 сағат теориялары негізінде жасалған</string>
+    <string name="profession_thousand_hour"> Онда белгілі бір салада кәсіби маман болу үшін оны зерттеуге шамамен 10 мың сағат жұмсау керек</string>
+    <string name="work_stopwatch_timer">Осы батырманы басу арқылы сіз жаңа процесті жасай аласыз,таймермен немесе секундомермен жұмыс жасай аласыз</string>
+    <string name="list_standup"> Сіздің стэндап тізіміңіз\"</string>
+    <string name="team_work">Бұл терезе топтық жұмыс жүйесі негізінде жасалған</string>
+    <string name="plan_and_problem_share"> Онда топ мүшелері күн сайын атқарылған жұмыс туралы есеп жасайды және жоспарлары мен мәселелерімен бөліседі</string>
+    <string name="good_system">Бұл өзіңізді жақсы ұстау үшін өте жақсы жүйе</string>
+    <string name="good_friend_standup"> Сіз жақсы досыңыздан оның стэндаптарды құрастыруын қадағалауын сұрай аласыз</string>
+    <string name="share_fun_send"> Сіз оны жібере алатындай бөлісу функциясы бар\"</string>
+    <string name="create_new_standup"> Осы батырманы басу арқылы сіз жаңа стенд жасай аласыз</string>
+    <string name="list_dream">Сіздің тізіміңіз ұйқыға байланысты жазбаларыңыз жиналатын жерде</string>
+    <string name="up_slept_hour"> Жоғарыда көрсетілген күнде қанша сағат ұйықтағаныңыз көрсетілген</string>
+    <string name="next_time_date">Қаншаға, қаншаға және күнге дейін</string>
+    <string name="course_record_dream">Картаны нұқу арқылы сіз сол күні не армандағанын көре аласыз, әрине, егер сіз оны жазған болсаңыз</string>
+    <string name="create_new_record">Осы батырманы басу арқылы сіз жаңа жазба жасай аласыз</string>
+    <string name="folow_finance_window"> Сіздің қаржыңызды бақылау терезесі</string>
+    <string name="new_appear_open"> Жоғарғы жағында кеңестер бар карта қаржыға байланысты, жаңа сіз осы терезені ашқан сайын пайда болады</string>
+    <string name="main_fun_in_ex">Негізгі функцияларды кіріс және Шығыс батырмалары орындайды</string>
+    <string name="template_work">Сондай-ақ, элементті басу үшін шаблондық шығындардың тізімі бар сіз онымен жұмыс істей аласыз</string>
+    <string name="history_button_ex_te">\"Және, әрине, тарих түймесі, онда шаблондық шығындардан басқа барлық нәрсе ескеріледі</string>
+    <string name="template_expensive">Үлгі шығындар</string>
+    <string name="choose_icon">Белгішені таңдау</string>
+    <string name="hours"> Сағат</string>
+    <string name="minut"> Минуттар</string>
+    <string name="rewrite_code">1.Сабақтан кодты қайта жазды және қайта оқыды</string>
+    <string name="watch_stream">2.Оқұ стрим</string>
+    <string name="write_screen_se_q">3.Settings және Quiz үшін макет жазды</string>
+    <string name="create_h_st_dao">4.HistoryStorage-де HistoryDao үшін әдістер жасалды</string>
+    <string name="in_dao_delete">5.History Dat-да @Delete аннотациясының астында delete all әдісін жазды</string>
+    <string name="reread_code_q">1.Қосымша түсіну үшін QuizApp кодын қайта оқып шығыңыз</string>
+    <string name="impl_f_fi">2.4 және 5 тармақтарын іске асыруға көшемін</string>
+    <string name="hard_fa_da">History-ді жалған мәліметтермен толтыруда қиындықтар болды</string>
+    <string name="im_sh_pr">- Прогресті көрсетуді жүзеге асырды</string>
+    <string name="im_sh_ca">- Санаттың көрсетілуін іске асырды</string>
+    <string name="im_ba_f_a">- Егер бірінші бет Activity жабса, back батырмасын өңдеуді іске асырды</string>
+    <string name="im_b_an">-Жүзеге асырды пысықтауды батырмалар бар</string>
+    <string name="one_sec_pag">- Мен жауап үшін батырмаларды өңдеуді жүзеге асырдым-onAnswerClick-ке таймерді қойдым, сондықтан жауапты басқан кезде келесі сұраққа өтпес бұрын 1 секунд күттім</string>
+    <string name="st_sc_qr">1.Мен QuizResult орналасуын бастаймын</string>
+    <string name="im_wi_fi">2.Мен Интернет немесе WI-FI бар-жоғын анықтау функцияларын орындаймын</string>
+    <string name="re_q_l_ans">Сұрақтарды араластыру және answer парағына енгізу арқылы</string>
+    <string name="since">Бастау</string>
+    <string name="before"> Дейін </string>
+    <string name="gone_to_dream">\"Ұйқыға кетті\"</string>
+    <string name="wh_dr_q">Мен не армандадым ? (Міндетті емес)</string>
+    <string name="list_ideas"> Сіздің идеялар тізіміңіз</string>
+    <string name="vis_im_idea">Көрнекі сурет-бұл идеяны бекіту үшін жақсы жол</string>
+    <string name="by_cl_im_sh">Карточканы басқан кезде сурет толық көлемде ашылады</string>
+    <string name="cl_ca_re_id">Осы батырманы басу арқылы сіз идеяны жаза аласыз</string>
+    <string name="dream_record">Ұйқының есебін жүргізу</string>
+    <string name="history_empty">Тарих бос</string>
+    <string name="new_event">Жаңа оқиға</string>
+    <string name="diplom_work">Дипломдық жұмыс</string>
+    <string name="phisology">Психология</string>
+    <string name="not_necessary">(Міндетті емес)</string>
+    <string name="hour">Часы</string>
+    <string name="minute">Минуты</string>
+    <string name="choose_app">Бағдарламаны таңдаңыз</string>
+    <string name="in_main_screen">- Мұнда сіз өзіңіздің тапсырмаңызды әдеттерден аяқтағаныңызды, оқиғаларды қарап, қажетті санатқа ауысқаныңызды атап өтуге болады.\n
+        - Терезенің жоғарғы жағында орналасқан күнтізбедегі күнді ұзақ басу сіздің кестеңізге осы күнге жаңа оқиға немесе тапсырма қосуға мүмкіндік береді.</string>
+    <string name="in_categories">- Жаңа санатты құру үшін +түймесін басыңыз.\n
+        - Санатты ұзақ басу терезені ашады онда сіз оны өңдей, жоя немесе бұғаттай аласыз, сонымен қатар парольді өзгерте аласыз.</string>
+    <string name="in_timetable">- Жаңа жазбаны жасау үшін +түймесін басыңыз. Сіз бір немесе бірнеше күнді таңдай аласыз.\n
+        - Аптаның күнін басу арқылы сіз осы күнгі барлық жазбаларды көре аласыз. \n
+        - Жазбаны ұзақ басу оны жоюға немесе өңдеуге мүмкіндік береді.</string>
+    <string name="in_event">- Жаңа оқиға жасау үшін +түймесін басыңыз. Сондай-ақ, еске салғышты қажетті уақытқа орнатуға болады.\n
+        - Оқиғаны ұзақ басу оны жоюға немесе өңдеуге мүмкіндік береді.</string>
+    <string name="in_habit">Қалаған әдетті дамытуға мүмкіндік беретін терезе.\n
+        - Жаңа әдетті құру үшін +түймесін басыңыз.\n
+        - Әдетті басу арқылы сіз бүгін тапсырманы орындағаныңызды атап өтуге болады.\n
+        - Ұзақ басу оны жоюға немесе өңдеуге мүмкіндік береді. Батырма жоғарғы сол жақ бұрышта мәзір пайда болады. Мұнда сіз өзіңіздің деңгейіңізді біліп, аватарды таңдап, атын қоса аласыз.</string>
+    <string name="in_focus">Терезе 10000 сағат теориясы негізінде құрылған, онда таңдалған салада кәсібилікке жету үшін көп уақыт жұмсау керек.\n
+        - +Түймесін басу арқылы сіз жаңа әрекетті қосып, таймерді немесе секундомерді аша аласыз.\n
+        - Тізімдегі әрекетті нұқу арқылы сіз оған қанша минут жұмсағаныңызды көрсете аласыз. Уақыт қосылады.\n
+        - Ұзақ басу таймерді немесе секундомерді ашады, онда уақыт сіздің жазбаңызға қосылады. Қаласаңыз, оны дереу жоюға болады.</string>
+    <string name="in_standup">Процесті оңтайландыру үшін ірі компанияларда қолданылатын тәжірибе. Әр қызметкер күн сайын атқарылған жұмыс және туындаған проблемалар туралы есеп жазады.\n
+        - - +Түймесі жаңа AP стендін жасайды.\n
+        - Жазбаны ұзақ басу терезені ашады онда сіз стэндапты жоюға, өңдеуге немесе бөлісуге болады.</string>
+    <string name="in_dream">Ұйқы уақытын бақылауға болатын терезе.\n
+        - +Түймесін басу арқылы сіз жаңа жазба жасай аласыз.\n
+        - Жазбаны басу арқылы сіз армандаған нәрсені оқи аласыз.\n
+        - Ұзақ басу жазбаны өңдеуге немесе жоюға мүмкіндік береді.</string>
+    <string name="in_idea">- +Түймесін басу арқылы сіз жаңа идеяны қоса аласыз.\n
+        - Жазбаны басу арқылы суретті көруге болады, ұзақ басу жазбаны жояды немесе өңдейді.</string>
+    <string name="in_finance">Сіздің қаржыңызды бақылауға арналған терезе.\n
+        - Карточканың жоғарғы жағында ақшаңызды тиімді басқаруға мүмкіндік беретін кеңестер бар.\n
+        - \'Табыс\' және \'шығын \' түймелері сізге қанша ақша алғаныңыз және сәйкесінше қанша жұмсағаныңыз туралы жазба қосуға мүмкіндік береді.\n
+        - Мұнда шаблондық шығындар бар, егер қаласаңыз, шаблонды +басу арқылы жасай аласыз.\n
+        - Үлгіні ұзақ басу оны жоюға мүмкіндік береді.\n
+        - Тарих сіздің барлық қаржылық өзгерістеріңізді бақылауға мүмкіндік береді.</string>
+    <string name="in_setting">- Мұнда сіз бағдарламаның тақырыбы мен тілін өзгерте аласыз.</string>
+    <string name="instruction">Нұсқаулық</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
+</resources>

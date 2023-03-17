@@ -1,0 +1,403 @@
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="events">イベント</string>
+    <string name="tasks">タスク</string>
+    <string name="ideas">アイデア</string>
+    <string name="january">月</string>
+    <string name="february">二月</string>
+    <string name="march">マーチ</string>
+    <string name="april">エイプリル</string>
+    <string name="may">五月</string>
+    <string name="june">ジューン</string>
+    <string name="july">七月</string>
+    <string name="august">オーガスト</string>
+    <string name="september">九月</string>
+    <string name="october">十月</string>
+    <string name="november">ノベンバー</string>
+    <string name="december">月</string>
+    <string name="are_you_sure">本気？"</string>
+    <string name="no">いいえ。</string>
+    <string name="yes">はい。</string>
+    <string name="record_idea">アイデアの本質を入力してください</string>
+    <string name="record_description">説明を入力する</string>
+    <string name="settings">設定</string>
+    <string name="change_theme">件名を変更する</string>
+    <string name="begin_time">時間の始まり</string>
+    <string name="end_time">時間の終わり</string>
+    <string name="delete">削除された</string>
+    <string name="empty">空</string>
+    <string name="stopwatch">ストップウォッ</string>
+    <string name="image">画像</string>
+    <string name="timer">タイマー</string>
+    <string name="what_are_doing">どうする?</string>
+    <string name="apply">受け入れるには</string>
+    <string name="time">時間</string>
+    <string name="toStart">開始するには</string>
+    <string name="complete">完了</string>
+    <string name="choose_language">言語を選択する…</string>
+    <string name="change_language">言語を変更する</string>
+    <string name="task">タスク</string>
+    <string name="ready">準備はいいか?"</string>
+    <string name="plan_own_day">あなたの一日を計画する</string>
+    <string name="to_delete">削除</string>
+    <string name="share">共有するには</string>
+    <string name="add_title">テキストを入力する</string>
+    <string name="choose_image">画像を選択する:</string>
+    <string name="cancel">キャンセル</string>
+    <string name="what_to_do">何をしたいですか？</string>
+    <string name="help_idea_add">新しいアイデアを追加するには</string>
+    <string name="help_calendar_add">新しい予定を追加するには、+をクリックします</string>
+    <string name="changing_theme">トピックの変更</string>
+    <string name="new_aim">それは新しい目標を設定する時間です！</string>
+    <string name="achievement_app">プログレス</string>
+    <string name="write_reviews">レビューを書く</string>
+    <string name="review_on_app">プランナーアプリのレビュー</string>
+    <string name="done">やったよ。</string>
+    <string name="date">日付</string>
+    <string name="you_name">お名前</string>
+    <string name="rate_app">評価を入れる</string>
+    <string name="not_enough_balanсe">バランスシートに十分な資金がありません！</string>
+    <string name="attention_alert">アテンション！</string>
+    <string name="advice1_1">\"敬意を持ってお金を扱う\"</string>
+    <string name="advice1_2">お金は"缶"時間とエネルギーを使って得します。</string>
+    <string name="advice2">\"収入および費用の記録を電子的にまたは書面で保つことの習慣に入りなさい。\"</string>
+    <string name="advice3_1">クレジットカード、消費者ローン、およびその他の債務を取り除く。</string>
+    <string name="advice3_2">\" 借金は心理的な負担であり、人々をストレスの下に置き、将来を心配させます。 その結果、あなたはあなた自身のお金だけでなく、あなたの健康とエネルギーでも他の人のお金を使うために支払うことになります。\"</string>
+    <string name="advice4_1">あなたの手段の中で生きる。</string>
+    <string name="advice4_2">\" あなたがこのルールを破ると、あなたはあなた自身の人生の調和を失います。 融合していない、実にうませんの所属することができない！ あなたのニーズの違いを実現する—あなたが本当に必要なもの、そしてあなたの欲望—"それは持っていいだろう"もの。 セットの優先順位で、まずはすべてのニーズをうにすることはできな買い物袋、エンターテインメント\"</string>
+    <string name="advice5_1">衝動的な購入および不必要な出費を避けなさい。</string>
+    <string name="advice5_2">\" 店に行く前に買い物リストを作成し、それに固執する。\"</string>
+    <string name="advice6_1">あなたの収入の増加に取り組みます。</string>
+    <string name="advice6_2">\" あなたが支払われているものを正確に調べ、この分野で開発してください。 狭いニッチのより深い知識を得、あなたの能力および責任を拡大し、できている仕事の質を改善し、仕事をより速く終らせることはあなたの収入を高めることへキーである場合もある。\"</string>
+    <string name="advice7_2">\" 収入の増加は長くて定期的な仕事の結果ですので、忍耐強く、小さなステップで目標に向かって動き始めます。\"</string>
+    <string name="advice7_1">速い結果を期待してはいけない。</string>
+    <string name="advice8_1">追加の収入源を作成して購入する。</string>
+    <string name="advice8_2">\" 多くの成功した人々の金融安定性の秘密は、複数の収入源にあります。\"</string>
+    <string name="advice9">あなたのお金の世話をする—ギャンブル、金融ピラミッド、怪しげな企業や取引にそれを費やさないでください。</string>
+    <string name="advice10_1">お金を貸してはいけない</string>
+    <string name="advice10_2">\" 人々との関係を台無しにし、お金を失う大きなリスクがあります。 彼らの仕事に銀行を残してください\"</string>
+    <string name="advice11_1">少量のお金でさえ捨てないでください。</string>
+    <string name="advice11_2">\" ペニーはルーブルだけでなく、ドルとユーロも節約できます！\"</string>
+    <string name="advice12_1">悪い財政の習慣をあきらめなさい,</string>
+    <string name="advice12_2">\" 定期的にあなたの財布からお金を引き出しますが、古い喜びをもたらしません。 私たちは感情を得るためにお金を使います。 同じ価格で、異なるものは異なる量の感情をもたらすことができます。 たとえば、昼食後に飲んでいた200ルーブルのカフェのコーヒーは、もはや喜びと満足をもたらさなくなりましたが、週に1000ルーブルの予算がかかります。 同じ千のために、マッサージや映画に行くことによって、より多くの感情を得ることができます。\"</string>
+    <string name="advice13_1">割引を頼み、特別提供を利用すること自由に感じなさい。</string>
+    <string name="advice13_2">\" 売り手は、おそらくあなたに割引を提供し、割引を拒否し、何かを販売しないよりも、製品を販売する方がより有益になります。\"</string>
+    <string name="advice14_1">金融リテラシーに関する文献を研究する。</string>
+    <string name="advice14_2">\" あなたの幸福は、金融リテラシーのあなたのレベルに直接依存します！\"</string>
+    <string name="advice15">個人的な財務計画を作成し、それに従ってください。</string>
+    <string name="advice16_1">最初に自分自身を支払う-あなたがすでにそれを費やした後にお金を節約しようとするのは遅すぎます。</string>
+    <string name="advice16_2">\" それらを得るとすぐあなたの財政の目的を達成するためにお金の一部を救いなさい。\"</string>
+    <string name="advice17_1">投資はあなたが考えるよりも簡単で手頃な価格です。</string>
+    <string name="advice17_2">\" さらに、一部の金融商品では、このプロセスをさまざまな方法で自動化することができます。 主なものは、理解であるか否かが重要になるのにすごいを開始して行?\"</string>
+    <string name="advice18_1">必要な高品質のものを購入する。</string>
+    <string name="advice18_2">\" 高品質の製品は、原則として、より高価ですが、使用する方が安いです。\"</string>
+    <string name="advice19_1">している場合、利益も増しにより自費です。</string>
+    <string name="advice19_2">\" 同時に、あなたの収入は常にあなたの費用よりも大きくなければなりません。 これは、金融幸福の基本原則の一つです。\"</string>
+    <string name="advice20_1">それが小さい場合でも、常にお金を数えます。</string>
+    <string name="advice20_2">\"小さな毎日の費用は、長年にわたって、さらに数十年にわたって膨大な量に追加することができます。 あなたが自分自身に"1000ルーブルはお金ではない、失うのは残念ではない"と言うたびに、あなたはそれを正しく投資すれば、この千が変わるであろう数十万\"</string>
+    <string name="advice21_1">何かを買う前に別の場所の価格を比較しなさい。</string>
+    <string name="advice21_2">\" あなたの人生の時間で価格を測定することが最善です—この購入のために適切な金額を得るためにどれくらいの期間働かなければなりません。 これはあなたがあなたに価値と支払っているプロダクトの価格を比較することをそれをもっと簡単にする。 あなたはコーヒーのためにあなたの人生の時間を与える準備ができていますか？ そして、新しい携帯電話のための人生の月？\"</string>
+    <string name="advice22">\"他の人を羨むのではなく、彼らがあなたよりもよく理解していることを彼らから学ぶ。\"</string>
+    <string name="advice23">このお金もにとっております。</string>
+    <string name="advice24_1">今すぐ"お金ダイエット"に行く！</string>
+    <string name="advice24_2">\" 遅滞なく、今あなたのライフスタイルを変える。 これは年間のコースにわたって数千ドルを保存します。\"</string>
+    <string name="costs">費用</string>
+    <string name="income">収入</string>
+    <string name="balance">貸借対照表</string>
+    <string name="enter_amount">金額を入力してください</string>
+    <string name="habit">習慣</string>
+    <string name="your_habit_is_done">今日では、すでにこのタスクの完了をマークしています</string>
+    <string name="you_is_done_habit_today">あなたは本当に今日のタスクを完了しましたか？</string>
+    <string name="edit">編集</string>
+    <string name="helper_finance_dialog" >
+        貸借対照表.\n
+ここでは、現在の残高を見ることができます。
+収入を追加すると残高が増えます。
+経費または頻繁な経費を追加すると減少します.\n
+        \n貯蓄。\n
+ここでは、現在の
+プラスボタンをクリックして貯蓄状況。  （も参照）あなた
+あなたの現在の貯蓄から費やすことはできません。 長いのを使って
+ボタンをクリックすると、貯蓄の全額を削除することができます.\n
+\n収益.\n
+プラスボタンをクリックすることで、あなたの収入を追加できます。
+収入を追加するたびに、あなたのバランスが増加.\n
+\n費用.\n
+マイナスボタンをクリックすると、追加できます
+あなたの費用。 あなたはの量と説明を入力する必要があります
+費用（好ましくは）。 あなたの便宜のために、私達はaを作成しました
+セクション："経費"セクションの上部にある経費履歴
+費用を追跡できます.\n
+\n頻繁な支出.\n
+プラスボタンをクリックすると、あなたの追加することが
+頻繁な支出（アイテム）。 これは次のように便利です
+頻繁にお金を使うものを追跡できる。
+アイテムをクリックすると、費やした金額を追加できます
+そして、費やしたお金の総額を参照してください。 また、によって
+右にスワイプすると、頻繁な浪費者のリストから項目を削除できます。
+   </string>
+    <string name="main">主なもの</string>
+    <string name="finance">金融</string>
+    <string name="you_forgot_habbit">\"あなたは習慣を忘れていない\"</string>
+    <string name="you_can_edit_profile">プロフィールを編集できます</string>
+    <string name="advice25_1">精密検査の運は、多くの作業と慎重な準備の結果であることが判明しました。</string>
+    <string name="advice26_1">あなたが何かをすることに決めたが、72時間以内にそれをやり始めないなら、85％のケースでは決してそれをしません。</string>
+    <string name="advice27_1">\"そうする人は、成功を期待しています。 "しようとする"人は、何かが彼に干渉することを期待しています。\"</string>
+    <string name="advice27_2">努力の半分は結果の半分を与えるのではなく、ゼロの結果を与えます。</string>
+    <string name="advice28_1">一日中働いている人は、お金を稼ぐ時間がありません。</string>
+    <string name="advice29_1">最大の才能は、あなた自身の行動の動機を見つけることができることです。</string>
+    <string name="advice30_1">財政の福利は財政の抑制およびあなたの出費を計画しなければ不可能である。 財政の自由は財政の抑制によって行く。</string>
+    <string name="advice_31_1">何もうまくやらないよりも、ひどく始める方が良いです。</string>
+    <string name="advice32_1">あなたの健康について考える。 成功は健康なしでは不可能です。</string>
+    <string name="advice_32_2">\" 健康のない富は喜びをもたらしません。\"</string>
+    <string name="advice_33_1">あなたがまだ立っている理由についての言い訳を思い付くために、光の速さよりもカメの速さでゴールに行く方が良いです。</string>
+    <string name="advice_34_1">あなたの好きな趣味を取り、それにキャリアを構築します。</string>
+    <string name="advice35_1">\"良い収入のためには、良い知識が必要です。\"</string>
+    <string name="advice_35_2">常に学び、読み、視野を広げてみてください。 愚か者はカジノでのみ幸運であり、めったにありません。</string>
+    <string name="advice_36_1">富は、あなたがカジノ、レストラン、リゾート、または店で過ごしたどのくらいではあ</string>
+    <string name="advice36_2">\" 富は、あなたが取っておき、保存しているものです。\"</string>
+    <string name="advice37_1">唯一の愚か者は一度ラッキーを取得します。 スマートな人々は常に幸運です。</string>
+    <string name="advice38_1">ご担すべてのイベント</string>
+    <string name="advice38_2">しかし、あなたは常にイベントの解釈とそれらに対するあなたの反応に責任があります。</string>
+    <string name="advice39_1">\"座って奇跡を待つことは、テレビの前で家に座っているアスリートと同じくらい愚かです,\"</string>
+    <string name="advice39_2">オリンピックを見て、それらで金メダルを取得したいと考えています。</string>
+    <string name="advice40_1">お金は常に私たちがそれに付ける意味を正確に持っています。</string>
+    <string name="advice41_1">お金だけでは誰も幸せや不幸にはなりません。 彼らは良くも悪くもありません。</string>
+    <string name="advice_41_2">お金を持つ幸せな人はさらに幸せになるでしょう。 すべてから問題を起こす悲観主義者は、お金でさらに多くの問題を抱えるでしょう。 お金は所有者の性格を明らかにする。 虫眼鏡のようなものです。</string>
+    <string name="advice42_1">\"彼らは多くを稼ぐという理由だけで誰も金持ちになりません。\"</string>
+    <string name="advice42_2">あなたは仕事をしなくてもあなたの資本の利益に生きることができるときにのみ金持ちです：お金はあなたのために働く。</string>
+    <string name="advice43_1">原則の声明：あなたがなりたいものではない人のアドバイスを決して受けないでください。</string>
+    <string name="advice44_1">責任なしに生きることは、無力な犠牲の状態に低下することです。</string>
+    <string name="advice44_2">\"この生活のルールその他を書いています。\"</string>
+    <string name="advice45_1">ほとんどの人は、彼らが一年で何ができるかを過大評価し、彼らは十年後に何ができるかを過小評価しています。</string>
+    <string name="advice46_1">\"私たちはバラを見るが、私たちはとげを見ない。 私たちは成功を見ますが、それの準備は見ません。\"</string>
+    <string name="advice46_2">そして、私たちは他の人の失敗を見ていません。 私たちは、"幸運な人"が運をどれほど慎重に準備するかを学ぶことに驚くでしょう。</string>
+    <string name="advice47_1">負けるのを避けるためにプレイするゲームと勝ちたいゲームの間には基本的な違いがあります。</string>
+    <string name="advice48_1">あなたは価値があるものを支払われないのですか？ あなたがそのお金のために働くならば。 –</string>
+    <string name="advice48_2">\" だからそれはあなたの価値があるものです。 ばいせき-変更のお仕事、ライフスタイル、変更ます。\"</string>
+    <string name="notification_for_habit">習慣のための通知</string>
+    <string name="you_can_set_notification">あなたが必要とする時間に設定することができます</string>
+    <string name="amount">金額:</string>
+    <string name="description">説明:</string>
+    <string name="enter_name">名前を入力する</string>
+    <string name="description_about_app">アプリの説明</string>
+    <string name="blue">ブルー</string>
+    <string name="red">赤</string>
+    <string name="orange">オレンジ</string>
+    <string name="yellow">イエロー</string>
+    <string name="black">ブラック</string>
+    <string name="green">グリーン</string>
+    <string name="white">白</string>
+    <string name="remind">思い出させる</string>
+    <string name="fill_field">フィールドに入力します</string>
+    <string name="new_idea">新しいアイデア</string>
+    <string name="new_category">新しいカテゴリ</string>
+    <string name="category_name">カテゴリ名</string>
+    <string name="new_habit">新しい習慣</string>
+    <string name="what_done_yesterday">昨日は何が完成しましたか？</string>
+    <string name="what_plan_today">今日は何を計画しているのですか？</string>
+    <string name="problems">問題またはブロッカー</string>
+    <string name="important_info">重要な情報</string>
+    <string name="next">さらに</string>
+    <string name="pink">ピンク</string>
+    <string name="violet">バイオレット</string>
+    <string name="monday">月曜日</string>
+    <string name="tuesday">火曜日</string>
+    <string name="wednesday">水曜日</string>
+    <string name="thursday">木曜日</string>
+    <string name="friday">金曜日</string>
+    <string name="saturday">土曜日</string>
+    <string name="sunday">日曜日</string>
+    <string name="timetable">スケジュール</string>
+    <string name="stand_up">スタンドアップ</string>
+    <string name="focus">スタント</string>
+    <string name="expensive">支出</string>
+    <string name="history">歴史</string>
+    <string name="choose_action">アクションを選択する</string>
+    <string name="ofCourse">もちろん！</string>
+    <string name="enter_password">パスワードを入力します</string>
+    <string name="wrong_password">無効なパスワード</string>
+    <string name="block">ブロック</string>
+    <string name="set_password">パスワードの設定</string>
+    <string name="in_case_lost_password">パスワードを紛失した場合</string>
+    <string name="forgot_password">パスワードを忘れた</string>
+    <string name="not_correct">不正解</string>
+    <string name="changePassword">パスワードの変更</string>
+    <string name="unblock">ロック解除</string>
+    <string name="heavenly">ヘブンリー</string>
+    <string name="bilberry">ブルーベリー</string>
+    <string name="wake_up_morning">朝6時起床</string>
+    <string name="read_by_minutes">15分間読む</string>
+    <string name="health">健康</string>
+    <string name="targets">目標</string>
+    <string name="download_app">Planner+アプリをダウンロード</string>
+    <string name="look_how_it_work">それがどのように動作するかを見る</string>
+    <string name="for_next_lesson">次のレッスンのために</string>
+    <string name="implement_new_fun">新しい関数の実装</string>
+    <string name="new_process">新しいプロセス</string>
+    <string name="set_amount_day">日数を指定する</string>
+    <string name="add_some_event">特定のイベントを入力する</string>
+    <string name="icon">アイコン</string>
+    <string name="minutes_amount">分の数</string>
+    <string name="enter_secret_word">秘密の言葉を入力してください</string>
+    <string name="set_notification_on">"通知設定"</string>
+    <string name="create">作成するには</string>
+    <string name="add_pattern">テンプレートを追加する</string>
+    <string name="name">名前</string>
+    <string name="categories">カテゴリ</string>
+    <string name="begins">始まります</string>
+    <string name="ends">閉じる</string>
+    <string name="to_the_schedule">スケジュールへ</string>
+    <string name="woke_up">目が覚めた</string>
+    <string name="went_to_sleep">ベッドに行きました</string>
+    <string name="sleep_recording">睡眠記録</string>
+    <string name="dream">睡眠</string>
+    <string name="no_records">記録なし</string>
+    <string name="transport">交通</string>
+    <string name="products">製品</string>
+    <string name="flight_over_city">あなたの街の上を飛んで</string>
+    <string name="my_dream_in_dream">私は夢だった夢の中で夢を持っていた</string>
+    <string name="congratulation">お祝い!</string>
+    <string name="level">レベル </string>
+    <string name="you_are_hello">あなたは歓迎されています</string>
+    <string name="tool">ツール</string>
+    <string name="got_you_aim">あなたの目標を達成する</string>
+    <string name="what_can_i_do">私は何ができますか？</string>
+    <string name="create_notes">メモを作成する</string>
+    <string name="follow_finance">財政を追跡する</string>
+    <string name="keep_focus">フォーカスを維持する</string>
+    <string name="keep_schedule">スケジュールを維持する</string>
+    <string name="create_standup">スタンドアップを作成する</string>
+    <string name="also">そしてまた</string>
+    <string name="to_create_event">イベントの作成</string>
+    <string name="fix_idea">アイデアを修正する</string>
+    <string name="lets_start">始めましょう！</string>
+    <string name="click_by_screen">画面をクリックします</string>
+    <string name="before_start">あなたが始める前に、我々はあなたがアプリケーションに慣れることをお勧めします</string>
+    <string name="two_tools">ここには2つのナビゲーションツールがあります</string>
+    <string name="bottom_and_side">より低くおよび側面</string>
+    <string name="side_open_by_click">サイドワンは、左上隅に位置しているハンバーガーをクリックすることで開きます</string>
+    <string name="after_instruction">各ウィンドウに切り替えた後、ブリーフィングが開始するのを待ちます</string>
+    <string name="go">行く !</string>
+    <string name="you_calendar">あなたのカレンダー</string>
+    <string name="show_day">次の3か月の更新日を表示します</string>
+    <string name="set_event_new_task">日付を押すことで、特定の曜日にイベントや新しいタスクを設定することができます</string>
+    <string name="next_you_cards">次はあなたのカードを来る</string>
+    <string name="here_show">習慣、カテゴリ、イベントウィンドウからすべてのカードがここに表示されます</string>
+    <string name="click_cards_ha_ca">習慣カードまたはカテゴリをクリックすると、特定のアクションを実行できます</string>
+    <string name="show_profile">サイドバーを開くことで、あなたのプロフィールを見ることができます</string>
+    <string name="avater_name">アバター、名前と現在のレベルは、アバターと名前を設定するために、それらをクリックしてください</string>
+    <string name="lvlup_some_action">習慣、タスクなどの実行などの特定のアクションのレベルが増加します</string>
+    <string name="inside_cards_record">あなたがノートやタスクを書くことができ、その中のカード</string>
+    <string name="hold_card">アクションでウィンドウを開くには、リストからカードをクリックします</string>
+    <string name="insert_button">追加ボタン</string>
+    <string name="create_new_category_click">このボタンをクリックすると、カテゴリ名とアイコンを指定して新しいカードを作成できます</string>
+    <string name="under_everyday"> 記入することができ、毎日の下に隠されたリストがあります</string>
+    <string name="cause_see">特定の日に何が計画されているかを確認するには、それをクリックします</string>
+    <string name="hold_task_action">リストからスケジュールされたタスクを設定して、アクションのあるウィンドウを開くことができます</string>
+    <string name="click_here_button">このボタンをクリックすると、特定の曜日のケースを作成できます</string>
+    <string name="planning_events">予定されているイベントのリスト</string>
+    <string name="set_remind_by_wish"> 必要に応じて、リマインダーを設定できます</string>
+    <string name="create_ev_date">このボタンをクリックすると、特定の日付のイベントを作成できます</string>
+    <string name="list_habit">あなたが自分自身に浸透したい習慣のあなたのリスト</string>
+    <string name="in_left_day">左側には、すでに習慣を修正した日数が示されています</string>
+    <string name="in_right_hold">右側には、何日あなたが保持する必要がありますか</string>
+    <string name="click_by_habit">カードをクリックすると、現在の日の習慣の完了をマークすることができ、カードを押すと、アクションでウィンドウを開くことができます</string>
+    <string name="create_new_habit"> このボタンをクリックすると、新しい習慣を作成できます</string>
+    <string name="list_process">集中力を必要とするプロセスのリスト</string>
+    <string name="theroy_thousand_hour"> このウィンドウは、10,000時間の理論に基づいて作成されます</string>
+    <string name="profession_thousand_hour"> 特定の分野の専門家になるためには、それを勉強するために約1万時間を費やす必要があります</string>
+    <string name="work_stopwatch_timer">このボタンをクリックすると、新しいプロセスを作成したり、タイマーやストップウォッチで作業したりすることができます</string>
+    <string name="list_standup"> スタンドアップのあなたのリスト</string>
+    <string name="team_work">このウィンドウは、チームワークシステムに基づいています</string>
+    <string name="plan_and_problem_share"> チームメンバーが毎日の進捗レポートを作成し、計画や問題を共有する場所</string>
+    <string name="good_system">これは良い形で自分自身を維持するために非常に良いシステムです</string>
+    <string name="good_friend_standup"> あなたは、スタンドアップのコンパイルに従うために良い友人に依頼することができます</string>
+    <string name="share_fun_send"> そして、あなたがそれを送ることができるようにちょうど共有機能があります</string>
+    <string name="create_new_standup"> このボタンをクリックすると、新しいスタンドアップを作成できます</string>
+    <string name="list_dream">あなたの睡眠関連の記録が収集されているあなたのリスト</string>
+    <string name="up_slept_hour"> 一番上には、指定された日の間に眠った時間の数が表示されます</string>
+    <string name="next_time_date">その後、どのように多くのからどのように多くの日付に</string>
+    <string name="course_record_dream">カードをクリックすると、あなたがそれを記録した場合、あなたはもちろん、あなたがその日夢見ていたものを見ることができます</string>
+    <string name="create_new_record">このボタンをクリックすると、新しいエントリを作成できます</string>
+    <string name="folow_finance_window"> あなたの財政を追跡するためのウィンドウ</string>
+    <string name="new_appear_open"> 上部には金融関連のヒントを持つカードがあり、このウィンドウを開くたびに新しいカードが表示されます</string>
+    <string name="main_fun_in_ex">主な機能は、収益と費用のボタンによって実行されます</string>
+    <string name="template_work">あなたはそれで作業することができます項目をクリックすることで、テンプレートの費用のリストもあります</string>
+    <string name="history_button_ex_te">そしてもちろん、すべてがテンプレートの費用に加えて考慮されている履歴ボタン、</string>
+    <string name="template_expensive">テンプレート費用</string>
+    <string name="choose_icon">アイコンの選択</string>
+    <string name="hours"> 時間</string>
+    <string name="minut"> 分</string>
+    <string name="rewrite_code">1. レッスンからコードを書き直して再読み込みします</string>
+    <string name="watch_stream">2. ストリームを見た</string>
+    <string name="write_screen_se_q">3. 設定とクイズのレイアウトを書いた</string>
+    <string name="create_h_st_dao">4.in HistoryStorage はH istoryDao のためのメソッドを作成しました</string>
+    <string name="in_dao_delete">5. History Dat では、@delete 注釈の下に delete All メソッドを記述しました</string>
+    <string name="reread_code_q">\"1. 私はより多くの理解のためにQuizAppコードを再読します\"</string>
+    <string name="impl_f_fi">2. 私は段落4と5の実装に進みます</string>
+    <string name="hard_fa_da">偽のデータで履歴を埋めることに困難がありました</string>
+    <string name="im_sh_pr">-進捗表示を実装</string>
+    <string name="im_sh_ca">-実装されたカテゴリマッピング</string>
+    <string name="im_ba_f_a">-最初のページがアクティビティを閉じた場合、戻るボタンのテストを実装しました</string>
+    <string name="im_b_an">-応答ボタンのテストを実装しました</string>
+    <string name="one_sec_pag">-あなたが答えをクリックしたとき、あなたは次の質問に反転する前に1秒待つようにonAnswerClickにタイマーを設定します</string>
+    <string name="st_sc_qr">\"1.QuizResult のレイアウトを開始します\"</string>
+    <string name="im_wi_fi">2.私は、インターネットやWI-FIの可用性を決定する機能を実装しています</string>
+    <string name="re_q_l_ans">質問の混合とアンサーシートへの埋め込み</string>
+    <string name="since">から </string>
+    <string name="before"> 前に </string>
+    <string name="gone_to_dream">ゴーン-トゥ-スリープ</string>
+    <string name="wh_dr_q">あなたは何を夢見ていましたか？ （オプション）</string>
+    <string name="list_ideas"> アイデアのあなたのリスト</string>
+    <string name="vis_im_idea">視覚的なイメージは、来ているアイデアを統合するための良い方法です</string>
+    <string name="by_cl_im_sh">あなたがカードをクリックすると、画像はフルサイズで開きます</string>
+    <string name="cl_ca_re_id">このボタンをクリックすると、アイデアを書き留めることができます</string>
+    <string name="dream_record">睡眠の記録を保つ</string>
+    <string name="history_empty">歴史は空です</string>
+    <string name="read">読む</string>
+    <string name="new_event">新しいイベント</string>
+    <string name="diplom_work">大学院の仕事</string>
+    <string name="phisology">心理学</string>
+    <string name="not_necessary">(必須ではありません)</string>
+    <string name="hour">腕時計</string>
+    <string name="minute">分</string>
+    <string name="choose_app">アプリケーションの選択</string>
+    <string name="in_main_screen">-ここでは、習慣からタスクを完了したことをマークし、イベントを表示し、目的のカテゴリに移動することができます。\n
+-ウィンドウの上部にあるカレンダーの日付を長押しすると、あなたのスケジュールにその日の新しいイベントやタスクを追加することができます。</string>
+    <string name="in_categories">-新しいカテゴリを作成するには、+をクリックします。\n
+-カテゴリを長押しすると、編集、削除、またはブロックするだけでなく、パスワードを変更することができるウィンドウが開きます。</string>
+    <string name="in_timetable">-新しいエントリを作成するには、+をクリックします。 一度に1日または数日を選択できます。\n
+-曜日をクリックすると、その日のすべてのエントリを表示することができます。 \n
+-レコードを長押しすると、それを削除または編集することができます。</string>
+    <string name="in_event">-新しいイベントを作成するには、+をクリックします。 また、あなたが必要とする時間のリマインダーを設定することができます。\n
+-イベントを長押しすると、それを削除または編集することができます。</string>
+    <string name="in_habit">あなたが望む習慣を開発することを可能にするウィンドウ。\n
+-新しい習慣を作成するには、+をクリックします。\n
+-習慣をクリックすることで、あなたは今日のタスクを完了したことに注意することができます。\n
+-長押しすると、それを削除または編集することができます。 ボタン 左上隅にメニューが開きます。 ここでは、あなたのレベルを見つけ、アバターを選択し、名前を追加することができます。</string>
+    <string name="in_focus">ウィンドウは、これはあなたが選択したフィールドでプロ意識を達成するために費やす必要があるどのくらいの時間であることを述べている10,000時間の理論に基づいて作成されました。\n
+-+をクリックすると、新しいアクションを追加するだけでなく、タイマーやストップウォッチを開くことができます。\n
+-リスト内のアクションをクリックすると、あなたはそれに費やしたどのように多くの分を指定することができます。 時間は要約されます。\n
+-長押しは、時間があなたの記録に追加される場所からタイマーやストップウォッチを開きます。 ご希望の場合は、すぐに削除することができます。</string>
+    <string name="in_standup">プロセスを最適化するために大企業で使用される練習。 すべての従業員は、行われた作業と遭遇した問題について毎日のレポートを書きます。\n
+--+ボタンを使用すると、新しいスタンドアップを作成することができます。\n
+-レコードを長押しすると、削除、編集、またはスタンドアップを共有することができますウィンドウが開きます。</string>
+    <string name="in_dream">あなたが眠って過ごした時間を追跡することができますウィンドウ。\n
+-+をクリックすると、新しいレコードを作成することができます。\n
+-エントリをクリックすると、あなたが夢見ていたものを読むことができます。\n
+-長押しを使用すると、エントリを編集または削除することができます。</string>
+    <string name="in_idea">-+をクリックすると、新しいアイデアを追加することができます。\n
+-あなたが画像を表示することができますレコードをクリックすると、長押しでは、レコードを削除または編集することができます。</string>
+    <string name="in_finance">あなたの財政を追跡するためのウィンドウ。\n
+-上部には、あなたがより生産的にあなたのお金を管理することができますヒントを持つカードです。\n
+-\'収入\'と\'費用\'ボタンを使用すると、それぞれ、あなたが受け取ったどのくらいのお金とどのくらいあなたが費やしたのレコードを追加することができます。\n
+-あなたが望む場合は、+をクリックして、独自のテンプレートを作成することができ、ここにテンプレートのコストがあります。\n
+-テンプレートを長押しすると、それを削除することができます。\n
+-歴史は、あなたがすべてのあなたの財政の変化を追跡することができます。</string>
+    <string name="in_setting">-ここでは、アプリケーションのテーマと言語を変更することができます。</string>
+    <string name="instruction">指示</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
+
+</resources>

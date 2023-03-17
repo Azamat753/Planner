@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Planner</string>
-    <string name="your_api_key">my_api_key</string>
-    <string name="clear_list">Clear the list</string>
-    <string name="clearSetting">Clear data about password</string>
-    <string name="progress">Progress</string>
-    <string name="clear_minutes">Clear field in just minutes</string>
-    <string name="save">Save</string>
+    <string name="app_name">Planner+</string>
     <string name="events">Events</string>
     <string name="tasks">Tasks</string>
     <string name="ideas">Ideas</string>
-    <string name="all_tasks">Total records</string>
-    <string name="complete_tasks">Completed tasks</string>
-    <string name="timing">Timing </string>
-    <string name="all_records">Total records</string>
-    <string name="all_minutes">Just minutes</string>
-    <string name="meets">Meets</string>
-    <string name="personal">Personal</string>
-    <string name="home">Home</string>
-    <string name="work">Work</string>
-    <string name="privates">Private</string>
     <string name="january">January</string>
     <string name="february">February</string>
     <string name="march">March</string>
@@ -33,42 +17,17 @@
     <string name="november">November</string>
     <string name="december">December</string>
     <string name="are_you_sure">Are you sure ?</string>
-    <string name="complete_work">To finish work</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
-    <string name="clear_password">Clear password</string>
-    <string name="clear_minute">Clear minutes field</string>
-    <string name="data_about_minutes_clear">Minutes data cleared</string>
-    <string name="record_idea">Enter the essence of the idea</string>
-    <string name="record_description">Enter a description</string>
-    <string name="event_calendar">Calendar events</string>
-    <string name="done_tasks">Executing tasks</string>
-    <string name="fast_add_your_event"><![CDATA[Quickly add your events & quickly switch between dates & view weeks]]></string>
-    <string name="list_tasks_help_you">A to-do list will help you fill your day and get things done</string>
-    <string name="record_idea_simple">Writing ideas</string>
-    <string name="check_timing">Timing tracking</string>
-    <string name="most_effect_idea">The most effective way to transfer ideas, thoughts and tasks without losing focus</string>
-    <string name="plus_you_kpd">One of the best ways to improve your efficiency</string>
+    <string name="record_idea">Enter the main idea</string>
+    <string name="record_description">Enter description</string>
     <string name="settings">Settings</string>
-    <string name="create_password">Password creation</string>
     <string name="change_theme">Choose theme</string>
-    <string name="planner">Planner</string>
-    <string name="add_event">Add event</string>
-    <string name="walk_dog">Walk the dog</string>
-    <string name="begin">Start</string>
-    <string name="begin_time">The beginning of time</string>
-    <string name="end_time">End of time</string>
+    <string name="begin_time">Start-time</string>
+    <string name="end_time">End-time</string>
     <string name="delete">Removed</string>
     <string name="empty">Empty</string>
     <string name="stopwatch">Stopwatch</string>
-    <string name="go_count">The countdown is in progress</string>
-    <string name="need_all_fields">All fields must be filled</string>
-    <string name="try_color">Try</string>
-    <string name="done_t">Completed tasks</string>
-    <string name="colunn_empty">The column is empty</string>
-    <string name="write_idea">Write an idea</string>
-    <string name="color">Color</string>
-    <string name="camera">Camera</string>
     <string name="image">Picture</string>
     <string name="timer">Timer</string>
     <string name="what_are_doing">What are you going to do?</string>
@@ -76,37 +35,369 @@
     <string name="time">Time</string>
     <string name="toStart">To begin</string>
     <string name="complete">To complete</string>
-    <string name="minutes_amount">Minutes</string>
-    <string name="data_of_password_delete">Password data deleted</string>
     <string name="choose_language">Choose language…</string>
     <string name="change_language">Change language</string>
     <string name="task">Task</string>
-    <string name="zero_minutes_pass">0 minutes have passed</string>
     <string name="ready">Ready ?</string>
-    <string name="timer_dont_end">The timer is not over yet</string>
-    <string name="timer_end">The timer has finished it\'s work</string>
-    <string name="minut">minute</string>
-    <string name="choose_color">Choose a color</string>
-    <string name="select_time">Choose time</string>
-    <string name="re_enter">Re-enter</string>
-    <string name="of_symbols">Enter a 4 character password</string>
-    <string name="do_not_match">Does not match</string>
-    <string name="correct_password">Correct password</string>
-    <string name="Wrong">Wrong</string>
     <string name="plan_own_day">Plan your day</string>
-    <string name="choose_theme">\"Please select a theme… \"</string>
-    <string name="light_theme">Light theme</string>
-    <string name="dark_theme">Dark theme</string>
     <string name="to_delete">Delete</string>
-    <string name="color_dont_choosed">No color selected</string>
-    <string name="share_app">To share</string>
+    <string name="share">To share</string>
     <string name="add_title">Add title</string>
-    <string name="add_icon">Add icon: </string>
-    <string name="attention">Attention!</string>
-    <string name="task_dialog_message">Are you sure you want to delete it? </string>
-    <string name="Cancel">Cancel</string>
-    <string name="choosed">Your choosed: </string>
-    <string name="change_image_title">Change the picture and category title</string>
-    <string name="remove_category">remove</string>
+    <string name="choose_image">Add icon: </string>
+    <string name="cancel">Cancel</string>
     <string name="what_to_do">What would you like to do?</string>
+    <string name="help_idea_add">For adding a new idea, click on +</string>
+    <string name="help_calendar_add">For adding a new event, click on +</string>
+    <string name="changing_theme">Change theme</string>
+    <string name="done">Done</string>
+    <string name="new_aim">It is time to set new goals!</string>
+    <string name="achievement_app">Achievements</string>
+    <string name="write_reviews">Write a review</string>
+    <string name="review_on_app">Planner app review</string>
+    <string name="date">Date</string>
+    <string name="you_name">Your name</string>
+    <string name="rate_app">Put a rating</string>
+    <string name="not_enough_balanсe">Not enough funds on the balance sheet !</string>
+    <string name="attention_alert">Attention!</string>
+    <string name="advice1_1">\"Treat money with respect\"</string>
+    <string name="advice1_2">Your money is your "canned" time and energy that you spent to earn it.</string>
+    <string name="advice2">\"Get into the habit of keeping records of income and expenses electronically or in writing.\"</string>
+    <string name="advice3_1">Get rid of credit cards, consumer loans, and other debt.</string>
+    <string name="advice3_2">\" Debt is a psychological burden, putting people under stress and making them worry about the future. As a result, you will pay for using other people\'s money not only with your own money, but also with your health and energy.\"</string>
+    <string name="advice4_1">Live within your means.</string>
+    <string name="advice4_2">\" When you break this rule, you lose the harmony in your own life. You are spending money that you have not earned, In fact, using what does not belong to you, you can lose it at any time! Realize the difference between your needs — what you really need, and your desires — what "it would be nice to have". Set your priorities so that you first close all the needs, and then what remains to be allowed for wishlist and entertainment.\"</string>
+    <string name="advice5_1">Avoid impulsive purchases and unnecessary spending.</string>
+    <string name="advice5_2">\" Make a shopping list before going to the store and stick to it.\"</string>
+    <string name="advice6_1">Work on increasing your income.</string>
+    <string name="advice6_2">\" Work on improving your skills Find out what exactly you are paid for, and develop in this area. Acquiring deeper knowledge in a narrow niche, expanding your area of expertise and responsibility, improving the quality of the work done, and getting the work done faster can be the key to increasing your income. ods.\"</string>
+    <string name="advice7_2">\" The increase in income is the result of long and regular work, so be patient and start moving towards the goal in small steps.\"</string>
+    <string name="advice7_1">Don\'t expect quick results.</string>
+    <string name="advice8_1">Create and purchase additional sources of income.</string>
+    <string name="advice8_2">\" The secret to the financial stability of many successful people lies in multiple sources of income.\"</string>
+    <string name="advice9">Take care of your money — do not spend it on gambling, financial pyramids, dubious enterprises and transactions.</string>
+    <string name="advice10_1">Do not lend money</string>
+    <string name="advice10_2">\" There are great risks to spoil relations with people and lose money. Leave the banks to their work\"</string>
+    <string name="advice11_1">Do not throw away even a small amount of money.</string>
+    <string name="advice11_2">\" A penny saves not only the ruble, but also the dollar and the euro!\"</string>
+    <string name="advice12_1">Give up bad financial habits,</string>
+    <string name="advice12_2">\" Regularly pulling money out of your wallet, but not bringing the old pleasure. We spend money to get some emotions. At the same price, different things can bring different amounts of emotions. For example, coffee in a cafe for 200 rubles, which you used to drink after lunch, no longer causes delight and satisfaction, but still costs your budget 1000 rubles a week. For the same thousand, you could get a lot more emotions by going to a massage or a movie.\"</string>
+    <string name="advice13_1">Feel free to ask for a discount and take advantage of special offers.</string>
+    <string name="advice13_2">\" The seller will probably be more profitable to offer you a discount and sell the product than to refuse the discount and not sell anything.\"</string>
+    <string name="advice14_1">Study the literature on financial literacy.</string>
+    <string name="advice14_2">\" Your well-being directly depends on your level of financial literacy!\"</string>
+    <string name="advice15">Create a personal financial plan and follow it.</string>
+    <string name="advice16_1">Pay yourself first — it\'s too late to try to save money after you\'ve already spent it.</string>
+    <string name="advice16_2">\" Save some of the money to achieve your financial goals as soon as you get them.\"</string>
+    <string name="advice17_1">Investing is easier and more affordable than you think.</string>
+    <string name="advice17_2">\" In addition, some financial instruments allow you to automate this process in many ways. The main thing is to understand whether it is so important to you that you are ready to start acting?\"</string>
+    <string name="advice18_1">Buy the necessary high-quality things.</string>
+    <string name="advice18_2">\" High-quality products, as a rule, are more expensive, but it is cheaper to use.\"</string>
+    <string name="advice19_1">Make sure that your income always grows faster than your expenses.</string>
+    <string name="advice19_2">\" At the same time, your income should always be greater than your expenses. This is one of the basic principles of financial well-being.\"</string>
+    <string name="advice20_1">Always count the money, even if it is small.</string>
+    <string name="advice20_2">\" Small daily expenses can add up to huge amounts over the years and even more over the decades. Every time you say to yourself something like "1000 rubles is not money, it is not a pity to lose", you take away from yourself in the future tens and hundreds of thousands, which this thousand would turn into if you invested it correctly.\"</string>
+    <string name="advice21_1">Compare prices in different places before you buy something.</string>
+    <string name="advice21_2">\" It is best to measure the price in the hours of your life — how long you will have to work to get the right amount for this purchase. This will make it easier for you to compare the price of the product you are paying with its value to you. Are you ready to give an hour of your life for a cup of coffee? And a month of life for a new phone?\"</string>
+    <string name="advice22">\"Do not envy other people, but learn from them what they understand better than you.\"</string>
+    <string name="advice23">Realize that your financial well-being depends entirely on you and your actions.</string>
+    <string name="advice24_1">Go on a "money diet" right now!</string>
+    <string name="advice24_2">\" Change your lifestyle right now, without delay. This will save you thousands of dollars over the course of a year.\"</string>
+    <string name="costs">Expenses</string>
+    <string name="income">Income</string>
+    <string name="balance">Balance sheet</string>
+    <string name="enter_amount">Enter the amount</string>
+    <string name="habit">Habits</string>
+    <string name="your_habit_is_done">Today you have already marked the completion of this task</string>
+    <string name="you_is_done_habit_today">Did you really complete the task today?</string>
+    <string name="edit">Edit</string>
+    <string name="helper_finance_dialog">
+        Balance.\n
+Here you can see your current balance.
+Your balance increases when you add income.
+Decreases when you add an expense or frequent expenses.\n
+        \nSavings.\n
+Here you can record your current
+savings status by clicking on the plus button.  (See also) You
+can\'t spend out of your current savings . With a long
+click on the button, you can delete the entire amount of savings .\n
+\nRevenue.\n
+        By clicking on the plus button, you can add your income .
+Every time you add income, your balance increases.\n
+\nExpenses.\n
+By clicking on the minus button, you can add
+your expenses. You need to enter the amount and description of the
+expense (preferably). For your convenience, we have created a
+section: expense history, at the top in the "EXPENSES" section
+you can track your expenses.\n
+\nFrequent spending.\n
+By clicking on the plus button, you can add your
+frequent spending (Item). This is useful so that
+you can track what you often spend money on.
+By clicking on the Item, you can add the amount spent
+and see the total amount of money spent. Also, by
+swiping to the right, you can remove an Item from the list of frequent spenders.
+   </string>
+    <string name="main">Main</string>
+    <string name="finance">Finance</string>
+    <string name="you_forgot_habbit">\"You haven\'t forgotten the habit\"</string>
+    <string name="you_can_edit_profile">You can edit your profile</string>
+    <string name="advice25_1">Luck on closer inspection turns out to be just the result of a lot of work and careful preparation.</string>
+    <string name="advice26_1">If you decide to do something, but do not start doing it within 72 hours-in 85% of cases, you will never do it.</string>
+    <string name="advice27_1">\"The one who does, expects success. The one who "tries" expects that something will interfere with him.\"</string>
+    <string name="advice27_2">Half the effort does not give half the result, but a zero result.</string>
+    <string name="advice28_1">Those who work all day have no time to earn money.</string>
+    <string name="advice29_1">The greatest talent is to be able to find motivation for your own actions.</string>
+    <string name="advice30_1">Financial well-being is impossible without financial constraints and planning your spending. Financial freedom goes through financial constraints.</string>
+    <string name="advice_31_1">It is better to start badly than to do nothing well.</string>
+    <string name="advice32_1">Think about your health. Success is impossible without good health.</string>
+    <string name="advice_32_2">\" Wealth without health will not bring joy.\"</string>
+    <string name="advice_33_1">It is better to go to the goal at the speed of a turtle than at the speed of light to come up with excuses for why you are standing still.</string>
+    <string name="advice_34_1">Take your favorite hobby and build a career on it.</string>
+    <string name="advice35_1">\"For good earnings, you need good knowledge.\"</string>
+    <string name="advice_35_2">Try to constantly learn, read, expand your horizons. Fools are lucky only in the casino, and then rarely.</string>
+    <string name="advice_36_1">Wealth is not how much you spent in a casino, restaurant, resort, or store.</string>
+    <string name="advice36_2">\" Wealth is what you have set aside and saved.\"</string>
+    <string name="advice37_1">Only fools get lucky once. Smart people are always lucky.</string>
+    <string name="advice38_1">You are not responsible for all events</string>
+    <string name="advice38_2">But you are always responsible for your interpretation of events and for your reaction to them.</string>
+    <string name="advice39_1">\"To sit and wait for a miracle is as stupid as an athlete sitting at home in front of the TV,\"</string>
+    <string name="advice39_2">watch the Olympic Games and hope to get a gold medal at them.</string>
+    <string name="advice40_1">Money always has exactly the meaning that we attach to it.</string>
+    <string name="advice41_1">Money alone does not make anyone happy or unhappy. They are neither good nor bad.</string>
+    <string name="advice_41_2">A happy person with money will become even happier. The pessimist who makes a problem out of everything will get even more problems with money. Money reveals the character of the owner. They\'re like a magnifying glass.</string>
+    <string name="advice42_1">\"No one gets rich just because they earn a lot.\"</string>
+    <string name="advice42_2">You are rich only when you can live on the interest of your capital without having to work: money works for you.</string>
+    <string name="advice43_1">Principle statement: never take the advice of a person who is not what you would like to be.</string>
+    <string name="advice44_1">To live without responsibility is to degrade to a state of impotent sacrifice.</string>
+    <string name="advice44_2">\" It means living by the rules that others have written for you.\"</string>
+    <string name="advice45_1">Most people overestimate what they can do in a year and underestimate what they can do in ten years.</string>
+    <string name="advice46_1">\"We see roses, but we don\'t see thorns. We see success, but not preparation for it.\"</string>
+    <string name="advice46_2">And we don\'t see other people\'s failures. We will be amazed to learn how carefully the "lucky ones" prepare their luck.</string>
+    <string name="advice47_1">There is a fundamental difference between the game you play to avoid losing and the one you want to win.</string>
+    <string name="advice48_1">Don\'t you get paid what you\'re worth? Not if you work for that money. –</string>
+    <string name="advice48_2">\" so that\'s what you\'re worth. If something does not suit you-change your job, lifestyle, change yourself.\"</string>
+    <string name="notification_for_habit">Notification for habits</string>
+    <string name="you_can_set_notification">You can set it to the time you need</string>
+    <string name="amount">The amount:</string>
+    <string name="description">Description:</string>
+    <string name="enter_name">Enter a name</string>
+    <string name="description_about_app">Application Description</string>
+    <string name="blue">Blue</string>
+    <string name="red">Red</string>
+    <string name="orange">Orange</string>
+    <string name="yellow">Yellow</string>
+    <string name="black">Black</string>
+    <string name="green">Green</string>
+    <string name="white">White</string>
+    <string name="remind">Remind</string>
+    <string name="fill_field">Fill in the field</string>
+    <string name="new_idea">A new idea</string>
+    <string name="new_category">New category</string>
+    <string name="category_name">Category name</string>
+    <string name="new_habit">A new habit</string>
+    <string name="what_done_yesterday">What was completed yesterday?</string>
+    <string name="what_plan_today">What \'s planned for today ?</string>
+    <string name="problems">Problems or blockers</string>
+    <string name="important_info">Important information</string>
+    <string name="next">Further</string>
+    <string name="pink">Pink</string>
+    <string name="violet">Violet</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="timetable">Schedule</string>
+    <string name="stand_up">Standup</string>
+    <string name="focus">Focus</string>
+    <string name="expensive">Expenditure</string>
+    <string name="history">History</string>
+    <string name="choose_action">Select an action</string>
+    <string name="ofCourse">Of course</string>
+    <string name="enter_password">Enter the password</string>
+    <string name="wrong_password">Incorrect password</string>
+    <string name="block">Block</string>
+    <string name="set_password">Set a password</string>
+    <string name="in_case_lost_password">In case of password loss</string>
+    <string name="forgot_password">Forgot my password</string>
+    <string name="not_correct">Not true</string>
+    <string name="changePassword">Change Password</string>
+    <string name="unblock">Unlock</string>
+    <string name="heavenly">Heavenly</string>
+    <string name="bilberry">Blueberry</string>
+    <string name="wake_up_morning">Get up at 6 am</string>
+    <string name="read_by_minutes">Read for 15 minutes</string>
+    <string name="health">Health</string>
+    <string name="targets">Goals</string>
+    <string name="download_app">Download the Planner+ app</string>
+    <string name="look_how_it_work">See how it works</string>
+    <string name="for_next_lesson">For the next lesson</string>
+    <string name="implement_new_fun">Implementation of the new functionality</string>
+    <string name="new_process">New process</string>
+    <string name="set_amount_day">Specify the number of days</string>
+    <string name="add_some_event">Enter a specific event</string>
+    <string name="icon">Icon</string>
+    <string name="minutes_amount">Number of minutes</string>
+    <string name="enter_secret_word">Enter the secret word</string>
+    <string name="set_notification_on">"Notification set to "</string>
+    <string name="create">To create</string>
+    <string name="add_pattern">Add a template</string>
+    <string name="name">Name</string>
+    <string name="categories">Categories</string>
+    <string name="begins">Begins</string>
+    <string name="ends">Close</string>
+    <string name="to_the_schedule">To the schedule</string>
+    <string name="woke_up">Woke up</string>
+    <string name="went_to_sleep">Went to bed</string>
+    <string name="sleep_recording">Sleep recording</string>
+    <string name="dream">Dream</string>
+    <string name="no_records">No records</string>
+    <string name="transport">Transport</string>
+    <string name="products">Products</string>
+    <string name="flight_over_city">Flying over your city</string>
+    <string name="my_dream_in_dream">I had a dream in a dream that was a dream</string>
+    <string name="congratulation">Congratulations!</string>
+    <string name="level">Level </string>
+    <string name="you_are_hello">You are welcomed</string>
+    <string name="tool">The tool</string>
+    <string name="got_you_aim">Achieving your goals</string>
+    <string name="what_can_i_do">What can I do ?</string>
+    <string name="create_notes">Create notes</string>
+    <string name="follow_finance">Keep track of finances</string>
+    <string name="keep_focus">Keep focus</string>
+    <string name="keep_schedule">Keep a schedule</string>
+    <string name="create_standup">Create a stand up</string>
+    <string name="also">And also</string>
+    <string name="to_create_event">Create events</string>
+    <string name="fix_idea">Fix ideas</string>
+    <string name="lets_start">Let \'s get started !</string>
+    <string name="click_by_screen">Click on the screen</string>
+    <string name="before_start">\""Before you start, we suggest you get acquainted with the application\"</string>
+    <string name="two_tools">There are two navigation tools available here</string>
+    <string name="bottom_and_side">Lower and side</string>
+    <string name="side_open_by_click">The side one opens by clicking on the burger which is located in the upper left corner</string>
+    <string name="after_instruction">After switching to each of the windows, wait for the briefing to start</string>
+    <string name="go">Let\'s go!</string>
+    <string name="you_calendar">Your calendar</string>
+    <string name="show_day">Displays the days updated for the next 3 months</string>
+    <string name="set_event_new_task">By clicking on the date you can set an event or a new task on a certain day of the week By clicking on the date you can set an event or a new task on a certain day of the week</string>
+    <string name="next_you_cards">Next come your cards</string>
+    <string name="here_show">All your cards from the Habits,Categories,Events windows are displayed here</string>
+    <string name="click_cards_ha_ca">By clicking on the habit cards or categories, you can perform a certain action</string>
+    <string name="show_profile">By opening the sidebar you can see your profile</string>
+    <string name="avater_name">Avatar, name and current level, in order to set the avatar and name, click on them</string>
+    <string name="lvlup_some_action">The level increases for certain actions such as performing habits, tasks, and the like</string>
+    <string name="inside_cards_record">Cards inside which you can write notes or tasks</string>
+    <string name="hold_card">Click on a card from the list to open a window with actions</string>
+    <string name="insert_button">Add button</string>
+    <string name="create_new_category_click">By clicking on this button, you can create a new card by specifying the category name and icon</string>
+    <string name="under_everyday"> There is a list hidden under every day that can be filled out</string>
+    <string name="cause_see">To see what is planned for a particular day, click on it</string>
+    <string name="hold_task_action">You can set a scheduled task from the list to open a window with actions</string>
+    <string name="click_here_button">By clicking on this button you can create cases for a specific day of the week</string>
+    <string name="planning_events">Your list of scheduled events</string>
+    <string name="set_remind_by_wish"> Optionally, you can set a reminder</string>
+    <string name="create_ev_date">By clicking on this button you can create events for a specific date</string>
+    <string name="list_habit">Your list of habits that you want to instill in yourself</string>
+    <string name="in_left_day">On the left is indicated how many days you have already fixed the habit</string>
+    <string name="in_right_hold">On the right, how many days do you need to hold on</string>
+    <string name="click_by_habit">By clicking on the card you can mark the completion of the habit for the current day and by pressing on the card you can open a window with actions</string>
+    <string name="create_new_habit"> By clicking on this button you can create a new habit</string>
+    <string name="list_process">Your list of processes that require concentration</string>
+    <string name="theroy_thousand_hour"> This window is created based on the theories of 10,000 hours</string>
+    <string name="profession_thousand_hour"> Which says to become a professional in a certain field, you need to spend about 10 thousand hours studying it</string>
+    <string name="work_stopwatch_timer">By clicking on this button, you can create a new process, work with a timer or with a stopwatch</string>
+    <string name="list_standup"> Your list of standups</string>
+    <string name="team_work">This window is based on a team work system</string>
+    <string name="plan_and_problem_share"> Where team members create a daily progress report and share their plans and problems</string>
+    <string name="good_system">This is a very good system to keep yourself in good shape</string>
+    <string name="good_friend_standup"> You can ask a good friend to follow the compilation of standups</string>
+    <string name="share_fun_send"> And there is just a share function so that you can send it</string>
+    <string name="create_new_standup"> By clicking on this button you can create a new standup</string>
+    <string name="list_dream">Your list where your sleep related records are collected</string>
+    <string name="up_slept_hour"> At the top it shows how many hours you slept during the specified day</string>
+    <string name="next_time_date">Then from how many to how many and the date</string>
+    <string name="course_record_dream">\"By clicking on the card , you can see what you dreamed that day , of course , if you recorded it</string>
+    <string name="create_new_record">By clicking on this button you can create a new entry</string>
+    <string name="folow_finance_window"> A window for tracking your finances\"</string>
+    <string name="new_appear_open"> At the top is a card with financial-related tips, a new one appears every time you open this window</string>
+    <string name="main_fun_in_ex">The main functions are performed by the Income and Expense buttons</string>
+    <string name="template_work">There is also a list of template expenses by clicking on an item you can work with it</string>
+    <string name="history_button_ex_te">\"And of course, the history button where everything is taken into account in addition to template expenses\"</string>
+    <string name="template_expensive">Template expenses</string>
+    <string name="choose_icon">Icon Selection</string>
+    <string name="hours"> Hours</string>
+    <string name="minut"> Minutes</string>
+    <string name="rewrite_code">1. Rewrote and reread the code from the lesson</string>
+    <string name="watch_stream">2. Watched the stream</string>
+    <string name="write_screen_se_q">3. Wrote the layout for Settings and for Quiz</string>
+    <string name="create_h_st_dao">4.in HistoryStorage created methods for HistoryDao</string>
+    <string name="in_dao_delete">5.in History Dat, I wrote the delete All method under the @delete annotation</string>
+    <string name="reread_code_q">1. I\'ll reread the QuizApp code for more understanding</string>
+    <string name="impl_f_fi">2. I will proceed to the implementation of paragraphs 4 and 5</string>
+    <string name="hard_fa_da">There were difficulties with filling History with fake data</string>
+    <string name="im_sh_pr">-Implemented progress display</string>
+    <string name="im_sh_ca">-Implemented category mapping</string>
+    <string name="im_ba_f_a">-Implemented testing of the back button if the first page closes the Activity</string>
+    <string name="im_b_an">-Implemented the testing of the response buttons</string>
+    <string name="one_sec_pag">-Set the timer on onAnswerClick so that when you click on the answer, you wait 1 second before flipping to the next question</string>
+    <string name="st_sc_qr">1.I will start the layout of QuizResult</string>
+    <string name="im_wi_fi">2.I implement the functions of determining the availability of Internet or WI-FI</string>
+    <string name="re_q_l_ans">With mixing of questions and embedding in the answer sheet</string>
+    <string name="since">Since </string>
+    <string name="before"> Before </string>
+    <string name="gone_to_dream">\"Gone to sleep\"</string>
+    <string name="wh_dr_q">What did you dream ? ((Optional)</string>
+    <string name="list_ideas"> Your list of ideas</string>
+    <string name="vis_im_idea">A visual image is a good way to consolidate the idea that has come</string>
+    <string name="by_cl_im_sh">When you click on the card, the picture opens in full size</string>
+    <string name="cl_ca_re_id">By clicking on this button you can write down an idea</string>
+    <string name="dream_record">Keep a record of sleep</string>
+    <string name="history_empty">History is empty</string>
+    <string name="read">Read</string>
+    <string name="new_event">New event</string>
+    <string name="diplom_work">Graduate work</string>
+    <string name="phisology">Psychology</string>
+    <string name="not_necessary">(Not obligatory)</string>
+    <string name="hour">Watch</string>
+    <string name="minute">Minutes</string>
+    <string name="choose_app">Select an application</string>
+    <string name="in_main_screen">- Here you can mark that you have completed your task from habits, view events and go to the desired category.\n
+- Long press on the date in the calendar that is at the top of the window will allow you to add a new event or task for that day to your schedule.</string>
+    <string name="in_categories">- To create a new category, click on +.\n
+- A long press on the category will open a window where you can edit, delete or block it, as well as change your password.</string>
+    <string name="in_timetable">- To create a new entry, click on +. You can choose one or several days at once.\n
+- By clicking on the day of the week, you can view all entries for that day. \n
+- A long press on the record will allow you to delete or edit it.</string>
+    <string name="in_event">- To create a new event, click on +. You can also set a reminder for the time you need.\n
+- A long press on the event will allow you to delete or edit it.</string>
+    <string name="in_habit">A window that will allow you to develop the desired habit.\n
+- To create a new habit, click on +.\n
+- By clicking on the habit, you can note that you have completed the task today.\n
+- A long press will allow you to delete or edit it. Button in the upper left corner will open the menu. Here you can find out your level, choose an avatar and add a name.</string>
+    <string name="in_focus">The window was created based on the theory of 10,000 hours, which states that this is how much time you need to spend to achieve professionalism in your chosen field.\n
+- By clicking on + you can add a new action, as well as open a timer or stopwatch.\n
+- By clicking on an action in the list, you can specify how many minutes you spent on it. The time will be summed up.\n
+- A long press will open the timer or stopwatch from where the time will be added to your record. If you wish, you can immediately delete it.</string>
+    <string name="in_standup">The practice used in large companies to optimize the process. Every employee writes a daily report on the work done and the problems encountered.\n
+- - The + button will allow you to create a new standup.\n
+- A long press on the record will open a window where you can delete, edit or share the standup.</string>
+    <string name="in_dream">A window where you can track the time spent sleeping.\n
+- By clicking on + you can create a new record.\n
+- By clicking on the entry you can read what you dreamed.\n
+- A long press will allow you to edit or delete an entry.</string>
+    <string name="in_idea">- By clicking on + you can add a new idea.\n
+- By clicking on the record you can view the picture, a long press will allow you to delete or edit the record.</string>
+    <string name="in_finance">A window for tracking your finances.\n
+- At the top is a card with tips that will allow you to manage your money more productively.\n
+- The \'Income\' and \'Expense\' buttons will allow you to add a record of how much money you received and how much you spent, respectively.\n
+- There are template costs here, if you wish, you can create your own template by clicking on +.\n
+- A long press on the template will allow you to delete it.\n
+- History will allow you to track all your financial changes.</string>
+    <string name="in_setting">- Here you can change the theme and language of the application.</string>
+    <string name="instruction">Instructions</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
 </resources>

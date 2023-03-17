@@ -1,0 +1,402 @@
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="events">Падзея</string>
+    <string name="tasks">Задачы</string>
+    <string name="ideas">Ідэя</string>
+    <string name="january">Студзень</string>
+    <string name="february">Люты</string>
+    <string name="march">Сакавік</string>
+    <string name="april">Красавік</string>
+    <string name="may">Май</string>
+    <string name="june">Чэрвень</string>
+    <string name="july">Ліпень</string>
+    <string name="august">Жнівень</string>
+    <string name="september">Верасень</string>
+    <string name="october">Кастрычнік</string>
+    <string name="november">Лістапад</string>
+    <string name="december">Снежань</string>
+    <string name="are_you_sure">Вы ўпэўненыя ?</string>
+    <string name="no">Не</string>
+    <string name="yes">Так</string>
+    <string name="record_idea">Увядзіце сутнасць ідэі</string>
+    <string name="record_description">Увядзіце апісанне</string>
+    <string name="settings">Наладжваньне</string>
+    <string name="change_theme">Змяніць тэму</string>
+    <string name="begin_time">Пачатак часу</string>
+    <string name="end_time">Канец часу</string>
+    <string name="delete">Выдалены</string>
+    <string name="empty">Пуста</string>
+    <string name="stopwatch">Секундамер</string>
+    <string name="image">Карцінка</string>
+    <string name="timer">Таймер</string>
+    <string name="what_are_doing">Што вы будзеце рабіць?</string>
+    <string name="apply">Прыняць</string>
+    <string name="time">Час</string>
+    <string name="toStart">Пачаць</string>
+    <string name="complete">Завяршыць</string>
+    <string name="choose_language">Абярыце Мову…</string>
+    <string name="change_language">Змяніць мову</string>
+    <string name="task">Изменить язык</string>
+    <string name="ready">Гатовыя ?</string>
+    <string name="plan_own_day">Расплануе свой дзень</string>
+    <string name="to_delete">Выдаліць</string>
+    <string name="share">Падзяліцца</string>
+    <string name="add_title">Увядзіце тэкст</string>
+    <string name="choose_image">Выберыце карцінку:</string>
+    <string name="cancel">Адмена</string>
+    <string name="what_to_do">Што б вы хацелі зрабіць?</string>
+    <string name="help_idea_add">Для дадання новай ідэі націсніце на + </string>
+    <string name="help_calendar_add">Для дадання новага падзеі націсніце на +</string>
+    <string name="changing_theme">Змена тэмы</string>
+    <string name="new_aim">Пара ставіць новыя мэты!</string>
+    <string name="achievement_app">Дасягненьне</string>
+    <string name="write_reviews">Напісаць водгук</string>
+    <string name="review_on_app">Водгук на дадатак Planner</string>
+    <string name="done">Гатовы</string>
+    <string name="read">Чытаць</string>
+    <string name="date">Дата</string>
+    <string name="you_name">Ваша імя</string>
+    <string name="rate_app">Паставіць ацэнку</string>
+    <string name="not_enough_balanсe">Недастаткова сродкаў на балансе !</string>
+    <string name="attention_alert">Увага!</string>
+    <string name="advice1_1"> \"Ставіцеся да грошай з павагай\"</string>
+    <string name="advice1_2">Вашы грошы гэта ваша "закансерваваны" час і энергія, якія вы патрацілі, каб іх зарабіць.</string>
+    <string name="advice2">Завядзіце сабе звычку весці ўлік даходаў і расходаў у электронным альбо пісьмовым выглядзе.</string>
+    <string name="advice3_1">Пазбаўцеся ад крэдытных карт, спажывецкіх крэдытаў і іншых даўгоў.</string>
+    <string name="advice3_2"> Даўгі ціснуць псіхалагічна, уганяюць людзей у стрэс і прымушаюць турбавацца аб заўтрашнім дні. У выніку, за карыстанне чужымі грашыма вы заплаціце не толькі сваімі грашыма, але і сваім здароўем і сваёй энергіяй.</string>
+    <string name="advice4_1">Жывіце па сродках.</string>
+    <string name="advice4_2"> Калі вы парушаеце гэтае правіла, вы губляеце гармонію ва ўласнай жыцця. Вы марнуеце грошы, якіх не зарабілі, фактычна, карыстаючыся тым, што вам не належыць, вы можаце пазбавіцца гэтага ў любы момант! Усвядомце розніцу паміж сваімі патрэбамі-тым, што вам сапраўды трэба, і сваімі жаданнямі-тым, што "нядрэнна было б мець". Расстаўце прыярытэты так, каб спачатку зачыняць усе патрэбы, а тое што застаецца пускаць на хотелки і забавы.</string>
+    <string name="advice5_1">Адмоўцеся ад імпульсіўных пакупак і неабавязковых марнаванняў.</string>
+    <string name="advice5_2"> Складайце спіс пакупак перад паходам у краму і прытрымвайцеся яго.</string>
+    <string name="advice6_1">Працуйце над павышэннем сваіх даходаў.</string>
+    <string name="advice6_2"> Даведайцеся, за што канкрэтна вам плацяць грошы, і развівайцеся ў гэтай галіне. Набыццё больш глыбокіх ведаў у вузкай нішы, пашырэнне сферы вашых кампетэнцый і адказнасці, павышэнне якасці выкананай працы, а таксама больш хуткае выкананне працы, могуць стаць ключом да павышэння вашых даходаў.</string>
+    <string name="advice7_2"> Павелічэнне даходу-гэта вынік працяглай і рэгулярнай працы, таму назапасьцеся цярпеннем і пачынайце рухацца да мэты невялікімі крокамі.</string>
+    <string name="advice7_1">Не чакайце хуткіх вынікаў.</string>
+    <string name="advice8_1">Стварайце і набывайце дадатковыя крыніцы даходу.</string>
+    <string name="advice8_2"> Сакрэт фінансавай стабільнасці многіх паспяховых людзей заключаецца ў множных крыніцах даходу.</string>
+    <string name="advice9">Беражыце грошы-не марнуйце іх на азартныя гульні, фінансавыя піраміды, сумнеўныя прадпрыемствы і здзелкі.</string>
+    <string name="advice10_1">Не давайце грошы ў доўг</string>
+    <string name="advice10_2"> Вялікія рызыкі і з людзьмі адносіны сапсаваць і грошы страціць. Пакіньце банкам іх працу</string>
+    <string name="advice11_1">Не раскідвацца нават невялікімі грашыма.</string>
+    <string name="advice11_2"> Капейка беражэ не толькі рубель, але і даляр, і еўра!</string>
+    <string name="advice12_1">Адмоўцеся ад шкодных фінансавых звычак,</string>
+    <string name="advice12_2"> Рэгулярна выцягваюць ў вас грошы з кашалька, але не прыносяць ўжо мінуўшчыны задавальнення. Мы трацім грошы, каб атрымаць нейкія эмоцыі. Пры аднолькавай цане розныя рэчы могуць прыносіць розная колькасць эмоцый. Напрыклад, кава ў кафэ за 200 рублёў, які вы прывыклі выпіваць пасля абеду, ужо не выклікае захаплення і задавальнення, але ўсё яшчэ абыходзіцца вашаму бюджэце ў 1000 рублёў у тыдзень. За тую ж тысячу вы маглі б атрымаць значна больш эмоцый, схадзіўшы на масаж або ў кіно.</string>
+    <string name="advice13_1">Не саромейцеся спытаць аб зніжцы і скарыстацца адмысловымі прапановамі.</string>
+    <string name="advice13_2"> Прадаўцу напэўна будзе больш выгадна прапанаваць вам зніжку і прадаць тавар, чым адмовіць у зніжцы і не прадаць нічога.</string>
+    <string name="advice14_1">Вывучайце літаратуру па фінансавай пісьменнасці.</string>
+    <string name="advice14_2">\" Ваша дабрабыт напрамую залежыць ад узроўню вашай фінансавай пісьменнасці!\"</string>
+    <string name="advice15">Завядзіце сабе асабісты фінансавы план і вынікайце яму.</string>
+    <string name="advice16_1">Спачатку плаціце сабе-позна спрабаваць адкладаць грошы пасля таго, як вы іх ужо выдаткавалі.</string>
+    <string name="advice16_2">\" Адкладаць частку грошай на дасягненне сваіх фінансавых мэтаў трэба адразу ж, як толькі вы іх атрымалі.\"</string>
+    <string name="advice17_1">Інвеставанне прасцей, і даступней чым вы думаеце.</string>
+    <string name="advice17_2">\" Да таго ж некаторыя фінансавыя інструменты дазваляюць шмат у чым аўтаматызаваць гэты працэс. Галоўнае зразумець, ці настолькі гэта важна для вас, што вы гатовыя пачаць дзейнічаць?\"</string>
+    <string name="advice18_1">Купляйце неабходныя якасныя рэчы.</string>
+    <string name="advice18_2">\" Якасныя прадукты, як правіла каштуюць даражэй, затое ў выкарыстанні абыходзіцца танней.\"</string>
+    <string name="advice19_1">Сачыце за тым, каб вашы даходы заўсёды раслі хутчэй вашых выдаткаў.</string>
+    <string name="advice19_2">\" Пры гэтым вашы даходы заўсёды павінны быць больш вашых выдаткаў. Гэта адзін з асноўных прынцыпаў фінансавага дабрабыту.\"</string>
+    <string name="advice20_1">Заўсёды лічыце грошы, нават калі яны маленькія.</string>
+    <string name="advice20_2">\" Невялікія штодзённыя марнаванні могуць складвацца ў велізарныя сумы за гады і ў яшчэ большыя за дзесяцігоддзі. Кожны раз, калі вы кажаце сабе нешта накшталт "1000 рублёў не грошы, не шкада і страціць", вы адбіраеце ў сябе самога ў будучыні дзясяткі і сотні тысяч, у якія б ператварылася гэтая тысяча, калі б вы яе пісьменна інвеставалі.\"</string>
+    <string name="advice21_1">Параўнайце кошты ў розных месцах перад тым як нешта купіць.</string>
+    <string name="advice21_2">\" Лепш за ўсё вымяраць цану ў гадзінах вашай жыцця-колькі часу вам прыйдзецца працаваць, каб набраць патрэбную суму на гэтую куплю. Так вам будзе прасцей параўноўваць цану тавару, якую вы плаціце з яго каштоўнасцю для вас. Ці гатовыя вы аддаць гадзіну жыцця за кубак кавы? А месяц жыцця за новы тэлефон?\"</string>
+    <string name="advice22">\"Не зайздросціце іншым людзям, а вучыцеся ў іх таму, у чым яны разбіраюцца лепш за вас.\"</string>
+    <string name="advice23">Усвядомце, што ваша фінансавае дабрабыт цалкам і цалкам залежыць ад вас і вашых дзеянняў.</string>
+    <string name="advice24_1">Сядзьце на "грашовую дыету" прама зараз!</string>
+    <string name="advice24_2">\" Зменіце свой лад жыцця прама цяпер, не адкладаючы. Гэта дазволіць вам зэканоміць на працягу года тысячы даляраў.\"</string>
+    <string name="costs">Выдатак</string>
+    <string name="income">Даход</string>
+    <string name="balance">Баланс</string>
+    <string name="enter_amount">Калі ласка, увядзіце суму</string>
+    <string name="habit">Звычка</string>
+    <string name="your_habit_is_done">Сёння вы ўжо адзначылі выкананне гэтай задачы</string>
+    <string name="you_is_done_habit_today">Вы сапраўды сёння выканалі заданне?</string>
+    <string name="edit">Рэдагаваць</string>
+    <string name="helper_finance_dialog" >
+        Баланс.\n
+Тут вы можаце ўбачыць ваш бягучы баланс.
+Ваш баланс павялічваецца пры даданні даходу.
+Памяншаецца пры даданні расходу або частых марнаванняў.\n
+        \nСбережения.\n
+Тут вы можаце запісаць ваша бягучы стан
+зберажэнні націснуўшы на кнопку плюс.  (Таксама) вы не
+можаце расходаваць з бягучага зберажэнні . Пры абавязкам
+кліку на кнопку можаце выдаліць усю суму зберажэнні.\n
+\nДаход.\n
+Націскаючы на кнопку плюс вы можаце дадаваць ваш даход .
+Пры кожным даданні даходу павялічваецца ваш баланс.\n
+\nВыдатак.\n
+Націскаючы на кнопку мінус вы можаце дадаваць
+вашы выдаткі. Вам трэба ўвесці суму і апісанне
+расходу (пажадана). Для вашага зручнасці мы стварылі
+раздзел: Гісторыя выдаткаў, зверху ў раздзеле " выдаткі"
+вы можаце прасачыць за сваімі выдаткамі.\n
+\nЧастыя марнаванні.\n
+Націскаючы на кнопку плюс вы можаце дадаваць свае
+частыя марнаванні (Элемент). Гэта карысна для таго, каб
+вы змаглі прасачыць на што часта марнуеце грошы.
+Націскаючы на Элемент вы можаце дадаць выдаткаваную суму
+і ўбачыць агульную суму выдаткаваных грошай. Таксама,
+свайпая направа, вы можаце выдаліць Элемент са спісу частых марнаванняў.
+   </string>
+    <string name="main">Галоўнае</string>
+    <string name="finance">Фінансы</string>
+    <string name="you_forgot_habbit">Вы не забыліся пра звычку</string>
+    <string name="you_can_edit_profile">Вы можаце рэдагаваць свой профіль</string>
+    <string name="advice25_1">Поспех пры бліжэйшым разглядзе аказваецца ўсяго толькі вынікам вялікай працы і дбайнай падрыхтоўкі.</string>
+    <string name="advice26_1">Калі вы вырашылі нешта зрабіць, але не пачалі гэта рабіць на працягу 72 гадзін-у 85% выпадкаў Вы не зробіце гэта ніколі.</string>
+    <string name="advice27_1">\"Той, хто робіць, чакае поспеху. Той «хто "спрабуе", чакае, што яму нешта перашкодзіць.\"</string>
+    <string name="advice27_2">Палавіннае высілак дае не палову выніку, а нулявы вынік.</string>
+    <string name="advice28_1">Хто ўвесь дзень працуе - таму некалі зарабляць грошы.</string>
+    <string name="advice29_1">Самы вялікі талент заключаецца ў тым, каб умець знаходзіць матывацыю для ўласных дзеянняў.</string>
+    <string name="advice30_1">Фінансавы дабрабыт немагчыма без фінансавых абмежаванняў і планавання сваіх марнаванняў. Фінансавая свабода ідзе праз фінансавыя абмежаванні.</string>
+    <string name="advice_31_1">Лепш дрэнна пачынаць, чым добра бяздзейнічаць.</string>
+    <string name="advice32_1">Думайце пра сваё здароўе. Поспех немагчымы без добрага здароўя.</string>
+    <string name="advice_32_2">\" Багацце без здароўя не прынясе радасць.\"</string>
+    <string name="advice_33_1">Лепш ісці да мэты з хуткасцю чарапахі, чым з хуткасцю святла прыдумляць апраўдання, чаму ты стаіш на месцы.</string>
+    <string name="advice_34_1">Вазьміце сваё любімае хобі і пабудуйце на ім кар\'еру.</string>
+    <string name="advice35_1">\"Для добрых заробкаў патрэбныя добрыя веды.\"</string>
+    <string name="advice_35_2">Старайцеся пастаянна вучыцца, чытаць, пашыраць кругагляд. Дурням шанцуе толькі ў казіно, і тое рэдка.</string>
+    <string name="advice_36_1">Багацце – гэта не колькі Вы выдаткавалі ў казіно, рэстаране, на курорце ці ў краме.</string>
+    <string name="advice36_2">\" Багацце-гэта тое, што вы адклалі і збераглі.\"</string>
+    <string name="advice37_1">Адзін раз шанцуе толькі дурням. Разумным заўсёды шанцуе.</string>
+    <string name="advice38_1">Вы адказныя за ўсе падзеі не</string>
+    <string name="advice38_2">Але вы заўсёды адказваеце за вашу інтэрпрэтацыю падзей і за Вашу рэакцыю на іх.</string>
+    <string name="advice39_1">\"Сядзець і чакаць цуду гэтак жа па-дурному, як спартсмену сядзець дома перад тэлевізарам,\"</string>
+    <string name="advice39_2">глядзець Алімпійскія Гульні і спадзявацца атрымаць на іх залаты медаль.</string>
+    <string name="advice40_1">Грошы заўсёды маюць менавіта тое значэнне, якое мы ім надаём.</string>
+    <string name="advice41_1">Грошы самі па сабе нікога не робяць шчаслівым або няшчасным. Яны не добрыя і не дрэнныя.</string>
+    <string name="advice_41_2">Шчаслівы чалавек з грашыма стане яшчэ больш шчаслівым. Песіміст, які з усяго робіць праблему, з грашыма атрымае яшчэ больш праблем. Грошы выяўляюць характар ўладальніка. Яны як павелічальнае шкло.</string>
+    <string name="advice42_1">\"Ніхто не становіцца багатым толькі ў сілу таго, што шмат зарабляе.\"</string>
+    <string name="advice42_2">Вы багатыя толькі тады, калі можаце жыць на працэнты ад вашага капіталу без неабходнасці працаваць: грошы працуюць на Вас.</string>
+    <string name="advice43_1">Прынцыповае становішча: ніколі не прымайце савет чалавека, які не з\'яўляецца тым, кім вы ахвотна б сталі.</string>
+    <string name="advice44_1">Жыць без адказнасці-значыць дэградаваць да стану нямоглай ахвяры.</string>
+    <string name="advice44_2">\" Гэта значыць жыць па правілах, якія напісалі для Вас іншыя.\"</string>
+    <string name="advice45_1">Большасць людзей пераацэньваюць тое, што могуць зрабіць за год, і недаацэньваюць тое, што могуць зрабіць за дзесяць гадоў.</string>
+    <string name="advice46_1">\"Мы бачым ружы, але не заўважаем шыпоў. Мы бачым поспех, але не падрыхтоўку да яго.\"</string>
+    <string name="advice46_2">І мы не бачым чужых няўдач. Мы будзем здзіўлены, даведаўшыся, як старанна рыхтуюць свой поспех "шчасліўчыкі".</string>
+    <string name="advice47_1">Існуе прынцыповае адрозненне паміж гульнёй, якую вы вядзеце, каб не прайграць, і той, у якой вы хочаце выйграць.</string>
+    <string name="advice48_1">Вам не плацяць столькі, колькі вы стаіце? Не, калі вы працуеце за гэтыя грошы –</string>
+    <string name="advice48_2">\" значыць, столькі вы стаіце. Калі нешта не задавальняе-мяняйце працу, лад жыцця, мяняйце сябе.\"</string>
+    <string name="notification_for_habit">Апавяшчэнне для звычак</string>
+    <string name="you_can_set_notification">Вы можаце ўсталяваць на патрэбнае для вас час</string>
+    <string name="amount">Сума:</string>
+    <string name="description">Апісанне:</string>
+    <string name="enter_name">Увядзіце назву</string>
+    <string name="description_about_app">Апісанне прыкладання</string>
+    <string name="blue">Сіні</string>
+    <string name="red">Чырвоны</string>
+    <string name="orange">Аранжавы</string>
+    <string name="yellow">Жоўты</string>
+    <string name="black">Чорны</string>
+    <string name="green">Зялёны</string>
+    <string name="white">Белы</string>
+    <string name="remind">Нагадаць</string>
+    <string name="fill_field">Запоўніце поле</string>
+    <string name="new_idea">Новая ідэя</string>
+    <string name="new_category">Новая катэгорыя</string>
+    <string name="category_name">Назва катэгорыі</string>
+    <string name="new_habit">Новая звычка</string>
+    <string name="what_done_yesterday">Што было выкананаза ўчорашні дзень?</string>
+    <string name="what_plan_today">Што запланавана на сёння ?</string>
+    <string name="problems">Праблемы або блакатары</string>
+    <string name="important_info">Важная інфармацыя</string>
+    <string name="next">Далей</string>
+    <string name="pink">Ружовы</string>
+    <string name="violet">Фіялетавы</string>
+    <string name="monday">Панядзелак</string>
+    <string name="tuesday">Аўторак</string>
+    <string name="wednesday">Асяроддзе</string>
+    <string name="thursday">Чацвер</string>
+    <string name="friday">Пятніца</string>
+    <string name="saturday">Субота</string>
+    <string name="sunday">Нядзеля</string>
+    <string name="timetable">Расклад</string>
+    <string name="stand_up">Стэндап</string>
+    <string name="focus">Фокус</string>
+    <string name="expensive">Выдатак</string>
+    <string name="history">Гісторыя</string>
+    <string name="choose_action">Выберыце дзеянне</string>
+    <string name="ofCourse">Безумоўна</string>
+    <string name="enter_password">Увядзіце пароль</string>
+    <string name="wrong_password">Ня верны пароль</string>
+    <string name="block">Заблакаваць</string>
+    <string name="set_password">Задайце пароль</string>
+    <string name="in_case_lost_password">На выпадак страты пароля</string>
+    <string name="forgot_password">Забыў пароль</string>
+    <string name="not_correct">Не дакладна</string>
+    <string name="changePassword">Змяніць пароль</string>
+    <string name="unblock">Разблакіраваць</string>
+    <string name="heavenly">Нябесны</string>
+    <string name="bilberry">Чарнічны</string>
+    <string name="wake_up_morning">Ўставаць у 6 раніцы</string>
+    <string name="read_by_minutes">Чытаць па 15 хвілін</string>
+    <string name="health">Здароўе</string>
+    <string name="targets">Мэты</string>
+    <string name="download_app">Спампаваць прыкладанне Planner+</string>
+    <string name="look_how_it_work">Паглядзець як ён працуе</string>
+    <string name="for_next_lesson">Для наступнага ўрока</string>
+    <string name="implement_new_fun">Рэалізацыі новай фунцкии</string>
+    <string name="new_process">Новы працэс</string>
+    <string name="set_amount_day">Пакажыце колькасць дзён</string>
+    <string name="add_some_event">Увядзіце пэўны падзея</string>
+    <string name="icon">Абразок</string>
+    <string name="minutes_amount">Колькасць хвілін</string>
+    <string name="enter_secret_word">Увядзіце сакрэтнае слова</string>
+    <string name="set_notification_on">Устаноўлена апавяшчэнне на</string>
+    <string name="create">Стварыць</string>
+    <string name="add_pattern">Дадаць шаблон</string>
+    <string name="name">Імя</string>
+    <string name="categories">Катэгорыя</string>
+    <string name="begins">Пачынацца</string>
+    <string name="ends">Сканчацца</string>
+    <string name="to_the_schedule">У расклад</string>
+    <string name="woke_up">Прачнуцца</string>
+    <string name="went_to_sleep">Лёг спаць</string>
+    <string name="sleep_recording">Запіс сну</string>
+    <string name="dream">Сон</string>
+    <string name="no_records">Няма запісаў</string>
+    <string name="transport">Транспарт</string>
+    <string name="products">Прадукты</string>
+    <string name="flight_over_city">Палёт над сваім горадам</string>
+    <string name="my_dream_in_dream">Мне сніўся сон у сне які быў сном</string>
+    <string name="congratulation">Віншуем!</string>
+    <string name="level">Узровень </string>
+    <string name="you_are_hello">Вас вітае</string>
+    <string name="tool">Інструмент</string>
+    <string name="got_you_aim">Дасягнення вашых мэтаў</string>
+    <string name="what_can_i_do">Што я ўмею рабіць ?</string>
+    <string name="create_notes">Ствараць нататкі</string>
+    <string name="follow_finance">Сачыць за фінансамі</string>
+    <string name="keep_focus">Трымаць фокус</string>
+    <string name="keep_schedule">Весці расклад</string>
+    <string name="create_standup">Создавать стэндап</string>
+    <string name="also">А таксама</string>
+    <string name="to_create_event">Ствараць падзеі</string>
+    <string name="fix_idea">Фіксаваць ідэі</string>
+    <string name="lets_start">Давайце пачынаць !</string>
+    <string name="click_by_screen">Клікніце па экране</string>
+    <string name="before_start">Перад пачаткам прапануем пазнаёміцца з дадаткам</string>
+    <string name="two_tools">Тут маюцца два інструмента навігацыі</string>
+    <string name="bottom_and_side">Ніжняя і бакавыя</string>
+    <string name="side_open_by_click">Бакавая адкрываецца па націску на бургер якая знаходзіцца ў верхнім левым куце</string>
+    <string name="after_instruction">Пасля пераходу на кожнае з вокнаў пачакайце запуск інструктажу</string>
+    <string name="go">Паехалі !</string>
+    <string name="you_calendar">Ваш каляндар</string>
+    <string name="show_day">Адлюстроўвае дні з абнаўленнем на наступныя 3 месяцы</string>
+    <string name="set_event_new_task">Заціснутай на дату вы можаце ўсталёўваць падзея ці ж новую задачу ў пэўны дзень тыдня</string>
+    <string name="next_you_cards">Далей ідуць вашыя карткі</string>
+    <string name="here_show">Тут адлюстроўваюцца ўсе вашы карткі з вокнаў звычкі, катэгорыі, падзеі</string>
+    <string name="click_cards_ha_ca">Клікнуўшы на карткі звычак або жа катэгорыі вы можаце прарабіць пэўны дзеянне</string>
+    <string name="show_profile">Адкрыўшы бакавую панэль вы можаце ўбачыць ваш профіль</string>
+    <string name="avater_name">Аватарка, імя і бягучы ўзровень, для таго каб усталяваць аватарку і імя клікніце на іх</string>
+    <string name="lvlup_some_action">Узровень павышаецца за пэўныя дзеянні такія выкананне звычак, задач і таму падобных</string>
+    <string name="inside_cards_record">Карткі усярэдзіне якіх можна запісваць нататкі або задачы</string>
+    <string name="hold_card">Зацісніце на картку з спісу каб выклікаць акно з дзеяннямі</string>
+    <string name="insert_button">Кнопка Дадаць</string>
+    <string name="create_new_category_click">Націснуўшы на гэтую кнопку вы можаце стварыць новую картку, паказаўшы назву катэгорыі і абразок</string>
+    <string name="under_everyday"> Пад кожным днём хаваецца спіс які можна запоўніць</string>
+    <string name="cause_see">Каб убачыць што запланавана на той ці іншы дзень клікніце на яго</string>
+    <string name="hold_task_action">Можаце задаць на запланаваную задачу з спісу каб выклікаць акно з дзеяннямі</string>
+    <string name="click_here_button">Націснуўшы на гэтую кнопку вы можаце стварыць справы на пэўны дзень тыдня</string>
+    <string name="planning_events">Ваш спіс запланаваных падзей</string>
+    <string name="set_remind_by_wish">Па жаданні вы можаце ўсталяваць напамін</string>
+    <string name="create_ev_date">Націснуўшы на гэтую кнопку вы можаце стварыць падзеі на пэўную дату</string>
+    <string name="list_habit">Ваш спіс звычак якія вы хочаце да сябе прышчапіць</string>
+    <string name="in_left_day">Злева паказана колькі дзён вы ўжо замацоўваеце звычку</string>
+    <string name="in_right_hold">Справа колькі дзён трэба трымацца</string>
+    <string name="click_by_habit">Клікнуўшы на картку Вы можаце адзначыць выкананне звычкі за бягучы дзень а заціснуўшы на картку Вы можаце выклікаць акно з дзеяннямі</string>
+    <string name="create_new_habit"> Націснуўшы на гэтую кнопку вы можаце стварыць новую звычку</string>
+    <string name="list_process">Ваш спіс працэсаў на якіх патрабуецца канцэнтрацыя</string>
+    <string name="theroy_thousand_hour"> Гэта акно створана на аснове тэорый 10 000 гадзін</string>
+    <string name="profession_thousand_hour"> У якім гаворыцца каб стаць прафесіяналам у пэўнай вобласці, трэба выдаткаваць на яе вывучэнне каля 10 тысяч гадзін</string>
+    <string name="work_stopwatch_timer">Націснуўшы на гэтую кнопку вы можаце стварыць новы працэс, папрацаваць з таймерам ці ж з секундамерам</string>
+    <string name="list_standup"> Ваш спіс стэндапов</string>
+    <string name="team_work">Гэта акно створана на аснове сістэмы каманднай працы</string>
+    <string name="plan_and_problem_share"> Где участники команды ежедневоно создают отчёт о проделанной работе и деляться со своми планами и проблемами </string>
+    <string name="good_system">Гэта вельмі добрая сістэма, каб трымаць сябе ў тонусе</string>
+    <string name="good_friend_standup"> Вы можаце папрасіць добрага знаёмага каб ён сачыў за складаннем стэндапов</string>
+    <string name="share_fun_send"> І там як раз ёсць функцыя падзяліцца каб вы маглі яго адправіць</string>
+    <string name="create_new_standup"> Націснуўшы на гэтую кнопку вы можаце стварыць новы стендап</string>
+    <string name="list_dream">Ваш спіс дзе збіраюцца вашыя запісы звязаныя са сном</string>
+    <string name="up_slept_hour"> Уверсе паказана колькі гадзін вы праспалі за ўказаны дзень</string>
+    <string name="next_time_date">Далей ад якога часу да якога часу і дата</string>
+    <string name="course_record_dream">Клікнуўшы на картку Вы можаце паглядзець што снілася ў той дзень, вядома ж калі вы яго запісалі</string>
+    <string name="create_new_record">Націснуўшы на гэтую кнопку вы можаце стварыць новую запіс</string>
+    <string name="folow_finance_window">\" Акно для сачэння за вашы фінансамі</string>
+    <string name="new_appear_open"> Уверсе картка з парадамі звязаныя з фінансамі, новы з\'яўляецца кожны раз калі вы адкрываеце гэта акно</string>
+    <string name="main_fun_in_ex">Асноўныя функцыі выконваюць кнопкі даходу і расходу</string>
+    <string name="template_work">Таксама ёсць спіс шаблонных выдаткаў па націску на элемент вы можаце працаваць з ім</string>
+    <string name="history_button_ex_te">І вядома ж кнопка гісторыі дзе ўлічваецца ўсё акрамя шаблонных выдатка"</string>
+    <string name="template_expensive">Шаблонныя выдаткі</string>
+    <string name="choose_icon">Выбар абразкі</string>
+    <string name="hours"> Гадзіна</string>
+    <string name="minut"> Хвіліна</string>
+    <string name="rewrite_code">1.Перапісаў і перачытаў код з урока</string>
+    <string name="watch_stream">2.Прагледзеў Стрым</string>
+    <string name="write_screen_se_q">3.Напісаў вёрстку для Settings і для Quiz</string>
+    <string name="create_h_st_dao">4.у HistoryStorage стварыў метады для HistoryDao</string>
+    <string name="in_dao_delete">5.у History Dat напісаў метад delete All пад анатацыяй @ Delete</string>
+    <string name="reread_code_q">\"1.Перачытаю код QuizApp для большага разумення\"</string>
+    <string name="impl_f_fi">2.Перайду да рэалізацыі пунктаў 4 і 5</string>
+    <string name="hard_fa_da">Былі складанасці з запаўненнем History фэйкавую дадзенымі</string>
+    <string name="im_sh_pr">- Рэалізаваў адлюстраванне прагрэсу</string>
+    <string name="im_sh_ca">- Рэалізаваў адлюстраванне катэгорыі</string>
+    <string name="im_ba_f_a">- Рэалізаваў адпрацоўку кнопкі back калі першая старонка закрывае Activity</string>
+    <string name="im_b_an">- Рэалізаваў адпрацоўку кнопак на адказ</string>
+    <string name="one_sec_pag">- Паставіў таймер на onAnswerClick каб пры націску на адказ чакаў 1 секунду перш чым перагарнуць на наступнае пытанне</string>
+    <string name="st_sc_qr">\"1.Пачну вёрстку QuizResult\"</string>
+    <string name="im_wi_fi">2.Рэалізую функцыі вызначэння наяўнасці Інтэрнэту або WI-FI</string>
+    <string name="re_q_l_ans">З мяшаннем пытанняў і укладаннем у ліст answer</string>
+    <string name="since">C </string>
+    <string name="before"> Да </string>
+    <string name="gone_to_dream">Сышло на сон</string>
+    <string name="wh_dr_q">Што прыснілася ? ((Не абавязкова)</string>
+    <string name="list_ideas"> Ваш спіс ідэй</string>
+    <string name="vis_im_idea">Візуальны вобраз добры шлях каб замацаваць якая прыйшла ідэю</string>
+    <string name="by_cl_im_sh">Пры кліку на картку малюнак адкрываецца ў поўны памер </string>
+    <string name="cl_ca_re_id">Націснуўшы на гэтую кнопку вы можаце запісаць ідэю</string>
+    <string name="dream_record">Весці ўлік сну</string>
+    <string name="history_empty">Гісторыя пустая</string>
+    <string name="new_event">Новая падзея</string>
+    <string name="diplom_work">Дыпломная праца</string>
+    <string name="phisology">Псіхалогія</string>
+    <string name="not_necessary">(Не абавязкова)</string>
+    <string name="hour">Гадзіннік</string>
+    <string name="minute">Хвіліна</string>
+    <string name="choose_app">Выберыце дадатак</string>
+    <string name="in_main_screen">- Тут вы можаце адзначыць што вы выканалі ваша заданне з звычак, прагледзець падзеі і перайсці ў патрэбную катэгорыю.\n
+        - Доўгі націск на дату ў календары, што знаходзіцца уверсе вокны дазволіць вам дадаць новае падзея або задачу на гэты дзень у ваша расклад.</string>
+    <string name="in_categories">- Для стварэння новай катэгорыі націсніце на+.\n
+        - Доўгі націск на катэгорыю выкліча акно дзе вы можаце адрэдагаваць, выдаліць або заблакаваць яе, а таксама змяніць пароль.</string>
+    <string name="in_timetable">- Для стварэння новай запісу клікніце на +. Вы можаце выбраць адзін або адразу некалькі дзён.\n
+        - Націснуўшы на дзень тыдня вы можаце праглядзець усе запісы на дадзены дзень. \n
+        - Доўгі націск на запіс дазволіць вам выдаліць або адрэдагаваць яе.</string>
+    <string name="in_event">- Для стварэння новага падзеі націсніце на+. Таксама вы можаце ўсталяваць напамін на патрэбнае вам час.\n
+        - Доўгі націск на падзею дазволіць вам выдаліць або рэдагаваць яго.</string>
+    <string name="in_habit">Акно, якое дазволіць вам выпрацаваць пажаданую звычку.\n
+        - Для стварэння новай звычкі націсніце на+.\n
+        - Клікнуўшы на звычку вы можаце адзначыць што сёння выканалі заданне.\n
+        - Доўгі націск дазволіць выдаліць або адрэдагаваць яе. Кнопка у верхнім левым куце выкліча меню. Тут вы можаце даведацца пра свой узровень, выбраць аватарку і дадаць імя.</string>
+    <string name="in_focus">Акно створана на аснове тэорыі аб 10000 гадзін якая абвяшчае, што менавіта столькі часу трэба выдаткаваць каб дасягнуць прафесіяналізму ў абранай вобласці.\n
+        - Націснуўшы на + Вы можаце дадаць новае дзеянне, а таксама адкрыць таймер або секундамер.\n
+        - Клікнуўшы на дзеянне ў спісе вы можаце паказаць колькі выдаткавалі на яго хвілін. Час будзе падсумоўвацца.\n
+        - Доўгі націск дазволіць адкрыць таймер або секундамер адкуль час дадасца ў вашу запіс. Пры жаданні тут жа вы можаце яе выдаліць.</string>
+    <string name="in_standup">Практыка выкарыстоўваецца ў буйных кампаніях для аптымізацыі працэсу. Кожны супрацоўнік штодня піша справаздачу аб праведзенай працы і аб узніклых праблемах.\n
+        - - Кнопка + дазволіць стварыць новы стэнд ап.\n
+        - Доўгі націск на запіс выкліча акно дзе вы можаце выдаліць, адрэдагаваць або падзяліцца стэндапом.</string>
+    <string name="in_dream">Акно дзе вы можаце адсочваць час выдаткаванае на сон.\n
+        - Клікнуўшы на + Вы можаце стварыць новую запіс.\n
+        - Націснуўшы на запіс вы можаце прачытаць што вам снілася.\n
+        - Доўгі націск дазволіць адрэдагаваць або выдаліць запіс.</string>
+    <string name="in_idea">- Клікнуўшы на + Вы можаце дадаць новую ідэю.\n
+        - Націснуўшы на запіс вы можаце праглядзець карцінку, доўгі ж націск дазволіць выдаліць або адрэдагаваць запіс.</string>
+    <string name="in_finance">Акно для адсочвання вашых фінансаў.\n
+        - Уверсе картка з парадамі, якія дазволяць вам прадуктыўней распараджацца сваімі грашыма.\n
+        - Кнопкі \'даход\' і \'Расход\' дазволяць вам дадаць запіс аб тым колькі вы атрымалі грошай і колькі выдаткавалі адпаведна.\n
+        - Тут ёсць шаблонныя выдаткі, пры жаданні вы можаце стварыць свой шаблон націснуўшы на+.\n
+        - Доўгі націск на шаблон дазволіць яго выдаліць.\n
+        - Гісторыя дазволіць прасачыць ўсе вашы фінансавыя змены.</string>
+    <string name="in_setting">- Тут вы можаце змяніць тэму і мова прыкладання.</string>
+    <string name="instruction">Інструкцыя</string>
+    <string name="pass">Пропустить</string>
+    <string name="pass_instruction">Хотите пройти инструктаж?</string>
+</resources>

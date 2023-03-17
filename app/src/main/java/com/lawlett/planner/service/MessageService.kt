@@ -12,22 +12,20 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.lawlett.planner.R
-import com.lawlett.planner.ui.main.MainActivity
-import com.lawlett.planner.utils.Const.Constants.CHANNEL_ID_HOURS
-import com.lawlett.planner.utils.Const.Constants.TEXT
-import com.lawlett.planner.utils.Const.Constants.TITLE
+import com.lawlett.planner.ui.activity.MainActivity
+import com.lawlett.planner.utils.Constants
 
 class MessageService : BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
-        val title: String? = p1?.getStringExtra(TITLE)
-        val text: String? = p1?.getStringExtra(TEXT)
+        val title: String? = p1?.getStringExtra(Constants.TITLE)
+        val text: String? = p1?.getStringExtra(Constants.TEXT)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationManager = p0?.let { NotificationManagerCompat.from(it) }
-            if (notificationManager?.getNotificationChannel(CHANNEL_ID_HOURS) == null) {
+            if (notificationManager?.getNotificationChannel(Constants.CHANNEL_ID_HOURS) == null) {
                 notificationManager?.createNotificationChannel(
                     NotificationChannel(
-                        CHANNEL_ID_HOURS,
+                        Constants.CHANNEL_ID_HOURS,
                         "Whatever",
                         NotificationManager.IMPORTANCE_HIGH
                     )
@@ -37,7 +35,7 @@ class MessageService : BroadcastReceiver() {
             val pendingIntent =
                 PendingIntent.getActivity(p0, 2, intent1, PendingIntent.FLAG_ONE_SHOT)
             val notification = p0?.let {
-                NotificationCompat.Builder(it, CHANNEL_ID_HOURS)
+                NotificationCompat.Builder(it, Constants.CHANNEL_ID_HOURS)
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentTitle(title).setContentText(text)
                     .setOnlyAlertOnce(true)
@@ -52,20 +50,20 @@ class MessageService : BroadcastReceiver() {
             val pendingIntent =
                 PendingIntent.getActivity(p0, 2, intent1, PendingIntent.FLAG_ONE_SHOT)
             val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val builder = NotificationCompat.Builder(p0)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(title)
-                .setContentText(text)
-                .setAutoCancel(true)
-                .setSound(soundUri)
-                .setContentIntent(pendingIntent)
-            val notification = builder.build()
-
+            val builder = p0?.let {
+                NotificationCompat.Builder(it)
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle(title)
+                    .setContentText(text)
+                    .setAutoCancel(true)
+                    .setSound(soundUri)
+                    .setContentIntent(pendingIntent)
+            }
+            val notification = builder?.build()
 
             val notificationManager =
                 p0?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.notify(2, notification)
         }
     }
-
 }
